@@ -18,15 +18,18 @@ Ext.define('NewsHolder.model.MainModel', {
 
     config: {
         fields: [
-            {
-                name: 'mainRssName'
-            },
-            {
-                name: 'mainRssUrl'
-            },
-            {
-                name: 'mainRssImage'
-            }
+                 {
+                	 name : 'id'
+                 },
+	            {
+	                name: 'mainRssName'
+	            },
+	            {
+	                name: 'mainRssUrl'
+	            },
+	            {
+	                name: 'mainRssImage'
+	            }
         ]
     }
 });

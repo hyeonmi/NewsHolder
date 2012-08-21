@@ -25,30 +25,27 @@ Ext.define('NewsHolder.controller.RssController', {
         ],
 
         refs: {
-            homeButton: '#Home',
             addButton: '#rssAddButton',
+            rssAddress : '#rssAddressText',
             rssItem: '#RssList'
         },
 
         control: {
-            "homeButton": {
-                tap: 'onHomeButtonTap'
-            },
-            "addButton": {
+            'addButton': {
                 tap: 'onRssAddButtonTap'
             },
-            "rssItem": {
+            'rssItem': {
                 itemtap: 'onRssListItemTap'
             }
         }
     },
 
-    onHomeButtonTap: function(button, e, options) {
-        console.log("Home Button tap");
-    },
 
     onRssAddButtonTap: function(button, e, options) {
         console.log("Rss Add Button tap!");
+        var store = Ext.getCmp('mainStore');
+        store.add({ "mainRssName" : "a" , "mainRssUrl" : "b" , "mainRssImage" : "c" });
+        store.sync();
     },
 
     onRssListItemTap: function(dataview, index, target, record, e, options) {

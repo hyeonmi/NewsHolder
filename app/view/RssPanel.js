@@ -23,25 +23,9 @@ Ext.define('NewsHolder.view.RssPanel', {
         },
         items: [
             {
-                xtype: 'toolbar',
-                docked: 'top',
-                title: 'RSS 추가',
-                items: [
-                    {
-                        xtype: 'button',
-                        id: 'Home',
-                        ui: 'back',
-                        iconCls: 'home',
-                        iconMask: true
-                    }
-                ]
-            },
-            {
                 xtype: 'dataview',
-                height: '',
                 id: 'RssList',
                 itemId: 'mydataview',
-                ui: '',
                 itemTpl: [
                     '<div style="width: 100px; height: 100px; float:left">',
                     '<img src="{rssImage}"><br>',
@@ -54,8 +38,6 @@ Ext.define('NewsHolder.view.RssPanel', {
                 xtype: 'fieldset',
                 docked: 'top',
                 id: 'rssFieldSet',
-                margin: '',
-                ui: '',
                 layout: {
                     align: 'stretchmax',
                     type: 'hbox'
