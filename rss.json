@@ -1,0 +1,14 @@
+{ rss : [
+	{
+		rssName : '중앙일보',
+		rssImage : './resources/images/ja.gif',
+		rssUrl : 'http://rss.joinsmsn.com/joins_news_list.xml'
+	},
+	{
+		rssName : '조선일보',
+		rssImage : './resources/images/chosun.gif',
+		rssUrl : 'http://myhome.chosun.com/rss/www_section_rss.xml'
+	
+	}	
+	
+]}
