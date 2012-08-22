@@ -8,14 +8,14 @@ Ext.application({
              'News', 'Feed', 'Rank', 'SearchResult', 'RssModel', 'MainModel'
          ],
     stores: [
-             'Feed', 'Feeds', 'Ranks', 'SearchResults', 'RssStore', 'MainStore'
+             'Feed', 'Feeds', 'RankStore', 'SearchResultStore', 'RssStore', 'MainStore'
          ],    
 
     views: [
-            'Main', 'Article', 'Article_list', 'keyword_list', 'Scrap_list', 'RssPanel'
+            'Main', 'Article', 'Article_list', 'KeywordPanel', 'Scrap_list', 'RssPanel'
          ],
     controllers: [
-                  'Main', 'KeywordSearch','RssController'
+                  'Main', 'KeywordSearchController','RssController'
               ],
     icon: {
         '57': 'resources/icons/Icon.png',
