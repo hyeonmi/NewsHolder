@@ -100,14 +100,6 @@ Ext.define('NewsHolder.controller.Main', {
     	localStorage.setItem("scrap-" + id,JSON.stringify(data));
     	localStorage.setItem("scrap-counter", id);
     	localStorage.setItem("scrap", thirdString);
-    	console.log(this.getArticle().items.items[0].items.items[1]._data);
-    	localStorage.test = this.getArticle().items.items[0].items.items[1]._data;
-    	console.log(localStorage.test);
-    	
-    	window.localStorage.setItem("phone", "1,2,3,4");
-    	window.localStorage.setItem("phone-counter", 4);
-    	window.localStorage.setItem("phone-1",
-    			'("id":1, "pno":"p1", "pname":"갤럭시A")');
     },
     
     /**오른쪽 상단의 검색 버튼을 눌렀을 때*/
@@ -116,6 +108,7 @@ Ext.define('NewsHolder.controller.Main', {
     	this.getMain().animateActiveItem(3, {type:"slide", direction:"left"});
     	this.getTitlebar().setTitle("키워드 검색");
     	Ext.getCmp("homeButton").show();
+		this.getMainSearchButton().hide();
     },
     
     /**왼쪽 상단의 홈 버튼을 눌렀을 때*/
@@ -125,6 +118,8 @@ Ext.define('NewsHolder.controller.Main', {
     	Ext.getCmp("articleScrapButton").hide();
     	this.getList().deselectAll();
     	this.getTitlebar().setTitle("SMART NEWS");
+		this.getMainSearchButton().show();
+		this.getBackButton().hide();
     },
     
     /**메인 화면에서 feed 아이콘을 눌렀을 때*/
@@ -145,6 +140,7 @@ Ext.define('NewsHolder.controller.Main', {
     	}else if(index=="2"){ //'스크랩 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("스크랩 모음");
     		this.getMain().animateActiveItem(4, {type:"slide", direction:"left"});
+    		this.getHomeButton().show();
     		var scrapStore = Ext.getStore("Scraps");
     		scrapStore.load();
     		this.getScrapList().setStore(scrapStore);

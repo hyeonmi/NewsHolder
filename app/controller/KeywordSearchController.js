@@ -8,15 +8,16 @@ Ext.define('NewsHolder.controller.KeywordSearchController', {
             searchField: '#searchField',
             searchList: '#searchList',
             searchMain: '#searchMain',
-            searchTitleBar: '#searchTitleBar',
-            articlePanel: '#selectedArticle'
+            titlebar: '#titlebar',
+            articlePanel: '#selectedArticle',
+            searchList: "#searchList"
         },
 
         control: {
             "button": {
                 tap: 'onSearchButtonTap'
             },
-            "list": {
+            searchList: {
                 itemtap: 'onSearchListItemTap'
             }
         }
@@ -65,7 +66,7 @@ Ext.define('NewsHolder.controller.KeywordSearchController', {
         if(this.getSearchList().getStore().getId()==Ext.getStore("searchResultStore").getId()){
             this.getSearchMain().animateActiveItem(this.getArticlePanel(), { type: "slide", direction: "left" });
             this.getArticlePanel().setData(record.data);
-            this.getSearchTitleBar().setTitle(record.data.title);
+            this.getTitlebar().setTitle(record.data.title);
             //Ext.getCmp("prevButton").show();
 
             //localStorage.flag = index;
