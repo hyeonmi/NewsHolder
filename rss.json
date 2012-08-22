@@ -9,6 +9,55 @@
 		rssImage : './resources/images/chosun.gif',
 		rssUrl : 'http://myhome.chosun.com/rss/www_section_rss.xml'
 	
-	}	
+	},
+	{
+		rssName : 'likejazz.COM',
+		rssImage : 'http://g.etfv.co/http://www.bloter.net/archives/123814',
+		rssUrl : 'http://likejazz.com/rss'
+	
+	},
+	{
+		rssName : 'Channy’s Blog"',
+		rssImage : 'http://g.etfv.co/http://www.bloter.net/archives/123814',
+		rssUrl : 'http://feeds.feedburner.com/channy'
+	
+	},
+	{
+		rssName : 'PAPERon.Net - 페이퍼온넷',
+		rssImage : 'http://g.etfv.co/http://www.bloter.net/archives/123814',
+		rssUrl : 'http://feeds.feedburner.com/PAPERon'
+	
+	},
+	{
+		rssName : '두호리닷컴 ★ Dooholee.com',
+		rssImage : 'http://g.etfv.co/http://www.bloter.net/archives/123814',
+		rssUrl : 'http://dooholee.com/blog/dooholee/rss'
+	
+	},
+	{
+		rssName : '헝클어진 생각',
+		rssImage : 'http://g.etfv.co/http://www.bloter.net/archives/123814',
+		rssUrl : 'http://coolengineer.com/tt/rss'
+	
+	},
+	{
+		rssName : '▒ 제닉스의 사고뭉치 ▒',
+		rssImage : 'http://g.etfv.co/http://www.bloter.net/archives/123814',
+		rssUrl : 'http://xenix.egloos.com/index.xml'
+	
+	},
+	{
+		rssName : 'Kielhouse',
+		rssImage : 'http://g.etfv.co/http://www.bloter.net/archives/123814',
+		rssUrl : 'http://blog.rss.naver.com/kielhong.xml'
+	
+	},
+	{
+		rssName : '스팅구리 공책',
+		rssImage : 'http://g.etfv.co/http://www.bloter.net/archives/123814',
+		rssUrl : 'http://feeds.feedburner.com/sting'
+	
+	}
+
 	
 ]}

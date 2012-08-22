@@ -5,10 +5,12 @@ Ext.define('NewsHolder.store.Scraps', {
     ],
 
     config: {
+    	autoLoad:true,
         model: 'NewsHolder.model.Scrap',
         storeId: 'Scraps',
-        proxy:new Ext.data.LocalStorageProxy({
+        proxy:{
+        	type:"localstorage",
         	id:"scrap"
-        }),
+        } 
     }
 });

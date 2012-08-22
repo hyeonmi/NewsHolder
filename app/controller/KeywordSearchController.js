@@ -40,6 +40,7 @@ Ext
 						searchBackButton.hide();
 					},
 
+
 					onSearchButtonTap : function(button, e, options) {
 						console.log("키워드 컨트롤러 검색버튼 탭");
 						// 검색어를 입력하는 필드에서 값을 얻어온다.

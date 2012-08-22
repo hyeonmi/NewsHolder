@@ -11,8 +11,7 @@ Ext.define('NewsHolder.controller.RssController', {
 
         refs: {
             addButton: '#rssAddButton',
-            rssAddress : '#rssAddressText',
-            rssItem: '#RssList',
+            rssItem: '#rssList',
             	
         },
 
@@ -28,17 +27,32 @@ Ext.define('NewsHolder.controller.RssController', {
 
 
     onRssAddButtonTap: function(button, e, options) {
-        console.log("Rss Add Button tap!");
-
+        //console.log("Rss Add Button tap!");
+        
         var store = Ext.data.StoreManager.lookup('mainStore');
-        store.add({ mainRssName : '경향신문',
-        	mainRssUrl : 'http://www.khan.co.kr/rss/rssdata/total_news.xml',
-        	mainRssImage : 'http://www.tstore.co.kr/images/IF1423549615420111214150946/0000270186/thumbnail/0000270186_180_180_0_68.PNG' });
+        var rssname = Ext.getCmp('rssNameText').getValue();
+        var rssurl = Ext.getCmp('rssUrlText').getValue();
+        var rssimg = Ext.getCmp('rssImageText').getValue();
+        
+        store.add({ mainRssName : rssname,
+        	mainRssUrl : rssurl ,
+        	mainRssImage : rssimg });
         store.sync();
     },
 
     onRssListItemTap: function(dataview, index, target, record, e, options) {
-        console.log("rssList Item tap");
+        //console.log("rssList Item tap");    	
+    	
+        var store = Ext.data.StoreManager.lookup('mainStore');
+        var rssname = record.get('rssName');
+        var rssurl = record.get('rssUrl');
+        var rssimg = record.get('rssImage');
+        
+        store.add({ mainRssName : rssname,
+        	mainRssUrl : rssurl ,
+        	mainRssImage : rssimg });
+        store.sync();    	
+    	
     }
 
 });
