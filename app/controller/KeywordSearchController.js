@@ -74,7 +74,7 @@ Ext.define('NewsHolder.controller.KeywordSearchController', {
         }else{
             var rankData=Ext.getStore("rankStore").getAt(index).getData();
             this.getSearchField().setValue(rankData.keyword);
-            this.onButtonTap();
+            this.onSearchButtonTap();
         }
     }
 
