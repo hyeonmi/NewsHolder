@@ -5,12 +5,20 @@ Ext.define("NewsHolder.view.Scrap_list",{
 	config:{
 		
 		layout:{
-			type:"vbox",
+			type:"card",
 		},
 		items:[
 		{
-			xtype:"panel",
-			html:"스크랩 모음이 들어갈 자리입니다.",
+			xtype:"list",
+			cls:"scrapList",
+	        id:"scrapList",
+	        html:"스크랩 모음",
+	        itemTpl: [
+	            '<div>',
+	            	'{title}<br>',
+	            '</div>',
+	        ],
+	        store: 'Scraps',
 		}],
 	},
 	

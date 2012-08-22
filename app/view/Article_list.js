@@ -13,11 +13,10 @@ Ext.define("NewsHolder.view.Article_list",{
 			cls:"newsTop",
 			id:"newsListTopImage",
 			flex:1,
-			html:[
-			    "<div id='articleImage'></br>기사 제목이 들어갈 자리입니다.</div>",
-			    "<img src='http://static.news.zum.com/images/1/2012/07/29/l_2012072902001116500297551.jpg'/>",
-			].join(""),
-			tpl:"{url} - {title}",
+			tpl:[
+			    "<div id='articleImage'></br>{title}</div>",
+			    "<img src='{url}'/>",
+			],
 		},
 		{
 			xtype:"list",
@@ -30,6 +29,11 @@ Ext.define("NewsHolder.view.Article_list",{
 	        ],
 	        store: 'Feed',
 	        flex:1,
+	        listeners:{
+	        	afterrender:function(){
+	        		console.log("afterrender");
+	        	}
+	        }
 		}],
 	},
 	

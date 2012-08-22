@@ -5,6 +5,7 @@
 Ext.define("NewsHolder.view.Article",{
 	extend:"Ext.Panel",
 	xtype:"article",
+	id:"article",
 	
 	config:{
 		layout:"fit",

@@ -44,6 +44,8 @@ Ext.define('NewsHolder.controller.Main', {
             homeButton:"#homeButton",
             mainSearchButton:"#mainSearchButton",
             articleScrapButton:"#articleScrapButton",
+            scrapList:"#scrapList",
+            RssList:"#RssList",
         },
 
         control: {
@@ -76,9 +78,28 @@ Ext.define('NewsHolder.controller.Main', {
     
     /**기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때*/
     articleScrapButtonTap:function(button, event){
-    	console.log("스크랩 버튼 탭!!");
+    	var id = 1;
+    	var thirdString = "";
     	//현재 화면에 띄워진 기사에 관한 정보를 얻어서 로컬 스토리지에 저장
     	
+    	if(localStorage.getItem("scrap-counter")==null){  //스크랩을 처음으로 저정할 때,
+    		window.localStorage.setItem("scrap-counter", id);
+    		thirdString = "1";
+    	}else{
+    		id = parseInt(localStorage.getItem("scrap-counter")) + 1;
+    		thirdString = localStorage.getItem("scrap") + "," + id;
+    	}
+
+    	var data = {
+			'id' : id,
+			'title' : this.getArticle().items.items[0].items.items[1]._data.title,
+			'content' : this.getArticle().items.items[0].items.items[1]._data.content,
+			'pubDate' : this.getArticle().items.items[0].items.items[1]._data.publishedDate,
+		};
+    	
+    	localStorage.setItem("scrap-" + id,JSON.stringify(data));
+    	localStorage.setItem("scrap-counter", id);
+    	localStorage.setItem("scrap", thirdString);
     	console.log(this.getArticle().items.items[0].items.items[1]._data);
     	localStorage.test = this.getArticle().items.items[0].items.items[1]._data;
     	console.log(localStorage.test);
@@ -101,6 +122,7 @@ Ext.define('NewsHolder.controller.Main', {
     homeButtonTap:function(button, event){
     	this.getMain().setActiveItem(0);
     	Ext.getCmp("homeButton").hide();
+    	Ext.getCmp("articleScrapButton").hide();
     	this.getList().deselectAll();
     	this.getTitlebar().setTitle("SMART NEWS");
     },
@@ -111,12 +133,22 @@ Ext.define('NewsHolder.controller.Main', {
     	if(index=="0"){//'RSS 추가' 아이콘 클릭
     		this.getTitlebar().setTitle("RSS 추가");
     		this.getMain().animateActiveItem(5, {type:"slide", direction:"left"});
+    		
+    		var rssStore = Ext.getStore("rssStore");
+    		rssStore.load();
+    		console.log(rssStore.getData());
+    		this.getRssList().setStore(rssStore);
+    		
     	}else if(index=="1"){ //'키워드 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("키워드 모음");
     		this.getMain().animateActiveItem(3, {type:"slide", direction:"left"});
     	}else if(index=="2"){ //'스크랩 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("스크랩 모음");
     		this.getMain().animateActiveItem(4, {type:"slide", direction:"left"});
+    		var scrapStore = Ext.getStore("Scraps");
+    		scrapStore.load();
+    		this.getScrapList().setStore(scrapStore);
+    		
     	}else{ //각 신문사 아이콘 클릭
     		this.getTitlebar().setTitle(record.data.name);
     		this.getMain().animateActiveItem(1, {type:"slide", direction:"left"});
@@ -127,6 +159,32 @@ Ext.define('NewsHolder.controller.Main', {
         			//console.log(records);
         			//this.getList().setData(records);
         			this.getList().refresh();
+        			this.getNewsListTopImage().removeAll(true);
+        	    	flag = false;
+        	    	count = 0;
+        	    	
+        	    	for(var i=0; i<store.getData().length; i++){
+        	    		//console.log(store.getData().items[i].data.content);
+        	    		if(store.getData().items[i].data.content.match("img")){
+        	    			flag = true;
+        	    			count = i;
+        	    		}
+        	    	}
+        	    	
+        	    	if(flag){
+        	    		var data = {
+        	    				url : store.getData().items[count].data.content.split('img src="')[1].split('"')[0],
+        	    				title : store.getData().items[count].data.title,
+        	    		};
+        	    		this.getNewsListTopImage().setData(data);
+        	    	}else{
+        	    		console.log("이미지가 포함된 기사가 없으빈다...");
+        	    		data = {
+        	    				url : record.data.image_url,
+        	    				title : store.getData().items[count].data.title,
+        	    		};
+        	    		this.getNewsListTopImage().setData(data);
+        	    	}
         		},
         		scope:this
         	});
