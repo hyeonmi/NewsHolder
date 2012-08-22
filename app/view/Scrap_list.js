@@ -12,7 +12,6 @@ Ext.define("NewsHolder.view.Scrap_list",{
 			xtype:"list",
 			cls:"scrapList",
 	        id:"scrapList",
-	        html:"스크랩 모음",
 	        itemTpl: [
 	            '<div>',
 	            	'{title}<br>',

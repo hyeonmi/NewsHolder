@@ -1,7 +1,8 @@
 Ext.define('NewsHolder.view.KeywordPanel', {
 	extend : 'Ext.Panel',
 	xtype : 'keywordpanel',
-
+	id:"keywordpanel",
+	
 	requires : [ 'NewsHolder.view.Article' ],
 
 	config : {
@@ -41,7 +42,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 				store : 'rankStore'
 			} ]
 		}, {
-            xtype: 'article',
+            xtype: 'panel',
             id: 'selectedArticle',
              styleHtmlContent: true,
                tpl: [

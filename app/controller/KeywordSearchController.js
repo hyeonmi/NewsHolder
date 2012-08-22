@@ -13,7 +13,6 @@ Ext
 							searchMain : '#searchMain',
 							articlePanel : '#selectedArticle',
 							searchBackButton : '#prevButton',
-
 						},
 
 						control : {
@@ -95,7 +94,7 @@ Ext
 							this.getArticlePanel().setData(record.data);
 							mainController.getTitlebar().setTitle(
 									record.data.title);
-							//searchBackButton.show();
+							Ext.getCmp("prevButton").show();
 
 							localStorage.flag = index;
 							Ext.getCmp("articleScrapButton").show();

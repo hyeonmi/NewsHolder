@@ -27,6 +27,8 @@ Ext.define('NewsHolder.controller.Main', {
             articleScrapButton:"#articleScrapButton",
             scrapList:"#scrapList",
             RssList:"#rssList",
+            keywordpanel:"keywordpanel",
+            scrapPanel:"scrapPanel",
         },
 
         control: {
@@ -53,8 +55,28 @@ Ext.define('NewsHolder.controller.Main', {
             },
             articleScrapButton:{
             	tap:"articleScrapButtonTap",
+            },
+            scrapList:{
+            	itemtap:"scrapListTap"
             }
         }
+    },
+    
+    scrapListTap:function(list, index, item, record, e){
+    	console.log("스크랩 리스트 탭!!");
+    	console.log(list);
+    	console.log(index);
+    	console.log(item);
+    	console.log(record);
+    	
+    	this.getMain().setActiveItem(this.getArticle());
+    	this.getArticleList().setData(record.data);
+    	this.getTitlebar().setTitle(record.data.title);
+    	Ext.getCmp("prevButton").show();
+    	
+    	localStorage.flag = index;
+    	Ext.getCmp("articleScrapButton").show();
+    	//this.getArticleList().setData(record.data);
     },
     
     /**기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때*/
@@ -86,7 +108,7 @@ Ext.define('NewsHolder.controller.Main', {
     /**오른쪽 상단의 검색 버튼을 눌렀을 때*/
     mainSearchButtonTap:function(button, event){
     	console.log("검색 버튼 탭!!");
-    	this.getMain().animateActiveItem(3, {type:"slide", direction:"left"});
+    	this.getMain().animateActiveItem(this.getKeywordpanel(), {type:"slide", direction:"left"});
     	this.getTitlebar().setTitle("키워드 검색");
     	Ext.getCmp("homeButton").show();
 		this.getMainSearchButton().hide();
@@ -120,7 +142,7 @@ Ext.define('NewsHolder.controller.Main', {
     		this.getMain().animateActiveItem(3, {type:"slide", direction:"left"});
     	}else if(index=="2"){ //'스크랩 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("스크랩 모음");
-    		this.getMain().animateActiveItem(4, {type:"slide", direction:"left"});
+    		this.getMain().animateActiveItem(this.getScrapPanel(), {type:"slide", direction:"left"});
     		this.getHomeButton().show();
     		var scrapStore = Ext.getStore("Scraps");
     		scrapStore.load();
@@ -179,7 +201,7 @@ Ext.define('NewsHolder.controller.Main', {
     
     /**기사 리스트에서 기사를 눌렀을 때*/
     onArticleTap: function(dataview, index, target, record, e, options){
-    	this.getMain().animateActiveItem(2, { type: "slide", direction: "left" });
+    	this.getMain().animateActiveItem(this.getArticle(), { type: "slide", direction: "left" });
     	this.getArticleList().setData(record.data);
     	this.getTitlebar().setTitle(record.data.title);
     	Ext.getCmp("prevButton").show();
