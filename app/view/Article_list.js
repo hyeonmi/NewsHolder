@@ -13,8 +13,10 @@ Ext.define("NewsHolder.view.Article_list",{
 			cls:"newsTop",
 			id:"newsListTopImage",
 			flex:1,
+			scrollable:true,
+			styleHtmlContent:true,
 			tpl:[
-			    "<div id='articleImage'></br>{title}</div>",
+			    "<div id='articleImageText'></br>{title}</div>",
 			    "<img src='{url}'/>",
 			],
 		},

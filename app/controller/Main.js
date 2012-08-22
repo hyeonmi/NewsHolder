@@ -58,8 +58,15 @@ Ext.define('NewsHolder.controller.Main', {
             },
             scrapList:{
             	itemtap:"scrapListTap"
+            },
+            "#newsListTopImage":{
+            	tap:"articleImageTextTap",
             }
         }
+    },
+    
+    articleImageTextTap:function(){
+    	console.log("articleImageTextTap!!");
     },
     
     scrapListTap:function(list, index, item, record, e){
