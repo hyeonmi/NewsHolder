@@ -26,7 +26,7 @@ Ext.define('NewsHolder.controller.Main', {
             mainSearchButton:"#mainSearchButton",
             articleScrapButton:"#articleScrapButton",
             scrapList:"#scrapList",
-            RssList:"#RssList",
+            RssList:"#rssList",
         },
 
         control: {

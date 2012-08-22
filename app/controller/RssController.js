@@ -27,7 +27,7 @@ Ext.define('NewsHolder.controller.RssController', {
         refs: {
             addButton: '#rssAddButton',
             //rssAddress : '#rssAddressText',
-            rssItem: '#RssList',
+            rssItem: '#rssList',
             	
         },
 

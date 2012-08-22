@@ -58,10 +58,11 @@ Ext.define('NewsHolder.view.RssPanel', {
 			},                
             {
                 xtype: 'dataview',
-                id: 'RssList',
+                id: 'rssList',
                 itemId: 'mydataview',
                 itemTpl: [
-                    '<div style="width: 100px; height: 100px; float:left">',
+                    //'<div style="width: 100px; height: 100px; float:left">',
+                    '<div style="width: 100%; height: 100px;">',
                     '<img src="{rssImage}"><br>',
                     '{rssName}',
                     '</div>'
