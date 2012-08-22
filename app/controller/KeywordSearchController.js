@@ -86,17 +86,19 @@ Ext
 
 							var mainController = this.getApplication()
 									.getController('Main');
+							
+							
 							this.getSearchMain().animateActiveItem(
 									this.getArticlePanel(), {
 										type : "slide",
 										direction : "left"
 									});
+					    	
 							this.getArticlePanel().setData(record.data);
 							mainController.getTitlebar().setTitle(
 									record.data.title);
 							Ext.getCmp("prevButton").show();
 
-							localStorage.flag = index;
 							Ext.getCmp("articleScrapButton").show();
 						} else {
 							var rankData = Ext.getStore("rankStore").getAt(

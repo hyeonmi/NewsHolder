@@ -141,12 +141,13 @@ Ext.define('NewsHolder.controller.Main', {
     		
     		var rssStore = Ext.getStore("rssStore");
     		rssStore.load();
-    		console.log(rssStore.getData());
     		this.getRssList().setStore(rssStore);
     		
     	}else if(index=="1"){ //'키워드 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("키워드 모음");
-    		this.getMain().animateActiveItem(3, {type:"slide", direction:"left"});
+    		//this.getMain().animateActiveItem(3, {type:"slide", direction:"left"});
+    		console.log("키워드 모음 아이콘 탭!!");
+    		
     	}else if(index=="2"){ //'스크랩 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("스크랩 모음");
     		this.getMain().animateActiveItem(this.getScrapPanel(), {type:"slide", direction:"left"});
@@ -219,6 +220,9 @@ Ext.define('NewsHolder.controller.Main', {
     
     /**뒤로가기 버튼을 눌렀을 때*/
     onBackButtonTap: function(button, event){
+    	
+    	console.log(this.getApplication().getHistory());
+    	
     	this.getMain().setActiveItem(1);
     	this.getList().deselectAll();
     	this.getTitlebar().setTitle("News");

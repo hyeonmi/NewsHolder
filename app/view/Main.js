@@ -51,14 +51,12 @@ Ext.define("NewsHolder.view.Main", {
 			xtype:"dataview",
 			id:"feedIcon",
 			itemTpl : new Ext.XTemplate(
-		        	'<tpl for=".">'+
 				        '<div class="group-feed-widget">'+
 							'<div class="widget">'+
 								'<img src="{image_url}" class="x-icon-mask"/>'+
 						    '</div>'+
 							'<div class="widget-title">{name}</div>'+
-				        '</div>'+
-				    '</tpl>'
+				        '</div>'
 		    	),
 		    
 		    store:"Feeds",

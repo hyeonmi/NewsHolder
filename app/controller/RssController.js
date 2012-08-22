@@ -27,8 +27,8 @@ Ext.define('NewsHolder.controller.RssController', {
 
 
     onRssAddButtonTap: function(button, e, options) {
-        //console.log("Rss Add Button tap!");
-        
+        console.log("Rss Add Button tap!");
+    	console.log("UUID");
         var store = Ext.data.StoreManager.lookup('mainStore');
         var rssname = Ext.getCmp('rssNameText').getValue();
         var rssurl = Ext.getCmp('rssUrlText').getValue();
@@ -37,6 +37,7 @@ Ext.define('NewsHolder.controller.RssController', {
         store.add({ mainRssName : rssname,
         	mainRssUrl : rssurl ,
         	mainRssImage : rssimg });
+        
         store.sync();
     },
 
@@ -52,7 +53,6 @@ Ext.define('NewsHolder.controller.RssController', {
         	mainRssUrl : rssurl ,
         	mainRssImage : rssimg });
         store.sync();    	
-    	
     }
 
 });
