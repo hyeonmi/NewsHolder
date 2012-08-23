@@ -12,7 +12,7 @@ Ext.application({
          ],    
 
     views: [
-            'Main', 'Article', 'Article_list', 'KeywordPanel', 'Scrap_list', 'RssPanel','SearchArticle'
+            'Main', 'Article', 'Article_list', 'KeywordPanel', 'Scrap_list', 'RssPanel'
          ],
     controllers: [
                   'Main', 'KeywordSearchController','RssController'
