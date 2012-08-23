@@ -42,7 +42,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 				store : 'rankStore'
 			} ]
 		}, {
-            xtype: 'article',
+            xtype: 'panel',
             id: 'selectedArticle',
              styleHtmlContent: true,
                tpl: [
