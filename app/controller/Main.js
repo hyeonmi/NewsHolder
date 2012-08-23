@@ -104,8 +104,10 @@ Ext.define('NewsHolder.controller.Main', {
     	var data = {
 			'id' : id,
 			'title' : this.getArticle().items.items[0].items.items[1]._data.title,
-			'content' : this.getArticle().items.items[0].items.items[1]._data.content,
-			'pubDate' : this.getArticle().items.items[0].items.items[1]._data.publishedDate,
+			'description' : this.getArticle().items.items[0].items.items[1]._data.description,
+			'pubDate' : this.getArticle().items.items[0].items.items[1]._data.pubDate,
+			//link: this.getArticle().items.items[0].items.items[1]._data.link,
+			//scrapDate: 스크랩한 시간,
 		};
     	
     	localStorage.setItem("scrap-" + id,JSON.stringify(data));
@@ -161,7 +163,7 @@ Ext.define('NewsHolder.controller.Main', {
     		this.getTitlebar().setTitle(record.data.name);
     		this.getMain().animateActiveItem(1, {type:"slide", direction:"left"});
     		var store = Ext.getStore("Feed");
-        	store.getProxy().setUrl("https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + record.data.url + "&num=100");
+        	store.getProxy().setUrl("http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + record.data.url + "&format=json");
         	store.load({
         		callback:function(records, operation, success){
         			//console.log(records);
@@ -174,8 +176,7 @@ Ext.define('NewsHolder.controller.Main', {
         	    	count = 0;
         	    	
         	    	for(var i=0; i<store.getData().length; i++){
-        	    		//console.log(store.getData().items[i].data.content);
-        	    		if(store.getData().items[i].data.content.match("img")){
+        	    		if(store.getData().items[i].data.description.match("img")){
         	    			flag = true;
         	    			count = i;
         	    		}
@@ -183,7 +184,7 @@ Ext.define('NewsHolder.controller.Main', {
         	    	
         	    	if(flag){
         	    		var data = {
-        	    				url : store.getData().items[count].data.content.split('img src="')[1].split('"')[0],
+        	    				url : store.getData().items[count].data.description.split('img src="')[1].split('"')[0],
         	    				title : store.getData().items[count].data.title,
         	    		};
         	    		this.getNewsListTopImage().setData(data);
