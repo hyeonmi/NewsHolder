@@ -14,16 +14,16 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		console.log(tagCount);
 
 		// for(var i=0; i<store.getData().length; i++){
-		// //console.log(store.getData().items[i].data.content);
-		// if(store.getData().items[i].data.content.match("img")){
+		// //console.log(store.getData().items[i].data.description);
+		// if(store.getData().items[i].data.description.match("img")){
 		// flag = true;
 		// count = i;
 		// }
 		// }
 
 		for ( var i = 0; i < store.getData().length; i++) {
-			// console.log(store.getData().items[i].data.content);
-			if (store.getData().items[i].data.content.match(tag)) {
+			// console.log(store.getData().items[i].data.description);
+			if (store.getData().items[i].data.description.match(tag)) {
 				existTag = true;
 				tagCount++;
 			}
@@ -31,7 +31,7 @@ Ext.define('NewsHolder.util.TagExtractor', {
 
 		/*
 		 * if(existTag=="img"){ var data = { url :
-		 * store.getData().items[count].data.content.split('img
+		 * store.getData().items[count].data.description.split('img
 		 * src="')[1].split('"')[0], title :
 		 * store.getData().items[count].data.title, };
 		 * this.getNewsListTopImage().setData(data); }else{ console.log("이미지가
@@ -40,11 +40,15 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		 * this.getNewsListTopImage().setData(data); }
 		 */
 
+		
+		
 		if (tag == "img" && existTag) {
+			
+			var news = store.getData().items[tagCount].data;
+			
 			var data = {
-				url : store.getData().items[tagCount].data.content
-						.split('img src="')[1].split('"')[0],
-				title : store.getData().items[tagCount].data.title,
+				url : news.description.split('img src="')[1].split('"')[0],
+				title : news.title,
 			};
 			controller.getNewsListTopImage().setData(data);
 		} else {
