@@ -10,7 +10,7 @@ Ext.define('NewsHolder.store.SearchResultStore', {
         storeId: 'searchResultStore',
         proxy: {
             type: 'jsonp',
-            url:'http://localhost',
+            url:'http://iamapark.cafe24.com/rssList/rssList.jsp', //수정해야됨
             reader: {
                 type: 'json',
                 rootProperty: 'rss.channel.item'
