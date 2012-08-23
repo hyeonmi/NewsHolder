@@ -7,7 +7,8 @@ Ext.define('NewsHolder.controller.Main', {
                	'Ext.dataview.DataView',
                	'Ext.dataview.List',
                	'Ext.field.Search',
-               	'Ext.form.FieldSet'
+               	'Ext.form.FieldSet',
+               	'NewsHolder.util.TagExtractor'
            ],
     
     config: {
@@ -169,7 +170,9 @@ Ext.define('NewsHolder.controller.Main', {
         			//this.getList().setData(records);
         			this.getList().refresh();
         			this.getNewsListTopImage().removeAll(true);
-        	    	flag = false;
+        			
+        			
+        	    	/*flag = false;
         	    	count = 0;
         	    	
         	    	for(var i=0; i<store.getData().length; i++){
@@ -192,7 +195,10 @@ Ext.define('NewsHolder.controller.Main', {
         	    				title : store.getData().items[count].data.title,
         	    		};
         	    		this.getNewsListTopImage().setData(data);
-        	    	}
+        	    	}*/
+        			
+        			var extractor=Ext.create("NewsHolder.util.TagExtractor");
+        			extractor.extractTag("img", store, this, record);
         		},
         		scope:this
         	});
