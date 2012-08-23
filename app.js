@@ -8,7 +8,7 @@ Ext.application({
              'News', 'Feed', 'Rank', 'SearchResult', 'RssModel', 'MainModel', 'Scrap'
          ],
     stores: [
-             'Feed', 'Feeds', 'RankStore', 'SearchResultStore', 'RssStore', 'MainStore', 'Scraps'
+             'Feed', 'Feeds', 'RankStore', 'SearchResultStore', 'RssStore', 'MainStore', 'Scraps', 'RssServerStore'
          ],    
 
     views: [
