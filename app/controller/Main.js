@@ -121,6 +121,9 @@ Ext.define('NewsHolder.controller.Main', {
     
     /** 기사 리스트에서 기사를 눌렀을 때 *//////////////////////////////////////////////////////////
     onArticleTap: function(dataview, index, target, record, e, options){
+    	
+    	console.log(Ext.getStore("Feed"));
+    	
     	this.getMain().animateActiveItem(this.getArticle(), { type: "slide", direction: "left" });
     	this.getArticleList().setData(record.data);
     	this.getTitlebar().setTitle(record.data.title);

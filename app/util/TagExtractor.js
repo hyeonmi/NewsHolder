@@ -9,7 +9,6 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		flag = false;
 		tagCount = -1;
 		corouselArray = Ext.create("Ext.carousel.Carousel",{
-			cls:"newsTop",
 			flex:1,
 			styleHtmlContent:true,
 		});
@@ -38,8 +37,9 @@ Ext.define('NewsHolder.util.TagExtractor', {
 			if(existTag){
 				
 				array[tagCount] = {
+						cls:"newsTop",
 						html:[
-							    "<div id='articleImageText'></br>" + title + "</div>" + 
+							    "<div id='articleImageText'></br>" + title + "</div>" +  
 							    "<img src='" + url + "'/>"
 						]
 				};

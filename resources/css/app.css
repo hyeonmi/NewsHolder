@@ -9902,13 +9902,13 @@ img.x-icon-mask{
 .newsTop #articleImageText{
 	position: absolute;
 	left: 1px;
-	top: 225px;
+	top: 42%;
 	background-color: #6e6e6e;
 	opacity: 0.6;
 	width: 100%;
-	height: 40%;
+	height: 10%;
 	font-weight: bold;
-	font-size: 2em;
+	font-size: 1em;
 	text-align: center;
 	color: #3CA0E1;
 }
@@ -9932,4 +9932,15 @@ img.x-icon-mask{
 	border-bottom:solid 1px;
 }
 
+#articleList{
+	
+}
 
+#articleList img{
+	width:40px;
+	height:40px;
+}
+
+#articleList .articleTitle{
+	
+}

@@ -16,7 +16,8 @@ Ext.define('NewsHolder.model.News', {
                 name: 'link'
             },
             {
-            	name: 'media:content url',
+            	mapping:'media_content.\attributes.url',   //@attribute에서 골뱅이 때문에 에러남!!
+            	name: 'url',
             },
         ]
     }
