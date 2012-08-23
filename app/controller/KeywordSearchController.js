@@ -96,8 +96,12 @@ Ext
 							this.getArticlePanel().setData(record.data);
 							mainController.getTitlebar().setTitle(
 									record.data.title);
+							
+							console.log(record.data.description);
+							var regularExpression="(<[Aa]\s+[^>]+>\s*)?<[Ii][Mm][Gg]\s+[^>]+>(?(1)\s*</[Aa])>)";
+							var deletelink=record.data.description.replace(regularExpression, "");
+							console.log(record.data.link);
 							Ext.getCmp("prevButton").show();
-
 							Ext.getCmp("articleScrapButton").show();
 						} else {
 							var rankData = Ext.getStore("rankStore").getAt(

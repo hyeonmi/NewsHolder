@@ -84,16 +84,16 @@ Ext.define('NewsHolder.controller.Main', {
     	
     	localStorage.flag = index;
     	Ext.getCmp("articleScrapButton").show();
-    	//this.getArticleList().setData(record.data);
+    	// this.getArticleList().setData(record.data);
     },
     
-    /**기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때*/
+    /** 기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때 */
     articleScrapButtonTap:function(button, event){
     	var id = 1;
     	var thirdString = "";
-    	//현재 화면에 띄워진 기사에 관한 정보를 얻어서 로컬 스토리지에 저장
+    	// 현재 화면에 띄워진 기사에 관한 정보를 얻어서 로컬 스토리지에 저장
     	
-    	if(localStorage.getItem("scrap-counter")==null){  //스크랩을 처음으로 저정할 때,
+    	if(localStorage.getItem("scrap-counter")==null){  // 스크랩을 처음으로 저정할 때,
     		window.localStorage.setItem("scrap-counter", id);
     		thirdString = "1";
     	}else{
@@ -106,8 +106,8 @@ Ext.define('NewsHolder.controller.Main', {
 			'title' : this.getArticle().items.items[0].items.items[1]._data.title,
 			'description' : this.getArticle().items.items[0].items.items[1]._data.description,
 			'pubDate' : this.getArticle().items.items[0].items.items[1]._data.pubDate,
-			//link: this.getArticle().items.items[0].items.items[1]._data.link,
-			//scrapDate: 스크랩한 시간,
+			// link: this.getArticle().items.items[0].items.items[1]._data.link,
+			// scrapDate: 스크랩한 시간,
 		};
     	
     	localStorage.setItem("scrap-" + id,JSON.stringify(data));
@@ -115,7 +115,7 @@ Ext.define('NewsHolder.controller.Main', {
     	localStorage.setItem("scrap", thirdString);
     },
     
-    /**오른쪽 상단의 검색 버튼을 눌렀을 때*/
+    /** 오른쪽 상단의 검색 버튼을 눌렀을 때 */
     mainSearchButtonTap:function(button, event){
     	console.log("검색 버튼 탭!!");
     	this.getMain().animateActiveItem(this.getKeywordpanel(), {type:"slide", direction:"left"});
@@ -124,7 +124,7 @@ Ext.define('NewsHolder.controller.Main', {
 		this.getMainSearchButton().hide();
     },
     
-    /**왼쪽 상단의 홈 버튼을 눌렀을 때*/
+    /** 왼쪽 상단의 홈 버튼을 눌렀을 때 */
     homeButtonTap:function(button, event){
     	this.getMain().setActiveItem(0);
     	Ext.getCmp("homeButton").hide();
@@ -135,10 +135,10 @@ Ext.define('NewsHolder.controller.Main', {
 		this.getBackButton().hide();
     },
     
-    /**메인 화면에서 feed 아이콘을 눌렀을 때*/
+    /** 메인 화면에서 feed 아이콘을 눌렀을 때 */
     feedIconTap:function(list, index, item, record, e){
     	
-    	if(index=="0"){//'RSS 추가' 아이콘 클릭
+    	if(index=="0"){// 'RSS 추가' 아이콘 클릭
     		this.getTitlebar().setTitle("RSS 추가");
     		this.getMain().animateActiveItem(5, {type:"slide", direction:"left"});
     		
@@ -146,12 +146,13 @@ Ext.define('NewsHolder.controller.Main', {
     		rssStore.load();
     		this.getRssList().setStore(rssStore);
     		
-    	}else if(index=="1"){ //'키워드 모음' 아이콘 클릭
+    	}else if(index=="1"){ // '키워드 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("키워드 모음");
-    		//this.getMain().animateActiveItem(3, {type:"slide", direction:"left"});
+    		// this.getMain().animateActiveItem(3, {type:"slide",
+			// direction:"left"});
     		console.log("키워드 모음 아이콘 탭!!");
     		
-    	}else if(index=="2"){ //'스크랩 모음' 아이콘 클릭
+    	}else if(index=="2"){ // '스크랩 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("스크랩 모음");
     		this.getMain().animateActiveItem(this.getScrapPanel(), {type:"slide", direction:"left"});
     		this.getHomeButton().show();
@@ -159,62 +160,40 @@ Ext.define('NewsHolder.controller.Main', {
     		scrapStore.load();
     		this.getScrapList().setStore(scrapStore);
     		
-    	}else{ //각 신문사 아이콘 클릭
+    	}else{ // 각 신문사 아이콘 클릭
     		this.getTitlebar().setTitle(record.data.name);
     		this.getMain().animateActiveItem(1, {type:"slide", direction:"left"});
     		var store = Ext.getStore("Feed");
         	store.getProxy().setUrl("http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + record.data.url + "&format=json");
         	store.load({
         		callback:function(records, operation, success){
-        			//console.log(records);
-        			//this.getList().setData(records);
-        			this.getList().refresh();
-        			//this.getNewsListTopImage().removeAll(true);
-        			Ext.getCmp("articleListTopCarousel").removeAll(true);
-        			
-        	    	/*flag = false;
-        	    	count = 0;
-        	    	
-        	    	for(var i=0; i<store.getData().length; i++){
-        	    		if(store.getData().items[i].data.description.match("img")){
-        	    			flag = true;
-        	    			count = i;
-        	    		}
-        	    	}
-        	    	
-        	    	if(flag){
-        	    		var data = {
-        	    				url : store.getData().items[count].data.description.split('img src="')[1].split('"')[0],
-        	    				title : store.getData().items[count].data.title,
-        	    		};
-        	    		this.getNewsListTopImage().setData(data);
-        	    	}else{
-        	    		console.log("이미지가 포함된 기사가 없으빈다...");
-        	    		data = {
-        	    				url : record.data.image_url,
-        	    				title : store.getData().items[count].data.title,
-        	    		};
-        	    		this.getNewsListTopImage().setData(data);
-        	    	}*/
-        			
         			var extractor=Ext.create("NewsHolder.util.TagExtractor");
-        			extractor.extractTag("img src", store, this, record);
+        			
+        			
+        			
+        			
+        			
+      
+        			// this.getList().setData(records);
+        			this.getList().refresh();
+        			this.getNewsListTopImage().removeAll(true);
+
+        			extractor.extractTag("img", store, this, record);
         		},
         		scope:this
         	});
-        	
-        	//console.log(Ext.getStore("Feed"));
+
     	}
     	Ext.getCmp("homeButton").show();
     },
     
     launch: function(app) {
-    	//console.log(Ext.getStore("Feed").data.keys.length);
+    	// console.log(Ext.getStore("Feed").data.keys.length);
         test = {url:"이미지 주소", title:"타이틀"};
-        //this.getNewsListTopImage().setData(test);
+        // this.getNewsListTopImage().setData(test);
     },
     
-    /**기사 리스트에서 기사를 눌렀을 때*/
+    /** 기사 리스트에서 기사를 눌렀을 때 */
     onArticleTap: function(dataview, index, target, record, e, options){
     	this.getMain().animateActiveItem(this.getArticle(), { type: "slide", direction: "left" });
     	this.getArticleList().setData(record.data);
@@ -225,7 +204,7 @@ Ext.define('NewsHolder.controller.Main', {
     	Ext.getCmp("articleScrapButton").show();
     },
     
-    /**뒤로가기 버튼을 눌렀을 때*/
+    /** 뒤로가기 버튼을 눌렀을 때 */
     onBackButtonTap: function(button, event){
     	
     	console.log(this.getApplication().getHistory());
@@ -236,14 +215,14 @@ Ext.define('NewsHolder.controller.Main', {
     	Ext.getCmp("prevButton").hide();
     },
     
-    /**기사 화면에서 글자 키우기 버튼을 눌렀을 때*/
+    /** 기사 화면에서 글자 키우기 버튼을 눌렀을 때 */
     font_size_up: function(button, event){
     	var current = parseInt($("#mainArticle").css("font-size"));
     	console.log(current);
     	$("#mainArticle").css("font-size", (++current) + "px");
     },
     
-    /**기사 화면에서 글자 줄이기 버튼을 눌렀을 때*/
+    /** 기사 화면에서 글자 줄이기 버튼을 눌렀을 때 */
     font_size_down: function(button, event){
     	var current = parseInt($("#mainArticle").css("font-size"));
     	console.log(current);
