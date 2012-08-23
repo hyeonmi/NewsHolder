@@ -169,8 +169,8 @@ Ext.define('NewsHolder.controller.Main', {
         			//console.log(records);
         			//this.getList().setData(records);
         			this.getList().refresh();
-        			this.getNewsListTopImage().removeAll(true);
-        			
+        			//this.getNewsListTopImage().removeAll(true);
+        			Ext.getCmp("articleListTopCarousel").removeAll(true);
         			
         	    	/*flag = false;
         	    	count = 0;
@@ -198,7 +198,7 @@ Ext.define('NewsHolder.controller.Main', {
         	    	}*/
         			
         			var extractor=Ext.create("NewsHolder.util.TagExtractor");
-        			extractor.extractTag("img", store, this, record);
+        			extractor.extractTag("img src", store, this, record);
         		},
         		scope:this
         	});
