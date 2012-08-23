@@ -168,15 +168,10 @@ Ext.define('NewsHolder.controller.Main', {
         	store.load({
         		callback:function(records, operation, success){
         			var extractor=Ext.create("NewsHolder.util.TagExtractor");
-        			
-        			
-        			
-        			
-        			
       
         			// this.getList().setData(records);
         			this.getList().refresh();
-        			this.getNewsListTopImage().removeAll(true);
+        			//this.getNewsListTopImage().removeAll(true);
 
         			extractor.extractTag("img", store, this, record);
         		},
