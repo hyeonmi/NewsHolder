@@ -43,7 +43,7 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		//var removeTagContent=content.replace(aTagRE,"");
 		
 		for(var i=0; i<store.getData().items.length; i++){
-			store.getData().items[i].data.description=store.getData().items[i].data.description.replace(aTagRE,"");
+			store.getData().items[i].data.description.replace(aTagRE,"");
 		}
 		//return removeTagContent;
 	}

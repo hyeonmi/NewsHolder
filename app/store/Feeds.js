@@ -11,7 +11,7 @@ Ext.define('NewsHolder.store.Feeds', {
         storeId: 'Feeds',
         proxy: {
             type: 'jsonp',
-            url: './default.json',
+            url: 'http://iamapark.cafe24.com/rssList/default.jsp',
             reader: {
                 type: 'json',
                 rootProperty: 'addresses'

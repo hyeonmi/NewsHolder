@@ -168,8 +168,11 @@ Ext.define('NewsHolder.controller.Main', {
         	store.load({
         		callback:function(records, operation, success){
         			var extractor=Ext.create("NewsHolder.util.TagExtractor");
-        			extractor.removeATag(store);
-
+        			
+        			
+        			
+        			
+        			
       
         			// this.getList().setData(records);
         			this.getList().refresh();
