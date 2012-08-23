@@ -166,44 +166,20 @@ Ext.define('NewsHolder.controller.Main', {
         	store.getProxy().setUrl("http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + record.data.url + "&format=json");
         	store.load({
         		callback:function(records, operation, success){
-        			//console.log(records);
         			//this.getList().setData(records);
-        			this.getList().refresh();
-        			//this.getNewsListTopImage().removeAll(true);
+        			//this.getList().refresh();
         			Ext.getCmp("articleListTopCarousel").removeAll(true);
-        			
-        	    	/*flag = false;
-        	    	count = 0;
-        	    	
-        	    	for(var i=0; i<store.getData().length; i++){
-        	    		if(store.getData().items[i].data.description.match("img")){
-        	    			flag = true;
-        	    			count = i;
-        	    		}
-        	    	}
-        	    	
-        	    	if(flag){
-        	    		var data = {
-        	    				url : store.getData().items[count].data.description.split('img src="')[1].split('"')[0],
-        	    				title : store.getData().items[count].data.title,
-        	    		};
-        	    		this.getNewsListTopImage().setData(data);
-        	    	}else{
-        	    		console.log("이미지가 포함된 기사가 없으빈다...");
-        	    		data = {
-        	    				url : record.data.image_url,
-        	    				title : store.getData().items[count].data.title,
-        	    		};
-        	    		this.getNewsListTopImage().setData(data);
-        	    	}*/
-        			
+       			
         			var extractor=Ext.create("NewsHolder.util.TagExtractor");
         			extractor.extractTag("img src", store, this, record);
+        			
+        			var data = Ext.getStore("Feed").getData();
+                	console.log(data);
+                	this.getList().setData(data);
+                	
         		},
         		scope:this
         	});
-        	
-        	//console.log(Ext.getStore("Feed"));
     	}
     	Ext.getCmp("homeButton").show();
     },
