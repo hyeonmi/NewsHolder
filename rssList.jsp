@@ -1,67 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%
 String callback = request.getParameter("callback");%><%
-if(callback != null) { %>
+if(callback != null) { 
+response.setContentType("text/javascript");%>
 <%=callback%>
 ({ "rss" : [
 			{
-				"rssName" : "중앙일보",
-				"rssImage" : "./resources/images/rss_joongang.jpg",
-				"rssUrl" : "http://rss.joinsmsn.com/joins_news_list.xml"
+				"rssName" : "미디어 다음",
+				"rssImage" : "http://icon.daum-img.net/top/2010/logo_rss.gif",
+				"rssUrl" : "http://media.daum.net/rss/today/primary/all/rss2.xml"
 			},
 			{
-				"rssName" : "조선일보",
-				"rssImage" : "./resources/images/rss_chosun.png",
-				"rssUrl" : "http://myhome.chosun.com/rss/www_section_rss.xml"
+				"rssName" : "구글 뉴스",
+				"rssImage" : "http://www.gstatic.com/news/img/logo/ko_kr/news.gif",
+				"rssUrl" : "http://news.google.co.kr/news?pz=1&cf=all&ned=kr&hl=ko&topic=h&num=3&output=rss"
 			
 			},
 			{
-				"rssName" : "likejazz.COM",
-				"rssImage" : "./resources/images/rss_blog.gif",
-				"rssUrl" : "http://likejazz.com/rss"
+				"rssName" : "MBC뉴스",
+				"rssImage" : "http://img.imnews.imbc.com/images/gnbimg/logo_mbc.jpg",
+				"rssUrl" : "http://imnews.imbc.com/rss/news/news_00.xml"
 			
 			},
 			{
-				"rssName" : "Channy’s Blog",
-				"rssImage" : "./resources/images/rss_blog.gif",
-				"rssUrl" : "http://feeds.feedburner.com/channy"
+				"rssName" : "한겨레신문",
+				"rssImage" : "http://img.hani.co.kr/section-image/12/news/hani/images/com/logo.gif",
+				"rssUrl" : "http://www.hani.co.kr/rss/"
 			
 			},
 			{
-				"rssName" : "PAPERon.Net - 페이퍼온넷",
-				"rssImage" : "./resources/images/rss_blog.gif",
-				"rssUrl" : "http://feeds.feedburner.com/PAPERon"
+				"rssName" : "경향신문",
+				"rssImage" : "http://img.khan.co.kr/spko/main_2011/logo.gif",
+				"rssUrl" : "http://www.khan.co.kr/rss/rssdata/total_news.xml"
 			
 			},
 			{
-				"rssName" : "두호리닷컴 ★ Dooholee.com",
-				"rssImage" : "./resources/images/rss_blog.gif",
-				"rssUrl" : "http://dooholee.com/blog/dooholee/rss"
+				"rssName" : "",
+				"rssImage" : "",
+				"rssUrl" : ""
 			
 			},
 			{
-				"rssName" : "헝클어진 생각",
-				"rssImage" : "./resources/images/rss_blog.gif",
-				"rssUrl" : "http://coolengineer.com/tt/rss"
+				"rssName" : "",
+				"rssImage" : "",
+				"rssUrl" : ""
 			
 			},
 			{
-				"rssName" : "▒ 제닉스의 사고뭉치 ▒",
-				"rssImage" : "./resources/images/rss_blog.gif",
-				"rssUrl" : "http://xenix.egloos.com/index.xml"
+				"rssName" : "",
+				"rssImage" : "",
+				"rssUrl" : ""
 			
 			},
 			{
-				"rssName" : "Kielhouse",
-				"rssImage" : "./resources/images/rss_blog.gif",
-				"rssUrl" : "http://blog.rss.naver.com/kielhong.xml"
+				"rssName" : "",
+				"rssImage" : "",
+				"rssUrl" : ""
 			
 			},
 			{
-				"rssName" : "스팅구리 공책",
-				"rssImage" : "./resources/images/rss_blog.gif",
-				"rssUrl" : "http://feeds.feedburner.com/sting"
+				"rssName" : "",
+				"rssImage" : "",
+				"rssUrl" : ""
 			
-			}
+			},
+			{
+				"rssName" : "",
+				"rssImage" : "",
+				"rssUrl" : ""
+			
+			},
 		]
 })
 <%} %>
