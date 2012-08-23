@@ -80,12 +80,10 @@ Ext.define('NewsHolder.util.TagExtractor', {
 	//모든 a태그를 삭제하는 부분.
 	removeATag:function(store){
 		var aTagRE = "/<[aA][^>]*>.*</[aA]>/";
-		//var removeTagContent=content.replace(aTagRE,"");
 		
 		for(var i=0; i<store.getData().items.length; i++){
 			store.getData().items[i].data.description.replace(aTagRE,"");
 		}
-		//return removeTagContent;
 	}
 	
 	
