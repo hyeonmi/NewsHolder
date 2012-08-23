@@ -35,19 +35,19 @@ Ext.define('NewsHolder.util.TagExtractor', {
 			}
 			
 			if(existTag){
-				
+
 				array[tagCount] = {
+						xtype:"panel",
 						cls:"newsTop",
 						html:[
-							    "<div id='articleImageText'></br>" + title + "</div>" +  
-							    "<img src='" + url + "'/>"
-						]
+						    "<div id='articleImageText'></br>" + title + "</div>", 
+						    "<img src='" + url + "'/>"
+						],
 				};
 				
 				existTag = false;
 			}
 		}
-		
 		
 		if (flag) {
 			console.log("이미지가 포함된 기사 리스트입니다.");
@@ -68,7 +68,6 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		
 		corouselArray.setItems(array);
 		Ext.getCmp("articleListTopCarousel").add(corouselArray);
-
 	},
 			
 	//모든 a태그를 삭제하는 부분.
@@ -78,5 +77,9 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		var aTagREwithoutCloseTag=/<[aA][^>]*>/g;
 		var removeTagContent=content.replace(aTagRE,"");
 		return removeTagContent;
+	},
+	
+	onPanelTap:function(){
+		console.log("dd");
 	}
 });

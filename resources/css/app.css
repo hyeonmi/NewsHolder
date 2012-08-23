@@ -9890,6 +9890,7 @@ img.x-icon-mask{
 	font-weight:bold;
 	font-family:'?��?';
 }
+
 .x-list-item-label{
 	margin-left:1px;
 }
@@ -9902,7 +9903,7 @@ img.x-icon-mask{
 .newsTop #articleImageText{
 	position: absolute;
 	left: 1px;
-	top: 42%;
+	top: 39%;
 	background-color: #6e6e6e;
 	opacity: 0.6;
 	width: 100%;
@@ -9930,10 +9931,6 @@ img.x-icon-mask{
 #mainArticleTitle{
 	font-size:2.2em;
 	border-bottom:solid 1px;
-}
-
-#articleList{
-	
 }
 
 #articleList img{
