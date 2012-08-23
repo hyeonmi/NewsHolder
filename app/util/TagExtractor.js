@@ -33,6 +33,7 @@ Ext.define('NewsHolder.util.TagExtractor', {
 				
 				var news = store.getData().items[i].data;
 				console.log(news);
+				console.log(i);
 				url = news.description.split('img src="')[1].split('"')[0];
 				title = news.title;
 			}

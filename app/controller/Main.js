@@ -173,7 +173,7 @@ Ext.define('NewsHolder.controller.Main', {
         			this.getList().refresh();
         			//this.getNewsListTopImage().removeAll(true);
 
-        			extractor.extractTag("img", store, this, record);
+        			extractor.extractTag("img src", store, this, record);
         		},
         		scope:this
         	});
