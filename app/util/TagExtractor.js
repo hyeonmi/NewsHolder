@@ -5,13 +5,11 @@ Ext.define('NewsHolder.util.TagExtractor', {
 	],
 	
 	constructor : function(config) {
-		console.log("initialize()");
 		existTag = false;
 		flag = false;
 		tagCount = -1;
 		corouselArray = Ext.create("Ext.carousel.Carousel",{
 			cls:"newsTop",
-			//id:"newsListTopImage",
 			flex:1,
 			styleHtmlContent:true,
 		});
@@ -25,7 +23,6 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		}
 		
 		for ( var i = 0; i < store.getData().length; i++) {
-			// console.log(store.getData().items[i].data.description);
 			if (store.getData().items[i].data.description.match(tag)) {
 				existTag = true;
 				flag = true;
@@ -48,9 +45,6 @@ Ext.define('NewsHolder.util.TagExtractor', {
 				};
 				
 				existTag = false;
-				
-			}else{
-				
 			}
 		}
 		
@@ -76,27 +70,13 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		Ext.getCmp("articleListTopCarousel").add(corouselArray);
 
 	},
-	
+			
 	//모든 a태그를 삭제하는 부분.
-	removeATag:function(store){
-		var aTagRE = "/<[aA][^>]*>.*</[aA]>/";
-		
-		for(var i=0; i<store.getData().items.length; i++){
-			store.getData().items[i].data.description.replace(aTagRE,"");
-		}
-	}
-	
-	
-/*	//모든 a태그를 삭제하는 부분.
 	removeATag:function(content){
-		var aTagRE = "/<[aA][^>]*>.*</[aA]>/";
+		// aTagRE 정규표현식이다. 끝에 g를 붙이는 이유는 global 옵션으로 반복해서 수행하기 위한 것이다.
+		var aTagRE = /<[aA][^>]*>.*<\/[aA]>/g;
+		var aTagREwithoutCloseTag=/<[aA][^>]*>/g;
 		var removeTagContent=content.replace(aTagRE,"");
-		
-		for(var i=0; i<store.length; i++){
-			var mDesc=extractor.removeATag(store.getData().items[i].description);
-				this.getList().setData()
-			}
-		//return removeTagContent;
-	}*/
-
+		return removeTagContent;
+	}
 });
