@@ -24,7 +24,6 @@ Ext.define('NewsHolder.controller.Main', {
             feedIcon:"#feedIcon",
             main:"#main",
             homeButton:"#homeButton",
-            scrapList:"#scrapList",
             RssList:"#rssList",
             keywordpanel:"keywordpanel",
             scrapPanel:"scrapPanel",
@@ -37,50 +36,30 @@ Ext.define('NewsHolder.controller.Main', {
             feedIcon:{
             	itemtap:'feedIconTap',
             },
-            scrapList:{
-            	itemtap:"scrapListTap"
-            },
         }
-    },
-    
-    /** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 *////////////////////////////////////////
-    scrapListTap:function(list, index, item, record, e){
-    	console.log("스크랩 리스트 탭!!");
-    	console.log(list);
-    	console.log(index);
-    	console.log(item);
-    	console.log(record);
-    	
-    	this.getMain().setActiveItem(this.getArticle());
-    	this.getArticleList().setData(record.data);
-    	this.getTitlebar().setTitle(record.data.title);
-    	Ext.getCmp("prevButton").show();
-    	
-    	localStorage.flag = index;
-    	Ext.getCmp("articleScrapButton").show();
-    	// this.getArticleList().setData(record.data);
     },
     
     /** 메인 화면에서 feed 아이콘을 눌렀을 때 *////////////////////////////////////////
     feedIconTap:function(list, index, item, record, e){
     	
-    	if(index=="0"){// 'RSS 추가' 아이콘 클릭
+    	if(index=="0"){// 'RSS 추가' 아이콘 클릭 (분리 완료)
     		this.getTitlebar().setTitle("RSS 추가");
     		this.getMain().animateActiveItem(5, {type:"slide", direction:"left"});
-    		
-    	}else if(index=="1"){ // '키워드 모음' 아이콘 클릭
+    		 
+    	}else if(index=="1"){ // '키워드 모음' 아이콘 클릭 (Controller 파일 생성해야 함)
     		this.getTitlebar().setTitle("키워드 모음");
     		// this.getMain().animateActiveItem(3, {type:"slide",
 			// direction:"left"});
     		console.log("키워드 모음 아이콘 탭!!");
     		
-    	}else if(index=="2"){ // '스크랩 모음' 아이콘 클릭
+    	}else if(index=="2"){ // '스크랩 모음' 아이콘 클릭 (분리 완료)
     		this.getTitlebar().setTitle("스크랩 모음");
     		this.getMain().animateActiveItem(this.getScrapPanel(), {type:"slide", direction:"left"});
     		this.getHomeButton().show();
-    		var scrapStore = Ext.getStore("Scraps");
-    		scrapStore.load();
-    		this.getScrapList().setStore(scrapStore);
+    		//스크랩 리스트를 refresh하는 함수 호출
+    		var ScrapController = this.getApplication().getController("ScrapController");
+    		console.log(ScrapController);
+    		ScrapController.refreshScrapList();
     		
     	}else{ // 각 신문사 아이콘 클릭
     		this.getTitlebar().setTitle(record.data.name);
