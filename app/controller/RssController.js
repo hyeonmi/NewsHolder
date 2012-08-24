@@ -14,7 +14,7 @@ Ext.define('NewsHolder.controller.RssController', {
             rssItem: '#rssList',
             	
         },
-
+        
         control: {
             'addButton': {
                 tap: 'onRssAddButtonTap'
@@ -28,26 +28,45 @@ Ext.define('NewsHolder.controller.RssController', {
         
     },
     
+    
+//    //server
+//    onLoadRssServerStore : function(){
+//    	console.log('onLoadRssServerStore');
+//    },
+//    
+//    //local
 //    init : function(){
+//    	console.log('onLoadRssLocalStore');
 //    	var localstore = Ext.getStore('rssStore');
-//    	var serverstore = Ext.getStore('rssServerStore');
-//    	if(localstore.data.length <= 0){
-//    		console.log(serverstore.data.length);
-//    		for(var i=0; i < serverstore.data.length; i++){
-//    			var record = serverstore.data.items[i].data;
-//    			console.log(record);
-//    	        localstore.add({ mainRssName : record.get('rssName'),
-//    	        	mainRssUrl : record.get('rssUrl') ,
-//    	        	mainRssImage : record.get('rssImage') });
-//    	             			
-//    		}
+//    	
+//    		localstore.load(
+//    				{
+//    					callback : function(records, operation,
+//								success){
+//    						
+//    						var serverstore = Ext.getStore('rssServerStore');
+//    				    	if(localstore.data.length <= 0){
+//    				    		console.log(serverstore.data.length);
+//    				    		for(var i=0; i < serverstore.data.length; i++){
+//    				    			var record = serverstore.data.items[i].data;
+//    				    			console.log(record);
+//    				    	        localstore.add({ mainRssName : record.get('rssName'),
+//    				    	        	mainRssUrl : record.get('rssUrl') ,
+//    				    	        	mainRssImage : record.get('rssImage') });
+//    				    	             			
+//    				    		}
+//    				    		
+//    				    	}    						
+//    					
+//    					}
+//    				}
+//    		); 
 //    		
-//    		localstore.sync(); 
 ////    		console.log("null");
-//    	}
+//    	
 //    	
 //    },
-    
+//    
     onRssAddButtonTap: function(button, e, options) {
         var store = Ext.data.StoreManager.lookup('mainStore');
         var rssname = Ext.getCmp('rssNameText').getValue();

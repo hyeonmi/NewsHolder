@@ -68,10 +68,6 @@ Ext.define('NewsHolder.controller.Main', {
     		this.getTitlebar().setTitle("RSS 추가");
     		this.getMain().animateActiveItem(5, {type:"slide", direction:"left"});
     		
-    		var rssStore = Ext.getStore("rssStore");
-    		rssStore.load();
-    		this.getRssList().setStore(rssStore);
-    		
     	}else if(index=="1"){ // '키워드 모음' 아이콘 클릭
     		this.getTitlebar().setTitle("키워드 모음");
     		// this.getMain().animateActiveItem(3, {type:"slide",

@@ -11,6 +11,7 @@ Ext.define('NewsHolder.store.RssServerStore', {
         storeId: 'rssServerStore',
         proxy: {
             type: 'jsonp',
+            id : 'rssServerProxy',
             url: 'http://iamapark.cafe24.com/rssList/rssList.jsp',
             reader: {
                 type: 'json',

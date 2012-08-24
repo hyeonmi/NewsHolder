@@ -7,13 +7,15 @@ Ext.define('NewsHolder.store.RssStore', {
 
     config: {
         //autoLoad: true,
+    	//encode : true,
         model: 'NewsHolder.model.RssModel',
         storeId: 'rssStore',
-        autoSave : true,
+        //autoSave : true,
         
         proxy: {
             type: 'localstorage',
             id : 'rssLocalProxy'
+       	
             }
         }
 });
