@@ -24,7 +24,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
     /** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 *////////////////////////////////////////
     scrapListTap:function(list, index, item, record, e){
     	
-    	var Maincontroller = this.getApplication().getController("Main");
+    	var Maincontroller = this.getApplication().getController("MainController");
     	Maincontroller.getMain().setActiveItem(this.getArticle());
     	Maincontroller.getArticleList().setData(record.data);
     	Maincontroller.getTitlebar().setTitle(record.data.title);

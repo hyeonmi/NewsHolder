@@ -41,7 +41,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
     	
     	console.log(this.getApplication().getHistory().getId());
     	
-    	var mainController = this.getApplication().getController("Main");
+    	var mainController = this.getApplication().getController("MainController");
     	
     	//Back 버튼을 눌렀을 때 바로 뒤 화면으로 이동하는 기능을 구현해야 합니다.
     	mainController.getMain().setActiveItem(1);
@@ -66,7 +66,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
     
     /** 왼쪽 상단의 홈 버튼을 눌렀을 때 *//////////////////////////
     homeButtonTap:function(button, event){
-    	var mainController = this.getApplication().getController("Main");
+    	var mainController = this.getApplication().getController("MainController");
     	
     	mainController.getMain().setActiveItem(this.getFeedIcon());
     	this.getHomeButton().hide();
@@ -81,7 +81,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
     articleScrapButtonTap:function(button, event){
     	var id = 1;
     	var thirdString = "";
-    	var mainController = this.getApplication().getController("Main");
+    	var mainController = this.getApplication().getController("MainController");
     	var news = mainController.getArticle().items.items[0].items.items[1]
     	
     	// 현재 화면에 띄워진 기사에 관한 정보를 얻어서 로컬 스토리지에 저장
@@ -111,7 +111,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
     /** 오른쪽 상단의 검색 버튼을 눌렀을 때 */////////////////////////////////////////////////
     mainSearchButtonTap:function(button, event){
     	console.log("검색 버튼 탭!!");
-    	var mainController = this.getApplication().getController("Main");
+    	var mainController = this.getApplication().getController("MainController");
     	mainController.getMain().animateActiveItem(mainController.getKeywordpanel(), {type:"slide", direction:"left"});
     	mainController.getTitlebar().setTitle("키워드 검색");
     	Ext.getCmp("homeButton").show();

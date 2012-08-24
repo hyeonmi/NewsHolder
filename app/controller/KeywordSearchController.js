@@ -84,7 +84,7 @@ Ext
 								.getStore("searchResultStore").getId()) {
 
 							var mainController = this.getApplication()
-									.getController('Main');
+									.getController('MainController');
 							
 							
 							this.getSearchMain().animateActiveItem(
