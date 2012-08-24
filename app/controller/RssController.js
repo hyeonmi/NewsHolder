@@ -11,7 +11,7 @@ Ext.define('NewsHolder.controller.RssController', {
 
         refs: {
             addButton: '#rssAddButton',
-            rssItem: '#rssList',
+            rssItems: '#rssList',
             	
         },
         
@@ -19,59 +19,47 @@ Ext.define('NewsHolder.controller.RssController', {
             'addButton': {
                 tap: 'onRssAddButtonTap'
             },
-            'rssItem': {
+            'rssItems': {
                 itemtap: 'onRssListItemTap'
             }
-        }
-        
-
-        
+        },
+  
     },
     
     
-//    //server
-//    onLoadRssServerStore : function(){
-//    	console.log('onLoadRssServerStore');
-//    },
-//    
-//    //local
-//    init : function(){
-//    	console.log('onLoadRssLocalStore');
-//    	var localstore = Ext.getStore('rssStore');
-//    	
-//    		localstore.load(
-//    				{
-//    					callback : function(records, operation,
-//								success){
-//    						
-//    						var serverstore = Ext.getStore('rssServerStore');
-//    				    	if(localstore.data.length <= 0){
-//    				    		console.log(serverstore.data.length);
-//    				    		for(var i=0; i < serverstore.data.length; i++){
-//    				    			var record = serverstore.data.items[i].data;
-//    				    			console.log(record);
-//    				    	        localstore.add({ mainRssName : record.get('rssName'),
-//    				    	        	mainRssUrl : record.get('rssUrl') ,
-//    				    	        	mainRssImage : record.get('rssImage') });
-//    				    	             			
-//    				    		}
-//    				    		
-//    				    	}    						
-//    					
-//    					}
-//    				}
-//    		); 
-//    		
-////    		console.log("null");
-//    	
-//    	
-//    },
-//    
+    //sever->local
+    init : function(){
+    	var serverstore = Ext.getStore('rssServerStore');    	
+    	serverstore.load(
+    				{
+    					callback : function(stores, operation, success){
+    						success : {
+    						var localstore = Ext.getStore('rssStore');
+	    				    	if(localstore.data.length <= 0){
+	    				    		for(var i=0; i < serverstore.data.length; i++){
+	    				    			console.log(serverstore.data.items[i].get('rssName'));
+	    				    	        localstore.add({ rssName : serverstore.data.items[i].get('rssName'),
+	    				    	        	rssUrl : serverstore.data.items[i].get('rssUrl') ,
+	    				    	        	rssImage : serverstore.data.items[i].get('rssImage') });
+	    				    	             			
+	    				    		}
+	    				    		localstore.sync();
+	    				    		
+	    				    	}    
+    						}
+    					
+    					}
+    				}
+    		); 
+    	
+    },
+    
     onRssAddButtonTap: function(button, e, options) {
         var store = Ext.data.StoreManager.lookup('mainStore');
-        var rssname = Ext.getCmp('rssNameText').getValue();
-        var rssurl = Ext.getCmp('rssUrlText').getValue();
-        var rssimg = Ext.getCmp('rssImageText').getValue();
+        console.log(Ext.getCmp('rssNameText').getValue());
+        var rssname = JSON.stringify(Ext.getCmp('rssNameText').getValue());
+        var rssurl = Ext.JSON.encode(Ext.getCmp('rssUrlText').getValue());
+        var rssimg = Ext.JSON.encode(Ext.getCmp('rssImageText').getValue());
         
         store.add({ mainRssName : rssname,
         	mainRssUrl : rssurl ,
