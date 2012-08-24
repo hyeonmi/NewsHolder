@@ -75,6 +75,7 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		return removeTagContent;
 	},
 
+	//네이버 뉴스에 나오는 버튼 제거
 	removeButtonTag : function(content) {
 		// <button class="fs_big" title="확대"><span>본문 텍스트
 		// 크게</span></button><button class="fs_small" title="축소"><span>본문 텍스트
@@ -83,6 +84,7 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		var removeTagContent=content.replace(buttonTagRE, "");
 		return removeTagContent;
 	},
+	
 	
 	onPanelTap:function(){
 		console.log("dd");

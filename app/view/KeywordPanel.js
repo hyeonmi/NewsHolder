@@ -1,19 +1,19 @@
 Ext.define('NewsHolder.view.KeywordPanel', {
 	extend : 'Ext.Panel',
 	xtype : 'keywordpanel',
-	id:"keywordpanel",
-	
+	id : "keywordpanel",
+
 	requires : [ 'NewsHolder.view.Article' ],
 
 	config : {
-		xtype:'panel',
-		layout:{
-			type:'card'
+		xtype : 'panel',
+		layout : {
+			type : 'card'
 		},
 		id : 'searchMain',
-		items:[{
+		items : [ {
 			xtype : 'panel',
-			
+
 			layout : {
 				type : 'vbox'
 			},
@@ -42,18 +42,16 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 				store : 'rankStore'
 			} ]
 		}, {
-            xtype: 'panel',
-            id: 'selectedArticle',
-             styleHtmlContent: true,
-               tpl: [
-                 "<div id='mainArticle'>{description}</div>"
-                ],
-               layout: {
-                   type: 'fit'
-                },
-                scrollable:true
-           }]
+			xtype : 'panel',
+			id : 'selectedArticle',
+			cls : 'newsList',
+			styleHtmlContent : true,
+			tpl : [ "<div id='mainArticle'>{description}</div>" ],
+			layout : {
+				type : 'fit'
+			},
+			scrollable : true
+		} ]
 	}
-                
 
 });
