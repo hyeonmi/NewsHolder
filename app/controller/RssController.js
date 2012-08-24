@@ -22,6 +22,16 @@ Ext.define('NewsHolder.controller.RssController', {
             'rssItem': {
                 itemtap: 'onRssListItemTap'
             }
+        },
+        /* 
+         load( Ext.data.Store this, 
+        Ext.util.Grouper[] records, 
+        Boolean successful, 
+        Ext.data.Operation operation, 
+        Object eOpts )
+        */
+        load : function(sotre, records, successful, operation, eOpts){
+        	
         }
         
 
