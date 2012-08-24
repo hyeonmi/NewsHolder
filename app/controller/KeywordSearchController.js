@@ -59,8 +59,6 @@ Ext
 						store.getProxy().setUrl(feedUrl);
 						store.load();
 
-						
-					
 						var searchTpl = '<div class="x-icon-mask"><img src="{url}"/> <{title}></div>';
 						// list를 읽어와서 변경된 store를 지정해주고 list를 보여주는 Template도
 						// 새로 설정하고 나서 리스트를 갱신한다.

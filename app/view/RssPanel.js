@@ -47,12 +47,14 @@ Ext.define('NewsHolder.view.RssPanel', {
                 itemId: 'mydataview',
                 itemTpl: [
                     //'<div style="width: 100px; height: 100px; float:left">',
+                    '{rssName}',
                     '<div class="group-feed-widget">',
-                    	'<div class="widget">'+
+                    	'<div class="widget">',
                     		'<img src="{rssImage}" class="x-icon-mask">',
-                    	'</div>'+
+                    	'</div>',
                     '</div>',
                     '<div class="widget-title">{rssName}</div>',
+                    
                     
                 ],
                 store: 'rssServerStore'
