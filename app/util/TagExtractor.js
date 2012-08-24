@@ -83,9 +83,4 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		var removeTagContent=content.replace(buttonTagRE, "");
 		return removeTagContent;
 	},
-	
-	onPanelTap:function(){
-		console.log("dd");
-	}
-
 });
