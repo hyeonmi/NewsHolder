@@ -39,7 +39,6 @@ Ext
 						searchBackButton.hide();
 					},
 
-
 					onSearchButtonTap : function(button, e, options) {
 						// 검색어를 입력하는 필드에서 값을 얻어온다.
 						var input = this.getSearchField().getValue();
@@ -60,8 +59,7 @@ Ext
 						store.getProxy().setUrl(feedUrl);
 						store.load();
 
-						var searchTpl = new Ext.XTemplate('<div>{title}</div>');
-
+						var searchTpl = '<div class="x-icon-mask"><img src="{url}"/> <{title}></div>';
 						// list를 읽어와서 변경된 store를 지정해주고 list를 보여주는 Template도
 						// 새로 설정하고 나서 리스트를 갱신한다.
 						var list = this.getSearchList();
@@ -84,20 +82,28 @@ Ext
 								.getStore("searchResultStore").getId()) {
 
 							var mainController = this.getApplication()
-									.getController('MainController');
-							
-							
+									.getController('Main');
+							var extractor = Ext
+									.create('NewsHolder.util.TagExtractor');
+
 							this.getSearchMain().animateActiveItem(
 									this.getArticlePanel(), {
 										type : "slide",
 										direction : "left"
 									});
-					    	
+
+							record.data.description = extractor
+									.removeButtonTag(record.data.description);
+							record.data.description = extractor
+									.removeATag(record.data.description);
+							record.data.description = record.data.description
+									.replace("[이 시각 많이 본 뉴스]", "");
+
 							this.getArticlePanel().setData(record.data);
 							mainController.getTitlebar().setTitle(
 									record.data.title);
-							
-							//이거 진영이가 완성시키면 빼거나 수정해야 할 부분
+
+							// 이거 진영이가 완성시키면 빼거나 수정해야 할 부분
 							Ext.getCmp("prevButton").show();
 							Ext.getCmp("articleScrapButton").show();
 						} else {
