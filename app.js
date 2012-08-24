@@ -15,7 +15,7 @@ Ext.application({
             'Main', 'Article', 'Article_list', 'KeywordPanel', 'Scrap_list', 'RssPanel'
          ],
     controllers: [
-                  'MainController', 'KeywordSearchController','RssController', 'ButtonController', 'ScrapController'
+                  'MainController', 'KeywordSearchController','RssController', 'ButtonController', 'ScrapController', 'ArticleController'
               ],
     icon: {
         '57': 'resources/icons/Icon.png',

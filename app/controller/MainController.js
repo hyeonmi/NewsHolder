@@ -1,16 +1,10 @@
 Ext.define('NewsHolder.controller.MainController', {
 	extend : 'Ext.app.Controller',
 
-	requires : [ 'Ext.data.proxy.JsonP', 'Ext.data.proxy.LocalStorage',
-			'Ext.TitleBar', 'Ext.dataview.DataView', 'Ext.dataview.List',
-			'Ext.field.Search', 'Ext.form.FieldSet',
-			'NewsHolder.util.TagExtractor' ],
-
 	config : {
 		refs : {
 			mainPanel : 'mainpanel',
 			article : 'article',
-			list : '#articleList',
 			articleList : '#articlePanel',
 			titlebar : '#titlebar',
 			detailArticle : '#detailArticle',
@@ -25,9 +19,6 @@ Ext.define('NewsHolder.controller.MainController', {
 		},
 
 		control : {
-			"#articleList" : {
-				itemtap : 'onArticleTap'
-			},
 			feedIcon : {
 				itemtap : 'feedIconTap',
 			},
@@ -50,7 +41,6 @@ Ext.define('NewsHolder.controller.MainController', {
 			// this.getMain().animateActiveItem(3, {type:"slide",
 			// direction:"left"});
 			this.getMainSearchButton().hide();
-			console.log("키워드 모음 아이콘 탭!!");
 
 		} else if (index == "2") { // '스크랩 모음' 아이콘 클릭 (분리 완료)
 			this.getTitlebar().setTitle("스크랩 모음");
@@ -73,42 +63,9 @@ Ext.define('NewsHolder.controller.MainController', {
 				type : "slide",
 				direction : "left"
 			});
-			var store = Ext.getStore("Feed");
-			store.getProxy().setUrl(
-					"http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
-							+ record.data.url + "&format=json");
-			store.load({
-				callback : function(records, operation, success) {
-					var extractor = Ext.create("NewsHolder.util.TagExtractor");
-
-					this.getList().refresh();
-					for ( var i = 0; i < records.length; i++) {
-						records[i].data.description = extractor
-								.removeATag(records[i].data.description);
-
-					}
-					extractor.extractTag("img src", store, this, record);
-				},
-				scope : this
-			});
+			var ArticleController = this.getApplication().getController("ArticleController");
+			ArticleController.refreshArticleList(record);
 		}
-		Ext.getCmp("homeButton").show();
-	},
-
-	/** 기사 리스트에서 기사를 눌렀을 때 */
-	onArticleTap : function(dataview, index, target, record, e, options) {
-
-		console.log(Ext.getStore("Feed"));
-
-		this.getMain().animateActiveItem(this.getArticle(), {
-			type : "slide",
-			direction : "left"
-		});
-		this.getArticleList().setData(record.data);
-		this.getTitlebar().setTitle(record.data.title);
-		Ext.getCmp("prevButton").show();
-
-		localStorage.flag = index;
-		Ext.getCmp("articleScrapButton").show();
+		this.getHomeButton().show();
 	},
 });

@@ -38,14 +38,14 @@ Ext.define('NewsHolder.controller.ButtonController', {
 
 	/** 뒤로가기 버튼을 눌렀을 때 */
 	onBackButtonTap : function(button, event) {
-		var mainController = this.getApplication().getController(
-				"MainController");
+		var mainController = this.getApplication().getController("MainController");
+		var ArticleController = this.getApplication().getController("ArticleController");
 
 		// Back 버튼을 눌렀을 때 바로 뒤 화면으로 이동하는 기능을 구현해야 합니다.
 		mainController.getMain().setActiveItem(1);
-		mainController.getList().deselectAll();
+		ArticleController.getList().deselectAll();
 		mainController.getTitlebar().setTitle("News");
-		Ext.getCmp("prevButton").hide();
+		this.getBackButton().show();
 	},
 
 	/** 기사 화면에서 글자 키우기 버튼을 눌렀을 때 */
@@ -64,15 +64,15 @@ Ext.define('NewsHolder.controller.ButtonController', {
 
 	/** 왼쪽 상단의 홈 버튼을 눌렀을 때 */
 	homeButtonTap : function(button, event) {
-		var mainController = this.getApplication().getController(
-				"MainController");
+		var mainController = this.getApplication().getController("MainController");
+		var ArticleController = this.getApplication().getController("ArticleController");
 		mainController.getMain().animateActiveItem(0, {
 			type : "slide",
 			direction : "left"
 		});
 		this.getHomeButton().hide();
 		this.getArticleScrapButton().hide();
-		mainController.getList().deselectAll();
+		ArticleController.getList().deselectAll();
 		mainController.getTitlebar().setTitle("SMART NEWS");
 		this.getMainSearchButton().show();
 		this.getBackButton().hide();
