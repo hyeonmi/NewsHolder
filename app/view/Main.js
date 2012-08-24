@@ -21,6 +21,23 @@ Ext.define("NewsHolder.view.Main", {
             	ui:"back",
             	hidden:true,
             	iconAlign:"right",
+            },
+			{
+            	xtype:"button",
+            	id:"searchBackButton",
+            	text:"뒤로 가기",
+            	action:"back",
+            	ui:"back",
+            	hidden:true,
+            	iconAlign:"right",
+            },{
+            	xtype:"button",
+            	id:"scrapBackButton",
+            	text:"뒤로 가기",
+            	action:"back",
+            	ui:"back",
+            	hidden:true,
+            	iconAlign:"right",
             },{
             	xtype:"button",
             	id:"homeButton",

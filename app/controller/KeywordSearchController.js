@@ -12,7 +12,10 @@ Ext
 							searchList : '#searchList',
 							searchMain : '#searchMain',
 							articlePanel : '#selectedArticle',
-							searchBackButton : '#prevButton',
+							searchBackButton : '#searchBackButton',
+							articleScrapButton : '#articleScrapButton',
+							searchHomeButton : '#homeButton',
+							keywordPanel:'keywordpanel',
 						},
 
 						control : {
@@ -29,14 +32,16 @@ Ext
 					},
 
 					onSearchBackButtonTap : function(button, e, options) {
-						this.getSearchMain().animateActiveItem(
-								this.getSearchMain(), {
+						this.getKeywordPanel().animateActiveItem(
+								0, {
 									type : "slide",
-									direction : "right"
+									direction : "left"
 								});
 						this.getApplication().getController('MainController')
 								.getTitlebar().setTitle("키워드 모음");
-						searchBackButton.hide();
+						button.hide();
+						this.getSearchHomeButton().show();
+						this.getArticleScrapButton().hide();
 					},
 
 					onSearchButtonTap : function(button, e, options) {
@@ -80,17 +85,20 @@ Ext
 						 */
 						if (this.getSearchList().getStore().getId() == Ext
 								.getStore("searchResultStore").getId()) {
-
 							var mainController = this.getApplication()
 									.getController('MainController');
 							var extractor = Ext
 									.create('NewsHolder.util.TagExtractor');
 
-							this.getSearchMain().animateActiveItem(
+							this.getKeywordPanel().animateActiveItem(
 									this.getArticlePanel(), {
 										type : "slide",
 										direction : "left"
 									});
+
+							this.getSearchBackButton().show();
+							this.getArticleScrapButton().show();
+							this.getSearchHomeButton().hide();
 
 							record.data.description = extractor
 									.removeButtonTag(record.data.description);
@@ -102,10 +110,6 @@ Ext
 							this.getArticlePanel().setData(record.data);
 							mainController.getTitlebar().setTitle(
 									record.data.title);
-
-							// 이거 진영이가 완성시키면 빼거나 수정해야 할 부분
-							Ext.getCmp("prevButton").show();
-							Ext.getCmp("articleScrapButton").show();
 						} else {
 							var rankData = Ext.getStore("rankStore").getAt(
 									index).getData();

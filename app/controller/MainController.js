@@ -18,6 +18,7 @@ Ext.define('NewsHolder.controller.MainController', {
 			feedIcon : "#feedIcon",
 			main : "#main",
 			homeButton : "#homeButton",
+			mainSearchButton:"#mainSearchButton",
 			RssList : "#rssList",
 			keywordpanel : "keywordpanel",
 			scrapPanel : "scrapPanel",
@@ -38,6 +39,7 @@ Ext.define('NewsHolder.controller.MainController', {
 
 		if (index == "0") {// 'RSS 추가' 아이콘 클릭 (분리 완료)
 			this.getTitlebar().setTitle("RSS 추가");
+			this.getMainSearchButton().hide();
 			this.getMain().animateActiveItem(5, {
 				type : "slide",
 				direction : "left"
@@ -47,10 +49,12 @@ Ext.define('NewsHolder.controller.MainController', {
 			this.getTitlebar().setTitle("키워드 모음");
 			// this.getMain().animateActiveItem(3, {type:"slide",
 			// direction:"left"});
+			this.getMainSearchButton().hide();
 			console.log("키워드 모음 아이콘 탭!!");
 
 		} else if (index == "2") { // '스크랩 모음' 아이콘 클릭 (분리 완료)
 			this.getTitlebar().setTitle("스크랩 모음");
+			this.getMainSearchButton().hide();
 			this.getMain().animateActiveItem(this.getScrapPanel(), {
 				type : "slide",
 				direction : "left"
@@ -64,6 +68,7 @@ Ext.define('NewsHolder.controller.MainController', {
 
 		} else { // 각 신문사 아이콘 클릭
 			this.getTitlebar().setTitle(record.data.name);
+			this.getMainSearchButton().hide();
 			this.getMain().animateActiveItem(1, {
 				type : "slide",
 				direction : "left"
@@ -91,7 +96,6 @@ Ext.define('NewsHolder.controller.MainController', {
 	},
 
 	/** 기사 리스트에서 기사를 눌렀을 때 */
-	// ///////////////////////////////////////////////////////
 	onArticleTap : function(dataview, index, target, record, e, options) {
 
 		console.log(Ext.getStore("Feed"));
