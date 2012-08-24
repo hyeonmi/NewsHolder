@@ -1,4 +1,5 @@
-hybrid앱 전문가 과정 6조 NewsHolder
+hybrid앱 전문가 과정 6조 
+뉴스 구독 앱[NewsHolder]
 
 1. 파일 설명
 %app/view%
@@ -7,6 +8,8 @@ hybrid앱 전문가 과정 6조 NewsHolder
 -MainController: 메인 화면을 제어한다.
 
 -KeywordSearchController: 메인 화면에서 우측 상단의 '검색' 아이콘을 선택해서 들어간 화면을 제어한다.
+
+-ArticleController: 메인 화면에서 신문사 아이콘을 선택해서 들어간 화면을 제어한다.
 
 -RssController: 메인 화면에서 첫 번째 'RSS 추가' 아이콘을 선택해서 들어간 화면을 제어한다.
 
@@ -24,5 +27,3 @@ hybrid앱 전문가 과정 6조 NewsHolder
 
 %app/util%
 
-
-2. ㅎ
