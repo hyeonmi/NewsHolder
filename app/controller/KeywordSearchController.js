@@ -34,7 +34,7 @@ Ext
 									type : "slide",
 									direction : "right"
 								});
-						this.getApplication().getController('Main')
+						this.getApplication().getController('MainController')
 								.getTitlebar().setTitle("키워드 모음");
 						searchBackButton.hide();
 					},
@@ -82,7 +82,7 @@ Ext
 								.getStore("searchResultStore").getId()) {
 
 							var mainController = this.getApplication()
-									.getController('Main');
+									.getController('MainController');
 							var extractor = Ext
 									.create('NewsHolder.util.TagExtractor');
 
