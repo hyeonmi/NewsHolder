@@ -97,10 +97,7 @@ Ext
 							mainController.getTitlebar().setTitle(
 									record.data.title);
 							
-							console.log(record.data.description);
-							var regularExpression="(<[Aa]\s+[^>]+>\s*)?<[Ii][Mm][Gg]\s+[^>]+>(?(1)\s*</[Aa])>)";
-							var deletelink=record.data.description.replace(regularExpression, "");
-							console.log(record.data.link);
+							//이거 진영이가 완성시키면 빼거나 수정해야 할 부분
 							Ext.getCmp("prevButton").show();
 							Ext.getCmp("articleScrapButton").show();
 						} else {
