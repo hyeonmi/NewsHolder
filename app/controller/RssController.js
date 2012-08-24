@@ -23,12 +23,32 @@ Ext.define('NewsHolder.controller.RssController', {
                 itemtap: 'onRssListItemTap'
             }
         }
+        
+
+        
     },
-
-
+    
+//    init : function(){
+//    	var localstore = Ext.getStore('rssStore');
+//    	var serverstore = Ext.getStore('rssServerStore');
+//    	if(localstore.data.length <= 0){
+//    		console.log(serverstore.data.length);
+//    		for(var i=0; i < serverstore.data.length; i++){
+//    			var record = serverstore.data.items[i].data;
+//    			console.log(record);
+//    	        localstore.add({ mainRssName : record.get('rssName'),
+//    	        	mainRssUrl : record.get('rssUrl') ,
+//    	        	mainRssImage : record.get('rssImage') });
+//    	             			
+//    		}
+//    		
+//    		localstore.sync(); 
+////    		console.log("null");
+//    	}
+//    	
+//    },
+    
     onRssAddButtonTap: function(button, e, options) {
-        console.log("Rss Add Button tap!");
-    	console.log("UUID");
         var store = Ext.data.StoreManager.lookup('mainStore');
         var rssname = Ext.getCmp('rssNameText').getValue();
         var rssurl = Ext.getCmp('rssUrlText').getValue();
@@ -42,8 +62,6 @@ Ext.define('NewsHolder.controller.RssController', {
     },
 
     onRssListItemTap: function(dataview, index, target, record, e, options) {
-        //console.log("rssList Item tap");    	
-    	
         var store = Ext.data.StoreManager.lookup('mainStore');
         var rssname = record.get('rssName');
         var rssurl = record.get('rssUrl');

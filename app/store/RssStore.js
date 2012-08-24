@@ -6,16 +6,14 @@ Ext.define('NewsHolder.store.RssStore', {
     ],
 
     config: {
-        autoLoad: true,
+        //autoLoad: true,
         model: 'NewsHolder.model.RssModel',
         storeId: 'rssStore',
+        autoSave : true,
+        
         proxy: {
-            type: 'jsonp',
-            url: 'http://iamapark.cafe24.com/rssList/rssList.jsp',
-            reader: {
-                type: 'json',
-                rootProperty: 'rss'
+            type: 'localstorage',
+            id : 'rssLocalProxy'
             }
         }
-    }
 });

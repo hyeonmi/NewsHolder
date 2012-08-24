@@ -21,9 +21,8 @@ Ext.define("NewsHolder.view.Article_list",{
 				cls:"newsList",
 		        id:"articleList",
 		        itemTpl: [
-		            '<div>',
-		            	'<img src="{url}"/> <{title}><br>',
-		            '</div>',
+		            '<div class="articleTitle"/> </div>',
+	            	'<img src="{url}"/> <{title}><br>',
 		        ],
 		        store: 'Feed',
 		        flex:1,

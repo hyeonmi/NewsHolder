@@ -6,10 +6,10 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		existTag = false;
 		flag = false;
 		tagCount = -1;
-		corouselArray = Ext.create("Ext.carousel.Carousel", {
-			cls : "newsTop",
-			flex : 1,
-			styleHtmlContent : true,
+
+		corouselArray = Ext.create("Ext.carousel.Carousel",{
+			flex:1,
+			styleHtmlContent:true,
 		});
 		array = new Array();
 	},
@@ -32,18 +32,22 @@ Ext.define('NewsHolder.util.TagExtractor', {
 				url = news.description.split('img src="')[1].split('"')[0];
 				title = news.title;
 			}
-
-			if (existTag) {
+			
+			if(existTag){
 
 				array[tagCount] = {
-					html : [ "<div id='articleImageText'></br>" + title
-							+ "</div>" + "<img src='" + url + "'/>" ]
+						xtype:"panel",
+						cls:"newsTop",
+						html:[
+						    "<div id='articleImageText'></br>" + title + "</div>", 
+						    "<img src='" + url + "'/>"
+						],
 				};
 
 				existTag = false;
 			}
 		}
-
+		
 		if (flag) {
 			console.log("이미지가 포함된 기사 리스트입니다.");
 			// controller.getNewsListTopImage().setData(data);
@@ -60,7 +64,6 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		}
 		corouselArray.setItems(array);
 		Ext.getCmp("articleListTopCarousel").add(corouselArray);
-
 	},
 
 	// 모든 a태그를 삭제하는 부분.
@@ -79,6 +82,10 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		var buttonTagRE = /<button .*<\/button>/g;
 		var removeTagContent=content.replace(buttonTagRE, "");
 		return removeTagContent;
+	},
+	
+	onPanelTap:function(){
+		console.log("dd");
 	}
 
 });
