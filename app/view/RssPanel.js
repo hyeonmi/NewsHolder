@@ -56,7 +56,7 @@ Ext.define('NewsHolder.view.RssPanel', {
                     
                     
                 ],
-                store: 'rssServerStore'
+                store: 'rssStore'
             },
             
         ]
