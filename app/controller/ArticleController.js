@@ -1,5 +1,9 @@
 Ext.define('NewsHolder.controller.ArticleController', {
     extend: 'Ext.app.Controller',
+    
+    requires:[
+  	  		'NewsHolder.util.TagExtractor',
+  	],
 
     config: {
         models: [
