@@ -1,3 +1,4 @@
+
 Ext.application({
     name: 'NewsHolder',
 
@@ -55,3 +56,4 @@ Ext.application({
         );
     }
 });
+
