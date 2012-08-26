@@ -1,14 +1,11 @@
 Ext.define('NewsHolder.model.MainModel', {
     extend: 'Ext.data.Model',
     requires : [
-                'Ext.data.identifier.Sequential'
-                ,'Ext.data.identifier.Uuid'
+                'Ext.data.identifier.Uuid'
                 ],
 
     config: {
-    	//idProperty: 'id',
     	identifier : {
-    		//type : 'sequential'
     		type : 'uuid' 
     	},
     	
@@ -17,7 +14,7 @@ Ext.define('NewsHolder.model.MainModel', {
                 	 name : 'id'
                  },
 	            {
-	                name: 'mainRssName', type : 'string'
+	                name: 'mainRssName'
 	            },
 	            {
 	                name: 'mainRssUrl'
