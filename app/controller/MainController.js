@@ -1,6 +1,6 @@
 Ext.define('NewsHolder.controller.MainController', {
 	extend : 'Ext.app.Controller',
-
+	
 	config : {
 		refs : {
 			mainPanel : 'mainpanel',

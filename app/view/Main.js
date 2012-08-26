@@ -3,6 +3,11 @@ Ext.define("NewsHolder.view.Main", {
 	xtype:"main",
 	id:"main",
 	
+	 requires: [
+	            'Ext.TitleBar',
+	            'Ext.dataview.List'
+	 ],
+	
 	config:{
 		layout:{
 			type:"card"
