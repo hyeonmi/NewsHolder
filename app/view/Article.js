@@ -52,6 +52,7 @@ Ext.define("NewsHolder.view.Article",{
 			   }
 			]
 		}],
+		
 		listeners:{
 			swipe:{
 				fn:function(event){
@@ -92,6 +93,7 @@ Ext.define("NewsHolder.view.Article",{
 				element:"element"
 			}
 		}
+		
 	},
 	
 	

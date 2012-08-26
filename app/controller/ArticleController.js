@@ -4,6 +4,12 @@ Ext.define('NewsHolder.controller.ArticleController', {
     requires:[
   	  		'NewsHolder.util.TagExtractor',
   	],
+  	
+  	launch: function () {
+
+        this.getArticle().on('swipe', this.onSwipe);
+        console.log("swipe이벤트 등록");
+  	},
 
     config: {
         models: [
@@ -18,6 +24,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
         	articleList : '#articlePanel',
         	backButton : "#prevButton",
         	articleScrapButton : "#articleScrapButton",
+        	article: "article",
         },
         
         control: {
@@ -26,6 +33,10 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			},
         },
   
+    },
+    
+    onSwipe:function(event){
+    	console.log("swipe");
     },
     
     refreshArticleList : function(record){

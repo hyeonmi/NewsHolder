@@ -38,6 +38,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 
 	/** 뒤로가기 버튼을 눌렀을 때 */
 	onBackButtonTap : function(button, event) {
+		console.log("onBackButtonTap!!");
 		var mainController = this.getApplication().getController("MainController");
 		var ArticleController = this.getApplication().getController("ArticleController");
 
