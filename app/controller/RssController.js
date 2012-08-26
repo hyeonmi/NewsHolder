@@ -74,7 +74,7 @@ Ext.define('NewsHolder.controller.RssController', {
     },
     
     // function add item MainLocalStored
-    addMainLocalStore : function(rssName, rssUrl, rssImage){
+    addMainLocalStore : function(rssname, rssurl, rssimg){
     	var store = Ext.data.StoreManager.lookup('mainStore');
         store.add({ mainRssName : rssname,
         	mainRssUrl : rssurl ,
