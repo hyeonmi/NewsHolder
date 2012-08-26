@@ -79,25 +79,29 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	},
 
 	/** 기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때 */
-	// ///////////////////////
 	articleScrapButtonTap : function(button, event) {
 		
-		var mainController = this.getApplication().getController("MainController");
-		var news = mainController.getArticle().items.items[0].items.items[1];
+		var navi = localStorage.History_navigator;
+		var data = null;
+		
+		if(navi=="News"){
+			data = Ext.getCmp("articlePanel")._data;
+		}else if(navi=="Search"){
+			data = Ext.getCmp("selectedArticle")._data;
+		}
 		
 		var scrapDate = Date();
 		
 		var store = Ext.data.StoreManager.lookup('Scraps');
-                	
+		
         store.add({ 
-        	title : news._data.title,
-        	description : news._data.description ,
-        	pubDate : news._data.pubDate,
+        	title : data.title,
+        	description : data.description ,
+        	pubDate : data.pubDate,
         	scrapDate: scrapDate,
-        	link: news._data.link
+        	link: data.link
         });
         store.sync();
-         
 	},
 
 	/** 오른쪽 상단의 검색 버튼을 눌렀을 때 */
@@ -114,6 +118,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		mainController.getTitlebar().setTitle("키워드 검색");
 		Ext.getCmp("homeButton").show();
 		this.getMainSearchButton().hide();
+		localStorage.History_navigator = "Search";
 	},
 
 });

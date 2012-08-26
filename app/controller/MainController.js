@@ -53,8 +53,8 @@ Ext.define('NewsHolder.controller.MainController', {
 			// 스크랩 리스트를 refresh하는 함수 호출
 			var ScrapController = this.getApplication().getController(
 					"ScrapController");
-			console.log(ScrapController);
 			ScrapController.refreshScrapList();
+			localStorage.History_navigator = "Scrap";
 
 		} else { // 각 신문사 아이콘 클릭
 			this.getTitlebar().setTitle(record.data.name);
@@ -65,6 +65,7 @@ Ext.define('NewsHolder.controller.MainController', {
 			});
 			var ArticleController = this.getApplication().getController("ArticleController");
 			ArticleController.refreshArticleList(record);
+			localStorage.History_navigator = "News";
 		}
 		this.getHomeButton().show();
 	},
