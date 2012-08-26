@@ -5,10 +5,10 @@ Ext.application({
         'Ext.MessageBox'
     ],
     models: [
-             'News', 'Feed', 'Rank', 'SearchResult', 'RssModel', 'MainModel', 'Scrap'
+             'News', 'Feed', 'Rank', 'SearchResult', 'RssModel', 'MainModel', 'Scrap','NewsPaperModel'
          ],
     stores: [
-             'Feed', 'Feeds', 'RankStore', 'SearchResultStore', 'RssStore', 'MainStore', 'Scraps', 'RssServerStore'
+             'Feed', 'Feeds', 'RankStore', 'SearchResultStore', 'RssStore', 'MainStore', 'Scraps', 'RssServerStore', 'NewsPaperStore'
          ],    
 
     views: [
