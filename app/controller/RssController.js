@@ -62,13 +62,17 @@ Ext.define('NewsHolder.controller.RssController', {
 		store.getProxy().setUrl(
 				"http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
 						+ rssurl + "&format=json");
+		Ext.Viewport.setMasked({xtype : 'loadmask', message : '확인중...'})
 		store.load({
 			callback : function() {
+				Ext.Viewport.setMasked(false);
+				
 				var store = Ext.getStore('newsPaperStore');
 				var title = store.data.items[0].get('title');
-
+				
 				if(title == ""){
 					Ext.Msg.alert("확인","존재하지 않습니다.");
+					
 				}else{
 					Ext.Msg.confirm("확인", title + "이 맞습니까?", function(buttonId, value, opt){
 						if(buttonId =='yes'){
