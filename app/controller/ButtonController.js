@@ -86,7 +86,6 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		var news = mainController.getArticle().items.items[0].items.items[1];
 		
 		var scrapDate = Date();
-		console.log(scrapDate);
 		
 		var store = Ext.data.StoreManager.lookup('Scraps');
                 	
