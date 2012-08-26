@@ -26,8 +26,7 @@ Ext.define('NewsHolder.controller.RssController', {
   
     },
     
-    
-    //sever->local
+    // sever->local
     init : function(){
     	var serverstore = Ext.getStore('rssServerStore');    	
     	serverstore.load(
@@ -54,32 +53,34 @@ Ext.define('NewsHolder.controller.RssController', {
     	
     },
     
-    //rss add
+    
+    // rss add
     onRssAddButtonTap: function(button, e, options) {
-        var store = Ext.data.StoreManager.lookup('mainStore');
-        console.log(Ext.getCmp('rssNameText').getValue());
         var rssname = JSON.stringify(Ext.getCmp('rssNameText').getValue());
         var rssurl = Ext.JSON.encode(Ext.getCmp('rssUrlText').getValue());
         var rssimg = Ext.JSON.encode(Ext.getCmp('rssImageText').getValue());
         
-        store.add({ mainRssName : rssname,
-        	mainRssUrl : rssurl ,
-        	mainRssImage : rssimg });
-        
-        store.sync();
+        this.addMainLocalStore(rssname, rssurl, rssimg);
     },
 
-    //news rss add
+    // news rss add
     onRssListItemTap: function(dataview, index, target, record, e, options) {
-        var store = Ext.data.StoreManager.lookup('mainStore');
         var rssname = record.get('rssName');
         var rssurl = record.get('rssUrl');
         var rssimg = record.get('rssImage');
-        
+
+        this.addMainLocalStore(rssname, rssurl, rssimg);
+            	
+    },
+    
+    // function add item MainLocalStored
+    addMainLocalStore : function(rssName, rssUrl, rssImage){
+    	var store = Ext.data.StoreManager.lookup('mainStore');
         store.add({ mainRssName : rssname,
         	mainRssUrl : rssurl ,
         	mainRssImage : rssimg });
-        store.sync();    	
-    }
+        store.sync();       	
+    }         
+    
 
 });
