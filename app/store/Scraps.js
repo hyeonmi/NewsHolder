@@ -1,5 +1,6 @@
 Ext.define('NewsHolder.store.Scraps', {
     extend: 'Ext.data.Store',
+    
     requires: [
         'NewsHolder.model.Scrap'
     ],
