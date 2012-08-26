@@ -11,8 +11,7 @@ Ext.define('NewsHolder.store.RssStore', {
         
         proxy: {
             type: 'localstorage',
-            id : 'rssLocalProxy'
-       	
+            id : 'rssLocalProxy',
             }
         },
 

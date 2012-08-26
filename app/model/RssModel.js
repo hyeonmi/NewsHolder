@@ -3,6 +3,7 @@ Ext.define('NewsHolder.model.RssModel', {
     extend: 'Ext.data.Model',
 
     config: {
+ 	
     	identifier : {
     		type : 'uuid' 
     	},
@@ -20,6 +21,6 @@ Ext.define('NewsHolder.model.RssModel', {
 	            {
 	                name: 'rssImage'
 	            }
-        ]
+        ]   
     }
 });

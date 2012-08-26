@@ -26,7 +26,8 @@ Ext.define('NewsHolder.controller.RssController', {
 	init : function() {
 		var serverstore = Ext.getStore('rssServerStore');
 		serverstore.load({
-			callback : function() {
+			callback : function(result) {
+				console.log(result);
 				success: {
 					var localstore = Ext.getStore('rssStore');
 					if (localstore.data.length <= 0) {
@@ -72,23 +73,31 @@ Ext.define('NewsHolder.controller.RssController', {
 
 		Ext.Msg.confirm('확인', '신문사를 추가하시겠습니까?', 
 				function(buttonId, value, opt) {
-			if (buttonId == 'yes') {
-				this.addMainLocalStore(rssname, rssurl, rssimg);
-
-			}
-		}, this);
+					if (buttonId == 'yes') {
+						
+						this.addMainLocalStore(rssname, rssurl, rssimg);		
+					}
+				}, this);
 
 	},
 
 	// function add item MainLocalStored
 	addMainLocalStore : function(rssname, rssurl, rssimg) {
-		var store = Ext.data.StoreManager.lookup('mainStore');
-		store.add({
-			mainRssName : rssname,
-			mainRssUrl : rssurl,
-			mainRssImage : rssimg
-		});
-		store.sync();
+		var store = Ext.getStore('mainStore');
+		//중복확인
+		if(store.find('mainRssUrl', rssurl) > -1){
+			Ext.Msg.alert('확인', '이미 저장되어 있습니다.');
+		}else{
+			store.add({
+				mainRssName : rssname,
+				mainRssUrl : rssurl,
+				mainRssImage : rssimg
+			});
+			store.sync();			
+		}
+
+
+
 	},
 
 });
