@@ -32,13 +32,13 @@ Ext.define('NewsHolder.controller.RssController', {
     	var serverstore = Ext.getStore('rssServerStore');    	
     	serverstore.load(
     				{
-    					callback : function(stores, operation, success){
+    					callback : function(){
     						success : {
     						var localstore = Ext.getStore('rssStore');
 	    				    	if(localstore.data.length <= 0){
 	    				    		for(var i=0; i < serverstore.data.length; i++){
-	    				    			console.log(serverstore.data.items[i].get('rssName'));
-	    				    	        localstore.add({ rssName : serverstore.data.items[i].get('rssName'),
+
+	    				    			localstore.add({ rssName : serverstore.data.items[i].get('rssName'),
 	    				    	        	rssUrl : serverstore.data.items[i].get('rssUrl') ,
 	    				    	        	rssImage : serverstore.data.items[i].get('rssImage') });
 	    				    	             			
@@ -54,6 +54,7 @@ Ext.define('NewsHolder.controller.RssController', {
     	
     },
     
+    //rss add
     onRssAddButtonTap: function(button, e, options) {
         var store = Ext.data.StoreManager.lookup('mainStore');
         console.log(Ext.getCmp('rssNameText').getValue());
@@ -68,6 +69,7 @@ Ext.define('NewsHolder.controller.RssController', {
         store.sync();
     },
 
+    //news rss add
     onRssListItemTap: function(dataview, index, target, record, e, options) {
         var store = Ext.data.StoreManager.lookup('mainStore');
         var rssname = record.get('rssName');
