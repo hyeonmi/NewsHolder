@@ -81,35 +81,23 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	/** 기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때 */
 	// ///////////////////////
 	articleScrapButtonTap : function(button, event) {
-		var id = 1;
-		var thirdString = "";
-		var mainController = this.getApplication().getController(
-				"MainController");
-		var news = mainController.getArticle().items.items[0].items.items[1]
-
-		// 현재 화면에 띄워진 기사에 관한 정보를 얻어서 로컬 스토리지에 저장
-
-		if (localStorage.getItem("scrap-counter") == null) { // 스크랩을 처음으로 저정할
-																// 때,
-			window.localStorage.setItem("scrap-counter", id);
-			thirdString = "1";
-		} else {
-			id = parseInt(localStorage.getItem("scrap-counter")) + 1;
-			thirdString = localStorage.getItem("scrap") + "," + id;
-		}
-
-		var data = {
-			'id' : id,
-			'title' : news._data.title,
-			'description' : news._data.description,
-			'pubDate' : news._data.pubDate,
-		// link: this.getArticle().items.items[0].items.items[1]._data.link,
-		// scrapDate: 스크랩한 시간,
-		};
-
-		localStorage.setItem("scrap-" + id, JSON.stringify(data));
-		localStorage.setItem("scrap-counter", id);
-		localStorage.setItem("scrap", thirdString);
+		
+		var mainController = this.getApplication().getController("MainController");
+		var news = mainController.getArticle().items.items[0].items.items[1];
+		
+		var scrapDate = Date();
+		
+		var store = Ext.data.StoreManager.lookup('Scraps');
+                	
+        store.add({ 
+        	title : news._data.title,
+        	description : news._data.description ,
+        	pubDate : news._data.pubDate,
+        	scrapDate: scrapDate,
+        	link: news._data.link
+        });
+        store.sync();
+         
 	},
 
 	/** 오른쪽 상단의 검색 버튼을 눌렀을 때 */

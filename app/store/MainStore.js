@@ -1,4 +1,3 @@
-
 Ext.define('NewsHolder.store.MainStore', {
     extend: 'Ext.data.Store',
     
