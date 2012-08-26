@@ -25,7 +25,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
         	backButton : "#prevButton",
         	articleScrapButton : "#articleScrapButton",
         	article: "article",
-        	Feed: "#Feed"
         },
         
         control: {
