@@ -85,24 +85,20 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		var mainController = this.getApplication().getController("MainController");
 		var news = mainController.getArticle().items.items[0].items.items[1];
 		
-		console.log(news);
+		var scrapDate = Date();
+		console.log(scrapDate);
 		
-		/**var store = Ext.data.StoreManager.lookup('Scraps');
-        var title = record.get('rssName');
-        var description = record.get('rssUrl');
-        var pubDate = record.get('rssImage');
-        var scrapDate = 
-        var link = 
-        	
+		var store = Ext.data.StoreManager.lookup('Scraps');
+                	
         store.add({ 
-        	title : title,
-        	description : description ,
-        	pubDate : pubDate,
+        	title : news._data.title,
+        	description : news._data.description ,
+        	pubDate : news._data.pubDate,
         	scrapDate: scrapDate,
-        	link: link
+        	link: news._data.link
         });
         store.sync();
-        */ 
+         
 	},
 
 	/** 오른쪽 상단의 검색 버튼을 눌렀을 때 */
