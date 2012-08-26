@@ -26,23 +26,23 @@ Ext.define('NewsHolder.view.RssPanel', {
 			    			},
 			    			
 			    			items : [
-			    				        {
-			    				            xtype: 'textfield',
-			    				            id: 'rssNameText',
-			    				            label: 'RSS 명',
-			    				            	
-			    				        },
+//			    				        {
+//			    				            xtype: 'textfield',
+//			    				            id: 'rssNameText',
+//			    				            label: 'RSS 명',
+//			    				            	
+//			    				        },
 			    				        {
 			    				        	xtype: 'textfield',
 			    				        	id: 'rssUrlText',
 			    				        	label: 'RSS 주소'
 			    				        },
-			    				        {
-			    				        	xtype: 'textfield',
-			    				        	id: 'rssImageText',
-			    				        	label: 'RSS 이미지 주소'
-			    				        },			    			         
-			    			         
+//			    				        {
+//			    				        	xtype: 'textfield',
+//			    				        	id: 'rssImageText',
+//			    				        	label: 'RSS 이미지 주소'
+//			    				        },			    			         
+//			    			         
 			    			         ]
 			            },
 			            {
