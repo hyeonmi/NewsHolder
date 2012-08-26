@@ -26,8 +26,7 @@ Ext.define('NewsHolder.controller.RssController', {
 	init : function() {
 		var serverstore = Ext.getStore('rssServerStore');
 		serverstore.load({
-			callback : function(result) {
-				console.log(result);
+			callback : function() {
 				success: {
 					var localstore = Ext.getStore('rssStore');
 					if (localstore.data.length <= 0) {
@@ -43,11 +42,10 @@ Ext.define('NewsHolder.controller.RssController', {
 							});
 
 						}
+						
 						localstore.sync();
-
 					}
 				}
-
 			}
 		});
 
