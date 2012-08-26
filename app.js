@@ -38,8 +38,7 @@ Ext.application({
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
-
-        // Initialize the main view
+	    // Initialize the main view
         Ext.Viewport.add(Ext.create('NewsHolder.view.Main'));
     },
 

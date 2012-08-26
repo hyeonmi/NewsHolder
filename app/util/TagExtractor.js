@@ -39,7 +39,7 @@ Ext.define('NewsHolder.util.TagExtractor', {
 						xtype:"panel",
 						cls:"newsTop",
 						html:[
-						    "<div id='articleImageText'></br>" + title + "</div>" +  
+						    "<div onclick='articleImageTextTap(" + i + ")' id='articleImageText'></br>" + title + "</div>" +  
 						    "<img src='" + url + "'/>"
 						],
 				};
@@ -61,6 +61,11 @@ Ext.define('NewsHolder.util.TagExtractor', {
 		var carousel = Ext.getCmp("articleListTopCarousel");
 		carousel.removeAll(true);
 		carousel.add(corouselArray);
+		
+		articleImageTextTap = function(nth){
+			console.log(nth);
+			controller.onArticleImageTextTap(nth);
+		};
 	},
 
 	// 모든 a태그를 삭제하는 부분.

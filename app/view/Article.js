@@ -14,13 +14,6 @@ Ext.define("NewsHolder.view.Article",{
 		items:[{
 			xtype:"panel",
 			layout:"vbox",
-			/**id:"articlePanel",
-			tpl:[
-			   "{content}",
-			],
-			
-			styleHtmlContent:true,
-			scrollable:true,*/
 			items:[
 			   {
 				   xtype:"panel",
@@ -37,7 +30,7 @@ Ext.define("NewsHolder.view.Article",{
 				    	 id:"article_font_size_down"
 				     }
 				   ],
-				   flex:0.05,
+				   flex:0.1,
 			   },
 			   {
 				   xtype:"panel",

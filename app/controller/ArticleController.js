@@ -25,6 +25,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
         	backButton : "#prevButton",
         	articleScrapButton : "#articleScrapButton",
         	article: "article",
+        	Feed: "#Feed"
         },
         
         control: {
@@ -68,10 +69,24 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			direction : "left"
 		});
 		this.getArticleList().setData(record.data);
-		MainController.getTitlebar().setTitle(record.data.title);
 		this.getBackButton().show();
 
 		localStorage.flag = index;
+		this.getArticleScrapButton().show();
+	},
+	
+	onArticleImageTextTap : function(nth){
+		var MainController = this.getApplication().getController("MainController");
+
+		console.log(Ext.getStore("Feed").getAt(nth));
+		console.log("onArticleImageTextTap called!!");
+		this.getArticleList().setData(Ext.getStore("Feed").getAt(nth).data);
+		MainController.getMain().animateActiveItem(MainController.getArticle(), {
+			type : "slide",
+			direction : "left"
+		});
+		this.getBackButton().show();
+		localStorage.flag = nth;
 		this.getArticleScrapButton().show();
 	},
 });
