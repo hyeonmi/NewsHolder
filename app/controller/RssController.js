@@ -30,8 +30,6 @@ Ext.define('NewsHolder.controller.RssController', {
 				var localstore = Ext.getStore('rssStore');
 				localstore.load({
 					callback : function(){
-						console.log(localstore.data.length);
-						
 						if (localstore.data.length <= 0) {						
 						for ( var i = 0; i < serverstore.data.length; i++) {
 
