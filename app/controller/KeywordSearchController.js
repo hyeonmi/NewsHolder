@@ -15,8 +15,9 @@ Ext
 							searchBackButton : '#searchBackButton',
 							articleScrapButton : '#articleScrapButton',
 							searchHomeButton : '#homeButton',
-							keywordPanel:'keywordpanel',
-							mainPanel:'#main'
+							articlePanel2 : "article",
+							articlePanel3 : "#articlePanel",
+							mainPanel : "main"
 						},
 
 						control : {
@@ -34,12 +35,17 @@ Ext
 
 					onSearchBackButtonTap : function(button, e, options) {
 						this.getMainPanel().animateActiveItem(
-								0, {
+								6, {
 									type : "slide",
 									direction : "right"
 								});
+						
+						/*this.getSearchMain().animateActiveItem(this.getSearchMain(), {
+							type : "slide",
+							direction : "right"
+						});*/
 						this.getApplication().getController('MainController')
-								.getTitlebar().setTitle("키워드 모음");
+								.getTitlebar().setTitle("키워드 검색");
 						button.hide();
 						this.getSearchHomeButton().show();
 						this.getArticleScrapButton().hide();
@@ -84,15 +90,14 @@ Ext
 						 * 연결되어있는 store가 다른 경우이다. 다른 경우에는 list에서 선택된 검색어로 네이버 뉴스
 						 * 검색을 하여 list에 나타낸다.
 						 */
+
 						if (this.getSearchList().getStore().getId() == Ext
 								.getStore("searchResultStore").getId()) {
-							var mainController = this.getApplication()
-									.getController('MainController');
 							var extractor = Ext
 									.create('NewsHolder.util.TagExtractor');
 
-							this.getKeywordPanel().animateActiveItem(
-									this.getArticlePanel(), {
+							this.getMainPanel().animateActiveItem(
+									this.getArticlePanel2(), {
 										type : "slide",
 										direction : "left"
 									});
@@ -107,10 +112,7 @@ Ext
 									.removeATag(record.data.description);
 							record.data.description = record.data.description
 									.replace("[이 시각 많이 본 뉴스]", "");
-
-							this.getArticlePanel().setData(record.data);
-							mainController.getTitlebar().setTitle(
-									record.data.title);
+							this.getArticlePanel3().setData(record.data);
 						} else {
 							var rankData = Ext.getStore("rankStore").getAt(
 									index).getData();
