@@ -5,7 +5,6 @@ Ext.define('NewsHolder.controller.MainController', {
 		newsPaperTitle:null,
 		
 		refs : {
-			mainPanel : 'mainpanel',
 			article : 'article',
 			articleList : '#articlePanel',
 			titlebar : '#titlebar',
