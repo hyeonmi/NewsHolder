@@ -8,7 +8,7 @@ Ext.define('NewsHolder.controller.RssController', {
 		refs : {
 			addButton : '#rssAddButton',
 			rssItems : '#rssList',
-
+			
 		},
 
 		control : {

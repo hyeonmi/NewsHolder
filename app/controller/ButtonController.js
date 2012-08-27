@@ -72,16 +72,20 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		
 		var scrapDate = Date();
 		
-		var store = Ext.data.StoreManager.lookup('Scraps');
+		var store = Ext.getStore('Scraps');
 		
-        store.add({ 
-        	title : data.title,
-        	description : data.description ,
-        	pubDate : data.pubDate,
-        	scrapDate: scrapDate,
-        	link: data.link
+		if (store.find('title', data.title) > -1) { // 중복확인
+			Ext.Msg.alert('확인', '이미 저장되어 있습니다.');
+		} else {
+	        store.add({ 
+	        	title : data.title,
+	        	description : data.description ,
+	        	pubDate : data.pubDate,
+	        	scrapDate: scrapDate,
+	        	link: data.link
         });
-        store.sync();
+        	store.sync();
+		}
 	},
 
 	/** 오른쪽 상단의 검색 버튼을 눌렀을 때 */
