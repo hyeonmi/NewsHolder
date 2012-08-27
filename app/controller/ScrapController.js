@@ -68,7 +68,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
 		this.getArticleScrapButton().hide();
     },
     
-    scrapListTapHold:function(list, item, index, e, eOpts){
+    scrapListTapHold:function(list, index, item, record, e){
     	this.getScrapList().deselectAll();
     	list.lastTapHold = new Date();
     	Ext.Msg.confirm("알림", "해당 스크랩을 삭제하시겠습니까", function(buttonId, value, opt){
