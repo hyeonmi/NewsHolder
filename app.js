@@ -13,7 +13,7 @@ Ext
 					'ScrapPanel', 'RssPanel', 'KeywordGroupPanel' ],
 			controllers : [ 'MainController', 'KeywordSearchController',
 					'RssController', 'ButtonController', 'ScrapController',
-					'ArticleController' ],
+					'ArticleController', 'KeywordGroupController' ],
 			icon : {
 				'57' : 'resources/icons/Icon.png',
 				'72' : 'resources/icons/Icon~ipad.png',

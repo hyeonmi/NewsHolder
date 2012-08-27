@@ -11,7 +11,6 @@ Ext.define('NewsHolder.controller.MainController', {
 			titlebar : '#titlebar',
 			detailArticle : '#detailArticle',
 			newsListTopImage : '#newsListTopImage',
-
 			feedIcon : "#feedIcon",
 			main : "#main",
 			homeButton : "#homeButton",
