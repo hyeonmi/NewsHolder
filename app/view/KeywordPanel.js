@@ -50,6 +50,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 				type : 'fit'
 			},
 			scrollable : true
+			//ahahahahah
 		} ]
 	}
 
