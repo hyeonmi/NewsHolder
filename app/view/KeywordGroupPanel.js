@@ -8,10 +8,7 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 			
 		},
 		items : [
-		         	{
-		         		xtype : 'panel',
-		         		itemTpl : ['hello']
-		         	},
+
 		            {
 		                xtype: 'dataview',
 		                id: 'keywordGroupList',
@@ -23,10 +20,9 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 		                    	'</div>',
 		                    '</div>',
 		                    '<div class="widget-title">ddddddddd{keywordName}</div>',
-		                    
-		                    
 		                ],
-		                store: 'keywordGroupStore'
+		                store: 'keywordGroupStore',
+		                html:'dkdkdkdk',
 		            },
 		         ]
 	},
