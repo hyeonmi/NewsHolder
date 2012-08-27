@@ -41,7 +41,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 				store : 'rankStore'
 			} ]
 		}, {
-			xtype : 'panel',
+			xtype : 'article',
 			id : 'selectedArticle',
 			cls : 'newsList',
 			styleHtmlContent : true,
@@ -50,7 +50,6 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 				type : 'fit'
 			},
 			scrollable : true
-			//ahahahahah
 		} ]
 	}
 
