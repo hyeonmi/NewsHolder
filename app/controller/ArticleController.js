@@ -11,6 +11,13 @@ Ext.define('NewsHolder.controller.ArticleController', {
   	},
 
     config: {
+        models: [
+            
+        ],
+        views: [
+            
+        ],
+
         refs: {
         	list : '#articleList',
         	articleList : '#articlePanel',
@@ -102,6 +109,5 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		this.getArticleBackButton().show();
 		localStorage.flag = nth;
 		this.getArticleScrapButton().show();
-		this.getArticleHomeButton().hide();
 	},
 });

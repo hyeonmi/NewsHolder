@@ -16,6 +16,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
           scrapHomeButton : '#homeButton',
           scrapPanel:'#scrapPanel',
           mainPanel:'#main',
+          articleScrapButton:"#articleScrapButton"
         },
         
         control: {
@@ -26,27 +27,27 @@ Ext.define('NewsHolder.controller.ScrapController', {
             	onItemDisclosure:"scrapListTapHold",
             	itemtap:"scrapListTap",
             },
-            
         },
         
     },
-    /** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 *////////////////////////////////////////
+    /** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 */// /////////////////////////////////////
     scrapListTap:function(list, index, item, record, e){
     	console.log("list item tap");
     	var Maincontroller = this.getApplication().getController("MainController");
-    	Maincontroller.getMain().setActiveItem(this.getArticle());
+    	Maincontroller.getMain().animateActiveItem(
+    			this.getArticle(), {
+    				type:"slide",
+    				direction : "left"
+    			});
     	Maincontroller.getArticleList().setData(record.data);
-    	Maincontroller.getTitlebar().setTitle(record.data.title);
     	this.getScrapBackButton().show();
     	this.getScrapHomeButton().hide();
     	
     	localStorage.flag = index;
     	Ext.getCmp("articleScrapButton").show();
-    	// this.getArticleList().setData(record.data);
     },
     
     scrapBackButtonTap:function(button, e, options){
-    	console.log("scrapBackButtonTap");
     	this.getMainPanel().animateActiveItem(
 				4, {
 					type : "slide",
@@ -56,10 +57,11 @@ Ext.define('NewsHolder.controller.ScrapController', {
 				.getTitlebar().setTitle("스크랩 모음");
 		this.getScrapHomeButton().show();
 		this.getScrapBackButton().hide();
-	},
-
-	refreshScrapList : function() {
-		var scrapStore = Ext.getStore("Scraps");
+		this.getArticleScrapButton().hide();
+    },
+    
+    refreshScrapList:function(){
+    	var scrapStore = Ext.getStore("Scraps");
 		scrapStore.load();
 		this.getScrapList().setStore(scrapStore);
     },
