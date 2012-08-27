@@ -17,7 +17,7 @@ Ext.define('NewsHolder.controller.MainController', {
 			mainSearchButton:"#mainSearchButton",
 			alBackButton:"#alBackButton",
 			RssList : "#rssList",
-			keywordpanel : "keywordpanel",
+			keywordGroupPanel : "keywordGroupPanel",
 			scrapPanel : "scrapPanel",
 		},
 
@@ -25,7 +25,22 @@ Ext.define('NewsHolder.controller.MainController', {
 			feedIcon : {
 				itemtap : 'feedIconTap',
 			},
+			keywordGroupPanel : {
+				itemtap : 'keywordItemTap'
+				
+			}
+			
 		}
+	},
+	
+	//키워드 그룹으로 이동
+	keywordItemTap :function(list, index, item, record, e){
+		this.getTitlebar().setTitle("키워드 모음");
+		this.getMainSearchButton().hide();
+		this.getMain().animateActiveItem(this.getKeywordGroupPanel(), {
+			type : "slide",
+			direction : "left"
+		});		
 	},
 
 	/** 메인 화면에서 feed 아이콘을 눌렀을 때 */

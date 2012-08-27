@@ -28,20 +28,22 @@ Ext.define('NewsHolder.controller.RssController', {
 		serverstore.load({
 			callback : function() {
 				var localstore = Ext.getStore('rssStore');
-				if (localstore.data.length <= 0) {
-					for ( var i = 0; i < serverstore.data.length; i++) {
+				localstore.load({
+					callback : function() {
+						if (localstore.data.length <= 0) {
+							for ( var i = 0; i < serverstore.data.length; i++) {
+								localstore.add({
+									rssName : serverstore.data.items[i].get('rssName'),
+									rssUrl : serverstore.data.items[i].get('rssUrl'),
+									rssImage : serverstore.data.items[i].get('rssImage')
+								});
+							}
+						}
 
-						localstore.add({
-							rssName : serverstore.data.items[i].get('rssName'),
-							rssUrl : serverstore.data.items[i].get('rssUrl'),
-							rssImage : serverstore.data.items[i]
-									.get('rssImage')
-						});
-
+						localstore.sync();
 					}
 
-					localstore.sync();
-				}
+				});
 
 			}
 		});
@@ -50,7 +52,7 @@ Ext.define('NewsHolder.controller.RssController', {
 
 	// rss add
 	onRssAddButtonTap : function(button, e, options) {
-		//var rssname = Ext.getCmp('rssNameText').getValue();
+		// var rssname = Ext.getCmp('rssNameText').getValue();
 		var rssurl = Ext.getCmp('rssUrlText').getValue();
 		var rssimg = './resources/images/rss_tmp.png';
 		if (rssurl == "") {
@@ -62,23 +64,27 @@ Ext.define('NewsHolder.controller.RssController', {
 		store.getProxy().setUrl(
 				"http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
 						+ rssurl + "&format=json");
-		Ext.Viewport.setMasked({xtype : 'loadmask', message : '확인중...'})
+		Ext.Viewport.setMasked({
+			xtype : 'loadmask',
+			message : '확인중...'
+		})
 		store.load({
 			callback : function() {
 				Ext.Viewport.setMasked(false);
-				
+
 				var store = Ext.getStore('newsPaperStore');
 				var title = store.data.items[0].get('title');
-				
-				if(title == ""){
-					Ext.Msg.alert("확인","존재하지 않습니다.");
-					
-				}else{
-					Ext.Msg.confirm("확인", title + "이 맞습니까?", function(buttonId, value, opt){
-						if(buttonId =='yes'){
+
+				if (title == "") {
+					Ext.Msg.alert("확인", "존재하지 않습니다.");
+
+				} else {
+					Ext.Msg.confirm("확인", title + "이 맞습니까?", function(buttonId,
+							value, opt) {
+						if (buttonId == 'yes') {
 							this.addMainLocalStore(title, rssurl, rssimg);
 						}
-						
+
 					}, this);
 				}
 			},
@@ -86,7 +92,6 @@ Ext.define('NewsHolder.controller.RssController', {
 		});
 		// 유효한 rss인지 확인
 
-		
 	},
 
 	// news rss add
@@ -107,7 +112,7 @@ Ext.define('NewsHolder.controller.RssController', {
 	addMainLocalStore : function(rssname, rssurl, rssimg) {
 		var store = Ext.getStore('mainStore');
 
-		if (store.find('mainRssUrl', rssurl) > -1) { //중복확인
+		if (store.find('mainRssUrl', rssurl) > -1) { // 중복확인
 			Ext.Msg.alert('확인', '이미 저장되어 있습니다.');
 		} else {
 			store.add({
