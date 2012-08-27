@@ -40,12 +40,10 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 					console.log("데이터가 없습니다.");
 				} else {
 					console.log("데이터가 있습니다.");
-
 				}
 
 			}
 		});
-
 	},
 
 	onKeywordGroupListItemTap : function(list, index, item, record, e) {

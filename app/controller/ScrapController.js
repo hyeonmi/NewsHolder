@@ -30,6 +30,12 @@ Ext.define('NewsHolder.controller.ScrapController', {
         },
         
     },
+    
+    init:function(){
+    	var store = Ext.getStore("Scraps");
+    	store.load();
+    },
+    
     /** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 */// /////////////////////////////////////
     scrapListTap:function(list, index, item, record, e){
     	if (!list.lastTapHold || (new Date() - list.lastTapHold  > 1000)) {
@@ -60,12 +66,6 @@ Ext.define('NewsHolder.controller.ScrapController', {
 		this.getScrapHomeButton().show();
 		this.getScrapBackButton().hide();
 		this.getArticleScrapButton().hide();
-    },
-    
-    refreshScrapList:function(){
-    	var scrapStore = Ext.getStore("Scraps");
-		scrapStore.load();
-		this.getScrapList().setStore(scrapStore);
     },
     
     scrapListTapHold:function(list, item, index, e, eOpts){

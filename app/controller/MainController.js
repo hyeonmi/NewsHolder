@@ -67,10 +67,6 @@ Ext.define('NewsHolder.controller.MainController', {
 				direction : 'left'
 			});
 			this.getHomeButton().show();
-			// 스크랩 리스트를 refresh하는 함수 호출
-			var ScrapController = this.getApplication().getController(
-					'ScrapController');
-			ScrapController.refreshScrapList();
 			localStorage.History_navigator = 'Scrap';
 
 		} else { // 각 신문사 아이콘 클릭

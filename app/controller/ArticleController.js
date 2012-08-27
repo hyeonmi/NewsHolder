@@ -59,7 +59,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		this.getArticleHomeButton().show();
     },
     
-    
     refreshArticleList : function(record){
     	var store = Ext.getStore("Feed");
 		store.getProxy().setUrl("http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + record.data.url + "&format=json");
