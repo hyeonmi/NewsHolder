@@ -41,15 +41,15 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 				store : 'rankStore'
 			} ]
 		}, {
-			xtype : 'panel',
+			xtype : 'article',
 			id : 'selectedArticle',
-			cls : 'newsList',
-			styleHtmlContent : true,
-			tpl : [ "<div id='mainArticle'>{description}</div>" ],
-			layout : {
-				type : 'fit'
-			},
-			scrollable : true
+			//cls : 'newsList',
+			//styleHtmlContent : true,
+			//tpl : [ "<div id='mainArticle'>{description}</div>" ],
+			//layout : {
+			//	type : 'fit'
+			//},
+			//scrollable : true
 		} ]
 	}
 

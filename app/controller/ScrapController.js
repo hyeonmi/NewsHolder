@@ -38,13 +38,14 @@ Ext.define('NewsHolder.controller.ScrapController', {
         }
     	
     	console.log("list item tap");
-    	var Maincontroller = this.getApplication().getController("MainController");
-    	Maincontroller.getMain().animateActiveItem(
+    	var mainController = this.getApplication().getController("MainController");
+    	mainController.getMain().animateActiveItem(
     			this.getArticle(), {
     				type:"slide",
     				direction : "left"
     			});
-    	Maincontroller.getArticleList().setData(record.data);
+    	//Maincontroller.getArticleList().setData(record.data);
+    	mainController.getArticle().setData(record.data);
     	this.getScrapBackButton().show();
     	this.getScrapHomeButton().hide();
     	
