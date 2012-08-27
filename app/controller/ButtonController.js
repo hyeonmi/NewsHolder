@@ -1,23 +1,16 @@
 Ext.define('NewsHolder.controller.ButtonController', {
 	extend : 'Ext.app.Controller',
-
+	
 	config : {
-
-		controllers : [],
-
 		refs : {
 			feedIcon : "#feedIcon",
 			homeButton : "#homeButton",
 			articleScrapButton : "#articleScrapButton",
 			mainSearchButton : "#mainSearchButton",
-			backButton : "#prevButton",
 			main:"#main"
 		},
 
 		control : {
-			backButton : {
-				tap : 'onBackButtonTap'
-			},
 			'#article_font_size_up' : {
 				tap : 'font_size_up'
 			},
@@ -34,19 +27,6 @@ Ext.define('NewsHolder.controller.ButtonController', {
 				tap : "mainSearchButtonTap",
 			},
 		}
-	},
-
-	/** 뒤로가기 버튼을 눌렀을 때 */
-	onBackButtonTap : function(button, event) {
-		console.log("onBackButtonTap!!");
-		var mainController = this.getApplication().getController("MainController");
-		var ArticleController = this.getApplication().getController("ArticleController");
-
-		// Back 버튼을 눌렀을 때 바로 뒤 화면으로 이동하는 기능을 구현해야 합니다.
-		mainController.getMain().setActiveItem(1);
-		ArticleController.getList().deselectAll();
-		mainController.getTitlebar().setTitle("News");
-		this.getBackButton().show();
 	},
 
 	/** 기사 화면에서 글자 키우기 버튼을 눌렀을 때 */
@@ -69,14 +49,13 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		var ArticleController = this.getApplication().getController("ArticleController");
 		mainController.getMain().animateActiveItem(0, {
 			type : "slide",
-			direction : "left"
+			direction : "right"
 		});
 		this.getHomeButton().hide();
 		this.getArticleScrapButton().hide();
 		ArticleController.getList().deselectAll();
 		mainController.getTitlebar().setTitle("SMART NEWS");
 		this.getMainSearchButton().show();
-		this.getBackButton().hide();
 	},
 
 	/** 기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때 */

@@ -13,7 +13,6 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 		id : 'searchMain',
 		items : [ {
 			xtype : 'panel',
-
 			layout : {
 				type : 'vbox'
 			},

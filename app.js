@@ -4,13 +4,13 @@ Ext
 
 			requires : [ 'Ext.MessageBox' ],
 			models : [ 'News', 'Feed', 'Rank', 'SearchResult', 'RssModel',
-					'MainModel', 'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
+					'MainModel', 'Scrap', 'NewsPaperModel' ],
 			stores : [ 'Feed', 'Feeds', 'RankStore', 'SearchResultStore',
 					'RssStore', 'MainStore', 'Scraps', 'RssServerStore',
-					'NewsPaperStore', 'KeywordGroupStore' ],
+					'NewsPaperStore' ],
 
 			views : [ 'Main', 'Article', 'Article_list', 'KeywordPanel',
-					'Scrap_list', 'RssPanel', 'KeywordGroupPanel' ],
+					'ScrapPanel', 'RssPanel', 'KeywordGroupPanel' ],
 			controllers : [ 'MainController', 'KeywordSearchController',
 					'RssController', 'ButtonController', 'ScrapController',
 					'ArticleController' ],
