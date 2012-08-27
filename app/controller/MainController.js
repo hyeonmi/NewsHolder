@@ -14,7 +14,7 @@ Ext.define('NewsHolder.controller.MainController', {
 			homeButton : "#homeButton",
 			mainSearchButton:"#mainSearchButton",
 			RssList : "#rssList",
-			keywordpanel : "keywordpanel",
+			//keywordpanel : "keywordpanel",
 			scrapPanel : "scrapPanel",
 		},
 

@@ -28,20 +28,26 @@ Ext.define('NewsHolder.controller.RssController', {
 		serverstore.load({
 			callback : function() {
 				var localstore = Ext.getStore('rssStore');
-				if (localstore.data.length <= 0) {
-					for ( var i = 0; i < serverstore.data.length; i++) {
+				localstore.load({
+					callback : function(){
+						console.log(localstore.data.length);
+						
+						if (localstore.data.length <= 0) {						
+						for ( var i = 0; i < serverstore.data.length; i++) {
 
-						localstore.add({
-							rssName : serverstore.data.items[i].get('rssName'),
-							rssUrl : serverstore.data.items[i].get('rssUrl'),
-							rssImage : serverstore.data.items[i]
-									.get('rssImage')
-						});
+							localstore.add({
+								rssName : serverstore.data.items[i].get('rssName'),
+								rssUrl : serverstore.data.items[i].get('rssUrl'),
+								rssImage : serverstore.data.items[i]
+										.get('rssImage')
+							});
+							}
+						}
 
+						localstore.sync();						
 					}
-
-					localstore.sync();
-				}
+					
+				});
 
 			}
 		});
