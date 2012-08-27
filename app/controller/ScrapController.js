@@ -16,6 +16,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
           scrapHomeButton : '#homeButton',
           scrapPanel:'#scrapPanel',
           mainPanel:'#main',
+          articleScrapButton:"#articleScrapButton"
         },
         
         control: {
@@ -24,7 +25,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
             },
             scrapList:{
             	itemtaphold:"scrapListTapHold",
-        		itemtap:"scrapListTap",
+        		itemsingletap:"scrapListTap",
             },
         },
         
@@ -34,23 +35,19 @@ Ext.define('NewsHolder.controller.ScrapController', {
     	console.log("list item tap");
     	var Maincontroller = this.getApplication().getController("MainController");
     	Maincontroller.getMain().animateActiveItem(
-    			this.getArtice(), {
+    			this.getArticle(), {
     				type:"slide",
     				direction : "left"
     			});
-    	//Maincontroller.getMain().setActiveItem(this.getArticle());
     	Maincontroller.getArticleList().setData(record.data);
-    	Maincontroller.getTitlebar().setTitle(record.data.title);
     	this.getScrapBackButton().show();
     	this.getScrapHomeButton().hide();
     	
     	localStorage.flag = index;
     	Ext.getCmp("articleScrapButton").show();
-    	// this.getArticleList().setData(record.data);
     },
     
     scrapBackButtonTap:function(button, e, options){
-    	console.log("scrapBackButtonTap");
     	this.getMainPanel().animateActiveItem(
 				4, {
 					type : "slide",
@@ -60,6 +57,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
 				.getTitlebar().setTitle("스크랩 모음");
 		this.getScrapHomeButton().show();
 		this.getScrapBackButton().hide();
+		this.getArticleScrapButton().hide();
     },
     
     refreshScrapList:function(){
@@ -71,10 +69,12 @@ Ext.define('NewsHolder.controller.ScrapController', {
     scrapListTapHold:function(dataview, index, target, record, e, eOpts){
     	console.log("scrapListTapHold!!");
     	Ext.Msg.confirm("알림", "해당 스크랩을 삭제하시겠습니까", function(buttonId, value, opt){
-    		console.log(record.internalId);
-    		var store = Ext.getStore('Scraps');
-    		store.remove(record);
-    		store.sync();
+    		if(buttonId=="yes"){
+    			console.log(record.internalId);
+        		var store = Ext.getStore('Scraps');
+        		store.remove(record);
+        		store.sync();
+    		}
     	}, this);
     }
 });
