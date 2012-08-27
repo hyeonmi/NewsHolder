@@ -16,6 +16,7 @@ Ext
 							articleScrapButton : '#articleScrapButton',
 							searchHomeButton : '#homeButton',
 							keywordPanel:'keywordpanel',
+							mainPanel:'#main'
 						},
 
 						control : {
@@ -32,7 +33,7 @@ Ext
 					},
 
 					onSearchBackButtonTap : function(button, e, options) {
-						this.getKeywordPanel().animateActiveItem(
+						this.getMainPanel().animateActiveItem(
 								0, {
 									type : "slide",
 									direction : "right"

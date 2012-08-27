@@ -6,7 +6,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
   	],
   	
   	launch: function () {
-
         this.getArticle().on('swipe', this.onSwipe);
         console.log("swipe이벤트 등록");
   	},
