@@ -24,7 +24,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
             },
             scrapList:{
             	itemtaphold:"scrapListTapHold",
-        		itemtap:"scrapListTap",
+        		itemsingletap:"scrapListTap",
             },
             
         },
@@ -67,10 +67,12 @@ Ext.define('NewsHolder.controller.ScrapController', {
     scrapListTapHold:function(dataview, index, target, record, e, eOpts){
     	console.log("scrapListTapHold!!");
     	Ext.Msg.confirm("알림", "해당 스크랩을 삭제하시겠습니까", function(buttonId, value, opt){
-    		console.log(record.internalId);
-    		var store = Ext.getStore('Scraps');
-    		store.remove(record);
-    		store.sync();
+    		if(buttonId=="yes"){
+    			console.log(record.internalId);
+        		var store = Ext.getStore('Scraps');
+        		store.remove(record);
+        		store.sync();
+    		}
     	}, this);
     }
 });
