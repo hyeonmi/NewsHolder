@@ -93,6 +93,8 @@ Ext.define("NewsHolder.view.Main", {
 			xtype:"scrapPanel",     //메인화면에서 '스크랩 모음' 아이콘을 누르면 나오는 패널
 		},{
 			xtype:"rsspanel",       //메인화면에서 'RSS 추가' 아이콘을 누르면 나오는 패널
+		},{
+			xtype:'keywordpanel'	//메인화면에서 검색 버튼 눌렀을 때 나오는 패널
 		}]
 	}
 });

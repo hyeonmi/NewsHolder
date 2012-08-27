@@ -91,16 +91,15 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	/** 오른쪽 상단의 검색 버튼을 눌렀을 때 */
 	// //////////////////////////////////////////////
 	mainSearchButtonTap : function(button, event) {
-		console.log("검색 버튼 탭!!");
 		var mainController = this.getApplication().getController(
 				"MainController");
 		mainController.getMain().animateActiveItem(
-				mainController.getKeywordpanel(), {
+				6, {
 					type : "slide",
 					direction : "left"
 				});
 		mainController.getTitlebar().setTitle("키워드 검색");
-		Ext.getCmp("homeButton").show();
+		this.getHomeButton().show();
 		this.getMainSearchButton().hide();
 		localStorage.History_navigator = "Search";
 	},
