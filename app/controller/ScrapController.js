@@ -24,7 +24,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
             	tap:'scrapBackButtonTap'
             },
             scrapList:{
-            	onItemDisclosure:"scrapListTapHold",
+            	itemtaphold:"scrapListTapHold",
             	itemtap:"scrapListTap",
             },
         },
@@ -32,6 +32,11 @@ Ext.define('NewsHolder.controller.ScrapController', {
     },
     /** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 */// /////////////////////////////////////
     scrapListTap:function(list, index, item, record, e){
+    	console.log(list.lastTapHold);
+    	if (!list.lastTapHold || (list.lastTapHold - new Date() > 1000)) {
+            console.log('itemtap');
+        }
+    	
     	console.log("list item tap");
     	var Maincontroller = this.getApplication().getController("MainController");
     	Maincontroller.getMain().animateActiveItem(
@@ -66,8 +71,10 @@ Ext.define('NewsHolder.controller.ScrapController', {
 		this.getScrapList().setStore(scrapStore);
     },
     
-    scrapListTapHold:function(model, node, index, e){
-    	console.log("scrapListTapHold!!");
+    scrapListTapHold:function(list, item, index, e, eOpts){
+    	list.lastTapHold = new Date();
+    	console.log(list.lastTapHold);
+        console.log('itemtaphold');
     	Ext.Msg.confirm("알림", "해당 스크랩을 삭제하시겠습니까", function(buttonId, value, opt){
     		if(buttonId=="yes"){
     			console.log(record.internalId);
@@ -77,6 +84,13 @@ Ext.define('NewsHolder.controller.ScrapController', {
     		}
     	}, this);
     },
+    
+    onItemDisclosure : function(record,btn,index){
+        alert(record.get('hour') + ',' + record.get('wfKor'));
+          }
+
+
+
     
     
 });
