@@ -19,6 +19,7 @@ Ext.define("NewsHolder.view.ScrapPanel",{
 	            '</div>',
 	        ],
 	        store: 'Scraps',
+	        onItemDisclosure:true,
 		}],
 	},
 	

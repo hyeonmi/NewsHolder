@@ -7828,6 +7828,11 @@ audio {
   width: 1.7em;
   height: 1.7em;
 }
+
+.x-list-disclosure{ -webkit-mask:none !important; width:40px !important; height:40px !important; -webkit-mask-size:40px !important; background:url(../icons/Icon.png) !important ; }
+
+
+
 /* line 101, ../themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list.x-list-indexed .x-list-disclosure {
   margin-right: 1em;

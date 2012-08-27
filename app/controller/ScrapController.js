@@ -23,8 +23,8 @@ Ext.define('NewsHolder.controller.ScrapController', {
             	tap:'scrapBackButtonTap'
             },
             scrapList:{
-            	itemtaphold:"scrapListTapHold",
-        		itemsingletap:"scrapListTap",
+            	onItemDisclosure:"scrapListTapHold",
+            	itemtap:"scrapListTap",
             },
             
         },
@@ -64,7 +64,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
 		this.getScrapList().setStore(scrapStore);
     },
     
-    scrapListTapHold:function(dataview, index, target, record, e, eOpts){
+    scrapListTapHold:function(model, node, index, e){
     	console.log("scrapListTapHold!!");
     	Ext.Msg.confirm("알림", "해당 스크랩을 삭제하시겠습니까", function(buttonId, value, opt){
     		if(buttonId=="yes"){
@@ -74,5 +74,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
         		store.sync();
     		}
     	}, this);
-    }
+    },
+    
+    
 });
