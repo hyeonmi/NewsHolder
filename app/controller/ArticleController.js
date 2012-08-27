@@ -22,8 +22,9 @@ Ext.define('NewsHolder.controller.ArticleController', {
         refs: {
         	list : '#articleList',
         	articleList : '#articlePanel',
-        	backButton : "#prevButton",
+        	articleBackButton : "#alBackButton",
         	articleScrapButton : "#articleScrapButton",
+        	articleHomeButton:'#homeButton',
         	article: "article",
         },
         
@@ -31,13 +32,34 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			"#articleList" : {
 				itemtap : 'onArticleTap'
 			},
-        },
+			articleBackButton:{
+				tap:'onArticleBackButtonTap'
+			}
+        }
   
     },
     
     onSwipe:function(event){
     	console.log("swipe");
     },
+    
+    onArticleBackButtonTap:function(button, e, options){
+    	console.log("onBackButtonTap!!");
+		var mainController = this.getApplication().getController("MainController");
+
+		// Back 버튼을 눌렀을 때 바로 뒤 화면으로 이동하는 기능을 구현해야 합니다.
+		mainController.getMain().animateActiveItem(1, {
+			type : "slide",
+			direction : "right"
+		});
+		
+		this.getList().deselectAll();
+		mainController.getTitlebar().setTitle(mainController.getNewsPaperTitle());
+		this.getArticleBackButton().hide();
+		this.getArticleScrapButton().hide();
+		this.getArticleHomeButton().show();
+    },
+    
     
     refreshArticleList : function(record){
     	var store = Ext.getStore("Feed");
@@ -68,7 +90,8 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			direction : "left"
 		});
 		this.getArticleList().setData(record.data);
-		this.getBackButton().show();
+		this.getArticleBackButton().show();
+		this.getArticleHomeButton().hide();
 
 		localStorage.flag = index;
 		this.getArticleScrapButton().show();
@@ -84,7 +107,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			type : "slide",
 			direction : "left"
 		});
-		this.getBackButton().show();
+		this.getArticleBackButton().show();
 		localStorage.flag = nth;
 		this.getArticleScrapButton().show();
 	},

@@ -20,7 +20,7 @@ Ext.define("NewsHolder.view.Main", {
 			id:"titlebar",
 			items:[{
             	xtype:"button",
-            	id:"prevButton",
+            	id:"alBackButton",
             	text:"뒤로 가기",
             	action:"back",
             	ui:"back",
@@ -43,7 +43,8 @@ Ext.define("NewsHolder.view.Main", {
             	ui:"back",
             	hidden:true,
             	iconAlign:"right",
-            },{
+            },
+			{
             	xtype:"button",
             	id:"homeButton",
             	iconCls:"home",

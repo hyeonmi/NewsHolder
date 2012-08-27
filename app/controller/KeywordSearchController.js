@@ -35,7 +35,7 @@ Ext
 						this.getKeywordPanel().animateActiveItem(
 								0, {
 									type : "slide",
-									direction : "left"
+									direction : "right"
 								});
 						this.getApplication().getController('MainController')
 								.getTitlebar().setTitle("키워드 모음");

@@ -2,6 +2,8 @@ Ext.define('NewsHolder.controller.MainController', {
 	extend : 'Ext.app.Controller',
 	
 	config : {
+		newsPaperTitle:null,
+		
 		refs : {
 			mainPanel : 'mainpanel',
 			article : 'article',
@@ -13,6 +15,7 @@ Ext.define('NewsHolder.controller.MainController', {
 			main : "#main",
 			homeButton : "#homeButton",
 			mainSearchButton:"#mainSearchButton",
+			alBackButton:"#alBackButton",
 			RssList : "#rssList",
 			keywordpanel : "keywordpanel",
 			scrapPanel : "scrapPanel",
@@ -57,7 +60,8 @@ Ext.define('NewsHolder.controller.MainController', {
 			localStorage.History_navigator = "Scrap";
 
 		} else { // 각 신문사 아이콘 클릭
-			this.getTitlebar().setTitle(record.data.name);
+			this.setNewsPaperTitle(record.data.name);
+			this.getTitlebar().setTitle(this.getNewsPaperTitle());
 			this.getMainSearchButton().hide();
 			this.getMain().animateActiveItem(1, {
 				type : "slide",
@@ -66,6 +70,7 @@ Ext.define('NewsHolder.controller.MainController', {
 			var ArticleController = this.getApplication().getController("ArticleController");
 			ArticleController.refreshArticleList(record);
 			localStorage.History_navigator = "News";
+			this.getAlBackButton().hide();
 		}
 		this.getHomeButton().show();
 	},
