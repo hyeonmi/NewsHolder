@@ -1,6 +1,6 @@
 Ext.define('NewsHolder.view.KeywordGroupPanel',{
-	extends : 'Ext.Panel',
-	id : 'keywordGroupPanel',
+	extend : 'Ext.Panel',
+	xtype : 'keywordGroupPanel',
 	
 	config : {
 		layout : {
@@ -18,7 +18,7 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 		                    		'<img src="{keywordImage}" class="x-icon-mask">',
 		                    	'</div>',
 		                    '</div>',
-		                    '<div class="widget-title">{keywordName}</div>',
+		                    '<div class="widget-title">ddddddddd{keywordName}</div>',
 		                    
 		                    
 		                ],
