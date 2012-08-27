@@ -26,15 +26,19 @@ Ext.define('NewsHolder.controller.ScrapController', {
             	itemtaphold:"scrapListTapHold",
         		itemtap:"scrapListTap",
             },
-            
         },
         
     },
-    /** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 *////////////////////////////////////////
+    /** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 */// /////////////////////////////////////
     scrapListTap:function(list, index, item, record, e){
     	console.log("list item tap");
     	var Maincontroller = this.getApplication().getController("MainController");
-    	Maincontroller.getMain().setActiveItem(this.getArticle());
+    	Maincontroller.getMain().animateActiveItem(
+    			this.getArtice(), {
+    				type:"slide",
+    				direction : "left"
+    			});
+    	//Maincontroller.getMain().setActiveItem(this.getArticle());
     	Maincontroller.getArticleList().setData(record.data);
     	Maincontroller.getTitlebar().setTitle(record.data.title);
     	this.getScrapBackButton().show();
@@ -56,10 +60,10 @@ Ext.define('NewsHolder.controller.ScrapController', {
 				.getTitlebar().setTitle("스크랩 모음");
 		this.getScrapHomeButton().show();
 		this.getScrapBackButton().hide();
-	},
-
-	refreshScrapList : function() {
-		var scrapStore = Ext.getStore("Scraps");
+    },
+    
+    refreshScrapList:function(){
+    	var scrapStore = Ext.getStore("Scraps");
 		scrapStore.load();
 		this.getScrapList().setStore(scrapStore);
     },
