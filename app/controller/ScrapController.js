@@ -56,10 +56,10 @@ Ext.define('NewsHolder.controller.ScrapController', {
 				.getTitlebar().setTitle("스크랩 모음");
 		this.getScrapHomeButton().show();
 		this.getScrapBackButton().hide();
-    },
-    
-    refreshScrapList:function(){
-    	var scrapStore = Ext.getStore("Scraps");
+	},
+
+	refreshScrapList : function() {
+		var scrapStore = Ext.getStore("Scraps");
 		scrapStore.load();
 		this.getScrapList().setStore(scrapStore);
     },

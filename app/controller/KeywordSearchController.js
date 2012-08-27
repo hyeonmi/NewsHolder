@@ -33,8 +33,7 @@ Ext
 					},
 
 					onSearchBackButtonTap : function(button, e, options) {
-						this.getMainPanel().animateActiveItem(
-								0, {
+						this.getKeywordPanel().animateActiveItem(0, {
 									type : "slide",
 									direction : "right"
 								});
