@@ -86,7 +86,7 @@ Ext.define("NewsHolder.view.Main", {
 		},{
 			xtype:"articlelist",   //기사 리스트(1)
 		},{
-			xtype:"article"        //기사 리스트에서 항목을 누르면 해당 기사 전문이 나오는 패널(2)
+			xtype:"articlepanel"        //기사 리스트에서 항목을 누르면 해당 기사 전문이 나오는 패널(2)
 		},{
 			xtype:"keywordGroupPanel",   //메인화면에서 '키워드 모음' 아이콘을 누르면 나오는 패널
 		},{

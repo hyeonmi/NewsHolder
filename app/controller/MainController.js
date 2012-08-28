@@ -6,8 +6,8 @@ Ext.define('NewsHolder.controller.MainController', {
 		
 		refs : {
 			mainPanel : 'mainpanel',
-			article : 'article',
-			articleList : '#articlePanel',
+			articlePanel : '#articlePanel',
+			articleContent : '#articleContent',
 			titlebar : '#titlebar',
 			detailArticle : '#detailArticle',
 			newsListTopImage : '#newsListTopImage',

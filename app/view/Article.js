@@ -4,8 +4,8 @@
  * */
 Ext.define("NewsHolder.view.Article",{
 	extend:"Ext.Panel",
-	xtype:"article",
-	id:"article",
+	xtype:"articlepanel",
+	id:"articlePanel",
 	
 	config:{
 		layout:"fit",
@@ -34,7 +34,7 @@ Ext.define("NewsHolder.view.Article",{
 			   },
 			   {
 				   xtype:"panel",
-					id:"articlePanel",
+					id:"articleContent",
 					tpl:[
 					   "<div id='mainArticleTitle'>{title}</div>",
 					   "<div id='mainArticle'>{description}</div>",
@@ -64,7 +64,7 @@ Ext.define("NewsHolder.view.Article",{
 					}
 					
 					var count = data.length;  //전체 기사가 총 몇 개인지 알려주는 변수
-					var panel = Ext.getCmp("articlePanel");        //기사 전문 패널을 가져옵니다.
+					var panel = Ext.getCmp("articleContent");        //기사 전문 패널을 가져옵니다.
 				
 					
 					

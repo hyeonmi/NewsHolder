@@ -46,7 +46,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
         				type:"slide",
         				direction : "left"
         			});
-        	Maincontroller.getArticleList().setData(record.data);
+        	Maincontroller.getArticleContent().setData(record.data);
         	this.getScrapBackButton().show();
         	this.getScrapHomeButton().hide();
         	

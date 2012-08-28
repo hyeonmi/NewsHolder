@@ -11,12 +11,12 @@ Ext
 							searchField : '#searchField',
 							searchList : '#searchList',
 							searchMain : '#searchMain',
-							articlePanel : '#selectedArticle',
+							//articlePanel : '#selectedArticle',
 							searchBackButton : '#searchBackButton',
 							articleScrapButton : '#articleScrapButton',
 							searchHomeButton : '#homeButton',
-							articlePanel2 : "article",
-							articlePanel3 : "#articlePanel",
+							articlePanel : "article",
+							articleContent : "#articleContent",
 							mainPanel : "main"
 						},
 
@@ -97,7 +97,7 @@ Ext
 									.create('NewsHolder.util.TagExtractor');
 
 							this.getMainPanel().animateActiveItem(
-									this.getArticlePanel2(), {
+									this.getArticlePanel(), {
 										type : "slide",
 										direction : "left"
 									});
@@ -112,7 +112,7 @@ Ext
 									.removeATag(record.data.description);
 							record.data.description = record.data.description
 									.replace("[이 시각 많이 본 뉴스]", "");
-							this.getArticlePanel3().setData(record.data);
+							this.getArticleContent().setData(record.data);
 						} else {
 							var rankData = Ext.getStore("rankStore").getAt(
 									index).getData();

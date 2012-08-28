@@ -6,7 +6,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
   	],
   	
   	launch: function () {
-        this.getArticle().on('swipe', this.onSwipe);
+        this.getArticleContent().on('swipe', this.onSwipe);
         console.log("swipe이벤트 등록");
   	},
 
@@ -20,11 +20,11 @@ Ext.define('NewsHolder.controller.ArticleController', {
 
         refs: {
         	list : '#articleList',
-        	articleList : '#articlePanel',
+        	articleContent : '#articleContent',
         	articleBackButton : "#alBackButton",
         	articleScrapButton : "#articleScrapButton",
         	articleHomeButton:'#homeButton',
-        	article: "article",
+        	articlePanel: '#articlePanel',
         },
         
         control: {
@@ -43,7 +43,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
     },
     
     onArticleBackButtonTap:function(button, e, options){
-    	console.log("onBackButtonTap!!");
 		var mainController = this.getApplication().getController("MainController");
 
 		// Back 버튼을 눌렀을 때 바로 뒤 화면으로 이동하는 기능을 구현해야 합니다.
@@ -60,7 +59,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
     },
     
     refreshArticleList : function(record){
-    	var store = Ext.getStore("Feed");
 		store.getProxy().setUrl("http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + record.data.url + "&format=json");
 		store.load({
 			callback : function(records, operation, success) {
@@ -78,16 +76,13 @@ Ext.define('NewsHolder.controller.ArticleController', {
     
 	/** 기사 리스트에서 기사를 눌렀을 때 */
 	onArticleTap : function(dataview, index, target, record, e, options) {
+		var mainController = this.getApplication().getController("MainController");
 
-		console.log(Ext.getStore("Feed"));
-		
-		var MainController = this.getApplication().getController("MainController");
-
-		MainController.getMain().animateActiveItem(MainController.getArticle(), {
+		mainController.getMain().animateActiveItem(2, {
 			type : "slide",
 			direction : "left"
 		});
-		this.getArticleList().setData(record.data);
+		this.getArticleContent().setData(record.data);
 		this.getArticleBackButton().show();
 		this.getArticleHomeButton().hide();
 
@@ -100,8 +95,8 @@ Ext.define('NewsHolder.controller.ArticleController', {
 
 		console.log(Ext.getStore("Feed").getAt(nth));
 		console.log("onArticleImageTextTap called!!");
-		this.getArticleList().setData(Ext.getStore("Feed").getAt(nth).data);
-		MainController.getMain().animateActiveItem(MainController.getArticle(), {
+		this.getArticleContent().setData(Ext.getStore("Feed").getAt(nth).data);
+		MainController.getMain().animateActiveItem(2, {
 			type : "slide",
 			direction : "left"
 		});

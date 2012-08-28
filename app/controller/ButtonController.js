@@ -65,7 +65,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		var data = null;
 		
 		if(navi=="News"){
-			data = Ext.getCmp("articlePanel")._data;
+			data = Ext.getCmp("articleContent")._data;
 		}else if(navi=="Search"){
 			data = Ext.getCmp("selectedArticle")._data;
 		}
