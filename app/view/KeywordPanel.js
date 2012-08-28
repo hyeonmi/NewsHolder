@@ -9,6 +9,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 		layout : {
 			type : 'card'
 		},
+		autoDestroy:true,
 		id : 'searchMain',
 		items : [ {
 			xtype : 'panel',

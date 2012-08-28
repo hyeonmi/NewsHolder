@@ -31,6 +31,16 @@ Ext
 							}
 						}
 					},
+					
+					//검색을 하고나서, 다시 메인에서 검색 버튼을 눌렀을 때 모든 것을 초기화한다.
+					setRankStore:function(){
+						Ext.getStore('searchResultStore').removeAll();
+						var list=this.getSearchList();	
+						list.setStore(Ext.getStore('rankStore'));
+						list.setItemTpl( '<div>{xindex}. {keyword}</div>');
+						list.refresh();
+						this.getSearchField().setValue("");
+					},
 
 					onSearchBackButtonTap : function(button, e, options) {
 						this.getMainPanel().animateActiveItem(6, {
