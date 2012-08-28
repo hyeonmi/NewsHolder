@@ -51,7 +51,7 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		var mainController = this.getApplication().getController("MainController");
 		var buttonController = this.getApplication().getController("ButtonController");
 		var keywordSearchController = this.getApplication().getController("KeywordSearchController");
-		mainController.getMain().animateActiveItem(6, {
+		mainController.getMainPanel().animateActiveItem(6, {
 					type : "slide",
 					direction : "left"
 				});

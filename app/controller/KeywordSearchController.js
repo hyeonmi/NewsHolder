@@ -11,13 +11,12 @@ Ext
 							searchField : '#searchField',
 							searchList : '#searchList',
 							searchMain : '#searchMain',
-							//articlePanel : '#selectedArticle',
 							searchBackButton : '#searchBackButton',
 							articleScrapButton : '#articleScrapButton',
 							searchHomeButton : '#homeButton',
-							articlePanel : "article",
+							articlePanel : "#articlePanel",
 							articleContent : "#articleContent",
-							mainPanel : "main"
+							mainPanel : "#mainPanel"
 						},
 
 						control : {
@@ -34,16 +33,11 @@ Ext
 					},
 
 					onSearchBackButtonTap : function(button, e, options) {
-						this.getMainPanel().animateActiveItem(
-								6, {
-									type : "slide",
-									direction : "right"
-								});
-						
-						/*this.getSearchMain().animateActiveItem(this.getSearchMain(), {
+						this.getMainPanel().animateActiveItem(6, {
 							type : "slide",
 							direction : "right"
-						});*/
+						});
+
 						this.getApplication().getController('MainController')
 								.getTitlebar().setTitle("키워드 검색");
 						button.hide();
@@ -96,11 +90,10 @@ Ext
 							var extractor = Ext
 									.create('NewsHolder.util.TagExtractor');
 
-							this.getMainPanel().animateActiveItem(
-									this.getArticlePanel(), {
-										type : "slide",
-										direction : "left"
-									});
+							this.getMainPanel().animateActiveItem(2, {
+								type : "slide",
+								direction : "left"
+							});
 
 							this.getSearchBackButton().show();
 							this.getArticleScrapButton().show();

@@ -2,10 +2,10 @@
  * 기사 본문
  * 
  * */
-Ext.define("NewsHolder.view.Article",{
+Ext.define("NewsHolder.view.ArticlePanel",{
 	extend:"Ext.Panel",
 	xtype:"articlepanel",
-	id:"articlePanel",
+	id:'articlePanel',
 	
 	config:{
 		layout:"fit",

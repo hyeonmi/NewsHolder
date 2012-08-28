@@ -2,7 +2,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 	extend : 'Ext.Panel',
 	xtype : 'keywordpanel',
 
-	requires : [ 'NewsHolder.view.Article' ],
+	requires : [ 'NewsHolder.view.ArticlePanel' ],
 
 	config : {
 		xtype : 'panel',

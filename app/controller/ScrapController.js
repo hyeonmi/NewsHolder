@@ -15,7 +15,7 @@ Ext.define('NewsHolder.controller.ScrapController', {
           scrapBackButton : '#scrapBackButton',
           scrapHomeButton : '#homeButton',
           scrapPanel:'#scrapPanel',
-          mainPanel:'#main',
+          mainPanel:'#mainPanel',
           articleScrapButton:"#articleScrapButton"
         },
         
@@ -40,13 +40,13 @@ Ext.define('NewsHolder.controller.ScrapController', {
     scrapListTap:function(list, index, item, record, e){
     	if (!list.lastTapHold || (new Date() - list.lastTapHold  > 1000)) {
             console.log('ahahah');
-            var Maincontroller = this.getApplication().getController("MainController");
-        	Maincontroller.getMain().animateActiveItem(
-        			this.getArticle(), {
+            var mainController = this.getApplication().getController("MainController");
+        	mainController.getMainPanel().animateActiveItem(
+        			2, {
         				type:"slide",
         				direction : "left"
         			});
-        	Maincontroller.getArticleContent().setData(record.data);
+        	mainController.getArticleContent().setData(record.data);
         	this.getScrapBackButton().show();
         	this.getScrapHomeButton().hide();
         	

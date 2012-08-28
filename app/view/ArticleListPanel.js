@@ -1,9 +1,8 @@
-Ext.define("NewsHolder.view.Article_list",{
+Ext.define("NewsHolder.view.ArticleListPanel",{
 	extend:"Ext.Panel",
 	xtype:"articlelist",
 	
 	config:{
-		
 		layout:{
 			type:"vbox",
 		},

@@ -7,7 +7,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			homeButton : "#homeButton",
 			articleScrapButton : "#articleScrapButton",
 			mainSearchButton : "#mainSearchButton",
-			main:"#main"
+			mainPanel:"#mainPanel"
 		},
 
 		control : {
@@ -47,7 +47,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	homeButtonTap : function(button, event) {
 		var mainController = this.getApplication().getController("MainController");
 		var ArticleController = this.getApplication().getController("ArticleController");
-		mainController.getMain().animateActiveItem(0, {
+		mainController.getMainPanel().animateActiveItem(0, {
 			type : "slide",
 			direction : "right"
 		});
@@ -93,7 +93,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	mainSearchButtonTap : function(button, event) {
 		var mainController = this.getApplication().getController(
 				"MainController");
-		mainController.getMain().animateActiveItem(
+		mainController.getMainPanel().animateActiveItem(
 				6, {
 					type : "slide",
 					direction : "left"

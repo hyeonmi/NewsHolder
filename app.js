@@ -7,10 +7,10 @@ Ext
 					'MainModel', 'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
 			stores : [ 'Feed', 'Feeds', 'RankStore', 'SearchResultStore',
 					'RssStore', 'MainStore', 'Scraps', 'RssServerStore',
-					'NewsPaperStore', 'KeywordGroupStore'],
-
-			views : [ 'Main', 'Article', 'Article_list', 'KeywordPanel',
-					'ScrapPanel', 'RssPanel', 'KeywordGroupPanel' ],
+					'NewsPaperStore', 'KeywordGroupStore' ],
+			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
+					'KeywordPanel', 'ScrapPanel', 'RssPanel',
+					'KeywordGroupPanel' ],
 			controllers : [ 'MainController', 'KeywordSearchController',
 					'RssController', 'ButtonController', 'ScrapController',
 					'ArticleController', 'KeywordGroupController' ],
@@ -37,7 +37,7 @@ Ext
 				Ext.fly('appLoadingIndicator').destroy();
 
 				// Initialize the main view
-				Ext.Viewport.add(Ext.create('NewsHolder.view.Main'));
+				Ext.Viewport.add(Ext.create('NewsHolder.view.MainPanel'));
 			},
 
 			onUpdated : function() {

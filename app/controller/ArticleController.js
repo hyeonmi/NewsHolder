@@ -46,19 +46,19 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		var mainController = this.getApplication().getController("MainController");
 
 		// Back 버튼을 눌렀을 때 바로 뒤 화면으로 이동하는 기능을 구현해야 합니다.
-		mainController.getMain().animateActiveItem(1, {
+		mainController.getMainPanel().animateActiveItem(1, {
 			type : "slide",
 			direction : "right"
 		});
 		
 		this.getList().deselectAll();
-		mainController.getTitlebar().setTitle(mainController.getNewsPaperTitle());
 		this.getArticleBackButton().hide();
 		this.getArticleScrapButton().hide();
 		this.getArticleHomeButton().show();
     },
     
     refreshArticleList : function(record){
+    	var store=Ext.getStore('Feed');
 		store.getProxy().setUrl("http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + record.data.url + "&format=json");
 		store.load({
 			callback : function(records, operation, success) {
@@ -78,7 +78,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 	onArticleTap : function(dataview, index, target, record, e, options) {
 		var mainController = this.getApplication().getController("MainController");
 
-		mainController.getMain().animateActiveItem(2, {
+		mainController.getMainPanel().animateActiveItem(2, {
 			type : "slide",
 			direction : "left"
 		});
@@ -96,7 +96,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		console.log(Ext.getStore("Feed").getAt(nth));
 		console.log("onArticleImageTextTap called!!");
 		this.getArticleContent().setData(Ext.getStore("Feed").getAt(nth).data);
-		MainController.getMain().animateActiveItem(2, {
+		MainController.getMainPanel().animateActiveItem(2, {
 			type : "slide",
 			direction : "left"
 		});

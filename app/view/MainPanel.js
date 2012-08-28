@@ -1,12 +1,12 @@
-Ext.define("NewsHolder.view.Main", {
+Ext.define("NewsHolder.view.MainPanel", {
 	extend:"Ext.Panel",
-	xtype:"main",
-	id:"main",
+	xtype:"mainpanel",
+	id:"mainPanel",
 	
 	 requires: [
 	            'Ext.TitleBar',
 	            'Ext.dataview.List'
-	 ],
+ 	 ],
 	
 	config:{
 		layout:{
