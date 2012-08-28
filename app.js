@@ -10,10 +10,10 @@ Ext
 					'NewsPaperStore', 'KeywordGroupStore' ],
 			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
 					'KeywordPanel', 'ScrapPanel', 'RssPanel',
-					'KeywordGroupPanel' ],
+					'KeywordGroupPanel', 'KGDetailPanel' ],
 			controllers : [ 'MainController', 'KeywordSearchController',
 					'RssController', 'ButtonController', 'ScrapController',
-					'ArticleController', 'KeywordGroupController' ],
+					'ArticleController', 'KeywordGroupController', 'KGDetailController' ],
 			icon : {
 				'57' : 'resources/icons/Icon.png',
 				'72' : 'resources/icons/Icon~ipad.png',

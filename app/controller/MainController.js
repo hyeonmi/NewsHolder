@@ -76,7 +76,6 @@ Ext.define('NewsHolder.controller.MainController', {
 
 			localStorage.History_navigator = "News";
 			this.getAlBackButton().hide();
-
 		}
 		this.getHomeButton().show();
 	},

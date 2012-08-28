@@ -2,12 +2,16 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 	extend : 'Ext.app.Controller',
 
 	config : {
-
+		selectedKeyword : null,
 		refs : {
 			keywordGroupId : "#keywordGroupId",
 			keywordGroupText : "#keywordGroupText",
 			keywordGroupList : "#keywordGroupList",
-			keywordpanel:"#keywordpanel",
+			keywordpanel : "#keywordpanel",
+			mainPanel : "#mainPanel",
+			kgDetailBackButton : "#kgDetailBackButton",
+			kgDetailAlarmButton : "#kgDetailAlarmButton",
+			keywordGroupHomeButton : "#homeButton"
 		},
 
 		control : {
@@ -47,21 +51,21 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 	},
 
 	onKeywordGroupListItemTap : function(list, index, item, record, e) {
-		console.log("aa");
-		var mainController = this.getApplication().getController("MainController");
-		var buttonController = this.getApplication().getController("ButtonController");
-		var keywordSearchController = this.getApplication().getController("KeywordSearchController");
-		mainController.getMainPanel().animateActiveItem(6, {
-					type : "slide",
-					direction : "left"
-				});
-		mainController.getTitlebar().setTitle(record.data.keywordName);
-		buttonController.getHomeButton().show();
-		buttonController.getMainSearchButton().hide();
-		localStorage.History_navigator = "Search";
-		
-		keywordSearchController.getSearchField().setValue(record.data.keywordName);
-		keywordSearchController.onSearchButtonTap();
-	}
+		var mainController = this.getApplication().getController(
+				"MainController");
 
+		this.setSelectedKeyword(record.data.keywordName);
+
+		mainController.getMainPanel().animateActiveItem(7, {
+			type : "slide",
+			direction : "left"
+		});
+		mainController.getTitlebar().setTitle(record.data.keywordName);
+		this.getKgDetailBackButton().show();
+		this.getKgDetailAlarmButton().show();
+		this.getKeywordGroupHomeButton().hide();
+		localStorage.History_navigator = "Search";
+		this.getApplication().getController("KGDetailController")
+				.setKeywordArticleList();
+	}
 });
