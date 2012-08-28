@@ -61,14 +61,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	/** 기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때 */
 	articleScrapButtonTap : function(button, event) {
 		
-		var navi = localStorage.History_navigator;
-		var data = null;
-		
-		if(navi=="News"){
-			data = Ext.getCmp("articleContent")._data;
-		}else if(navi=="Search"){
-			data = Ext.getCmp("selectedArticle")._data;
-		}
+		var data = Ext.getCmp("articleContent")._data;
 		
 		var scrapDate = Date();
 		
