@@ -13,7 +13,8 @@ Ext.define("NewsHolder.view.MainPanel", {
 			type:"card"
 		},
 		
-		items:[{
+		items:[
+		{
 			xtype:"titlebar",
 			title:"SMART NEWS",
 			docked:"top",
@@ -96,20 +97,66 @@ Ext.define("NewsHolder.view.MainPanel", {
             	align:"right",
             	hidden:true,
             }]
-		},{
-			xtype:"dataview",
-			id:"feedIcon",
-			itemTpl : new Ext.XTemplate(
-				        '<div class="group-feed-widget">'+
-							'<div class="widget">'+
-								'<img src="{image_url}" class="x-icon-mask"/>'+
-						    '</div>'+
-							'<div class="widget-title">{name}</div>'+
-				        '</div>'
-		    	),
-		    
-		    store:"Feeds",
-		},{
+		},
+		{
+			xtype : 'panel',
+        	layout: {
+			    type: 'vbox',
+			},
+			items : [
+			         {
+			        	 xtype : 'panel',
+			        	 layout : {
+			        		 type : 'hbox'			        		 
+			        	 },
+			        	 
+			        	 
+			        	 // button start
+			        	 items : [
+			  			 		{
+									xtype : 'button',
+									id : '',
+									text : 'hello',
+									iconCls : 'add',
+									ui: 'action',
+									flex : 1
+								},
+			  			 		{
+									xtype : 'button',
+									id : '',
+									text : 'hello',
+									ui: 'action',
+									flex : 1
+								},
+			  			 		{
+									xtype : 'button',
+									id : '',
+									text : 'hello',
+									ui: 'action',
+									flex : 1
+								}								
+			        	        ]
+			        	 // button end
+			         },
+			         
+					{
+						xtype:"dataview",
+						id:"mainRssList",
+						flex : 2,
+						itemTpl : new Ext.XTemplate(
+						        '<div class="group-feed-widget">'+
+									'<div class="widget">'+
+										'<img src="{mainRssImage}" class="x-icon-mask"/>'+
+								    '</div>'+
+									'<div class="widget-title">{mainRssName}</div>'+
+						        '</div>'
+				    	),						
+					    	store:"mainStore",
+					},			         
+			         ]
+		},
+		
+		{
 			xtype:"articlelist",   //기사 리스트(1)
 		},{
 			xtype:"articlepanel"        //기사 리스트에서 항목을 누르면 해당 기사 전문이 나오는 패널(2)

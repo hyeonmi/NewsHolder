@@ -3,9 +3,9 @@ Ext
 			name : 'NewsHolder',
 
 			requires : [ 'Ext.MessageBox' ],
-			models : [ 'News', 'Feed', 'Rank', 'SearchResult', 'RssModel',
+			models : [ 'News', 'Rank', 'SearchResult', 'RssModel',
 					'MainModel', 'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
-			stores : [ 'Feed', 'Feeds', 'RankStore', 'SearchResultStore',
+			stores : [ 'Feed', 'RankStore', 'SearchResultStore',
 					'RssStore', 'MainStore', 'Scraps', 'RssServerStore',
 					'NewsPaperStore', 'KeywordGroupStore' ],
 			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
