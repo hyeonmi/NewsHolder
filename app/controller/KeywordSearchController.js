@@ -2,8 +2,9 @@ Ext
 		.define(
 				'NewsHolder.controller.KeywordSearchController',
 				{
+					//listPagingPlugin : null,
 					extend : 'Ext.app.Controller',
-
+					require : [ 'NewsHolder.util.ListPaging' ],
 					config : {
 						refs : {
 							searchButton : '#searchButton',
@@ -31,14 +32,20 @@ Ext
 							}
 						}
 					},
-					
-					//검색을 하고나서, 다시 메인에서 검색 버튼을 눌렀을 때 모든 것을 초기화한다.
-					setRankStore:function(){
+
+
+					// 검색을 하고나서, 다시 메인에서 검색 버튼을 눌렀을 때 모든 것을 초기화한다.
+					setRankStore : function() {
+					/*	listPagingPlugin = Ext
+								.create('NewsHolder.util.ListPaging');
+						this.getSearchList().setPlugins(listPagingPlugin);*/
 						Ext.getStore('searchResultStore').removeAll();
-						var list=this.getSearchList();	
+						var list = this.getSearchList();
 						list.setStore(Ext.getStore('rankStore'));
 						list.removeCls('newsList');
-						list.setItemTpl( '<div>{xindex}. {keyword}</div>');
+						var plugins=list.getPlugins();
+						plugins[0].disable();
+						list.setItemTpl('<div>{xindex}. {keyword}</div>');
 						list.refresh();
 						this.getSearchField().setValue("");
 					},
@@ -74,16 +81,21 @@ Ext
 						// 그리고 나서 스토어를 load시켜 fullrss 서버에서 json값을 읽어온다.
 						var store = Ext.getStore("searchResultStore");
 						store.getProxy().setUrl(feedUrl);
-						//var record=store.getProxy().getReader().getRecord();
-						//store.getData().items[i].data.description.match(tag)
+						// var record=store.getProxy().getReader().getRecord();
+						// store.getData().items[i].data.description.match(tag)
 						store.load();
 
 						var searchTpl = [ '<div class="articleTitle"/> </div>',
-											'<img src="{url}"/> {title}<br>'];
+								'<img src="{url}"/> {title}<br>' ];
 						// list를 읽어와서 변경된 store를 지정해주고 list를 보여주는 Template도
 						// 새로 설정하고 나서 리스트를 갱신한다.
+						/*
+						 * plugins: [ { xclass: 'Ext.plugin.ListPaging',
+						 * autoPaging: true } ],
+						 */
 						var list = this.getSearchList();
 						list.setCls('newsList');
+						//listPagingPlugin.show();
 						list.setStore(store);
 						list.setItemTpl(searchTpl);
 						list.refresh();
@@ -128,5 +140,4 @@ Ext
 							this.onSearchButtonTap();
 						}
 					}
-
 				});

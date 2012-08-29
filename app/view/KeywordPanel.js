@@ -9,7 +9,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 		layout : {
 			type : 'card'
 		},
-		autoDestroy:true,
+		autoDestroy : true,
 		id : 'searchMain',
 		items : [ {
 			xtype : 'panel',
@@ -38,20 +38,20 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 				flex : 1,
 				id : 'searchList',
 				itemTpl : [ '<div>{xindex}. {keyword}</div>' ],
-				store : 'rankStore'
+				store : 'rankStore',
+				plugins : [ {
+					xclass : 'Ext.plugin.ListPaging',
+					autoPaging : true,
+					loadMoreText : '더 보기...',
+				} ]
 			} ]
 		}
-/*		{
-			xtype : 'panel',
-			id : 'selectedArticle',
-			cls : 'newsList',
-			styleHtmlContent : true,
-			tpl : [ "<div id='mainArticle'>{description}</div>" ],
-			layout : {
-				type : 'fit'
-			},
-			scrollable : true
-		}*/
+		/*
+		 * { xtype : 'panel', id : 'selectedArticle', cls : 'newsList',
+		 * styleHtmlContent : true, tpl : [ "<div
+		 * id='mainArticle'>{description}</div>" ], layout : { type : 'fit' },
+		 * scrollable : true }
+		 */
 		]
 	}
 
