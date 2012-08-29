@@ -15,15 +15,12 @@ Ext.define('NewsHolder.controller.MainController', {
 			alBackButton : "#alBackButton",
 			mainRssAddBtn : '#mainRssAddBtn',
 			mainKeywordGroupBtn : '#mainKeywordGroupBtn',
-			mainScrapBtn : '#mainScrapBtn',
-	
-				
+			mainScrapBtn : '#mainScrapBtn',				
 		},
 		control : {
 			mainRssList : {
 				itemtap : 'mainRssListTap',
 			},
-
 			mainRssAddBtn : {
 				tap : 'onMainRssAddTap',
 			},
@@ -36,56 +33,41 @@ Ext.define('NewsHolder.controller.MainController', {
 
 		}
 	},
-	//tap function(Ext.Button this, Ext.EventObject e, Object eOpts)
-	// RSS추가 Tap
-	onMainRssAddTap : function(obj) {
-		this.getTitlebar().setTitle('RSS 추가');
-		this.getMainSearchButton().hide();
-		this.getMainPanel().animateActiveItem(Ext.getCmp('rssPanelId'), {
+	
+	
+	onAnimateView : function(title, objId){
+		this.getTitlebar().setTitle(title);
+		this.getMainPanel().animateActiveItem(objId, {
 			type : 'slide',
 			direction : 'left'
 		});
-		this.getHomeButton().show();
+		this.getMainSearchButton().hide();
+		this.getHomeButton().show();		
+	},
+	
+	//tap function(Ext.Button this, Ext.EventObject e, Object eOpts)
+	// RSS추가 Tap
+	onMainRssAddTap : function(obj) {
+		this.onAnimateView('RSS 추가', Ext.getCmp('rssPanelId'));
 
 	},
 	// 키워드 그룹 Tap
 	onMainKeywordGroupTap : function() {
-		this.getTitlebar().setTitle('키워드 모음');
-		this.getMainPanel().animateActiveItem(Ext.getCmp('keywordGroupPanelId'), {
-			type : 'slide',
-			direction : 'left'
-		});
-		this.getMainSearchButton().hide();
-		this.getHomeButton().show();
-
+		this.onAnimateView('키워드 모음', Ext.getCmp('keywordGroupPanelId'));
 	},
+	
 	// 스크랩 Tap
 	onMainScrapTap : function() {
-		this.getTitlebar().setTitle('스크랩 모음');
-		this.getMainSearchButton().hide();
-		this.getMainPanel().animateActiveItem(Ext.getCmp('scrapPanel'), {
-			type : 'slide',
-			direction : 'left'
-		});
-		this.getHomeButton().show();
-		localStorage.History_navigator = 'Scrap';
+		this.onAnimateView('스크랩 모음', Ext.getCmp('scrapPanel'));
 	},
 
 	// 신문사 아이콘 Tap
 	mainRssListTap : function(list, index, item, record, e) {
-		// 각 신문사 아이콘 클릭
-		this.getTitlebar().setTitle(record.data.name);
-		this.getMainSearchButton().hide();
-		this.getMainPanel().animateActiveItem(1, {
-			type : 'slide',
-			direction : 'left'
-		});
+		this.onAnimateView(record.data.name, Ext.getCmp('articleListId'));
+
 		var ArticleController = this.getApplication().getController(
 				'ArticleController');
 		ArticleController.refreshArticleList(record);
 
-		localStorage.History_navigator = "News";
-		this.getAlBackButton().hide();
-		this.getHomeButton().show();
 	},
 });

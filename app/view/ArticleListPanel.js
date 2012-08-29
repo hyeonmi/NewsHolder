@@ -1,6 +1,7 @@
 Ext.define("NewsHolder.view.ArticleListPanel",{
 	extend:"Ext.Panel",
 	xtype:"articlelist",
+	id : 'articleListId',
 	
 	config:{
 		layout:{
