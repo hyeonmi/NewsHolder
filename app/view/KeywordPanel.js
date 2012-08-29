@@ -52,9 +52,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 						hidden : true,
 						store : 'searchResultStore',
 						plugins : [ {
-							xclass : 'Ext.plugin.ListPaging',
-							autoPaging : true,
-							loadMoreText : '더 보기',
+							xclass : 'NewsHolder.util.ListPaging'
 						} ]
 					} ]
 		}

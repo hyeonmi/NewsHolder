@@ -5,6 +5,7 @@ Ext
 					extend : 'Ext.app.Controller',
 					require : [ 'NewsHolder.util.ListPaging' ],
 					config : {
+						saveURL : "",
 						refs : {
 							searchButton : '#searchButton',
 							searchStore : '#searchResultStore',
@@ -79,6 +80,7 @@ Ext
 						// 인코딩된 한글을 url에 합치고 이것을 또다시 인코딩해서 fullrss 서버로 보낸다.
 						var naverUrl = "http://openapi.naver.com/search?key=907ed5cd8ab441dc61ffb0016280e906&query="
 								+ encodedInput + "&target=news";
+						this.setSaveURL(naverUrl);
 						var encodedNaverUrl = encodeURIComponent(naverUrl);
 						var feedUrl = "http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
 								+ encodedNaverUrl + "&format=json";
