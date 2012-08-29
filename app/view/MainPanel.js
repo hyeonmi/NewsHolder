@@ -115,27 +115,22 @@ Ext.define("NewsHolder.view.MainPanel", {
 			        	 items : [
 			  			 		{
 									xtype : 'button',
-									//id : '',
-									text : 'RSS 모음',
-									//iconCls : 'add',
-									//ui: 'action',
-									tpl:'ahahahah',
+									id : 'mainRssAddBtn',
+									text : 'RSS 추가',
 									cls:'buttonCSS',
-									//flex : 1
+									//pressedCls : 'buttonCSS'
 								},
 			  			 		{
 									xtype : 'button',
-									id : '',
+									id : 'mainKeywordGroupBtn',
 									text : '키워드 모음',
-									//ui: 'action',
-									//cls:'buttonCSS',
+									cls:'buttonCSS',
 								},
 			  			 		{
 									xtype : 'button',
-									id : '',
+									id : 'mainScrapBtn',
 									text : '스크랩 모음',
-									ui: 'action',
-									//cls:'buttonCSS',
+									cls:'buttonCSS',
 								}								
 			        	        ]
 			        	 // button end

@@ -1,6 +1,7 @@
 Ext.define('NewsHolder.view.KeywordGroupPanel',{
 	extend : 'Ext.Panel',
 	xtype : 'keywordGroupPanel',
+	id : 'keywordGroupPanelId',
 	
 	config : {
 		layout : {
