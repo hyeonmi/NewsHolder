@@ -1,7 +1,7 @@
 Ext.define('NewsHolder.view.RssPanel', {
     extend: 'Ext.Panel',
     xtype : 'rsspanel',
-    id : 'rssPanel',
+    id : 'rssPanelId',
     requires : [
                 'Ext.dataview.DataView',
                 ],
