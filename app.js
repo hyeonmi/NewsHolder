@@ -7,7 +7,7 @@ Ext
 					'MainModel', 'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
 			stores : [ 'Feed', 'RankStore', 'SearchResultStore',
 					'RssStore', 'MainStore', 'Scraps', 'RssServerStore',
-					'NewsPaperStore', 'KeywordGroupStore' ],
+					'NewsPaperStore', 'KeywordGroupStore', 'KGResultStore' ],
 			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
 					'KeywordPanel', 'ScrapPanel', 'RssPanel',
 					'KeywordGroupPanel', 'KGDetailPanel' ],

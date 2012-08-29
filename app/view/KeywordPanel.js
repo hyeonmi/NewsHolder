@@ -52,17 +52,11 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 						hidden : true,
 						store : 'searchResultStore',
 						plugins : [ {
-							xclass : 'NewsHolder.util.ListPaging'
+							xclass : 'Ext.plugin.ListPaging',
+							loadMoreText : '더 보기',
+							autoPaging : true
 						} ]
 					} ]
-		}
-		/*
-		 * { xtype : 'panel', id : 'selectedArticle', cls : 'newsList',
-		 * styleHtmlContent : true, tpl : [ "<div
-		 * id='mainArticle'>{description}</div>" ], layout : { type : 'fit' },
-		 * scrollable : true }
-		 */
-		]
+		} ]
 	}
-
 });

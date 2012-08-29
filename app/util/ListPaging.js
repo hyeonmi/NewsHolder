@@ -1,3 +1,6 @@
+/**
+ * 혹시 몰라서 남겨둡니다.
+ * */
 Ext
 		.define(
 				'NewsHolder.util.ListPaging',
@@ -26,7 +29,7 @@ Ext
 								+ encodedNaverUrl + "&format=json";
 
 						searchResultStore.getProxy().setUrl(feedUrl);
-						searchResultStore.load({});
+						searchResultStore.load();
 
 						// searchList.setStore(searchResultStore);
 					}

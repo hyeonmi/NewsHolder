@@ -66,6 +66,6 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		this.getKeywordGroupHomeButton().hide();
 		localStorage.History_navigator = "Search";
 		this.getApplication().getController("KGDetailController")
-				.setKeywordArticleList();
+				.initKeywordArticleList();
 	}
 });

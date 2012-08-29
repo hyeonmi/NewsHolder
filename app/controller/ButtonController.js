@@ -94,7 +94,8 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		mainController.getTitlebar().setTitle("키워드 검색");
 		this.getHomeButton().show();
 		this.getMainSearchButton().hide();
-		this.getApplication().getController("KeywordSearchController").setRankStore();
+		this.getApplication().getController("KeywordSearchController").resetModifiedComponent();
+		
 		localStorage.History_navigator = "Search";
 	},
 });

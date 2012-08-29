@@ -1,11 +1,11 @@
-Ext.define('NewsHolder.store.SearchResultStore', {
+Ext.define('NewsHolder.store.KGResultStore', {
 	extend : 'Ext.data.Store',
 
 	requires : [ 'NewsHolder.model.SearchResult' ],
 
 	config : {
 		model : 'NewsHolder.model.SearchResult',
-		storeId : 'searchResultStore',
+		storeId : 'kgResultStore',
 		proxy : {
 			type : 'jsonp',
 			url : 'http://iamapark.cafe24.com/rssList/rssList.jsp', // 수정해야됨
@@ -16,9 +16,9 @@ Ext.define('NewsHolder.store.SearchResultStore', {
 		},
 		listeners : {
 			beforeload : function() {
-				var kSController = NewsHolder.app
-						.getController('KeywordSearchController');
-				kSController.changeProxyUrl();
+				var kgDetailController = NewsHolder.app
+						.getController('KGDetailController');
+				kgDetailController.changeProxyUrl();
 			}
 		} 
 	}
