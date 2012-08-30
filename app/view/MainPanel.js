@@ -126,8 +126,10 @@ Ext.define('NewsHolder.view.MainPanel', {
 			  			 		{
 									xtype : 'button',
 									id : 'mainRssAddBtn',
-									text : 'RSS 추가',
+									//text : 'RSS 추가',
 									cls:'buttonCSS',
+									tpl:'dddddd',
+									html:'RSS',
 									//pressedCls : 'buttonCSS'
 								},
 			  			 		{
@@ -141,27 +143,25 @@ Ext.define('NewsHolder.view.MainPanel', {
 									id : 'mainScrapBtn',
 									text : '스크랩 모음',
 									cls:'buttonCSS',
-								}								
-			        	        ]
+								},
+								{
+									xtype:'dataview',
+									id:'mainRssList',
+									flex : 2,
+									itemTpl : new Ext.XTemplate(
+									        '<div class="icon-item">'+
+												'<div class="icon-image">'+
+													'<img src="{mainRssImage}" />'+
+											    '</div>'+
+												'<div class="icon-title">{mainRssName}</div>'+
+									        '</div>'
+							    	),						
+								    	store:'mainStore',
+								}
+			        	 ]
 			        	 // button end
 			         },
-			         
-					{
-						xtype:'dataview',
-						id:'mainRssList',
-						flex : 2,
-						itemTpl : new Ext.XTemplate(
-						        '<div class="icon-item">'+
-									'<div class="icon-image">'+
-										'<img src="{mainRssImage}" />'+
-								    '</div>'+
-									'<div class="icon-title">{mainRssName}</div>'+
-						        '</div>'
-				    	),						
-					    	store:'mainStore',
-					},			         
-			         ]
-		},
+
 		
 		{
 			xtype:'articlelist',   //기사 리스트(1)
