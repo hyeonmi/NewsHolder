@@ -12,11 +12,7 @@ Ext
 							searchField : '#searchField',
 							searchList : '#searchList',
 							searchBackButton : '#searchBackButton',
-							articleScrapButton : '#articleScrapButton',
-							searchHomeButton : '#homeButton',
-							articlePanel : "#articlePanel",
 							articleContent : "#articleContent",
-							mainPanel : '#mainPanel',
 							rankList : '#rankList',
 							registerKeywordButton : '#registerKeywordButton'
 						},
@@ -50,15 +46,9 @@ Ext
 					},
 
 					onSearchBackButtonTap : function(button, e, options) {
-						this.getMainPanel().animateActiveItem(6, {
-							type : "slide",
-							direction : "right"
-						});
-
-						button.hide();
-						this.getSearchHomeButton().show();
-						this.getRegisterKeywordButton().show();
-						this.getArticleScrapButton().hide();
+						animation.onMoveSlideRight('키워드 검색', 'keywordPanel', [
+								'searchBackButton', 'articleScrapButton' ], [
+								'homeButton', 'registerKeywordButton' ]);
 					},
 
 					onRegisterKeywordButtonTap : function(button, e, options) {
@@ -154,15 +144,9 @@ Ext
 						var extractor = Ext
 								.create('NewsHolder.util.TagExtractor');
 
-						this.getMainPanel().animateActiveItem(2, {
-							type : "slide",
-							direction : "left"
-						});
-
-						this.getSearchBackButton().show();
-						this.getArticleScrapButton().show();
-						this.getSearchHomeButton().hide();
-						this.getRegisterKeywordButton().hide();
+						animation.onMoveSlideLeft('키워드 검색', 'articlePanel', [
+								'homeButton', 'registerKeywordButton' ], [
+								'searchBackButton', 'articleScrapButton' ]);
 
 						record.data.description = extractor
 								.removeButtonTag(record.data.description);

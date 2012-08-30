@@ -6,7 +6,6 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 	config : {
 		layout : {
 			type : 'fit'
-			
 		},
 		items : [
 		            {

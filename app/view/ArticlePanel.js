@@ -10,7 +10,6 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 	config:{
 		layout:"fit",
 		cls:"article",
-		id:"detailArticle",
 		items:[{
 			xtype:"panel",
 			layout:"vbox",

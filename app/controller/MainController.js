@@ -10,7 +10,6 @@ Ext.define('NewsHolder.controller.MainController', {
 			articlePanel : '#articlePanel',
 			articleContent : '#articleContent',
 			titlebar : '#titlebar',
-			detailArticle : '#detailArticle',
 			newsListTopImage : '#newsListTopImage',
 			mainRssList : "#mainRssList",
 			homeButton : "#homeButton",

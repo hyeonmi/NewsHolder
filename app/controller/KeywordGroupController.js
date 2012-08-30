@@ -5,9 +5,6 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		selectedKeyword : null,
 		refs : {
 			keywordGroupList : "#keywordGroupList",
-			kgDetailBackButton : "#kgDetailBackButton",
-			kgDetailAlarmButton : "#kgDetailAlarmButton",
-			keywordGroupHomeButton : "#homeButton"
 		},
 
 		control : {
@@ -24,21 +21,18 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 			callback : function() {
 				console.log(store.data.length);
 				if (store.data.length <= 0) {
-					Ext.getCmp('keywordGroupList').setHtml('등록된 키워드가 없습니다.');
+					this.getKeywordGroupList().setHtml('등록된 키워드가 없습니다.');
 				}
 			}
 		});
 	},
 
 	onKeywordGroupListItemTap : function(list, index, item, record, e) {
-		
-		var animation = Ext.create('NewsHolder.util.ManagerController');
-		animation.onMoveSlideLeft(record.data.keywordName, Ext.getCmp('kgDetailPanel'));
+		animation.onMoveSlideLeft(record.data.keywordName, 'kgDetailPanel',
+				[ 'homeButton' ], [ 'kgDetailBackButton', 'kgDetailAlarmButton' ]);
 
-		this.getKgDetailBackButton().show();
-		this.getKgDetailAlarmButton().show();
-		this.getKeywordGroupHomeButton().hide();
 		localStorage.History_navigator = "Search";
+		this.setSelectedKeyword(record.data.keywordName);
 		this.getApplication().getController("KGDetailController")
 				.initKeywordArticleList();
 	}

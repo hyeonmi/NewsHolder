@@ -8,16 +8,10 @@ Ext
 						startIndex : 1,
 						refs : {
 							kgDetailList : '#kgDetailList',
-							kgDetailPanel : '#kgDetailPanel',
-							searchBackButton : '#searchBackButton',
-							articleScrapButton : '#articleScrapButton',
 							kgDetailBackButton : '#kgDetailBackButton',
-							kgDetailHomeButton : '#homeButton',
 							kgDetailAlarmButton : '#kgDetailAlarmButton',
 							kgArticleBackButton : '#kgArticleBackButton',
-							articlePanel : "#articlePanel",
 							articleContent : "#articleContent",
-							mainPanel : "#mainPanel"
 						},
 
 						control : {
@@ -39,6 +33,8 @@ Ext
 						
 						var input = this.getApplication().getController(
 						"KeywordGroupController").getSelectedKeyword();
+						
+						console.log('input : '+input);
 
 						// 얻어온 값 중에 한글을 네이버 검색 API query형식에 맞게 utf-8로 인코딩한다.
 						var encodedInput = encodeURIComponent(input);
@@ -62,7 +58,6 @@ Ext
 					initKeywordArticleList : function() {
 						var kgResultStore = Ext.getStore('kgResultStore');
 						var kgDetailList = this.getKgDetailList();
-						console.log('initKeywordArticleList');
 						
 						kgDetailList.setMasked({
 							xtype : 'loadmask',
@@ -82,38 +77,21 @@ Ext
 					},
 
 					onKgDetailBackButtonTap : function(button, e, options) {
-						this.getMainPanel().animateActiveItem(3, {
-							type : "slide",
-							direction : "right"
-						});
-						
 						this.resetModifiedComponent();
 						
-						button.hide();
-						this.getKgDetailAlarmButton().hide();
-						this.getKgDetailHomeButton().show();
+						animation.onMoveSlideRight(null, 'keywordGroupPanelId',
+								[ 'kgDetailBackButton', 'kgDetailAlarmButton' ], [ 'homeButton' ]);
 					},
 
 					onKgArticleBackButtonTap : function(button, e, options) {
-						this.getMainPanel().animateActiveItem(7, {
-							type : 'slide',
-							direction : 'right'
-						});
-						this.getKgArticleBackButton().hide();
-						this.getArticleScrapButton().hide();
-						this.getKgDetailBackButton().show();
-						this.getKgDetailAlarmButton().show();
+						animation.onMoveSlideRight(null, 'kgDetailPanel',
+								[ 'articleScrapButton', 'kgArticleBackButton' ], [ 'kgDetailBackButton', 'kgDetailAlarmButton' ]);
 					},
 
 					onKGDetailListItemTap : function(dataview, index, target,
 							record, e, options) {
 						var extractor = Ext
 								.create('NewsHolder.util.TagExtractor');
-
-						this.getMainPanel().animateActiveItem(2, {
-							type : "slide",
-							direction : "left"
-						});
 
 						record.data.description = extractor
 								.removeButtonTag(record.data.description);
@@ -123,9 +101,7 @@ Ext
 								.replace("[이 시각 많이 본 뉴스]", "");
 						this.getArticleContent().setData(record.data);
 
-						this.getKgArticleBackButton().show();
-						this.getArticleScrapButton().show();
-						this.getKgDetailBackButton().hide();
-						this.getKgDetailAlarmButton().hide();
+						animation.onMoveSlideLeft(null, 'articlePanel',
+								[ 'kgDetailBackButton', 'kgDetailAlarmButton' ], [ 'kgArticleBackButton', 'articleScrapButton' ]);
 					}
 				});

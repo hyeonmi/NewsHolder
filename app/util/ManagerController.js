@@ -14,7 +14,9 @@ Ext.define('NewsHolder.util.ManagerController', {
 	// param : title(지정하고자 하는 타이틀바 제목), movePanel(이동하고자 하는 패널 객체)
 	// hideComp(숨기고자 하는 컴포넌트 객체배열), showComp(보여주고자 하는 컴포넌트 id 배열)
 	onMoveSlideLeft : function(title, movePanelId, hideCompId, showCompId) {
-		Ext.getCmp('titlebar').setTitle(title);
+		if(title!=null){
+			Ext.getCmp('titlebar').setTitle(title);
+		}
 		
 		if(typeof(movePanelId)=='string'){
 			Ext.getCmp('mainPanel').animateActiveItem(Ext.getCmp(movePanelId), {
@@ -40,7 +42,9 @@ Ext.define('NewsHolder.util.ManagerController', {
 
 	// 오른쪽으로 이동하는 에니메이션
 	onMoveSlideRight : function(title, movePanelId, hideCompId, showCompId) {
-		Ext.getCmp('titlebar').setTitle(title);
+		if(title!=null){
+			Ext.getCmp('titlebar').setTitle(title);
+		}
 
 		if (typeof (movePanelId) == 'string') {
 			Ext.getCmp('mainPanel').animateActiveItem(Ext.getCmp(movePanelId),

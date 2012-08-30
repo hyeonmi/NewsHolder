@@ -1,11 +1,6 @@
 Ext.define('NewsHolder.controller.ButtonController', {
 	extend : 'Ext.app.Controller',
 
-	constructor : function(config) {
-		this.initConfig(config);
-		animation = Ext.create('NewsHolder.util.ManagerController');
-	},
-
 	config : {
 		refs : {
 			feedIcon : "#feedIcon",
@@ -53,11 +48,11 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	homeButtonTap : function(button, event) {
 		var ArticleController = this.getApplication().getController(
 				"ArticleController");
-		
-		animation.onMoveSlideRight('NewsHolder', 0,
-				[ 'homeButton', 'articleScrapButton', 'registerKeywordButton' ], ['mainSearchButton']);
-
 		ArticleController.getList().deselectAll();
+		
+		animation.onMoveSlideRight('NewsHolder', 'rssMainPanel', [ 'homeButton',
+				'articleScrapButton', 'registerKeywordButton' ],
+				[ 'mainSearchButton' ]);
 	},
 
 	/** 기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때 */

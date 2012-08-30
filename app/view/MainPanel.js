@@ -110,6 +110,7 @@ Ext.define("NewsHolder.view.MainPanel", {
 		},
 		{
 			xtype : 'panel',
+			id:'rssMainPanel',
         	layout: {
 			    type: 'vbox',
 			},
@@ -126,11 +127,11 @@ Ext.define("NewsHolder.view.MainPanel", {
 			  			 		{
 									xtype : 'button',
 									id : 'mainRssAddBtn',
-									//text : 'RSS 추가',
+									// text : 'RSS 추가',
 									cls:'buttonCSS',
 									tpl:'dddddd',
 									html:'RSS',
-									//pressedCls : 'buttonCSS'
+									// pressedCls : 'buttonCSS'
 								},
 			  			 		{
 									xtype : 'button',
@@ -161,24 +162,26 @@ Ext.define("NewsHolder.view.MainPanel", {
 			        	 ]
 			        	 // button end
 			         },
-			         //신문사 피드 아이콘을 기본 아이콘 아랫줄부터 나오게 하려면 mainRssList를 여기에 넣어야 함.
+			         // 신문사 피드 아이콘을 기본 아이콘 아랫줄부터 나오게 하려면 mainRssList를 여기에 넣어야
+						// 함.
 			]
 		},
 		
 		{
-			xtype:"articlelist",   //기사 리스트(1)
+			xtype:"articlelist",   // 기사 리스트(1)
 		},{
-			xtype:"articlepanel"        //기사 리스트에서 항목을 누르면 해당 기사 전문이 나오는 패널(2)
+			xtype:"articlepanel",      // 기사 리스트에서 항목을 누르면 해당 기사 전문이 나오는 패널(2)
 		},{
-			xtype:"keywordGroupPanel",   //메인화면에서 '키워드 모음' 아이콘을 누르면 나오는 패널(3)
+			xtype:"keywordGroupPanel",   // 메인화면에서 '키워드 모음' 아이콘을 누르면 나오는
+											// 패널(3)
 		},{
-			xtype:"scrapPanel",     //메인화면에서 '스크랩 모음' 아이콘을 누르면 나오는 패널
+			xtype:"scrapPanel",     // 메인화면에서 '스크랩 모음' 아이콘을 누르면 나오는 패널
 		},{
-			xtype:"rsspanel",       //메인화면에서 'RSS 추가' 아이콘을 누르면 나오는 패널
+			xtype:"rsspanel",       // 메인화면에서 'RSS 추가' 아이콘을 누르면 나오는 패널
 		},{
-			xtype:'keywordpanel'	//메인화면에서 검색 버튼 눌렀을 때 나오는 패널
+			xtype:'keywordpanel',	// 메인화면에서 검색 버튼 눌렀을 때 나오는 패널
 		},{
-			xtype:'kgdetailpanel'		//키워드 모음에서 하나 선택했을 때 나오는 패널(7)
+			xtype:'kgdetailpanel'	,	// 키워드 모음에서 하나 선택했을 때 나오는 패널(7)
 		}]
 	}
 });
