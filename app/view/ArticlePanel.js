@@ -37,7 +37,7 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 					id:"articleContent",
 					tpl:[
 					   "<div id='mainArticleTitle'>{title}</div>",
-					   "<div id='mainArticle'>{description}</div>",
+					   "<div id='mainArticle' style='font-size:20px;'>{description}</div>",
 					],
 					styleHtmlContent:true,
 					scrollable:true,

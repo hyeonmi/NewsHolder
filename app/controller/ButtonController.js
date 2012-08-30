@@ -32,16 +32,18 @@ Ext.define('NewsHolder.controller.ButtonController', {
 
 	/** 기사 화면에서 글자 키우기 버튼을 눌렀을 때 */
 	font_size_up : function(button, event) {
-		var current = parseInt($("#mainArticle").css("font-size"));
-		console.log(current);
-		$("#mainArticle").css("font-size", (++current) + "px");
+		var article = Ext.getDom("mainArticle");
+		var current = parseInt(article.style.fontSize);
+		current++;
+		article.style.fontSize = current + "px";
 	},
 
 	/** 기사 화면에서 글자 줄이기 버튼을 눌렀을 때 */
 	font_size_down : function(button, event) {
-		var current = parseInt($("#mainArticle").css("font-size"));
-		console.log(current);
-		$("#mainArticle").css("font-size", (--current) + "px");
+		var article = Ext.getDom("mainArticle");
+		var current = parseInt(article.style.fontSize);
+		current--;
+		article.style.fontSize = current + "px";
 	},
 
 	/** 왼쪽 상단의 홈 버튼을 눌렀을 때 */
