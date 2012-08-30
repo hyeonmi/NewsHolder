@@ -2,7 +2,7 @@ Ext
 		.application({
 			name : 'NewsHolder',
 
-			requires : [ 'Ext.MessageBox' ],
+			requires : [ 'Ext.MessageBox', 'NewsHolder.util.ManagerController' ],
 			models : [ 'News', 'Rank', 'SearchResult', 'RssModel',
 					'MainModel', 'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
 			stores : [ 'Feed', 'RankStore', 'SearchResultStore',
@@ -52,3 +52,4 @@ Ext
 								});
 			}
 		});
+
