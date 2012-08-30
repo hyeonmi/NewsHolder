@@ -11,7 +11,6 @@ Ext
 							searchStore : '#searchResultStore',
 							searchField : '#searchField',
 							searchList : '#searchList',
-							searchMain : '#searchMain',
 							searchBackButton : '#searchBackButton',
 							articleScrapButton : '#articleScrapButton',
 							searchHomeButton : '#homeButton',

@@ -1,14 +1,17 @@
 Ext.define('NewsHolder.controller.ButtonController', {
 	extend : 'Ext.app.Controller',
 
+	constructor : function(config) {
+		this.initConfig(config);
+		animation = Ext.create('NewsHolder.util.ManagerController');
+	},
+
 	config : {
 		refs : {
 			feedIcon : "#feedIcon",
 			homeButton : "#homeButton",
 			articleScrapButton : "#articleScrapButton",
 			mainSearchButton : "#mainSearchButton",
-			mainPanel : "#mainPanel",
-			registerKeywordButton : '#registerKeywordButton'
 		},
 
 		control : {
@@ -48,20 +51,13 @@ Ext.define('NewsHolder.controller.ButtonController', {
 
 	/** 왼쪽 상단의 홈 버튼을 눌렀을 때 */
 	homeButtonTap : function(button, event) {
-		var mainController = this.getApplication().getController(
-				"MainController");
 		var ArticleController = this.getApplication().getController(
 				"ArticleController");
-		mainController.getMainPanel().animateActiveItem(0, {
-			type : "slide",
-			direction : "right"
-		});
-		this.getHomeButton().hide();
-		this.getArticleScrapButton().hide();
+		
+		animation.onMoveSlideRight('NewsHolder', 0,
+				[ 'homeButton', 'articleScrapButton', 'registerKeywordButton' ], ['mainSearchButton']);
+
 		ArticleController.getList().deselectAll();
-		mainController.getTitlebar().setTitle("SMART NEWS");
-		this.getMainSearchButton().show();
-		this.getRegisterKeywordButton().hide();
 	},
 
 	/** 기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때 */
@@ -71,8 +67,8 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		var scrapDate = Date();
 		var scrapStore = Ext.getStore('Scraps');
 
-		Ext.Msg.confirm('확인', '이 기사를 스크랩 하시겠습니까?', function(buttonId,
-				value, opt) {
+		Ext.Msg.confirm('확인', '이 기사를 스크랩 하시겠습니까?', function(buttonId, value,
+				opt) {
 			if (buttonId == 'yes') {
 				if (scrapStore.find('title', data.title) > -1) { // 중복확인
 					Ext.Msg.alert('알림', '해당 기사가 이미 등록되어있습니다.', Ext.emptyFn);
@@ -92,17 +88,9 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	},
 
 	/** 오른쪽 상단의 검색 버튼을 눌렀을 때 */
-	// //////////////////////////////////////////////
 	mainSearchButtonTap : function(button, event) {
-		var mainController = this.getApplication().getController(
-				"MainController");
-		mainController.getMainPanel().animateActiveItem(6, {
-			type : "slide",
-			direction : "left"
-		});
-		mainController.getTitlebar().setTitle("키워드 검색");
-		this.getHomeButton().show();
-		this.getMainSearchButton().hide();
+		animation.onMoveSlideLeft('키워드 검색', 'keywordPanel',
+				[ 'mainSearchButton' ], [ 'homeButton' ]);
 		this.getApplication().getController("KeywordSearchController")
 				.resetModifiedComponent();
 
