@@ -1,6 +1,6 @@
 build
 archive
-./packager.json
+packager.json
 default.json
 default.jsp
 rssList.jsp
