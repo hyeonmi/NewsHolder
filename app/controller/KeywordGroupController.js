@@ -24,7 +24,7 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 			callback : function() {
 				console.log(store.data.length);
 				if (store.data.length <= 0) {
-					Ext.getCmp('keywordGroupList').setHtml('등록된 키워드가 없습니다.');
+					//Ext.getCmp('keywordGroupList').setHtml('등록된 키워드가 없습니다.');
 				}
 			}
 		});

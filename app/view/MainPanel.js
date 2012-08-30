@@ -162,6 +162,10 @@ Ext.define('NewsHolder.view.MainPanel', {
 			        	 // button end
 			         },
 
+		         
+			         ]
+
+		},
 		
 		{
 			xtype:'articlelist',   //기사 리스트(1)
