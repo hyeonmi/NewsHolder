@@ -34,21 +34,10 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		});
 	},
 
-	onKeywordGroupListItemTap : function(list, index, item, record, e) {
-		
+	onKeywordGroupListItemTap : function(list, index, item, record, e) {		
 		var animation = Ext.create('NewsHolder.util.ManagerController');
 		animation.onMoveSlideLeft(record.data.keywordName, Ext.getCmp('kgDetailPanel'));
-		
-//		var mainController = this.getApplication().getController(
-//				"MainController");
-//
-//		this.setSelectedKeyword(record.data.keywordName);
-//
-//		mainController.getMainPanel().animateActiveItem(7, {
-//			type : "slide",
-//			direction : "left"
-//		});
-//		mainController.getTitlebar().setTitle(record.data.keywordName);
+
 		this.getKgDetailBackButton().show();
 		this.getKgDetailAlarmButton().show();
 		this.getKeywordGroupHomeButton().hide();
