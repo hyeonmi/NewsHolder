@@ -5,7 +5,6 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		selectedKeyword : null,
 		refs : {
 			keywordGroupList : "#keywordGroupList",
-			mainPanel : "#mainPanel",
 			kgDetailBackButton : "#kgDetailBackButton",
 			kgDetailAlarmButton : "#kgDetailAlarmButton",
 			keywordGroupHomeButton : "#homeButton"
