@@ -9,7 +9,7 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 			
 		},
 		items : [
-		         	{
+/*		         	{
 		         		xtype:'panel',
 		         		docked:'top',
 		         		items:[{
@@ -22,7 +22,7 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 		         			id:'keywordGroupText',
 		         			label:'text',
 		         		}]
-		         	},
+		         	},*/
 		            {
 		                xtype: 'dataview',
 		                id: 'keywordGroupList',
@@ -36,7 +36,6 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 		                    '<div class="widget-title">{keywordName}</div>',
 		                ],
 		                store: 'keywordGroupStore',
-		                html:'dkdkdkdk',
 		            },
 		         ]
 	},
