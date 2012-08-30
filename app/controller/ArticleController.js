@@ -28,7 +28,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
         },
         
         control: {
-			"#articleList" : {
+			list : {
 				itemtap : 'onArticleTap'
 			},
 			articleBackButton:{
