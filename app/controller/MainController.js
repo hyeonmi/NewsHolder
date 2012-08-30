@@ -41,7 +41,6 @@ Ext.define('NewsHolder.controller.MainController', {
 	// RSS추가 Tap
 	onMainRssAddTap : function(obj) {
 		animation.onMoveSlideLeft('RSS 추가', 'rssPanelId', ['mainSearchButton'], ['homeButton']);
-
 	},
 	// 키워드 그룹 Tap
 	onMainKeywordGroupTap : function() {
@@ -51,6 +50,7 @@ Ext.define('NewsHolder.controller.MainController', {
 	// 스크랩 Tap
 	onMainScrapTap : function() {
 		animation.onMoveSlideLeft('스크랩 모음', 'scrapPanel', ['mainSearchButton'], ['homeButton']);
+		localStorage.History_navigator = "Scrap";
 	},
 
 	// 신문사 아이콘 Tap
