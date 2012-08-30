@@ -18,7 +18,8 @@ Ext
 							articlePanel : "#articlePanel",
 							articleContent : "#articleContent",
 							mainPanel : '#mainPanel',
-							rankList : '#rankList'
+							rankList : '#rankList',
+							registerKeywordButton : '#registerKeywordButton'
 						},
 
 						control : {
@@ -33,6 +34,9 @@ Ext
 							},
 							searchList : {
 								itemtap : 'onSearchListItemTap'
+							},
+							registerKeywordButton : {
+								tap : 'onRegisterKeywordButtonTap'
 							}
 						}
 					},
@@ -54,12 +58,39 @@ Ext
 
 						button.hide();
 						this.getSearchHomeButton().show();
+						this.getRegisterKeywordButton().show();
 						this.getArticleScrapButton().hide();
+					},
+
+					onRegisterKeywordButtonTap : function(button, e, options) {
+						var searchText = this.getSearchField().getValue();
+						var kgStore = Ext.getStore("keywordGroupStore");
+
+						Ext.Msg.confirm('확인', '"' + searchText + '"'
+								+ '를 키워드 모음에 등록하시겠습니까?',
+								function(buttonId, value, opt) {
+									if (buttonId == 'yes') {
+										if (kgStore.find('keywordName',
+												searchText) > -1) { // 중복확인
+											Ext.Msg.alert('알림',
+													'해당 키워드가 이미 등록되어있습니다.',
+													Ext.emptyFn);
+										} else {
+											kgStore.add({
+												keywordName : searchText
+											});
+											kgStore.sync();
+											Ext.Msg.alert('알림', '"'
+													+ searchText + '"'
+													+ '가 키워드 모음에 등록되었습니다.',
+													Ext.emptyFn);
+										}
+									}
+								}, this);
 					},
 
 					// searchResultStore에 beforeload 이벤트를 listener로 지정해놨다.
 					// beforeload 이벤트가 발생하면 이 메소드를 수행하게 했다.
-					// 이렇게 하여
 					changeProxyUrl : function() {
 						var searchResultStore = Ext
 								.getStore('searchResultStore');
@@ -93,6 +124,7 @@ Ext
 
 						this.getRankList().setHidden(true);
 						searchList.setHidden(false);
+						this.getRegisterKeywordButton().show();
 
 						// 센차터치 ListPaging 플러그인에 존재하는 버그로 인해 수동으로 마스크를 해줘야 한다.
 						searchList.setMasked({
@@ -131,6 +163,7 @@ Ext
 						this.getSearchBackButton().show();
 						this.getArticleScrapButton().show();
 						this.getSearchHomeButton().hide();
+						this.getRegisterKeywordButton().hide();
 
 						record.data.description = extractor
 								.removeButtonTag(record.data.description);

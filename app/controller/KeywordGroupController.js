@@ -4,10 +4,7 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 	config : {
 		selectedKeyword : null,
 		refs : {
-			keywordGroupId : "#keywordGroupId",
-			keywordGroupText : "#keywordGroupText",
 			keywordGroupList : "#keywordGroupList",
-			keywordpanel : "#keywordpanel",
 			mainPanel : "#mainPanel",
 			kgDetailBackButton : "#kgDetailBackButton",
 			kgDetailAlarmButton : "#kgDetailAlarmButton",
@@ -15,23 +12,10 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		},
 
 		control : {
-			keywordGroupId : {
-				tap : "onKeywordGroupIdTap"
-			},
 			keywordGroupList : {
 				itemtap : "onKeywordGroupListItemTap"
 			}
 		}
-	},
-
-	onKeywordGroupIdTap : function(event, button) {
-		var text = this.getKeywordGroupText().getValue();
-		var store = Ext.getStore("keywordGroupStore");
-
-		store.add({
-			keywordName : text
-		});
-		store.sync();
 	},
 
 	init : function() {

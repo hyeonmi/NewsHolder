@@ -1,13 +1,14 @@
 Ext.define('NewsHolder.controller.ButtonController', {
 	extend : 'Ext.app.Controller',
-	
+
 	config : {
 		refs : {
 			feedIcon : "#feedIcon",
 			homeButton : "#homeButton",
 			articleScrapButton : "#articleScrapButton",
 			mainSearchButton : "#mainSearchButton",
-			mainPanel:"#mainPanel"
+			mainPanel : "#mainPanel",
+			registerKeywordButton : '#registerKeywordButton'
 		},
 
 		control : {
@@ -45,8 +46,10 @@ Ext.define('NewsHolder.controller.ButtonController', {
 
 	/** 왼쪽 상단의 홈 버튼을 눌렀을 때 */
 	homeButtonTap : function(button, event) {
-		var mainController = this.getApplication().getController("MainController");
-		var ArticleController = this.getApplication().getController("ArticleController");
+		var mainController = this.getApplication().getController(
+				"MainController");
+		var ArticleController = this.getApplication().getController(
+				"ArticleController");
 		mainController.getMainPanel().animateActiveItem(0, {
 			type : "slide",
 			direction : "right"
@@ -56,29 +59,34 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		ArticleController.getList().deselectAll();
 		mainController.getTitlebar().setTitle("SMART NEWS");
 		this.getMainSearchButton().show();
+		this.getRegisterKeywordButton().hide();
 	},
 
 	/** 기사 화면에서 오른쪽 상단의 스크랩 버튼을 눌렀을 때 */
 	articleScrapButtonTap : function(button, event) {
-		
+
 		var data = Ext.getCmp("articleContent")._data;
-		
 		var scrapDate = Date();
-		
-		var store = Ext.getStore('Scraps');
-		
-		if (store.find('title', data.title) > -1) { // 중복확인
-			Ext.Msg.alert('확인', '이미 저장되어 있습니다.');
-		} else {
-	        store.add({ 
-	        	title : data.title,
-	        	description : data.description ,
-	        	pubDate : data.pubDate,
-	        	scrapDate: scrapDate,
-	        	link: data.link
-        });
-        	store.sync();
-		}
+		var scrapStore = Ext.getStore('Scraps');
+
+		Ext.Msg.confirm('확인', '이 기사를 스크랩 하시겠습니까?', function(buttonId,
+				value, opt) {
+			if (buttonId == 'yes') {
+				if (scrapStore.find('title', data.title) > -1) { // 중복확인
+					Ext.Msg.alert('알림', '해당 기사가 이미 등록되어있습니다.', Ext.emptyFn);
+				} else {
+					scrapStore.add({
+						title : data.title,
+						description : data.description,
+						pubDate : data.pubDate,
+						scrapDate : scrapDate,
+						link : data.link
+					});
+					scrapStore.sync();
+					Ext.Msg.alert('알림', '스크랩이 완료되었습니다.', Ext.emptyFn);
+				}
+			}
+		}, this);
 	},
 
 	/** 오른쪽 상단의 검색 버튼을 눌렀을 때 */
@@ -86,16 +94,16 @@ Ext.define('NewsHolder.controller.ButtonController', {
 	mainSearchButtonTap : function(button, event) {
 		var mainController = this.getApplication().getController(
 				"MainController");
-		mainController.getMainPanel().animateActiveItem(
-				6, {
-					type : "slide",
-					direction : "left"
-				});
+		mainController.getMainPanel().animateActiveItem(6, {
+			type : "slide",
+			direction : "left"
+		});
 		mainController.getTitlebar().setTitle("키워드 검색");
 		this.getHomeButton().show();
 		this.getMainSearchButton().hide();
-		this.getApplication().getController("KeywordSearchController").resetModifiedComponent();
-		
+		this.getApplication().getController("KeywordSearchController")
+				.resetModifiedComponent();
+
 		localStorage.History_navigator = "Search";
 	},
 });

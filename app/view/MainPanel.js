@@ -88,6 +88,16 @@ Ext.define("NewsHolder.view.MainPanel", {
             	iconAlign:"right",
             	align:"right",
             	hidden:true,
+            },
+            {
+            	xtype:"button",
+            	id:"registerKeywordButton",
+            	text:"",
+            	iconCls:"bookmarks",
+            	iconMask:true,
+            	iconAlign:"right",
+            	align:"right",
+            	hidden:true,
             },{
             	xtype:"button",
             	id:'kgDetailAlarmButton',
