@@ -25,16 +25,14 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 			callback : function() {
 				console.log(store.data.length);
 				if (store.data.length <= 0) {
-					console.log("데이터가 없습니다.");
-				} else {
-					console.log("데이터가 있습니다.");
+					Ext.getCmp('keywordGroupList').setHtml('등록된 키워드가 없습니다.');
 				}
-
 			}
 		});
 	},
 
-	onKeywordGroupListItemTap : function(list, index, item, record, e) {		
+	onKeywordGroupListItemTap : function(list, index, item, record, e) {
+		
 		var animation = Ext.create('NewsHolder.util.ManagerController');
 		animation.onMoveSlideLeft(record.data.keywordName, Ext.getCmp('kgDetailPanel'));
 
