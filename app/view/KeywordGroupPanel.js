@@ -9,20 +9,6 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 			
 		},
 		items : [
-/*		         	{
-		         		xtype:'panel',
-		         		docked:'top',
-		         		items:[{
-		         			xtype:'button',
-		         			text:'button',
-		         			id:'keywordGroupId'
-		         			
-		         		},{
-		         			xtype:'textfield',
-		         			id:'keywordGroupText',
-		         			label:'text',
-		         		}]
-		         	},*/
 		            {
 		                xtype: 'dataview',
 		                id: 'keywordGroupList',
