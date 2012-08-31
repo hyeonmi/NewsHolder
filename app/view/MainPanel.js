@@ -127,11 +127,8 @@ Ext.define('NewsHolder.view.MainPanel', {
 			  			 		{
 									xtype : 'button',
 									id : 'mainRssAddBtn',
-									// text : 'RSS 추가',
+									text : 'RSS 추가',
 									cls:'buttonCSS',
-									tpl:'dddddd',
-									html:'RSS',
-									// pressedCls : 'buttonCSS'
 								},
 			  			 		{
 									xtype : 'button',
@@ -145,25 +142,24 @@ Ext.define('NewsHolder.view.MainPanel', {
 									text : '스크랩 모음',
 									cls:'buttonCSS',
 								},
-								{
-									xtype:'dataview',
-									id:'mainRssList',
-									flex : 2,
-									itemTpl : new Ext.XTemplate(
-									        '<div class="icon-item">'+
-												'<div class="icon-image">'+
-													'<img src="{mainRssImage}" />'+
-											    '</div>'+
-												'<div class="icon-title">{mainRssName}</div>'+
-									        '</div>'
-							    	),						
-								    	store:'mainStore',
-								}
 			        	 ]
 			        	 // button end
 			         },
-			         // 신문사 피드 아이콘을 기본 아이콘 아랫줄부터 나오게 하려면 mainRssList를 여기에 넣어야
-						// 함.
+			         
+			         {
+							xtype:'dataview',
+							id:'mainRssList',
+							flex : 2,
+							itemTpl : new Ext.XTemplate(
+							        '<div class="icon-item">'+
+										'<div class="icon-image">'+
+											'<img src="{mainRssImage}" />'+
+									    '</div>'+
+										'<div class="icon-title">{mainRssName}</div>'+
+							        '</div>'
+					    	),						
+						    	store:'mainStore',
+						}			         
 			]
 		},
 		
