@@ -8,6 +8,7 @@ Ext.define('NewsHolder.store.SearchResultStore', {
     config: {
         model: 'NewsHolder.model.SearchResult',
         storeId: 'searchResultStore',
+        clearOnPageLoad : false,
         proxy: {
             type: 'jsonp',
             url:'http://iamapark.cafe24.com/rssList/rssList.jsp', //수정해야됨
