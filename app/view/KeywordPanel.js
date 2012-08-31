@@ -3,7 +3,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 	xtype : 'keywordpanel',
 	id : 'keywordPanel',
 
-	requires : [ 'NewsHolder.view.ArticlePanel' ],
+	requires : [ 'NewsHolder.view.ArticlePanel' , 'Ext.plugin.ListPaging' ],
 
 	config : {
 		xtype : 'panel',
