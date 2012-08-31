@@ -11,9 +11,8 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 		            {
 		                xtype: 'dataview',
 		                id: 'keywordGroupList',
-		                itemId: 'keywordItem',
 		                itemTpl: [
-		                    '<div class="group-feed-widget">',
+		                    '<div class="group-feed-widget" id="keywordItemId">',
 		                    	'<div class="widget">',
 		                    		'<img src="{keywordImage}" class="x-icon-mask">',
 		                    	'</div>',

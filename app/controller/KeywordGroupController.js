@@ -11,25 +11,26 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		refs : {
 			keywordGroupList : "#keywordGroupList",
 		},
-
+		
 		control : {
 			keywordGroupList : {
 				itemtap : "onKeywordGroupListItemTap"
-			}
+					
+			},
+		
 		}
 	},
-
-//	launch : function(){
-//		console.log('waht??');
-//		var store = Ext.getStore("keywordGroupStore");
-//		store.load({
-//			callback : function() {
-//				if (store.data.length <= 0) {
-//					Ext.getCmp('keywordGroupList').setItemTpl('등록된 키워드가 없습니다.');
-//				}
-//			}
-//		});				
-//	},
+	
+	
+	init : function(){
+		var store = Ext.getStore("keywordGroupStore");
+		store.load({callback : function() {
+				if (store.data.length > 0) {
+					//this.getCmp('keywordGroupList').setItemTpl('등록된 키워드가 없습니다.');
+				}
+			}
+		});				
+	},
 
 	onKeywordGroupListItemTap : function(list, index, item, record, e) {
 		animation.onMoveSlideLeft(record.data.keywordName, 'kgDetailPanel',
