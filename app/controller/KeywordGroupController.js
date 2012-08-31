@@ -1,6 +1,11 @@
 Ext.define('NewsHolder.controller.KeywordGroupController', {
 	extend : 'Ext.app.Controller',
+	constructor : function(config) {
+		this.initConfig(config);
+		
 
+	},
+	
 	config : {
 		selectedKeyword : null,
 		refs : {
@@ -14,18 +19,17 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		}
 	},
 
-	init : function() {
-		var store = Ext.getStore("keywordGroupStore");
-
-		store.load({
-			callback : function() {
-				console.log(store.data.length);
-				if (store.data.length <= 0) {
-					this.getKeywordGroupList().setHtml('등록된 키워드가 없습니다.');
-				}
-			}
-		});
-	},
+//	launch : function(){
+//		console.log('waht??');
+//		var store = Ext.getStore("keywordGroupStore");
+//		store.load({
+//			callback : function() {
+//				if (store.data.length <= 0) {
+//					Ext.getCmp('keywordGroupList').setItemTpl('등록된 키워드가 없습니다.');
+//				}
+//			}
+//		});				
+//	},
 
 	onKeywordGroupListItemTap : function(list, index, item, record, e) {
 		animation.onMoveSlideLeft(record.data.keywordName, 'kgDetailPanel',
