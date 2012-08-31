@@ -61,7 +61,11 @@
             "update": "delta"
         },
         {
-            "path": "resources/css/button.css",
+            "path": "resources/css/icon.css",
+            "update": "delta"
+        },
+        {
+            "path": "resources/css/list.css",
             "update": "delta"
         },
     ],

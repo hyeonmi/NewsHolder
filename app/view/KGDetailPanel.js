@@ -10,15 +10,15 @@ Ext.define('NewsHolder.view.KGDetailPanel', {
 		items : [ {
 			xtype : 'list',
 			id : 'kgDetailList',
-			cls:"newsList",
+			cls : "newsList",
 			itemTpl : [ '<div class="articleTitle"/> </div>',
 					'<img src="{url}"/> {title}<br>' ],
-			store : 'searchResultStore'
+			store : 'kgResultStore',
+			plugins : [ {
+				xclass : 'Ext.plugin.ListPaging',
+				loadMoreText : '더 보기',
+				autoPaging : true
+			} ]
 		} ],
-/*		listeners : {
-			initialize : function() {
-				this.getApplication().getController("KGDetailController").setKeywordArticleList();
-			}
-		}*/
 	}
 });

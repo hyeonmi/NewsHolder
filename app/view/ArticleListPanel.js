@@ -22,7 +22,7 @@ Ext.define("NewsHolder.view.ArticleListPanel",{
 		        id:"articleList",
 		        itemTpl: [
 		            '<div class="articleTitle"/> </div>',
-	            	'<img src="{url}"/> <{title}><br>',
+	            	'<img src="{url}"/> {title}<br>',
 		        ],
 		        store: 'Feed',
 		        flex:1,

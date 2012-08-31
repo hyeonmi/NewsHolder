@@ -1,21 +1,25 @@
 Ext.define('NewsHolder.store.SearchResultStore', {
-    extend: 'Ext.data.Store',
+	extend : 'Ext.data.Store',
 
-    requires: [
-        'NewsHolder.model.SearchResult'
-    ],
+	requires : [ 'NewsHolder.model.SearchResult' ],
 
-    config: {
-        model: 'NewsHolder.model.SearchResult',
-        storeId: 'searchResultStore',
-        clearOnPageLoad : false,
-        proxy: {
-            type: 'jsonp',
-            url:'http://iamapark.cafe24.com/rssList/rssList.jsp', //수정해야됨
-            reader: {
-                type: 'json',
-                rootProperty: 'rss.channel.item'
-            }
-        }
-    }
+	config : {
+		model : 'NewsHolder.model.SearchResult',
+		storeId : 'searchResultStore',
+		proxy : {
+			type : 'jsonp',
+			url : 'http://iamapark.cafe24.com/rssList/rssList.jsp', // 수정해야됨
+			reader : {
+				type : 'json',
+				rootProperty : 'rss.channel.item'
+			}
+		},
+		listeners : {
+			beforeload : function() {
+				var kSController = NewsHolder.app
+						.getController('KeywordSearchController');
+				kSController.changeProxyUrl();
+			}
+		} 
+	}
 });

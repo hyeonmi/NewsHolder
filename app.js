@@ -2,12 +2,12 @@ Ext
 		.application({
 			name : 'NewsHolder',
 
-			requires : [ 'Ext.MessageBox' ],
+			requires : [ 'Ext.MessageBox', 'NewsHolder.util.ManagerController' ],
 			models : [ 'News', 'Rank', 'SearchResult', 'RssModel',
 					'MainModel', 'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
 			stores : [ 'Feed', 'RankStore', 'SearchResultStore',
 					'RssStore', 'MainStore', 'Scraps', 'RssServerStore',
-					'NewsPaperStore', 'KeywordGroupStore' ],
+					'NewsPaperStore', 'KeywordGroupStore', 'KGResultStore' ],
 			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
 					'KeywordPanel', 'ScrapPanel', 'RssPanel',
 					'KeywordGroupPanel', 'KGDetailPanel' ],
@@ -52,3 +52,4 @@ Ext
 								});
 			}
 		});
+

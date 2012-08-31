@@ -5,7 +5,7 @@
 	 * This is the name of your application, which is displayed on the device when the app is installed. On IOS, this should match
 	 * the name of your application in the Apple Provisioning Portal.
 	 */
-	"applicationName":"PickNews",
+	"applicationName":"NewsHolder",
 
 	/**
 	 * @cfg {String} applicationId
@@ -104,7 +104,7 @@
 	 * @cfg {String} sdkPath
 	 * This is the path to the Android SDK, if you are developing an Android application.
 	 */
-	"sdkPath":"c:/hybrid2/android-sdk",
+	"sdkPath":"D:/devp/android-sdk-windows",
 	
 	/**
 	 * @cfg  androidAPILevel
