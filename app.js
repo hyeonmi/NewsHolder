@@ -2,7 +2,7 @@ Ext
 		.application({
 			name : 'NewsHolder',
 
-			requires : [ 'Ext.MessageBox', 'NewsHolder.util.ManagerController' ],
+			requires : [ 'Ext.MessageBox', 'NewsHolder.util.ManagerController', 'NewsHolder.util.PushNotification'],
 			models : [ 'News', 'Rank', 'SearchResult', 'RssModel',
 					'MainModel', 'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
 			stores : [ 'Feed', 'RankStore', 'SearchResultStore',

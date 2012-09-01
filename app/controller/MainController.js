@@ -52,6 +52,7 @@ Ext.define('NewsHolder.controller.MainController', {
 	onMainScrapTap : function() {
 		animation.onMoveSlideLeft('스크랩 모음', 'scrapPanel', ['mainSearchButton'], ['homeButton']);
 		localStorage.History_navigator = "Scrap";
+		NewsHolder.util.PushNotification.push();
 	},
 
 	// 신문사 아이콘 Tap

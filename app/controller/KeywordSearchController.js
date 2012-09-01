@@ -3,7 +3,7 @@ Ext
 				'NewsHolder.controller.KeywordSearchController',
 				{
 					extend : 'Ext.app.Controller',
-					require : [ 'NewsHolder.util.ListPaging' ],
+					require : [ 'NewsHolder.util.ListPaging'],
 					config : {
 						startIndex : 1,
 						refs : {
@@ -151,6 +151,8 @@ Ext
 								.removeATag(record.data.description);
 						record.data.description = record.data.description
 								.replace("[이 시각 많이 본 뉴스]", "");
+						
+						console.log(record.data.description);
 						this.getArticleContent().setData(record.data);
 					}
 				});

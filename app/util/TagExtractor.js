@@ -13,23 +13,6 @@ Ext.define('NewsHolder.util.TagExtractor', {
 	},
 
 	extractImageTag : function(content) {
-		// 파라미터 값 tag가 description에 들어있는지를 검색
-		// 태그가 있으면 existTag를 true로 설정하고, 이미지가 있는 마지막 기사의 index를 tagNumber에 할당.
-		/*
-		 * for ( var i = 0; i < store.getData().length; i++) { if
-		 * (store.getData().items[i].data.description.match(tag)) { existTag =
-		 * true; tagNumber = i; } }
-		 * 
-		 * if (tag == "img" && existTag) {
-		 * 
-		 * var news = store.getData().items[tagNumber].data; var data = { url :
-		 * news.description.split('img src="')[1].split('"')[0], title :
-		 * news.title, }; controller.getNewsListTopImage().setData(data); } else {
-		 * console.log("이미지가 포함된 기사가 없으빈다..."); data = { url :
-		 * record.data.image_url, title :
-		 * store.getData().items[tagNumber].data.title, };
-		 * controller.getNewsListTopImage().setData(data); }
-		 */
 		var url=null;
 		if (content.match("img")!=null) {
 				 url=content.split('img src="')[1].split('"')[0];
