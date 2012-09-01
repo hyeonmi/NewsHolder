@@ -14,7 +14,9 @@ Ext.define("NewsHolder.view.ArticleListPanel",{
 		        id:"articleList",
 		        itemTpl: [
 		            '<div class="articleListCSS">',
-		            	'<div><img class="articleListImage" src="http://cfile23.uf.tistory.com/image/165DBA3C4D4D7A8131A3CB"/></div>',
+		            	'<tpl if="titleImage!=&quot;none&quot;">',
+		            		'<div><img class="articleListImage" src="{titleImage}"/></div>',
+		            	'</tpl>',
 		            	'<div class="articleListTitle">{title}</div>',
 		            	'<div class="articleListSummary">{summary}</div>',
 		            '</div>'

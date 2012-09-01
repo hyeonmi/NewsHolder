@@ -19,6 +19,12 @@ Ext.define('NewsHolder.model.News', {
             	mapping:'media_content.\attributes.url',   //@attribute에서 골뱅이 때문에 에러남!!
             	name: 'url',
             },
+            {
+            	name: 'titleImage'
+            },
+            {
+            	name: 'summary'
+            }
         ]
     }
 });
