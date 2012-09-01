@@ -16,26 +16,12 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 			items:[
 			   {
 				   xtype:"panel",
-				   layout:"hbox",
-				   items:[
-				     {
-				    	 xtype:"button",
-				    	 text:"글자(+)",
-				    	 id:"article_font_size_up"
-				     },
-				     {
-				    	 xtype:"button",
-				    	 text:"글자(-)",
-				    	 id:"article_font_size_down"
-				     }
-				   ],
-				   flex:0.1,
-			   },
-			   {
-				   xtype:"panel",
 					id:"articleContent",
 					tpl:[
-					   "<div id='mainArticleTitle'>{title}</div>",
+					   "<div id='mainArticleTitle'>" +
+					   	"{title}" +
+					   "</div>",
+					   "<div onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button'>크게+</div>", "<div onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button'>작게-</div></br>",
 					   "<div id='mainArticle' style='font-size:20px;'>{description}</div>",
 					],
 					styleHtmlContent:true,
@@ -94,6 +80,15 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 		}
 		
 	},
-	
-	
 });
+
+function font_size_buttonClick(size){
+	var article = Ext.getDom("mainArticle");
+	var current = parseInt(article.style.fontSize);
+	if(size=="bigger"){
+		current++;
+	}else{
+		current--;
+	}
+	article.style.fontSize = current + "px";
+};
