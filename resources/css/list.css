@@ -23,4 +23,12 @@
 
 .articleListCSS .articleListSummary{
 	text-align:center;
+	/* 요약문은 기사 제목과 다른 디자인을 적용할 것 */
+}
+
+.newsList .x-list-item{
+	border:1px solid;
+	margin-bottom:10px;
+	margin-left:3px;
+	margin-right:3px;
 }
