@@ -45,6 +45,7 @@ Ext.define('NewsHolder.controller.MainController', {
 	// 키워드 그룹 Tap
 	onMainKeywordGroupTap : function() {
 		animation.onMoveSlideLeft('키워드 모음', 'keywordGroupPanelId', ['mainSearchButton'], ['homeButton']);
+		localStorage.History_navigator = "Keyword";
 	},
 	
 	// 스크랩 Tap
@@ -60,5 +61,6 @@ Ext.define('NewsHolder.controller.MainController', {
 		var ArticleController = this.getApplication().getController(
 				'ArticleController');
 		ArticleController.refreshArticleList(record);
+		localStorage.History_navigator = "News";
 	},
 });

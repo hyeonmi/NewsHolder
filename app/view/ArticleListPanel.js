@@ -9,28 +9,18 @@ Ext.define("NewsHolder.view.ArticleListPanel",{
 		},
 		items:[
 	       {
-	    	   xtype:"panel",
-	    	   id:"articleListTopCarousel",
-	    	   flex:1,
-	    	   layout:{
-	    		   type:"fit",
-	    	   }
-	       },
-	       {
 				xtype:"list",
 				cls:"newsList",
 		        id:"articleList",
 		        itemTpl: [
-		            '<div class="articleTitle"/> </div>',
-	            	'<img src="{url}"/> {title}<br>',
+		            '<div class="articleListCSS">',
+		            	'<div><img class="articleListImage" src="http://cfile23.uf.tistory.com/image/165DBA3C4D4D7A8131A3CB"/></div>',
+		            	'<div class="articleListTitle">{title}</div>',
+		            	'<div class="articleListSummary">{summary}</div>',
+		            '</div>'
 		        ],
 		        store: 'Feed',
 		        flex:1,
-		        listeners:{
-		        	afterrender:function(){
-		        		console.log("afterrender");
-		        	}
-		        }
 			}
 		],
 	},

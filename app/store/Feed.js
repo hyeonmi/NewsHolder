@@ -6,7 +6,7 @@ Ext.define('NewsHolder.store.Feed', {
     ],
 
     config: {
-        autoLoad: true,
+        //autoLoad: true,
         model: 'NewsHolder.model.News',
         storeId: 'Feed',
         proxy: {

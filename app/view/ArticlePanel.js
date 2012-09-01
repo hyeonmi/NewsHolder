@@ -60,6 +60,9 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 						data = Ext.getStore("searchResultStore").data;
 					}else if(navi=="Scrap"){
 						data = Ext.getStore("Scraps").data;
+					}else if(navi=="Keyword"){
+						console.log("키워드에서 검색합니다.");
+						data = Ext.getStore("kgResultStore").data;
 					}
 					
 					var count = data.length;  //전체 기사가 총 몇 개인지 알려주는 변수
