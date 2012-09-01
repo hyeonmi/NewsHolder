@@ -710,11 +710,8 @@ foreach ($items as $key => $item) {
 	/*$aTagRemoveHtml = preg_replace("/<\\/?a(\\s+.*?>|>)/", "", $html);*/
 	$aTagRemoveHtml = preg_replace("/<[aA][^>]*>.*<\/[aA]>/", "", $html);
 
-	//button 태그를 지우는 부분
-	$buttonTagRemoveHtml = preg_replace("/<button .*<\/button>/", "", $aTagRemoveHtml);
-
 	//쓸데 없는 것들 지우는 메소드 garbageContentRemover
-	$garbageRemovedHtml=garbageContentRemover($buttonTagRemoveHtml);
+	$garbageRemovedHtml=garbageContentRemover($aTagRemoveHtml);
 	
 	//a태그를 지운 결과물인 $aTagRemoveHtml를 json 파일의 description 필드에 입력한다.
 	$newitem->setDescription($garbageRemovedHtml);
@@ -872,7 +869,7 @@ function garbageContentRemover($content){
 	$content = preg_replace("/\[많이 본 기사\]/", "", $content);
 	$content = preg_replace("/\[더스타 \]/", "", $content);
 	
-	//뉴데일리 신문기사 끝쪽에 태그 제거
+	 //뉴데일리 신문기사 끝쪽에 태그 제거
 	$content = preg_replace("/\"\);.*\(\"/s", "", $content);
 	
 	//이상한 잡지 태그 제거
@@ -887,6 +884,18 @@ function garbageContentRemover($content){
 	//br태그 제거
 	$content = preg_replace("/<br\/>/", "", $content);
 	$content = preg_replace("/<br clear=\"all\"\/>/", "", $content);
+	
+	//다음 뉴스 h태그 제거
+	$content = preg_replace("/<h.*\/h.>/", "", $content);
+	
+	//button 태그를 지우는 부분
+	$content = preg_replace("/<button.*<\/button>/", "", $content);
+	
+	//주석 제거
+	$content = preg_replace("/<!--[^>](.*?)-->/", "", $content);
+	
+	//개행 제거
+	$content = preg_replace("/\s\s\s/", "", $content);
 
 	return $content;
 }
