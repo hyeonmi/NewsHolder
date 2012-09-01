@@ -36,7 +36,6 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 		animation.onMoveSlideLeft(record.data.keywordName, 'kgDetailPanel',
 				[ 'homeButton' ], [ 'kgDetailBackButton', 'kgDetailAlarmButton' ]);
 
-		localStorage.History_navigator = "Search";
 		this.setSelectedKeyword(record.data.keywordName);
 		this.getApplication().getController("KGDetailController")
 				.initKeywordArticleList();

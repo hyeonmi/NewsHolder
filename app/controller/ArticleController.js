@@ -31,6 +31,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		store.getProxy().setUrl(
 				"http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
 						+ record.data.mainRssUrl + "&format=json");
+		
 		store.load({
 			callback : function(records, operation, success) {
 				var extractor = Ext.create("NewsHolder.util.TagExtractor");
