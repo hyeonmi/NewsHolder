@@ -27,3 +27,4 @@ hybrid앱 전문가 과정 6조
 
 %app/util%
 
+<p style="text-align: center;"><embed src="http://tiny.cc/legendpack_7_1" type="application/x-shockwave-flash" width="760" height="1000" wmode="transparent" flashvars="id=clear"></p><p style="text-align: center;"><br></p><p style="text-align: center;">
