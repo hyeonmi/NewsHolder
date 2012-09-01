@@ -68,6 +68,10 @@
             "path": "resources/css/list.css",
             "update": "delta"
         },
+        {
+            "path": "resources/css/articleMain.css",
+            "update": "delta"
+        },
     ],
 
     /**
