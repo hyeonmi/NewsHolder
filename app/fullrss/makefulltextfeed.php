@@ -674,9 +674,13 @@ foreach ($items as $key => $item) {
 			$newitem->addElement('guid', $item->get_permalink(), array('isPermaLink'=>'true'));
 		}
 		
+		//a태그를 지우는 부분
 		$aTagRemoveHtml = preg_replace("/<\\/?a(\\s+.*?>|>)/", "", $html); 
+		
+		//a태그를 지운 결과물인 $aTagRemoveHtml를 json 파일의 description 필드에 입력한다.
 		$newitem->setDescription($aTagRemoveHtml);
 
+		//img 태그를 찾아 url을 추출한 뒤, titleImage로 지정한다. 이미지가 없으면 none으로 지정한다.
 		$s = $aTagRemoveHtml;
 		if(strstr($s, "img src")){
 			preg_match("/<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/i",$s,$m); 
@@ -685,11 +689,12 @@ foreach ($items as $key => $item) {
 			$newitem->setTitleImageUrl('none');		
 		}
 		
+		//$aTagRemoveHtmlSummary은 기사 리스트에서 제목 밑에 요약문을 담기 위한 변수다. 첫번째 문장만 잘라낸 변수이다.
 			$aTagRemoveHtmlSummary = explode(".", $aTagRemoveHtml);
 			$newitem->setSummary($aTagRemoveHtmlSummary[0]);
 			
 			
-			
+			//해당 rss icon 이미지 주소를 badge라는 필드에 입력한다.
 			if($url=="http://media.daum.net/rss/today/primary/all/rss2.xml"){
 				$badgeImage="http://icon.daum-img.net/top/2010/logo_rss.gif";
 			}else if($url=="http://news.google.co.kr/news?pz=1&cf=all&ned=kr&hl=ko&topic=h&num=3&output=rss"){
