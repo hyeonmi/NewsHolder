@@ -121,23 +121,6 @@ Ext
 							centered : true
 						});
 						
-						
-
-						//store.getData().items[i].data.description.match(tag);
-							store.add(
-								mainRssName : rssname,
-								mainRssUrl : rssurl,
-								mainRssImage : rssimg);
-								
-								
-							store.sync();
-							
-							
-							
-							
-							
-							
-
 						searchResultStore.load({
 							callback : function() {
 								searchList.setMasked(false);

@@ -42,7 +42,7 @@ Ext.define('NewsHolder.view.KeywordPanel', {
 					id : 'searchList',
 					cls : 'newsList',
 					itemTpl : [ '<div class="articleTitle"/> </div>',
-							'<img src="{url}"/> {title}<br>' ],
+							'<img src="{titleImage}"/> {title}<br>' ],
 					hidden : true,
 					store : 'searchResultStore',
 					plugins : [ {

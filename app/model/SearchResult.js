@@ -16,7 +16,7 @@ Ext.define('NewsHolder.model.SearchResult', {
                 name: 'link'
             },
             {
-            	name:'imageUrl'
+            	name:'titleImage'
             }
         ]
     }
