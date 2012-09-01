@@ -18,11 +18,13 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 				   xtype:"panel",
 					id:"articleContent",
 					tpl:[
-					   "<div id='mainArticleTitle'>" +
-					   	"{title}" +
-					   "</div>",
-					   "<div onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button'>크게+</div>", "<div onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button'>작게-</div></br>",
-					   "<div id='mainArticle' style='font-size:20px;'>{description}</div>",
+					   /*"<div id='articleWrapper>",*/
+						   "<div id='mainArticleTitle'>",
+						   		"{title}",
+						   "</div>",
+						   "<div onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button'>크게+</div>", "<div onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button'>작게-</div></br>",
+						   "<div id='mainArticle' style='font-size:20px;'>{description}</div>",
+					   /*"</div>"*/
 					],
 					styleHtmlContent:true,
 					scrollable:true,

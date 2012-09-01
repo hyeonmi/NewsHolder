@@ -1,3 +1,7 @@
+#articleContent{
+	
+}
+
 #font_size_up_button{
 	float:right;
 	border:1px solid;
@@ -21,4 +25,10 @@
 #mainArticle img{
 	margin:0pt auto;
 	display:block;
+	width:80%;
+	height:400px;
+}
+
+#mainArticle{
+
 }
