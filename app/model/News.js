@@ -22,6 +22,9 @@ Ext.define('NewsHolder.model.News', {
             {
             	name: 'titleImage'
             },
+            {
+            	name: 'summary'
+            }
         ]
     }
 });

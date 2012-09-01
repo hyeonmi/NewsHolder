@@ -14,9 +14,13 @@
 
 .articleListCSS .articleListImage{
 	width:100%;
-	height:100px;
+	height:200px;
 }
 
 .articleListCSS .articleListTitle{
+	text-align:center;
+}
+
+.articleListCSS .articleListSummary{
 	text-align:center;
 }
