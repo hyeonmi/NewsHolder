@@ -715,7 +715,7 @@ foreach ($items as $key => $item) {
 
 	//쓸데 없는 것들 지우는 메소드 garbageContentRemover
 	$garbageRemovedHtml=garbageContentRemover($buttonTagRemoveHtml);
-
+	
 	//a태그를 지운 결과물인 $aTagRemoveHtml를 json 파일의 description 필드에 입력한다.
 	$newitem->setDescription($garbageRemovedHtml);
 
@@ -864,49 +864,46 @@ if ($options->caching) {
 
 //쓰레기를 없애자.
 function garbageContentRemover($content){
-	$content = preg_replace("/(\[오늘의 인기기사\])/", "", $content);
-	$content = preg_replace("/(\[리뷰스타 인기스타\])/", "", $content);
-	$content = preg_replace("/(\[이 시각 많이 본 기사\])/", "", $content);
-	$content = preg_replace("/(\[관련기사\])/", "", $content);
-	$content = preg_replace("/(\[주요기사\])/", "", $content);
-	$content = preg_replace("/(\[많이 본 기사\])/", "", $content);
-	$content = preg_replace("/(\[더스타 \])/", "", $content);
-	$content = preg_replace("/<table .*<\/table>/", "", $content);
+	$content = preg_replace("/\[오늘의 인기기사\]/", "", $content);
+	$content = preg_replace("/\[리뷰스타 인기스타\]/", "", $content);
+	$content = preg_replace("/\[이 시각 많이 본 기사\]/", "", $content);
+	$content = preg_replace("/\[관련기사\]/", "", $content);
+	$content = preg_replace("/\[주요기사\]/", "", $content);
+	$content = preg_replace("/\[많이 본 기사\]/", "", $content);
+	$content = preg_replace("/\[더스타 \]/", "", $content);
+	
+	//뉴데일리 신문기사 끝쪽에 태그 제거
+	$content = preg_replace("/\"\);.*\(\"/s", "", $content);
+	
+	//이상한 잡지 태그 제거
+	$content = preg_replace("/<table .*<\/table>/s", "", $content);
+	
+	//다음쪽 태그 제거
 	$content = preg_replace("/<embed .*<\/embed>/", "", $content);
 	
+	//세계일보 바로가기랑 괄호 붙는 부분 제거
+	$content = preg_replace("/▶ 바로가기.*<\/p>/", "", $content);
 	
+	//br태그 제거
+	$content = preg_replace("/<br\/>/", "", $content);
+	$content = preg_replace("/<br clear=\"all\"\/>/", "", $content);
+
 	return $content;
 }
 /* <embed src="http://api.v.daum.net/static/recombox2_newscp.swf?nurl=http%3A%2F%2Fwww.ukopia.com%2FukoCommon%2F%3Fpage_code%3Dread%26uid%3D149111&amp;xml_url=http%3A%2F%2Fwww.ukopia.com%2Fsend%2Farticle_send_daum.php%3Fuid%3D149111&amp;channel=world" quality="high" bgcolor="#ffffff" width="400" height="80" type="application/x-shockwave-flash"></embed> */
 
 /*
  * <p>");&#13;
-			if (title != null &amp;&amp; title.length &gt; 1) {&#13;
-				if (title.indexOf('▲') == -1) {&#13;
-					title = '▲' + title;&#13;
-				}&#13;
-				$(this).after("</p> 
- */
-/*
- <table width="520" border="0" cellpadding="0" cellspacing="0" class="bdrps5" readability="3"><tr readability="6"><td bgcolor="#262626">
-<!-- &#53440;&#51060;&#53952; &#49884;&#51089; -->
-<!-- &#53440;&#51060;&#53952; &#45149; --><p align="center">
-<!-- &#53360; &#49324;&#51652; &#49884;&#51089; -->
-<img src="http://img.bntnews.hankyung.com/bntdata/images/photo/201208/0c0ef6d1edc9c4b422062b7776e2ead7.jpg" onclick="javascript:photoPopupOpen(201208141857473,'slide');"/><!-- &#53360; &#49324;&#51652; &#45149; --><!-- &#51060;&#48120;&#51648; &#49444;&#47749; &#49884;&#51089; --></p><table width="520 0" border="0" cellpadding="0" cellspacing="0" readability="2.5"><tr height="1" bgcolor="#464646"><td/></tr><tr readability="5"><td background="/img/bg_photoslide_gr01.gif" bgcolor="#2D2D2D">
-<table width="442" border="0" cellpadding="0" cellspacing="0" readability="2.5"><tr valign="top" readability="8.5"><td readability="10">
-<p class="news_ps02">[화보] 깜찍 발랄한 캐주얼 스타일링 공개!
-</p><p class="news_ps he18">&#13;
-[윤희나 기자] 국내 대표 여성복 쇼핑몰 스타일난다가 깜찍 발랄한 캐주얼 화보를 공개했다. &#13;
-&#13;
-이번 화보에서는 베이직한 티셔츠와 팬츠, 스커트를 활용한 내추럴한 캐...
-</p></td>
-</tr></table></td>
-</tr><tr height="1" bgcolor="#262626"><td/></tr></table><!-- &#51060;&#48120;&#51648; &#49444;&#47749; &#45149; --></td>
-</tr></table> */
+if (title != null &amp;&amp; title.length &gt; 1) {&#13;
+if (title.indexOf('▲') == -1) {&#13;
+title = '▲' + title;&#13;
+}&#13;
+$(this).after("</p>
+		*/
 
-///////////////////////////////
-// HELPER FUNCTIONS
-///////////////////////////////
+		///////////////////////////////
+		// HELPER FUNCTIONS
+		///////////////////////////////
 
 function url_allowed($url) {
 	global $options;
