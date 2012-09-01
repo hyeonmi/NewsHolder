@@ -9,7 +9,7 @@
 // Help: http://help.fivefilters.org
 
 /*
-This program is free software: you can redistribute it and/or modify
+ This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
@@ -42,30 +42,30 @@ set_include_path(realpath(dirname(__FILE__).'/libraries').PATH_SEPARATOR.get_inc
 // needed. If we've got a cached copy, for example, only Zend_Cache is loaded.
 function autoload($class_name) {
 	static $mapping = array(
-		// Include SimplePie for RSS/Atom parsing
-	//	'SimplePie' => 'simplepie/simplepie.class.php',
-	//	'SimplePie_Misc' => 'simplepie/simplepie.class.php',	
-	//	'SimplePie_HTTP_Parser' => 'simplepie/simplepie.class.php',
-	//	'SimplePie_File' => 'simplepie/simplepie.class.php',
-		// Include FeedCreator for RSS/Atom creation
-		'FeedWriter' => 'feedwriter/FeedWriter.php',
-		'FeedItem' => 'feedwriter/FeedItem.php',
-		// Include ContentExtractor and Readability for identifying and extracting content from URLs
-		'ContentExtractor' => 'content-extractor/ContentExtractor.php',
-		'SiteConfig' => 'content-extractor/SiteConfig.php',
-		'Readability' => 'readability/Readability.php',
-		// Include Humble HTTP Agent to allow parallel requests and response caching
-		'HumbleHttpAgent' => 'humble-http-agent/HumbleHttpAgent.php',
-		'SimplePie_HumbleHttpAgent' => 'humble-http-agent/SimplePie_HumbleHttpAgent.php',
-		'CookieJar' => 'humble-http-agent/CookieJar.php',
-		// Include IRI class for resolving relative URLs
-	//	'IRI' => 'iri/iri.php',
-		// Include Zend Cache to improve performance (cache results)
-		'Zend_Cache' => 'Zend/Cache.php',
-		// Include Zend CSS to XPath for dealing with custom patterns
-		'Zend_Dom_Query_Css2Xpath' => 'Zend/Dom/Query/Css2Xpath.php',
-		// Language detect
-		'Text_LanguageDetect' => 'language-detect/LanguageDetect.php'
+			// Include SimplePie for RSS/Atom parsing
+			//	'SimplePie' => 'simplepie/simplepie.class.php',
+			//	'SimplePie_Misc' => 'simplepie/simplepie.class.php',
+			//	'SimplePie_HTTP_Parser' => 'simplepie/simplepie.class.php',
+			//	'SimplePie_File' => 'simplepie/simplepie.class.php',
+			// Include FeedCreator for RSS/Atom creation
+			'FeedWriter' => 'feedwriter/FeedWriter.php',
+			'FeedItem' => 'feedwriter/FeedItem.php',
+			// Include ContentExtractor and Readability for identifying and extracting content from URLs
+			'ContentExtractor' => 'content-extractor/ContentExtractor.php',
+			'SiteConfig' => 'content-extractor/SiteConfig.php',
+			'Readability' => 'readability/Readability.php',
+			// Include Humble HTTP Agent to allow parallel requests and response caching
+			'HumbleHttpAgent' => 'humble-http-agent/HumbleHttpAgent.php',
+			'SimplePie_HumbleHttpAgent' => 'humble-http-agent/SimplePie_HumbleHttpAgent.php',
+			'CookieJar' => 'humble-http-agent/CookieJar.php',
+			// Include IRI class for resolving relative URLs
+			//	'IRI' => 'iri/iri.php',
+			// Include Zend Cache to improve performance (cache results)
+			'Zend_Cache' => 'Zend/Cache.php',
+			// Include Zend CSS to XPath for dealing with custom patterns
+			'Zend_Dom_Query_Css2Xpath' => 'Zend/Dom/Query/Css2Xpath.php',
+			// Language detect
+			'Text_LanguageDetect' => 'language-detect/LanguageDetect.php'
 	);
 	if (isset($mapping[$class_name])) {
 		//echo "Loading $class_name\n<br />";
@@ -99,15 +99,15 @@ header('X-Robots-Tag: noindex, nofollow');
 ////////////////////////////////
 // Check if service is enabled
 ////////////////////////////////
-if (!$options->enabled) { 
-	die('The full-text RSS service is currently disabled'); 
+if (!$options->enabled) {
+	die('The full-text RSS service is currently disabled');
 }
 
 ////////////////////////////////
 // Check for feed URL
 ////////////////////////////////
-if (!isset($_GET['url'])) { 
-	die('No URL supplied'); 
+if (!isset($_GET['url'])) {
+	die('No URL supplied');
 }
 $url = trim($_GET['url']);
 if (strtolower(substr($url, 0, 7)) == 'feed://') {
@@ -171,7 +171,7 @@ if (isset($_GET['key']) && ($key_index = array_search($_GET['key'], $options->ap
 
 ///////////////////////////////////////////////
 // Set timezone.
-// Prevents warnings, but needs more testing - 
+// Prevents warnings, but needs more testing -
 // perhaps if timezone is set in php.ini we
 // don't need to set it at all...
 ///////////////////////////////////////////////
@@ -193,7 +193,7 @@ if (isset($_GET['key']) && isset($_GET['hash']) && isset($options->api_keys[(int
 }
 $key_index = ($valid_key) ? (int)$_GET['key'] : 0;
 if (!$valid_key && $options->key_required) {
-	die('A valid key must be supplied'); 
+	die('A valid key must be supplied');
 }
 if (!$valid_key && isset($_GET['key']) && $_GET['key'] != '') {
 	die('The entered key is invalid');
@@ -258,12 +258,12 @@ if ((string)$options->detect_language == 'user') {
 
 if ($detect_language >= 2) {
 	$language_codes = array('albanian' => 'sq','arabic' => 'ar','azeri' => 'az','bengali' => 'bn','bulgarian' => 'bg',
-	'cebuano' => 'ceb', // ISO 639-2
-	'croatian' => 'hr','czech' => 'cs','danish' => 'da','dutch' => 'nl','english' => 'en','estonian' => 'et','farsi' => 'fa','finnish' => 'fi','french' => 'fr','german' => 'de','hausa' => 'ha',
-	'hawaiian' => 'haw', // ISO 639-2 
-	'hindi' => 'hi','hungarian' => 'hu','icelandic' => 'is','indonesian' => 'id','italian' => 'it','kazakh' => 'kk','kyrgyz' => 'ky','latin' => 'la','latvian' => 'lv','lithuanian' => 'lt','macedonian' => 'mk','mongolian' => 'mn','nepali' => 'ne','norwegian' => 'no','pashto' => 'ps',
-	'pidgin' => 'cpe', // ISO 639-2  
-	'polish' => 'pl','portuguese' => 'pt','romanian' => 'ro','russian' => 'ru','serbian' => 'sr','slovak' => 'sk','slovene' => 'sl','somali' => 'so','spanish' => 'es','swahili' => 'sw','swedish' => 'sv','tagalog' => 'tl','turkish' => 'tr','ukrainian' => 'uk','urdu' => 'ur','uzbek' => 'uz','vietnamese' => 'vi','welsh' => 'cy');
+			'cebuano' => 'ceb', // ISO 639-2
+			'croatian' => 'hr','czech' => 'cs','danish' => 'da','dutch' => 'nl','english' => 'en','estonian' => 'et','farsi' => 'fa','finnish' => 'fi','french' => 'fr','german' => 'de','hausa' => 'ha',
+			'hawaiian' => 'haw', // ISO 639-2
+			'hindi' => 'hi','hungarian' => 'hu','icelandic' => 'is','indonesian' => 'id','italian' => 'it','kazakh' => 'kk','kyrgyz' => 'ky','latin' => 'la','latvian' => 'lv','lithuanian' => 'lt','macedonian' => 'mk','mongolian' => 'mn','nepali' => 'ne','norwegian' => 'no','pashto' => 'ps',
+			'pidgin' => 'cpe', // ISO 639-2
+			'polish' => 'pl','portuguese' => 'pt','romanian' => 'ro','russian' => 'ru','serbian' => 'sr','slovak' => 'sk','slovene' => 'sl','somali' => 'so','spanish' => 'es','swahili' => 'sw','swedish' => 'sv','tagalog' => 'tl','turkish' => 'tr','ukrainian' => 'uk','urdu' => 'ur','uzbek' => 'uz','vietnamese' => 'vi','welsh' => 'cy');
 }
 $use_cld = extension_loaded('cld') && (version_compare(PHP_VERSION, '5.3.0') >= 0);
 
@@ -317,27 +317,27 @@ if (isset($_GET['format']) && $_GET['format'] == 'json') {
 //////////////////////////////////
 if ($options->caching) {
 	$frontendOptions = array(
-	   'lifetime' => ($valid_key || !$options->restrict) ? 10*60 : 20*60, // cache lifetime of 10 or 20 minutes
-	   'automatic_serialization' => false,
-	   'write_control' => false,
-	   'automatic_cleaning_factor' => $options->cache_cleanup,
-	   'ignore_user_abort' => false
+			'lifetime' => ($valid_key || !$options->restrict) ? 10*60 : 20*60, // cache lifetime of 10 or 20 minutes
+			'automatic_serialization' => false,
+			'write_control' => false,
+			'automatic_cleaning_factor' => $options->cache_cleanup,
+			'ignore_user_abort' => false
 	);
 	$backendOptions = array(
-		'cache_dir' => ($valid_key) ? $options->cache_dir.'/rss-with-key/' : $options->cache_dir.'/rss/', // directory where to put the cache files
-		'file_locking' => false,
-		'read_control' => true,
-		'read_control_type' => 'strlen',
-		'hashed_directory_level' => $options->cache_directory_level,
-		'hashed_directory_umask' => 0777,
-		'cache_file_umask' => 0664,
-		'file_name_prefix' => 'ff'
+			'cache_dir' => ($valid_key) ? $options->cache_dir.'/rss-with-key/' : $options->cache_dir.'/rss/', // directory where to put the cache files
+			'file_locking' => false,
+			'read_control' => true,
+			'read_control_type' => 'strlen',
+			'hashed_directory_level' => $options->cache_directory_level,
+			'hashed_directory_umask' => 0777,
+			'cache_file_umask' => 0664,
+			'file_name_prefix' => 'ff'
 	);
 
 	// getting a Zend_Cache_Core object
 	$cache = Zend_Cache::factory('Core', 'File', $frontendOptions, $backendOptions);
 	$cache_id = md5($max.$url.$valid_key.$links.$exclude_on_fail.$auto_extract.$extract_pattern.$format.(int)isset($_GET['l']).(int)isset($_GET['pubsub']));
-	
+
 	if ($data = $cache->load($cache_id)) {
 		if ($format == 'json') {
 			header("Content-type: application/json; charset=UTF-8");
@@ -345,7 +345,7 @@ if ($options->caching) {
 			header("Content-type: text/xml; charset=UTF-8");
 		}
 		if (headers_sent()) die('Some data has already been output, can\'t send RSS file');
-		
+
 		echo $data;
 		exit;
 	}
@@ -375,15 +375,15 @@ $extractor = new ContentExtractor(dirname(__FILE__).'/site_config/custom', dirna
 $extractor->fingerprints = $options->fingerprints;
 
 /*
-if ($options->caching) {
-	$frontendOptions = array(
-	   'lifetime' => 30*60, // cache lifetime of 30 minutes
-	   'automatic_serialization' => true,
-	   'write_control' => false,
-	   'automatic_cleaning_factor' => $options->cache_cleanup,
-	   'ignore_user_abort' => false
-	); 
-	$backendOptions = array(
+ if ($options->caching) {
+$frontendOptions = array(
+		'lifetime' => 30*60, // cache lifetime of 30 minutes
+		'automatic_serialization' => true,
+		'write_control' => false,
+		'automatic_cleaning_factor' => $options->cache_cleanup,
+		'ignore_user_abort' => false
+);
+$backendOptions = array(
 		'cache_dir' => $options->cache_dir.'/http-responses/', // directory where to put the cache files
 		'file_locking' => false,
 		'read_control' => true,
@@ -392,9 +392,9 @@ if ($options->caching) {
 		'hashed_directory_umask' => 0777,
 		'cache_file_umask' => 0664,
 		'file_name_prefix' => 'ff'
-	);
-	$httpCache = Zend_Cache::factory('Core', 'File', $frontendOptions, $backendOptions);
-	$http->useCache($httpCache);
+);
+$httpCache = Zend_Cache::factory('Core', 'File', $frontendOptions, $backendOptions);
+$http->useCache($httpCache);
 }
 */
 
@@ -442,25 +442,57 @@ if ($html_only || !$result) {
 	// create single item dummy feed object
 	class DummySingleItemFeed {
 		public $item;
-		function __construct($url) { $this->item = new DummySingleItem($url); }
-		public function get_title() { return ''; }
-		public function get_description() { return 'Content extracted from '.$this->item->url; }
-		public function get_link() { return $this->item->url; }
-		public function get_language() { return false; }
-		public function get_image_url() { return false; }
-		public function get_items($start=0, $max=1) { return array(0=>$this->item); }
+		function __construct($url) {
+			$this->item = new DummySingleItem($url);
+		}
+		public function get_title() {
+			return '';
+		}
+		public function get_description() {
+			return 'Content extracted from '.$this->item->url;
+		}
+		public function get_link() {
+			return $this->item->url;
+		}
+		public function get_language() {
+			return false;
+		}
+		public function get_image_url() {
+			return false;
+		}
+		public function get_items($start=0, $max=1) {
+			return array(0=>$this->item);
+		}
 	}
 	class DummySingleItem {
 		public $url;
-		function __construct($url) { $this->url = $url; }
-		public function get_permalink() { return $this->url; }
-		public function get_title() { return ''; }
-		public function get_date($format='') { return false; }
-		public function get_author($key=0) { return null; }
-		public function get_authors() { return null; }
-		public function get_description() { return ''; }
-		public function get_enclosure($key=0, $prefer=null) { return null; }
-		public function get_enclosures() { return null; }
+		function __construct($url) {
+			$this->url = $url;
+		}
+		public function get_permalink() {
+			return $this->url;
+		}
+		public function get_title() {
+			return '';
+		}
+		public function get_date($format='') {
+			return false;
+		}
+		public function get_author($key=0) {
+			return null;
+		}
+		public function get_authors() {
+			return null;
+		}
+		public function get_description() {
+			return '';
+		}
+		public function get_enclosure($key=0, $prefer=null) {
+			return null;
+		}
+		public function get_enclosures() {
+			return null;
+		}
 	}
 	$feed = new DummySingleItemFeed($url);
 }
@@ -482,16 +514,16 @@ if ($img_url = $feed->get_image_url()) {
 	$output->setImage($feed->get_title(), $feed->get_link(), $img_url);
 }
 /*
-if ($format == 'atom') {
-	$output->setChannelElement('updated', date(DATE_ATOM));
-	$output->setChannelElement('author', array('name'=>'Five Filters', 'uri'=>'http://fivefilters.org'));
+ if ($format == 'atom') {
+$output->setChannelElement('updated', date(DATE_ATOM));
+$output->setChannelElement('author', array('name'=>'Five Filters', 'uri'=>'http://fivefilters.org'));
 }
 */
 
 ////////////////////////////////////////////
 // Loop through feed items
 ////////////////////////////////////////////
-$items = $feed->get_items(0, $max);	
+$items = $feed->get_items(0, $max);
 // Request all feed items in parallel (if supported)
 $urls_sanitized = array();
 $urls = array();
@@ -576,7 +608,7 @@ foreach ($items as $key => $item) {
 				if ($single_page_response = getSinglePage($item, $html, $effective_url)) {
 					$html = $single_page_response['body'];
 					// remove strange things
-					$html = str_replace('</[>', '', $html);	
+					$html = str_replace('</[>', '', $html);
 					$html = convert_to_utf8($html, $single_page_response['headers']);
 					$effective_url = $single_page_response['effective_url'];
 					unset($single_page_response);
@@ -598,13 +630,13 @@ foreach ($items as $key => $item) {
 			$output->setTitle($title);
 			$newitem->setTitle($title);
 		}
-		if ($do_content_extraction) {		
+		if ($do_content_extraction) {
 			if ($extract_pattern && isset($content_block)) {
 				$xpath = new DOMXPath($readability->dom);
 				$elems = @$xpath->query($extract_pattern, $content_block);
 				// check if our custom extraction pattern matched
 				if ($elems && $elems->length > 0) {
-					$extract_result = true;				
+					$extract_result = true;
 					// get the first matched element
 					$content_block = $elems->item(0);
 					// clean it up
@@ -654,152 +686,159 @@ foreach ($items as $key => $item) {
 				$html = make_substitutions($options->message_to_prepend).$html;
 				$html .= make_substitutions($options->message_to_append);
 			} else {
-				$html = make_substitutions($options->message_to_prepend_with_key).$html;	
+				$html = make_substitutions($options->message_to_prepend_with_key).$html;
 				$html .= make_substitutions($options->message_to_append_with_key);
 			}
 		}
 	}
 	/*
-	if ($format == 'atom') {
-		$newitem->addElement('content', $html);
-		$newitem->setDate((int)$item->get_date('U'));
-		if ($author = $item->get_author()) {
-			$newitem->addElement('author', array('name'=>$author->get_name()));
-		}
-	} else { 
+	 if ($format == 'atom') {
+	$newitem->addElement('content', $html);
+	$newitem->setDate((int)$item->get_date('U'));
+	if ($author = $item->get_author()) {
+	$newitem->addElement('author', array('name'=>$author->get_name()));
+	}
+	} else {
 	*/
-		if ($valid_key && isset($_GET['pubsub'])) { // used only on fivefilters.org at the moment
-			$newitem->addElement('guid', 'http://fivefilters.org/content-only/redirect.php?url='.urlencode($item->get_permalink()), array('isPermaLink'=>'false'));
-		} else {
-			$newitem->addElement('guid', $item->get_permalink(), array('isPermaLink'=>'true'));
-		}
-		
-		//a태그를 지우는 부분
-		$aTagRemoveHtml = preg_replace("/<\\/?a(\\s+.*?>|>)/", "", $html); 
-		
-		//a태그를 지운 결과물인 $aTagRemoveHtml를 json 파일의 description 필드에 입력한다.
-		$newitem->setDescription($aTagRemoveHtml);
+	if ($valid_key && isset($_GET['pubsub'])) { // used only on fivefilters.org at the moment
+		$newitem->addElement('guid', 'http://fivefilters.org/content-only/redirect.php?url='.urlencode($item->get_permalink()), array('isPermaLink'=>'false'));
+	} else {
+		$newitem->addElement('guid', $item->get_permalink(), array('isPermaLink'=>'true'));
+	}
 
-		//img 태그를 찾아 url을 추출한 뒤, titleImage로 지정한다. 이미지가 없으면 none으로 지정한다.
-		$s = $aTagRemoveHtml;
-		if(strstr($s, "img")){
-			preg_match("/<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/i",$s,$m); 
-			$newitem->setTitleImageUrl($m[1]);			
-		}else{
-			$newitem->setTitleImageUrl('none');		
+	//a태그를 지우는 부분 (아래 것이 a태그를 지울 뿐 아니라 그 안에 있는 내용까지 다 지움)
+	/*$aTagRemoveHtml = preg_replace("/<\\/?a(\\s+.*?>|>)/", "", $html);*/
+	$aTagRemoveHtml = preg_replace("/<[aA][^>]*>.*<\/[aA]>/", "", $html);
+
+	//button 태그를 지우는 부분
+	$buttonTagRemoveHtml = preg_replace("/<button .*<\/button>/", "", $aTagRemoveHtml);
+
+	//쓸데 없는 것들 지우는 메소드 garbageContentRemover
+	$garbageRemovedHtml=garbageContentRemover($buttonTagRemoveHtml);
+
+	//a태그를 지운 결과물인 $aTagRemoveHtml를 json 파일의 description 필드에 입력한다.
+	$newitem->setDescription($garbageRemovedHtml);
+
+	//img 태그를 찾아 url을 추출한 뒤, titleImage로 지정한다. 이미지가 없으면 none으로 지정한다.
+	$s = $garbageRemovedHtml;
+	if(strstr($s, "img")){
+		preg_match("/<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/i",$s,$m);
+		$newitem->setTitleImageUrl($m[1]);
+	}else{
+		$newitem->setTitleImageUrl('none');
+	}
+
+	//$aTagRemoveHtmlSummary은 기사 리스트에서 제목 밑에 요약문을 담기 위한 변수다. 첫번째 문장만 잘라낸 변수이다.
+	$aTagRemoveHtmlSummary = explode(".", $garbageRemovedHtml);
+	$newitem->setSummary($aTagRemoveHtmlSummary[0]);
+
+
+	//해당 rss icon 이미지 주소를 badge라는 필드에 입력한다.
+	if($url=="http://media.daum.net/rss/today/primary/all/rss2.xml"){
+		$badgeImage="http://icon.daum-img.net/top/2010/logo_rss.gif";
+	}else if($url=="http://news.google.co.kr/news?pz=1&cf=all&ned=kr&hl=ko&topic=h&num=3&output=rss"){
+		$badgeImage="http://www.gstatic.com/news/img/logo/ko_kr/news.gif";
+	}else if($url=="http://www.hani.co.kr/rss/"){
+		$badgeImage="http://img.hani.co.kr/section-image/12/news/hani/images/com/logo.gif";
+	}else if($url=="http://www.khan.co.kr/rss/rssdata/total_news.xml"){
+		$badgeImage="http://img.khan.co.kr/spko/main_2011/logo.gif";
+	}else if($url=="http://imnews.imbc.com/rss/news/news_00.xml"){
+		$badgeImage="http://img.imnews.imbc.com/images/gnbimg/logo_mbc.jpg";
+	}
+
+
+	$newitem->setBadge($badgeImage);
+
+	// set date
+	if ((int)$item->get_date('U') > 0) {
+		$newitem->setDate((int)$item->get_date('U'));
+	} elseif ($extractor->getDate()) {
+		$newitem->setDate($extractor->getDate());
+	}
+
+	// add authors
+	if ($authors = $item->get_authors()) {
+		foreach ($authors as $author) {
+			$newitem->addElement('dc:creator', $author->get_name());
 		}
-		
-		//$aTagRemoveHtmlSummary은 기사 리스트에서 제목 밑에 요약문을 담기 위한 변수다. 첫번째 문장만 잘라낸 변수이다.
-			$aTagRemoveHtmlSummary = explode(".", $aTagRemoveHtml);
-			$newitem->setSummary($aTagRemoveHtmlSummary[0]);
-			
-			
-			//해당 rss icon 이미지 주소를 badge라는 필드에 입력한다.
-			if($url=="http://media.daum.net/rss/today/primary/all/rss2.xml"){
-				$badgeImage="http://icon.daum-img.net/top/2010/logo_rss.gif";
-			}else if($url=="http://news.google.co.kr/news?pz=1&cf=all&ned=kr&hl=ko&topic=h&num=3&output=rss"){
-				$badgeImage="http://www.gstatic.com/news/img/logo/ko_kr/news.gif";
-			}else if($url=="http://www.hani.co.kr/rss/"){
-				$badgeImage="http://img.hani.co.kr/section-image/12/news/hani/images/com/logo.gif";
-			}else if($url=="http://www.khan.co.kr/rss/rssdata/total_news.xml"){
-				$badgeImage="http://img.khan.co.kr/spko/main_2011/logo.gif";
-			}else if($url=="http://imnews.imbc.com/rss/news/news_00.xml"){
-				$badgeImage="http://img.imnews.imbc.com/images/gnbimg/logo_mbc.jpg";
-			}
-			
-			
-			$newitem->setBadge($badgeImage);		
-		
-		// set date
-		if ((int)$item->get_date('U') > 0) {
-			$newitem->setDate((int)$item->get_date('U'));
-		} elseif ($extractor->getDate()) {
-			$newitem->setDate($extractor->getDate());
+	} elseif ($authors = $extractor->getAuthors()) {
+		//TODO: make sure the list size is reasonable
+		foreach ($authors as $author) {
+			//TODO: addElement replaces this element each time
+			$newitem->addElement('dc:creator', $author);
 		}
-		
-		// add authors
-		if ($authors = $item->get_authors()) {
-			foreach ($authors as $author) {
-				$newitem->addElement('dc:creator', $author->get_name());
-			}
-		} elseif ($authors = $extractor->getAuthors()) {
-			//TODO: make sure the list size is reasonable
-			foreach ($authors as $author) {
-				//TODO: addElement replaces this element each time
-				$newitem->addElement('dc:creator', $author);
-			}
-		}
-		
-		// add language
-		if ($detect_language) {
-			$language = $extractor->getLanguage();
-			if (!$language) $language = $feed->get_language();
-			if (($detect_language == 3 || (!$language && $detect_language == 2)) && $text_sample) {
-				try {
-					if ($use_cld) {
-						// Use PHP-CLD extension
-						$php_cld = 'CLD\detect'; // in quotes to prevent PHP 5.2 parse error
-						$res = $php_cld($text_sample);
-						if (is_array($res) && count($res) > 0) {
-							$language = $res[0]['code'];
-						}	
-					} else {
-						//die('what');
-						// Use PEAR's Text_LanguageDetect
-						if (!isset($l))	{
-							$l = new Text_LanguageDetect('libraries/language-detect/lang.dat', 'libraries/language-detect/unicode_blocks.dat');
-						}
-						$l_result = $l->detect($text_sample, 1);
-						if (count($l_result) > 0) {
-							$language = $language_codes[key($l_result)];
-						}
+	}
+
+	// add language
+	if ($detect_language) {
+		$language = $extractor->getLanguage();
+		if (!$language) $language = $feed->get_language();
+		if (($detect_language == 3 || (!$language && $detect_language == 2)) && $text_sample) {
+			try {
+				if ($use_cld) {
+					// Use PHP-CLD extension
+					$php_cld = 'CLD\detect'; // in quotes to prevent PHP 5.2 parse error
+					$res = $php_cld($text_sample);
+					if (is_array($res) && count($res) > 0) {
+						$language = $res[0]['code'];
 					}
-				} catch (Exception $e) {
-					//die('error: '.$e);	
-					// do nothing
+				} else {
+					//die('what');
+					// Use PEAR's Text_LanguageDetect
+					if (!isset($l))	{
+						$l = new Text_LanguageDetect('libraries/language-detect/lang.dat', 'libraries/language-detect/unicode_blocks.dat');
+					}
+					$l_result = $l->detect($text_sample, 1);
+					if (count($l_result) > 0) {
+						$language = $language_codes[key($l_result)];
+					}
 				}
-			}
-			if ($language && (strlen($language) < 7)) {	
-				$newitem->addElement('dc:language', $language);
-			}
-		}
-		
-		// add MIME type (if it appeared in our exclusions lists)
-		if (isset($type)) $newitem->addElement('dc:format', $type);
-		// add effective URL (URL after redirects)
-		if (isset($effective_url)) {
-			//TODO: ensure $effective_url is valid witout - sometimes it causes problems, e.g.
-			//http://www.siasat.pk/forum/showthread.php?108883-Pakistan-Chowk-by-Rana-Mubashir-�-25th-March-2012-Special-Program-from-Liari-(Karachi)
-			//temporary measure: use utf8_encode()
-			$newitem->addElement('dc:identifier', remove_url_cruft(utf8_encode($effective_url)));
-		} else {
-			$newitem->addElement('dc:identifier', remove_url_cruft($item->get_permalink()));
-		}
-		// check for enclosures
-		if ($options->keep_enclosures) {
-			if ($enclosures = $item->get_enclosures()) {
-				foreach ($enclosures as $enclosure) {
-					if (!$enclosure->get_link()) continue;
-					$enc = array();
-					// Media RSS spec ($enc): http://search.yahoo.com/mrss
-					// SimplePie methods ($enclosure): http://simplepie.org/wiki/reference/start#methods4
-					$enc['url'] = $enclosure->get_link();
-					if ($enclosure->get_length()) $enc['fileSize'] = $enclosure->get_length();
-					if ($enclosure->get_type()) $enc['type'] = $enclosure->get_type();
-					if ($enclosure->get_medium()) $enc['medium'] = $enclosure->get_medium();
-					if ($enclosure->get_expression()) $enc['expression'] = $enclosure->get_expression();
-					if ($enclosure->get_bitrate()) $enc['bitrate'] = $enclosure->get_bitrate();
-					if ($enclosure->get_framerate()) $enc['framerate'] = $enclosure->get_framerate();
-					if ($enclosure->get_sampling_rate()) $enc['samplingrate'] = $enclosure->get_sampling_rate();
-					if ($enclosure->get_channels()) $enc['channels'] = $enclosure->get_channels();
-					if ($enclosure->get_duration()) $enc['duration'] = $enclosure->get_duration();
-					if ($enclosure->get_height()) $enc['height'] = $enclosure->get_height();
-					if ($enclosure->get_width()) $enc['width'] = $enclosure->get_width();
-					if ($enclosure->get_language()) $enc['lang'] = $enclosure->get_language();
-					$newitem->addElement('media:content', '', $enc);
-				}
+			} catch (Exception $e) {
+				//die('error: '.$e);
+				// do nothing
 			}
 		}
+		if ($language && (strlen($language) < 7)) {
+			$newitem->addElement('dc:language', $language);
+		}
+	}
+
+	// add MIME type (if it appeared in our exclusions lists)
+	if (isset($type)) $newitem->addElement('dc:format', $type);
+	// add effective URL (URL after redirects)
+	if (isset($effective_url)) {
+		//TODO: ensure $effective_url is valid witout - sometimes it causes problems, e.g.
+		//http://www.siasat.pk/forum/showthread.php?108883-Pakistan-Chowk-by-Rana-Mubashir-�-25th-March-2012-Special-Program-from-Liari-(Karachi)
+		//temporary measure: use utf8_encode()
+		$newitem->addElement('dc:identifier', remove_url_cruft(utf8_encode($effective_url)));
+	} else {
+		$newitem->addElement('dc:identifier', remove_url_cruft($item->get_permalink()));
+	}
+	// check for enclosures
+	if ($options->keep_enclosures) {
+		if ($enclosures = $item->get_enclosures()) {
+			foreach ($enclosures as $enclosure) {
+				if (!$enclosure->get_link()) continue;
+				$enc = array();
+				// Media RSS spec ($enc): http://search.yahoo.com/mrss
+				// SimplePie methods ($enclosure): http://simplepie.org/wiki/reference/start#methods4
+				$enc['url'] = $enclosure->get_link();
+				if ($enclosure->get_length()) $enc['fileSize'] = $enclosure->get_length();
+				if ($enclosure->get_type()) $enc['type'] = $enclosure->get_type();
+				if ($enclosure->get_medium()) $enc['medium'] = $enclosure->get_medium();
+				if ($enclosure->get_expression()) $enc['expression'] = $enclosure->get_expression();
+				if ($enclosure->get_bitrate()) $enc['bitrate'] = $enclosure->get_bitrate();
+				if ($enclosure->get_framerate()) $enc['framerate'] = $enclosure->get_framerate();
+				if ($enclosure->get_sampling_rate()) $enc['samplingrate'] = $enclosure->get_sampling_rate();
+				if ($enclosure->get_channels()) $enc['channels'] = $enclosure->get_channels();
+				if ($enclosure->get_duration()) $enc['duration'] = $enclosure->get_duration();
+				if ($enclosure->get_height()) $enc['height'] = $enclosure->get_height();
+				if ($enclosure->get_width()) $enc['width'] = $enclosure->get_width();
+				if ($enclosure->get_language()) $enc['lang'] = $enclosure->get_language();
+				$newitem->addElement('media:content', '', $enc);
+			}
+		}
+	}
 	/* } */
 	$output->addItem($newitem);
 	unset($html);
@@ -820,8 +859,50 @@ if ($options->caching) {
 	}
 	echo $output;
 } else {
-   $output->genarateFeed();
+	$output->genarateFeed();
 }
+
+//쓰레기를 없애자.
+function garbageContentRemover($content){
+	$content = preg_replace("/(\[오늘의 인기기사\])/", "", $content);
+	$content = preg_replace("/(\[리뷰스타 인기스타\])/", "", $content);
+	$content = preg_replace("/(\[이 시각 많이 본 기사\])/", "", $content);
+	$content = preg_replace("/(\[관련기사\])/", "", $content);
+	$content = preg_replace("/(\[주요기사\])/", "", $content);
+	$content = preg_replace("/(\[많이 본 기사\])/", "", $content);
+	$content = preg_replace("/(\[더스타 \])/", "", $content);
+	$content = preg_replace("/<table .*<\/table>/", "", $content);
+	$content = preg_replace("/<embed .*<\/embed>/", "", $content);
+	
+	
+	return $content;
+}
+/* <embed src="http://api.v.daum.net/static/recombox2_newscp.swf?nurl=http%3A%2F%2Fwww.ukopia.com%2FukoCommon%2F%3Fpage_code%3Dread%26uid%3D149111&amp;xml_url=http%3A%2F%2Fwww.ukopia.com%2Fsend%2Farticle_send_daum.php%3Fuid%3D149111&amp;channel=world" quality="high" bgcolor="#ffffff" width="400" height="80" type="application/x-shockwave-flash"></embed> */
+
+/*
+ * <p>");&#13;
+			if (title != null &amp;&amp; title.length &gt; 1) {&#13;
+				if (title.indexOf('▲') == -1) {&#13;
+					title = '▲' + title;&#13;
+				}&#13;
+				$(this).after("</p> 
+ */
+/*
+ <table width="520" border="0" cellpadding="0" cellspacing="0" class="bdrps5" readability="3"><tr readability="6"><td bgcolor="#262626">
+<!-- &#53440;&#51060;&#53952; &#49884;&#51089; -->
+<!-- &#53440;&#51060;&#53952; &#45149; --><p align="center">
+<!-- &#53360; &#49324;&#51652; &#49884;&#51089; -->
+<img src="http://img.bntnews.hankyung.com/bntdata/images/photo/201208/0c0ef6d1edc9c4b422062b7776e2ead7.jpg" onclick="javascript:photoPopupOpen(201208141857473,'slide');"/><!-- &#53360; &#49324;&#51652; &#45149; --><!-- &#51060;&#48120;&#51648; &#49444;&#47749; &#49884;&#51089; --></p><table width="520 0" border="0" cellpadding="0" cellspacing="0" readability="2.5"><tr height="1" bgcolor="#464646"><td/></tr><tr readability="5"><td background="/img/bg_photoslide_gr01.gif" bgcolor="#2D2D2D">
+<table width="442" border="0" cellpadding="0" cellspacing="0" readability="2.5"><tr valign="top" readability="8.5"><td readability="10">
+<p class="news_ps02">[화보] 깜찍 발랄한 캐주얼 스타일링 공개!
+</p><p class="news_ps he18">&#13;
+[윤희나 기자] 국내 대표 여성복 쇼핑몰 스타일난다가 깜찍 발랄한 캐주얼 화보를 공개했다. &#13;
+&#13;
+이번 화보에서는 베이직한 티셔츠와 팬츠, 스커트를 활용한 내추럴한 캐...
+</p></td>
+</tr></table></td>
+</tr><tr height="1" bgcolor="#262626"><td/></tr></table><!-- &#51060;&#48120;&#51648; &#49444;&#47749; &#45149; --></td>
+</tr></table> */
 
 ///////////////////////////////
 // HELPER FUNCTIONS
@@ -914,18 +995,18 @@ function convert_to_utf8($html, $header=null)
 			$trans[chr(156)] = '&oelig;';    // Latin Small Ligature OE
 			$trans[chr(159)] = '&Yuml;';    // Latin Capital Letter Y With Diaeresis
 			$html = strtr($html, $trans);
-		}			
+		}
 		if (!$encoding) {
 			$encoding = 'utf-8';
 		} else {
 			if (strtolower($encoding) != 'utf-8') {
 				$html = SimplePie_Misc::change_encoding($html, $encoding, 'utf-8');
 				/*
-				if (function_exists('iconv')) {
-					// iconv appears to handle certain character encodings better than mb_convert_encoding
-					$html = iconv($encoding, 'utf-8', $html);
+				 if (function_exists('iconv')) {
+				// iconv appears to handle certain character encodings better than mb_convert_encoding
+				$html = iconv($encoding, 'utf-8', $html);
 				} else {
-					$html = mb_convert_encoding($html, 'utf-8', $encoding);
+				$html = mb_convert_encoding($html, 'utf-8', $encoding);
 				}
 				*/
 			}
@@ -951,7 +1032,7 @@ function makeAbsolute($base, $elem) {
 }
 function makeAbsoluteAttr($base, $e, $attr) {
 	if ($e->hasAttribute($attr)) {
-		// Trim leading and trailing white space. I don't really like this but 
+		// Trim leading and trailing white space. I don't really like this but
 		// unfortunately it does appear on some sites. e.g.  <img src=" /path/to/image.jpg" />
 		$url = trim(str_replace('%20', ' ', $e->getAttribute($attr)));
 		$url = str_replace(' ', '%20', $url);

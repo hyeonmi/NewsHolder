@@ -138,20 +138,10 @@ Ext
 
 					onSearchListItemTap : function(dataview, index, target,
 							record, e, options) {
-						var extractor = Ext
-								.create('NewsHolder.util.TagExtractor');
-
 						animation.onMoveSlideLeft('키워드 검색', 'articlePanel', [
 								'homeButton', 'registerKeywordButton' ], [
 								'searchBackButton', 'articleScrapButton' ]);
 
-						record.data.description = extractor
-								.removeButtonTag(record.data.description);
-						record.data.description = extractor
-								.removeATag(record.data.description);
-						record.data.description = record.data.description
-								.replace("[이 시각 많이 본 뉴스]", "");
-						
 						console.log(record.data.description);
 						this.getArticleContent().setData(record.data);
 					}
