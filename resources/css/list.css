@@ -14,11 +14,13 @@
 
 .articleListCSS .articleListTitle{
 	text-align:center;
+	font-weight:bold;
+	font-size:120%;
 }
 
 .articleListCSS .articleListSummary{
 	text-align:center;
-	/* 요약문은 기사 제목과 다른 디자인을 적용할 것 */
+		font-size:95%;
 }
 
 .newsList .x-list-item{
