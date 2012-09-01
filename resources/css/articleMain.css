@@ -1,0 +1,24 @@
+#font_size_up_button{
+	float:right;
+	border:1px solid;
+	padding:3px;
+	margin-left:5px;
+	margin-top:3px;
+}
+
+#font_size_down_button{
+	float:right;
+	border:1px solid;
+	padding:3px;
+	margin-top:3px;
+}
+
+#mainArticleTitle{
+	font-size:2.2em;
+	border-bottom:solid 1px;
+}
+
+#mainArticle img{
+	margin:0pt auto;
+	display:block;
+}
