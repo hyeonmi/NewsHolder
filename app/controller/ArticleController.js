@@ -3,11 +3,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
 
 	requires : [ 'NewsHolder.util.TagExtractor', ],
 
-	launch : function() {
-		this.getArticleContent().on('swipe', this.onSwipe);
-		console.log("swipe이벤트 등록");
-	},
-
 	config : {
 		refs : {
 			list : '#articleList',
@@ -24,10 +19,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			}
 		}
 
-	},
-
-	onSwipe : function(event) {
-		console.log("swipe");
 	},
 
 	onArticleBackButtonTap : function(button, e, options) {
@@ -49,7 +40,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
 					records[i].data.description = extractor
 							.removeATag(records[i].data.description);
 				}
-				extractor.extractTag("img src", store, this, record);
 			},
 			scope : this
 		});
