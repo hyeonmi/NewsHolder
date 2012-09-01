@@ -120,9 +120,23 @@ Ext
 							xtype : 'loadmask',
 							centered : true
 						});
+						
+						
 
-						// 그림 빼기(작업 중)
-						// store.getData().items[i].data.description.match(tag);
+						//store.getData().items[i].data.description.match(tag);
+							store.add(
+								mainRssName : rssname,
+								mainRssUrl : rssurl,
+								mainRssImage : rssimg);
+								
+								
+							store.sync();
+							
+							
+							
+							
+							
+							
 
 						searchResultStore.load({
 							callback : function() {
