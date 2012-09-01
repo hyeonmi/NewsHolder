@@ -682,7 +682,7 @@ foreach ($items as $key => $item) {
 
 		//img 태그를 찾아 url을 추출한 뒤, titleImage로 지정한다. 이미지가 없으면 none으로 지정한다.
 		$s = $aTagRemoveHtml;
-		if(strstr($s, "img src")){
+		if(strstr($s, "img")){
 			preg_match("/<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>/i",$s,$m); 
 			$newitem->setTitleImageUrl($m[1]);			
 		}else{
