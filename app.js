@@ -6,7 +6,7 @@ Ext
 			models : [ 'News', 'Rank', 'SearchResult', 'RssModel',
 					'MainModel', 'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
 			stores : [ 'Feed', 'RankStore', 'SearchResultStore',
-					'RssStore', 'MainStore', 'Scraps', 'RssServerStore',
+					'RssStore', 'MainStore', 'Scraps', 'RssServerStore', 'Test',
 					'NewsPaperStore', 'KeywordGroupStore', 'KGResultStore' ],
 			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
 					'KeywordPanel', 'ScrapPanel', 'RssPanel',
@@ -38,6 +38,9 @@ Ext
 
 				// Initialize the main view
 				Ext.Viewport.add(Ext.create('NewsHolder.view.MainPanel'));
+				
+				
+				
 			},
 
 			onUpdated : function() {

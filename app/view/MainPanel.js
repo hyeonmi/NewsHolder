@@ -142,6 +142,12 @@ Ext.define('NewsHolder.view.MainPanel', {
 									text : '스크랩 모음',
 									cls:'buttonCSS',
 								},
+								{
+									xtype : 'button',
+									id : 'testButton',
+									text : '테스트',
+									cls:'buttonCSS',
+								},
 			        	 ]
 			        	 // button end
 			         },
@@ -156,10 +162,11 @@ Ext.define('NewsHolder.view.MainPanel', {
 											'<img src="{mainRssImage}" />'+
 									    '</div>'+
 										'<div class="icon-title">{mainRssName}</div>'+
+										'<div class="icon-badge">{numOfEntry}</div>'+
 							        '</div>'
 					    	),						
 						    	store:'mainStore',
-						}			         
+					 }		         
 			]
 		},
 		

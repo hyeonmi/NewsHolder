@@ -15,6 +15,16 @@ Ext.define('NewsHolder.store.MainStore', {
         proxy: {
             type: 'localstorage',
             id: 'mainProxy'
+        }, 
+        
+        listeners:{
+        	updaterecord:{
+        		fn:function(store, record, newIndex, oldIndex, names, values, eOpts){
+        			console.log("데이터 변경!!!");
+        		},
+        		
+        		element:"element"
+        	}
         }
     }
 });

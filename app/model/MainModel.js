@@ -10,9 +10,9 @@ Ext.define('NewsHolder.model.MainModel', {
     	},
     	
         fields: [
-                 {
-                	 name : 'id'
-                 },
+                {
+                	name: 'id'
+                },
 	            {
 	                name: 'mainRssName'
 	            },
@@ -21,6 +21,15 @@ Ext.define('NewsHolder.model.MainModel', {
 	            },
 	            {
 	                name: 'mainRssImage'
+	            },
+	            {
+	            	name: 'lastAccessDate'
+	            },
+	            {
+	            	name: 'numOfEntry'
+	            },
+	            {
+	            	name: 'proxyId'
 	            }
         ]
     }

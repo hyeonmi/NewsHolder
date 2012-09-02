@@ -26,6 +26,11 @@ Ext.define("NewsHolder.view.ArticleListPanel",{
 		        ],
 		        store: 'Feed',
 		        flex:1,
+		        plugins : [ {
+					xclass : 'Ext.plugin.ListPaging',
+					loadMoreText : '더 보기',
+					autoPaging : true
+				} ]
 			}
 		],
 	},

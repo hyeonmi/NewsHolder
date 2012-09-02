@@ -20,6 +20,6 @@ Ext.define('NewsHolder.store.SearchResultStore', {
 						.getController('KeywordSearchController');
 				kSController.changeProxyUrl();
 			}
-		} 
+		}
 	}
 });

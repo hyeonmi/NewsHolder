@@ -7,6 +7,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			homeButton : "#homeButton",
 			articleScrapButton : "#articleScrapButton",
 			mainSearchButton : "#mainSearchButton",
+			testButton : "#testButton",
 		},
 
 		control : {
@@ -25,6 +26,45 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			mainSearchButton : {
 				tap : "mainSearchButtonTap",
 			},
+			testButton : {
+				tap : "testButtonTap"
+			}
+		}
+	},
+	
+	testButtonTap : function(button, event){
+		var testStore = Ext.getStore('Test');
+		var mainStore = Ext.getStore("mainStore");
+		var mainData = mainStore.getData();
+		
+		for(var i=0; i<mainData.items.length; i++){
+			testStore.getProxy().setUrl(
+					"http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
+							+ mainData.items[i].data.mainRssUrl + "&format=json&lastAccessDate=" + mainData.items[i].data.lastAccessDate + "&id=" + mainData.items[i].data.id); 
+			
+			testStore.load({
+				callback : function(records, operation, success) {
+					
+					var localStorageProxy = Ext.create("Ext.data.proxy.LocalStorage",{
+						id:"mainProxy",
+						reader:{
+							type:"json"
+						}
+					});
+					
+					var item = mainStore.findRecord('id', records[0].data.proxyId);
+					console.log(item);
+					item.data.lastAccessDate = records[0].data.lastAccessDate;
+					item.data.numOfEntry = records[0].data.numOfEntry;
+					item.setProxy(localStorageProxy);
+					item.phantom = false;
+					item.setDirty();
+					item.save();
+					var json = JSON.parse(localStorage["mainProxy-"+records[0].data.proxyId]);
+					console.log(json);
+				},
+				scope : this
+			});
 		}
 	},
 
