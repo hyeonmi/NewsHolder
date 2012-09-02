@@ -1,4 +1,6 @@
 <?php
+include 'ChromePhp.php';
+
 // Create Full-Text Feeds
 // Author: Keyvan Minoukadeh
 // Copyright (c) 2012 Keyvan Minoukadeh
@@ -35,6 +37,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set("display_errors", 1);
 @set_time_limit(120);
+$date = array();
+$lastAccessDate = ($_GET['lastAccessDate']);
+$proxyId = ($_GET['id']);
+$count = 0;
+
 
 // set include path
 set_include_path(realpath(dirname(__FILE__).'/libraries').PATH_SEPARATOR.get_include_path());
@@ -552,6 +559,9 @@ foreach ($items as $key => $item) {
 	$permalink = $urls[$key];
 	$newitem = $output->createNewItem();
 	$newitem->setTitle(htmlspecialchars_decode($item->get_title()));
+	
+	
+	
 	if ($valid_key && isset($_GET['pubsub'])) { // used only on fivefilters.org at the moment
 		if ($permalink !== false) {
 			$newitem->setLink('http://fivefilters.org/content-only/redirect.php?url='.urlencode($permalink));
@@ -715,6 +725,7 @@ foreach ($items as $key => $item) {
 	
 	//a태그를 지운 결과물인 $aTagRemoveHtml를 json 파일의 description 필드에 입력한다.
 	$newitem->setDescription($garbageRemovedHtml);
+	
 
 	//img 태그를 찾아 url을 추출한 뒤, titleImage로 지정한다. 이미지가 없으면 none으로 지정한다.
 	$s = $garbageRemovedHtml;
@@ -752,7 +763,9 @@ foreach ($items as $key => $item) {
 	} elseif ($extractor->getDate()) {
 		$newitem->setDate($extractor->getDate());
 	}
-
+	
+	
+	
 	// add authors
 	if ($authors = $item->get_authors()) {
 		foreach ($authors as $author) {
@@ -839,9 +852,27 @@ foreach ($items as $key => $item) {
 	/* } */
 	$output->addItem($newitem);
 	unset($html);
+	
+	$date[$item_count] = (int)$item->get_date('U');
+	
+	if((int)$item->get_date('U')>$lastAccessDate){
+		$count++;
+	}
+	
 	$item_count++;
 }
 
+	$output->setNumOfEntry($count);
+	$output->setLastAccessDate($date[0]);
+	$output->setProxyId($proxyId);
+	
+	//ChromePhp::log($count);
+	//ChromePhp::log(time());
+	     // 단말기 메인 화면 아이콘 뱃지에 넣을 숫자. 최신 기사가 몇 개 등록되었는지를 알려준다.
+	//date("Y-m-d H:i:s",$date[0])   => time()형식을 첫번째 매개변수 형식으로 변환
+	//$lastAccessDate   => 단말기에 저장되어 있는 기사 중 가장 최신 기사가 등록된 날짜. 이 날짜를 기준으로 판별하게 됨. ex:1346557983
+	ChromePhp::log(date("Y-m-d H:i:s",1346564767)); 
+	
 // output feed
 if ($format == 'json') $output->setFormat(JSON);
 if ($options->caching) {
