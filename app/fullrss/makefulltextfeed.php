@@ -915,9 +915,11 @@ function garbageContentRemover($content){
 	//br태그 제거
 	$content = preg_replace("/<br\/>/", "", $content);
 	$content = preg_replace("/<br clear=\"all\"\/>/", "", $content);
+	$content = preg_replace("/<b.*<\/b>/s", "", $content);
 	
-	//다음 뉴스 h태그 제거
+	//다음 뉴스 h태그 제거, 한겨레도 추가
 	$content = preg_replace("/<h.*\/h.>/", "", $content);
+	$content = preg_replace("/<\/?h[0-9]>/", "", $content);
 	
 	//button 태그를 지우는 부분
 	$content = preg_replace("/<button.*<\/button>/", "", $content);
