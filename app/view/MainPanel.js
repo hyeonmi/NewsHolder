@@ -158,12 +158,14 @@ Ext.define('NewsHolder.view.MainPanel', {
 							flex : 2,
 							itemTpl : new Ext.XTemplate(
 							        '<div class="icon-item">'+
-										'<div class="icon-image">'+
-											'<img src="{mainRssImage}" />'+
-									    '</div>'+
-										'<div class="icon-title">{mainRssName}</div>'+
+//										'<div class="icon-image">'+
+//											'<img src="{mainRssImage}" />'+
+//									    '</div>'+
+							        '<div class="icon-text-box">'+
+										'<div class="icon-text">{mainRssName}</div>'+
 										'<div class="icon-badge">{numOfEntry}</div>'+
-							        '</div>'
+							        '</div>'+
+									'</div>'
 					    	),						
 						    	store:'mainStore',
 					 }		         
