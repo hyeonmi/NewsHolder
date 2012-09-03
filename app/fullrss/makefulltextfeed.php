@@ -734,9 +734,11 @@ foreach ($items as $key => $item) {
 		$newitem->setTitleImageUrl('none');
 	}
 
-	//$aTagRemoveHtmlSummary은 기사 리스트에서 제목 밑에 요약문을 담기 위한 변수다. 첫번째 문장만 잘라낸 변수이다.
-	$aTagRemoveHtmlSummary = explode(".", $garbageRemovedHtml);
-	$newitem->setSummary($aTagRemoveHtmlSummary[0]);
+	//removeHtmlSummary은 기사 리스트에서 제목 밑에 요약문을 담기 위한 변수다. 첫번째 문장만 잘라낸 변수이다.
+	//substr은 한글을 구별 못하고 null값을 반환한다. 그러므로 mb_substr을 이용하면 한글도 처리할 수 있다. mb_substr은 php 4.0 이상에서 지원한다.
+	$removeHtmlSummary = mb_substr($garbageRemovedHtml, 0, 100, 'UTF-8');
+	$removeHtmlSummary=strip_tags($removeHtmlSummary, "<br><p>");
+	$newitem->setSummary($removeHtmlSummary);
 
 
 	//해당 rss icon 이미지 주소를 badge라는 필드에 입력한다.
@@ -899,6 +901,8 @@ function garbageContentRemover($content){
 	$content = preg_replace("/\[더스타 \]/", "", $content);
 	$content = preg_replace("/\[리뷰스타 인기기사\]/", "", $content);
 	$content = preg_replace("/&lt;한겨레 인기기사.*/s", "", $content);
+	$content = preg_replace("/▶ 관련포토갤러리 ◀/", "", $content);
+	
 	
 	//a태그를 지우는 부분 (아래 것이 a태그를 지울 뿐 아니라 그 안에 있는 내용까지 다 지움)
 	$content = preg_replace("/<[Aa].*?>.*?<\/[Aa]>/", "", $content);
@@ -922,6 +926,9 @@ function garbageContentRemover($content){
 	//span태그 제거
 	$content = preg_replace("/<\/?span.*?>/", "", $content);
 	
+	//b태그 제거
+	$content = preg_replace("/<\/?b>/", "", $content);
+	
 	
 	//br태그 제거
 	//$content = preg_replace("/<br\/>/", "", $content);
@@ -930,8 +937,8 @@ function garbageContentRemover($content){
 	/*$content = preg_replace("/<br./>/", "", $content);*/
 	
 	//다음 뉴스 h태그 제거, 한겨레도 추가
-	$content = preg_replace("/<h.*\/h.>/", "", $content);
-	$content = preg_replace("/<\/?h[0-9]\/?>/", "", $content);
+	$content = preg_replace("/<\/?h.*?>/", "", $content);
+	/*$content = preg_replace("/<\/?h[0-9]\/?>/", "", $content);*/
 	
 	//button 태그를 지우는 부분
 	$content = preg_replace("/<button.*?<\/button>/", "", $content);
@@ -940,7 +947,7 @@ function garbageContentRemover($content){
 	$content = preg_replace("/<!--[^>](.*?)-->/", "", $content);
 	
 	//div태그 제거
-	$content = preg_replace("/<\/?div.*>/", "", $content);
+	$content = preg_replace("/<\/?div.*?>/", "", $content);
 	
 	//개행 제거
 	$content = preg_replace("/\s\s\s/", "", $content);
