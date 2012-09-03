@@ -10,7 +10,7 @@ Ext
 					'NewsPaperStore', 'KeywordGroupStore', 'KGResultStore' ],
 			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
 					'KeywordPanel', 'ScrapPanel', 'RssPanel',
-					'KeywordGroupPanel', 'KGDetailPanel' ],
+					'KeywordGroupPanel', 'KGDetailPanel', 'MainCarousel' ],
 			controllers : [ 'MainController', 'KeywordSearchController',
 					'RssController', 'ButtonController', 'ScrapController',
 					'ArticleController', 'KeywordGroupController', 'KGDetailController' ],

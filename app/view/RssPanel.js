@@ -26,23 +26,12 @@ Ext.define('NewsHolder.view.RssPanel', {
 			    			},
 			    			
 			    			items : [
-//			    				        {
-//			    				            xtype: 'textfield',
-//			    				            id: 'rssNameText',
-//			    				            label: 'RSS 명',
-//			    				            	
-//			    				        },
 			    				        {
 			    				        	xtype: 'textfield',
 			    				        	id: 'rssUrlText',
 			    				        	label: 'RSS 주소'
 			    				        },
-//			    				        {
-//			    				        	xtype: 'textfield',
-//			    				        	id: 'rssImageText',
-//			    				        	label: 'RSS 이미지 주소'
-//			    				        },			    			         
-//			    			         
+		    			         			    			         
 			    			         ]
 			            },
 			            {
@@ -61,10 +50,12 @@ Ext.define('NewsHolder.view.RssPanel', {
                 itemId: 'mydataview',
                 itemTpl: [
                     '<div class="icon-item">',
-                    	'<div class="icon-image">',
-                    		'<img src="{rssImage}">',
-                    	'</div>',
-                    '<div class="icon-title">{rssName}</div>',
+//                    	'<div class="icon-image">',
+//                    		'<img src="{rssImage}">',
+//                    	'</div>',
+                    '<div class="icon-text-box">',
+                    '<div class="icon-text">{rssName}</div>',
+                    '</div>',
                     '</div>',
                     
                     

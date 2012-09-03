@@ -8,25 +8,27 @@
 	border : 0px;
 }
 
+
 .icon-item {
-	margin: 5px;
-	box-shadow: 2px 1px 2px #888;
-	width: 100px;
-	height: 75px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#820202), to(#b30606));
+	margin: 3px;
+	width: 151px;
+	height: 163px;
 	float: left;
+	vertical-align: bottom;
 }
 
-.icon-image>img { /*border-radius : 6px;*/
-	width: 100px;
-	height: 50px;
+.icon-text-box{
+	height : 61px;
+	width : 151px;
+	background : #222222;
+	opacity: 0.5;	
 }
 
-.icon-title {
-	font-size: 10pt;
+.icon-text {
+	font-size: 1em;
 	font-weight: bold;
+	color : #ffffff;
+	opacity: 1.0;	
 	text-align: center;
-}
-
-.icon-badge{
-	
 }
