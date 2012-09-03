@@ -901,6 +901,8 @@ function garbageContentRemover($content){
 	$content = preg_replace("/\[주요기사\]/", "", $content);
 	$content = preg_replace("/\[많이 본 기사\]/", "", $content);
 	$content = preg_replace("/\[더스타 \]/", "", $content);
+	$content = preg_replace("/\[리뷰스타 인기기사\]/", "", $content);
+	//$content = preg_replace("/\▶ 관련기사 \◀/", "", $content);
 	
 	 //뉴데일리 신문기사 끝쪽에 태그 제거
 	$content = preg_replace("/\"\);.*\(\"/s", "", $content);
@@ -915,9 +917,10 @@ function garbageContentRemover($content){
 	$content = preg_replace("/▶ 바로가기.*<\/p>/", "", $content);
 	
 	//br태그 제거
-	$content = preg_replace("/<br\/>/", "", $content);
-	$content = preg_replace("/<br clear=\"all\"\/>/", "", $content);
+	//$content = preg_replace("/<br\/>/", "", $content);
+	//$content = preg_replace("/<br clear=\"all\"\/>/", "", $content);
 	$content = preg_replace("/<b.*<\/b>/s", "", $content);
+	//$content = preg_replace("/<br./>/", "", $content);
 	
 	//다음 뉴스 h태그 제거, 한겨레도 추가
 	$content = preg_replace("/<h.*\/h.>/", "", $content);
@@ -928,6 +931,10 @@ function garbageContentRemover($content){
 	
 	//주석 제거
 	$content = preg_replace("/<!--[^>](.*?)-->/", "", $content);
+	
+	//div태그 제거
+	$content = preg_replace("/<\/?div.*>/", "", $content);
+	
 	
 	//개행 제거
 	$content = preg_replace("/\s\s\s/", "", $content);
