@@ -33,8 +33,6 @@ Ext
 						
 						var input = this.getApplication().getController(
 						"KeywordGroupController").getSelectedKeyword();
-						
-						console.log('input : '+input);
 
 						// 얻어온 값 중에 한글을 네이버 검색 API query형식에 맞게 utf-8로 인코딩한다.
 						var encodedInput = encodeURIComponent(input);
@@ -44,7 +42,6 @@ Ext
 								+ encodedInput
 								+ "&target=news&start="
 								+ this.getStartIndex();
-						console.log(naverUrl);
 						var encodedNaverUrl = encodeURIComponent(naverUrl);
 						var feedUrl = "http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
 								+ encodedNaverUrl + "&format=json";
@@ -90,16 +87,10 @@ Ext
 
 					onKGDetailListItemTap : function(dataview, index, target,
 							record, e, options) {
-						var extractor = Ext
-								.create('NewsHolder.util.TagExtractor');
-
-						record.data.description = extractor
-								.removeButtonTag(record.data.description);
-						record.data.description = extractor
-								.removeATag(record.data.description);
-						record.data.description = record.data.description
-								.replace("[이 시각 많이 본 뉴스]", "");
 						this.getArticleContent().setData(record.data);
+						
+						console.log("original:\n"+record.data.originDesc);
+						console.log("modified:\n"+record.data.description);
 
 						animation.onMoveSlideLeft(null, 'articlePanel',
 								[ 'kgDetailBackButton', 'kgDetailAlarmButton' ], [ 'kgArticleBackButton', 'articleScrapButton' ]);

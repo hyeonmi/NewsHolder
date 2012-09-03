@@ -52,7 +52,8 @@ Ext.define('NewsHolder.controller.ArticleController', {
 				'alBackButton', 'articleScrapButton' ]);
 
 		this.getArticleContent().setData(record.data);
-		console.log(record.data.description);
+		console.log("original:\n"+record.data.originDesc);
+		console.log("modified:\n"+record.data.description);
 		localStorage.flag = index;
 	},
 

@@ -27,6 +27,9 @@ Ext.define('NewsHolder.model.News', {
             },
             {
             	name: 'badge'
+            },
+            {
+            	name: 'originDesc'
             }
         ]
     }

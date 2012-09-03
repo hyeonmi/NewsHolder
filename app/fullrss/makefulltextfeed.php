@@ -715,7 +715,9 @@ foreach ($items as $key => $item) {
 	} else {
 		$newitem->addElement('guid', $item->get_permalink(), array('isPermaLink'=>'true'));
 	}
-
+	
+	$newitem->setOriginDesc($html);
+	
 	//a태그를 지우는 부분 (아래 것이 a태그를 지울 뿐 아니라 그 안에 있는 내용까지 다 지움)
 	/*$aTagRemoveHtml = preg_replace("/<\\/?a(\\s+.*?>|>)/", "", $html);*/
 	$aTagRemoveHtml = preg_replace("/<[aA][^>]*>.*<\/[aA]>/", "", $html);

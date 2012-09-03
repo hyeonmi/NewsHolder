@@ -17,6 +17,12 @@ Ext.define('NewsHolder.model.SearchResult', {
             },
             {
             	name:'titleImage'
+            },
+            {
+            	name:'summary'
+            },
+            {
+            	name:'originDesc'
             }
         ]
     }

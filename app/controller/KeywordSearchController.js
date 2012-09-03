@@ -141,8 +141,9 @@ Ext
 						animation.onMoveSlideLeft('키워드 검색', 'articlePanel', [
 								'homeButton', 'registerKeywordButton' ], [
 								'searchBackButton', 'articleScrapButton' ]);
-
-						console.log(record.data.description);
+						
+						console.log("original:\n"+record.data.originDesc);
+						console.log("modified:\n"+record.data.description);
 						this.getArticleContent().setData(record.data);
 					}
 				});
