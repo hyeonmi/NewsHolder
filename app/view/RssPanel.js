@@ -29,7 +29,7 @@ Ext.define('NewsHolder.view.RssPanel', {
 			    				        {
 			    				        	xtype: 'textfield',
 			    				        	id: 'rssUrlText',
-			    				        	label: 'RSS 주소'
+			    				        	placeHolder : '추가하고 싶은 RSS를 입력하세요.'
 			    				        },
 		    			         			    			         
 			    			         ]
@@ -38,7 +38,6 @@ Ext.define('NewsHolder.view.RssPanel', {
 				            xtype: 'button',
 				            flex : 1,
 				            id: 'rssAddButton',
-				            ui: 'confirm',
 				            iconCls: 'add',
 				            iconMask: true,
 			        }
@@ -54,7 +53,7 @@ Ext.define('NewsHolder.view.RssPanel', {
 //                    		'<img src="{rssImage}">',
 //                    	'</div>',
                     '<div class="icon-text-box">',
-                    '<div class="icon-text">{rssName}</div>',
+                    '<div class="icon-text-rss">{rssName}</div>',
                     '</div>',
                     '</div>',
                     

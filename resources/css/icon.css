@@ -32,7 +32,6 @@
 .icon-text {
 	font-size: 0.8em;
 	color : #fff;
-	margin : 1px 1px;
 }
 .icon-badge{
 	font-size: 0.8em;
@@ -41,4 +40,10 @@
 	text-align : right;
 	height : 16px;
 	
+}
+.icon-text-rss {
+	font-size: 0.8em;
+	color : #fff;
+	padding-top: 10px;
+	text-align : center;
 }
