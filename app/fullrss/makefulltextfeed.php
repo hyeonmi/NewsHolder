@@ -715,17 +715,13 @@ foreach ($items as $key => $item) {
 	} else {
 		$newitem->addElement('guid', $item->get_permalink(), array('isPermaLink'=>'true'));
 	}
-	
+	//원본 보관용 필드
 	$newitem->setOriginDesc($html);
-	
-	//a태그를 지우는 부분 (아래 것이 a태그를 지울 뿐 아니라 그 안에 있는 내용까지 다 지움)
-	/*$aTagRemoveHtml = preg_replace("/<\\/?a(\\s+.*?>|>)/", "", $html);*/
-	$aTagRemoveHtml = preg_replace("/<[aA][^>]*>.*<\/[aA]>/", "", $html);
 
 	//쓸데 없는 것들 지우는 메소드 garbageContentRemover
-	$garbageRemovedHtml=garbageContentRemover($aTagRemoveHtml);
+	$garbageRemovedHtml=garbageContentRemover($html);
 	
-	//a태그를 지운 결과물인 $aTagRemoveHtml를 json 파일의 description 필드에 입력한다.
+	//불필요한 html태그를 지운 결과물인 $garbageRemovedHtml를 json 파일의 description 필드에 입력한다.
 	$newitem->setDescription($garbageRemovedHtml);
 	
 
@@ -902,9 +898,13 @@ function garbageContentRemover($content){
 	$content = preg_replace("/\[많이 본 기사\]/", "", $content);
 	$content = preg_replace("/\[더스타 \]/", "", $content);
 	$content = preg_replace("/\[리뷰스타 인기기사\]/", "", $content);
-	//$content = preg_replace("/\▶ 관련기사 \◀/", "", $content);
+	$content = preg_replace("/&lt;한겨레 인기기사.*/s", "", $content);
 	
-	 //뉴데일리 신문기사 끝쪽에 태그 제거
+	//a태그를 지우는 부분 (아래 것이 a태그를 지울 뿐 아니라 그 안에 있는 내용까지 다 지움)
+	$content = preg_replace("/<[Aa].*?>.*?<\/[Aa]>/", "", $content);
+	/*$content = preg_replace("/<\/?[Aa].*?>/", "", $content);*/
+	
+	//뉴데일리 신문기사 끝쪽에 태그 제거
 	$content = preg_replace("/\"\);.*\(\"/s", "", $content);
 	
 	//이상한 잡지 태그 제거
@@ -916,25 +916,31 @@ function garbageContentRemover($content){
 	//세계일보 바로가기랑 괄호 붙는 부분 제거
 	$content = preg_replace("/▶ 바로가기.*<\/p>/", "", $content);
 	
+	//class is over
+	$content = preg_replace("/.class.*?[a-z]\"/", "", $content);
+	
+	//span태그 제거
+	$content = preg_replace("/<\/?span.*?>/", "", $content);
+	
+	
 	//br태그 제거
 	//$content = preg_replace("/<br\/>/", "", $content);
 	//$content = preg_replace("/<br clear=\"all\"\/>/", "", $content);
-	$content = preg_replace("/<b.*<\/b>/s", "", $content);
-	//$content = preg_replace("/<br./>/", "", $content);
+	//$content = preg_replace("/<b.*<\/b>/s", "", $content);
+	/*$content = preg_replace("/<br./>/", "", $content);*/
 	
 	//다음 뉴스 h태그 제거, 한겨레도 추가
 	$content = preg_replace("/<h.*\/h.>/", "", $content);
 	$content = preg_replace("/<\/?h[0-9]\/?>/", "", $content);
 	
 	//button 태그를 지우는 부분
-	$content = preg_replace("/<button.*<\/button>/", "", $content);
+	$content = preg_replace("/<button.*?<\/button>/", "", $content);
 	
 	//주석 제거
 	$content = preg_replace("/<!--[^>](.*?)-->/", "", $content);
 	
 	//div태그 제거
 	$content = preg_replace("/<\/?div.*>/", "", $content);
-	
 	
 	//개행 제거
 	$content = preg_replace("/\s\s\s/", "", $content);
