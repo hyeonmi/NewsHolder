@@ -866,7 +866,7 @@ foreach ($items as $key => $item) {
 	//$item_count++;
 }
 	ChromePhp::log('aha');
-	$output->setNumOfEntry($item_count);
+	$output->setNumOfEntry($count);
 	//$output->setNumOfEntry($count);
 	$output->setLastAccessDate($date[0]);
 	$output->setProxyId($proxyId);
