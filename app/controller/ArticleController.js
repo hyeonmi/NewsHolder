@@ -33,6 +33,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		store.getProxy().setUrl(
 				"http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
 						+ record.data.mainRssUrl + "&format=json");
+		
 		store.load({
 			callback : function(records, operation, success) {
 				var extractor = Ext.create("NewsHolder.util.TagExtractor");
@@ -45,6 +46,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			},
 			scope : this
 		});*/
+		
 		this.setStartIndex(1);
 		this.setTapModel(record);
 		var store = Ext.getStore('Feed');
@@ -79,9 +81,8 @@ Ext.define('NewsHolder.controller.ArticleController', {
 				 this.getTapModel().data.mainRssUrl + "&format=json"
 		         +"&start=" + this.getStartIndex();
 		store.getProxy().setUrl(url);
-		store.load();
-		console.log(store.getProxy().getUrl());
-		this.setStartIndex(this.getStartIndex() + 5);
+		console.log(url);
+		this.setStartIndex(this.getStartIndex() + 10);
 		console.log(this.getStartIndex());
-	}
+	},
 });

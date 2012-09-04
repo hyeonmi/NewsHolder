@@ -41,7 +41,7 @@ $date = array();
 $lastAccessDate = ($_GET['lastAccessDate']);
 $proxyId = ($_GET['id']);
 $startIndex = ($_GET['start']);  // 전체 기사 중 몇번째 기사부터 내려받을 것인지
-$range = 6;  // 한 번에 단말기로 보낼 기사 갯수.
+$range = 10;  // 한 번에 단말기로 보낼 기사 갯수.
 $count = 0;
 
 
@@ -532,11 +532,10 @@ $output->setChannelElement('author', array('name'=>'Five Filters', 'uri'=>'http:
 ////////////////////////////////////////////
 // Loop through feed items
 ////////////////////////////////////////////
-$items = $feed->get_items($startIndex, 5);
+$items = $feed->get_items($startIndex, $range);
 // Request all feed items in parallel (if supported)
 $urls_sanitized = array();
 $urls = array();
-
 foreach ($items as $key => $item) {
 	$permalink = htmlspecialchars_decode($item->get_permalink());
 	// Colons in URL path segments get encoded by SimplePie, yet some sites expect them unencoded
@@ -554,9 +553,8 @@ $http->fetchAll($urls_sanitized);
 
 // count number of items added to full feed
 $item_count = 0;
-$countItem = 0;
+
 foreach ($items as $key => $item) {
-	$countItem++;
 	$do_content_extraction = true;
 	$extract_result = false;
 	$text_sample = null;
@@ -739,7 +737,7 @@ foreach ($items as $key => $item) {
 	}
 
 	//removeHtmlSummary은 기사 리스트에서 제목 밑에 요약문을 담기 위한 변수다. 첫번째 문장만 잘라낸 변수이다.
-	//substr은 한글을 구별을 못한다. null값을 반환한다. 고로 mb_substr을 사용해야 한다. mb_substr은 php 4.0 이상에서 지원한다.
+	//substr은 한글을 구별 못하고 null값을 반환한다. 그러므로 mb_substr을 이용하면 한글도 처리할 수 있다. mb_substr은 php 4.0 이상에서 지원한다.
 	$removeHtmlSummary = mb_substr($garbageRemovedHtml, 0, 100, 'UTF-8');
 	$removeHtmlSummary=strip_tags($removeHtmlSummary, "<br><p>");
 	$newitem->setSummary($removeHtmlSummary);
@@ -863,11 +861,10 @@ foreach ($items as $key => $item) {
 		$count++;
 	}
 	
-	//$item_count++;
+	$item_count++;
 }
-	ChromePhp::log('aha');
+
 	$output->setNumOfEntry($count);
-	//$output->setNumOfEntry($count);
 	$output->setLastAccessDate($date[0]);
 	$output->setProxyId($proxyId);
 	

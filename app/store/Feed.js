@@ -20,7 +20,7 @@ Ext.define('NewsHolder.store.Feed', {
         listeners : {
 			beforeload : function() {
 				var aLController = NewsHolder.app
-						.getController('ArticleController');
+				.getController('ArticleController');
 				aLController.changeProxyUrl();
 			}
 		}

@@ -5,7 +5,8 @@ Ext.define('NewsHolder.view.MainPanel', {
 	
 	 requires: [
 	            'Ext.TitleBar',
-	            'Ext.dataview.List'
+	            'Ext.dataview.List',
+	            'Ext.Img'
  	 ],
 	
 	config:{
@@ -127,26 +128,30 @@ Ext.define('NewsHolder.view.MainPanel', {
 			  			 		{
 									xtype : 'image',
 									id : 'mainRssAddBtn',
-									text : 'RSS 추가',
+									html : 'RSS 추가',
 									cls:'buttonCSS',
+									src : ''
 								},
 			  			 		{
 									xtype : 'image',
 									id : 'mainKeywordGroupBtn',
-									text : '키워드 모음',
+									html : '키워드 모음',
 									cls:'buttonCSS',
+									src : ''
 								},
 			  			 		{
 									xtype : 'image',
 									id : 'mainScrapBtn',
-									text : '스크랩 모음',
+									html : '스크랩 모음',
 									cls:'buttonCSS',
+									src : ''
 								},
 								{
 									xtype : 'image',
 									id : 'testButton',
-									text : '테스트',
+									html : '테스트',
 									cls:'buttonCSS',
+									src : ''
 								},
 			        	 ]
 			        	 // button end
