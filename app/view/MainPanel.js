@@ -125,25 +125,25 @@ Ext.define('NewsHolder.view.MainPanel', {
 			        	 // button start
 			        	 items : [
 			  			 		{
-									xtype : 'button',
+									xtype : 'image',
 									id : 'mainRssAddBtn',
 									text : 'RSS 추가',
 									cls:'buttonCSS',
 								},
 			  			 		{
-									xtype : 'button',
+									xtype : 'image',
 									id : 'mainKeywordGroupBtn',
 									text : '키워드 모음',
 									cls:'buttonCSS',
 								},
 			  			 		{
-									xtype : 'button',
+									xtype : 'image',
 									id : 'mainScrapBtn',
 									text : '스크랩 모음',
 									cls:'buttonCSS',
 								},
 								{
-									xtype : 'button',
+									xtype : 'image',
 									id : 'testButton',
 									text : '테스트',
 									cls:'buttonCSS',
@@ -157,10 +157,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 							id:'mainRssList',
 							flex : 2,
 							itemTpl : new Ext.XTemplate(
-							        '<div class="icon-item">'+
-//										'<div class="icon-image">'+
-//											'<img src="{mainRssImage}" />'+
-//									    '</div>'+
+							        '<div class="icon-item" style="background-image: url({mainRssImage});">'+
 							        '<div class="icon-text-box">'+
 										'<div class="icon-text">{mainRssName}</div>'+
 										'<div class="icon-badge">{numOfEntry}</div>'+
