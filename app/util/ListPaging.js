@@ -1,6 +1,6 @@
 /**
  * 혹시 몰라서 남겨둡니다.
- * */
+ * *//*
 Ext
 		.define(
 				'NewsHolder.util.ListPaging',
@@ -33,4 +33,4 @@ Ext
 
 						// searchList.setStore(searchResultStore);
 					}
-				});
+				});*/

@@ -16,6 +16,13 @@ Ext.define('NewsHolder.store.Feed', {
                 type: 'json',
                 rootProperty: 'rss.channel.item'
             }
-        }
+        },
+        listeners : {
+			beforeload : function() {
+				var aLController = NewsHolder.app
+						.getController('ArticleController');
+				aLController.changeProxyUrl();
+			}
+		}
     }
 });
