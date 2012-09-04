@@ -57,7 +57,7 @@
      */
     "css": [
         {
-            "path": "resources/css/NewsHolder.css",
+            "path": "resources/css/app.css",
             "update": "delta"
         },
         {
