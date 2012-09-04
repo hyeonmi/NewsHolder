@@ -10,7 +10,7 @@ Ext.define('NewsHolder.store.MainStore', {
         model: 'NewsHolder.model.MainModel',
         storeId: 'mainStore',
         //autoSave : true,
-        autoLoad : true,
+        //autoLoad : true,
         
         proxy: {
             type: 'localstorage',
