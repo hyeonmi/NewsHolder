@@ -4,6 +4,8 @@ Ext.define('NewsHolder.controller.ArticleController', {
 	requires : [ 'NewsHolder.util.TagExtractor', ],
 
 	config : {
+		startIndex : 0,
+		tapModel:null,
 		refs : {
 			list : '#articleList',
 			articleContent : '#articleContent',
@@ -27,7 +29,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 	},
 
 	refreshArticleList : function(record) {
-		var store = Ext.getStore('Feed');
+		/*var store = Ext.getStore('Feed');
 		store.getProxy().setUrl(
 				"http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url="
 						+ record.data.mainRssUrl + "&format=json");
@@ -43,7 +45,12 @@ Ext.define('NewsHolder.controller.ArticleController', {
 				}
 			},
 			scope : this
-		});
+		});*/
+		
+		this.setStartIndex(1);
+		this.setTapModel(record);
+		var store = Ext.getStore('Feed');
+		store.load();
 	},
 
 	/** 기사 리스트에서 기사를 눌렀을 때 */
@@ -66,5 +73,16 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		this.getArticleContent().setData(Ext.getStore("Feed").getAt(nth).data);
 
 		localStorage.flag = nth;
+	},
+	
+	changeProxyUrl: function(){
+		var store = Ext.getStore("Feed");
+		var url = "http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + 
+				 this.getTapModel().data.mainRssUrl + "&format=json"
+		         +"&start=" + this.getStartIndex();
+		store.getProxy().setUrl(url);
+		console.log(url);
+		this.setStartIndex(this.getStartIndex() + 10);
+		console.log(this.getStartIndex());
 	},
 });
