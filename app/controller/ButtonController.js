@@ -45,18 +45,14 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			testStore.load({
 				callback : function(records, operation, success) {
 					
-					var localStorageProxy = Ext.create("Ext.data.proxy.LocalStorage",{
-						id:"mainProxy",
-						reader:{
-							type:"json"
-						}
-					});
+					var proxy = mainStore.getProxy();
 					
 					var item = mainStore.findRecord('id', records[0].data.proxyId);
 					console.log(item);
 					item.data.lastAccessDate = records[0].data.lastAccessDate;
 					item.data.numOfEntry = records[0].data.numOfEntry;
-					item.setProxy(localStorageProxy);
+					item.data.proxyId = records[0].data.proxyId;
+					item.setProxy(proxy);
 					item.phantom = false;
 					item.setDirty();
 					item.save();
