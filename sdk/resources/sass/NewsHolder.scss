@@ -1,11 +1,12 @@
 $base-color : #ffffff;
+$toolbar-input-bg : #ffffff;
 
 @import 'sencha-touch/default/all';
 
 @include sencha-panel;
 @include sencha-buttons;
-@include sencha-toolbar;
-@include sencha-toolbar-forms;
+@include sencha-button-ui('action-round', #ffffff, 'glossy');
+@include sencha-toolbar-ui('light', $base-color);
 @include sencha-indexbar;
 @include sencha-list;
 @include sencha-list-paging;

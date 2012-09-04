@@ -75,7 +75,7 @@ Ext.define('NewsHolder.view.MainPanel', {
             },{
             	xtype:'button',
             	id:'mainSearchButton',
-            	text:'',
+            	ui : 'action-round',
             	iconCls:'search',
             	iconMask:true,
             	iconAlign:'right',
