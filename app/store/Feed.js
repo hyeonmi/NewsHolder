@@ -6,9 +6,11 @@ Ext.define('NewsHolder.store.Feed', {
     ],
 
     config: {
-        //autoLoad: true,
+        autoLoad: false,
+        pageSize:10,
         model: 'NewsHolder.model.News',
         storeId: 'Feed',
+        clearOnPageLoad: false,
         proxy: {
             type: 'jsonp',
             url: 'http://iamapark.cafe24.com/rssList/rssList.jsp', //수정해야됨

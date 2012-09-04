@@ -14,11 +14,11 @@ Ext.define('NewsHolder.controller.ArticleController', {
 
 		control : {
 			list : {
-				itemtap : 'onArticleTap'
+				itemtap : 'onArticleTap',
 			},
 			articleBackButton : {
 				tap : 'onArticleBackButtonTap'
-			}
+			}, 
 		}
 
 	},
@@ -47,10 +47,16 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			scope : this
 		});*/
 		
-		this.setStartIndex(1);
+		this.setStartIndex(0);
 		this.setTapModel(record);
 		var store = Ext.getStore('Feed');
-		store.load();
+		console.log("dd");
+		store.load({
+			callback: function(records, operation, success) {
+				store.add(records);
+				console.log("load");
+			}
+		});
 	},
 
 	/** 기사 리스트에서 기사를 눌렀을 때 */

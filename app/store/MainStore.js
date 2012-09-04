@@ -20,7 +20,6 @@ Ext.define('NewsHolder.store.MainStore', {
         listeners:{
         	updaterecord:{
         		fn:function(store, record, newIndex, oldIndex, names, values, eOpts){
-        			console.log("데이터 변경!!!");
         		},
         		
         		element:"element"
