@@ -20,6 +20,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 			title:'SMART NEWS',
 			docked:'top',
 			id:'titlebar',
+			ui : 'mainbar',
 			items:[{
             	xtype:'button',
             	id:'alBackButton',
