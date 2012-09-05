@@ -73,15 +73,8 @@ Ext.define('NewsHolder.view.MainPanel', {
             	ui:'action-round',
             	hidden:true,
             	iconAlign:'right',
-            },{
-            	xtype:'button',
-            	id:'mainSearchButton',
-            	ui : 'action-round',
-            	iconCls:'search',
-            	iconMask:true,
-            	iconAlign:'right',
-            	align:'right',
-            },{
+            },
+            {
             	xtype:'button',
             	id:'articleScrapButton',
             	ui : 'action-round',
@@ -124,51 +117,74 @@ Ext.define('NewsHolder.view.MainPanel', {
 			        		 type : 'hbox'			        		 
 			        	 },
 			        	 
-			        	 
-			        	 // button start
 			        	 items : [
-			  			 		{
-									xtype : 'image',
-									id : 'mainRssAddBtn',
-									html : 'RSS 추가',
-									cls:'buttonCSS',
-									src : ''
-								},
-			  			 		{
-									xtype : 'image',
-									id : 'mainKeywordGroupBtn',
-									html : '키워드 모음',
-									cls:'buttonCSS',
-									src : ''
-								},
-			  			 		{
-									xtype : 'image',
-									id : 'mainScrapBtn',
-									html : '스크랩 모음',
-									cls:'buttonCSS',
-									src : ''
-								},
-								{
-									xtype : 'image',
-									id : 'testButton',
-									html : '테스트',
-									cls:'buttonCSS',
-									src : ''
-								},
+									{
+										xtype : 'image',
+										id : 'testButton',
+										html : '테스',
+										cls:'btnSearch',
+										src : ''
+									},	
+									{
+										xtype : 'image',
+										id : 'mainSearchButton',
+										html : '검색',
+										cls:'btnSearch',
+										src : ''
+									},	
+									{
+										xtype : 'panel',
+										layout : {
+											type : 'vbox'
+										},
+										
+										items : [
+												{
+													 xtype : 'panel',
+													 layout : {
+														 type : 'hbox'			        		 
+													 },
+													 
+													 
+													 items : [
+																{
+																	xtype : 'image',
+																	id : 'mainKeywordGroupBtn',
+																	html : '키워드 모음',
+																	cls:'btnKeyword',
+																	src : ''
+																},
+																	{
+																	xtype : 'image',
+																	id : 'mainScrapBtn',
+																	html : '스크랩 모음',
+																	cls:'btnScrap',
+																	src : ''
+																} 
+													          ]
+													
+												},
+								  			 		{
+														xtype : 'image',
+														id : 'mainRssAddBtn',
+														html : 'RSS 추가',
+														cls:'btnRss',
+														src : ''
+													}
+										         ]
+									},
 			        	 ]
-			        	 // button end
 			         },
 			         
 			         {
-							xtype:'dataview',
+							xtype:'list',
 							id:'mainRssList',
 							flex : 2,
 							itemTpl : new Ext.XTemplate(
-							        '<div class="icon-item" style="background-image: url({mainRssImage});">'+
-							        '<div class="icon-text-box">'+
-										'<div class="icon-text">{mainRssName}</div>'+
-										'<div class="icon-badge">{numOfEntry}</div>'+
-							        '</div>'+
+							        '<div class="main-list-item">'+
+							        '<img src="{mainRssImage}" class="main-list-img" />'+
+									'<span class="main-list-text">{mainRssName}</span>'+
+									'<span class="main-list-badge">{numOfEntry}</span>'+
 									'</div>'
 					    	),						
 						    	store:'mainStore',

@@ -1,25 +1,56 @@
-.buttonCSS {
-	background-color: transparent;
+.btnSearch {
 	background-size: 100% 100%;
-	background-image: url(http://aux.iconpedia.net/uploads/1650319085.png);
+	background: -webkit-gradient(linear, left top, left bottom, from(#820202), to(#b30606));	
+	margin: 5px;
+	width: 100px;
+	height: 100px;
+	border : 0px;
+	text-align : 'center';
+	position : relative;
+}
+
+.btnRss {
+	background-size: 100% 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#cccccc));	
+	margin: 5px;
+	width: 200px;
+	height: 25px;
+	border : 0px;
+	text-align : 'center';
+	position : relative;
+}
+
+.btnKeyword {
+	background-size: 100% 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#cccccc));	
 	margin: 5px;
 	width: 100px;
 	height: 75px;
 	border : 0px;
 	text-align : 'center';
+	position : relative;
+}
+
+.btnScrap {
+	background-size: 100% 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#cccccc));	
+	margin: 5px;
+	width: 100px;
+	height: 75px;
+	border : 0px;
+	text-align : 'center';
+	position : relative;
 }
 
 
 .icon-item {
-	background: -webkit-gradient(linear, left top, left bottom, from(#820202), to(#b30606));
-	
+	background: -webkit-gradient(linear, left top, left bottom, from(#820202), to(#b30606));	
 	/*background-image: url(../images/chosen.jpg);*/
 	margin: 3px;
 	width: 151px;
 	height: 163px;
 	float: left;
 }
-
 .icon-text-box{
 	height : 45px;
 	width : 151px;
@@ -34,7 +65,17 @@
 	font-size: 0.8em;
 	color : #fff;
 }
-.icon-badge{
+.main-list-item {
+	margin: 3px;
+}
+
+.main-list-img {
+	
+}
+.main-list-text {
+	
+}
+.main-list-badge {
 	font-size: 0.8em;
 	font-weight: bold;
 	color : yellow;
