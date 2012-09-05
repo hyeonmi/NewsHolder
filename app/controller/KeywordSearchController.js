@@ -32,9 +32,16 @@ Ext
 							},
 							registerKeywordButton : {
 								tap : 'onRegisterKeywordButtonTap'
+							},
+							searchField : {
+								 action: 'onSearchFieldAction'
 							}
 						}
 					},
+					
+					onSearchFieldAction: function(textfield, e, options) {
+						this.onSearchButtonTap();
+				    },
 
 					// 검색을 하고나서, 다시 메인에서 검색 버튼을 눌렀을 때 모든 것을 초기화한다.
 					resetModifiedComponent : function() {
