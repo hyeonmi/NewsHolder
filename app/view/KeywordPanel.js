@@ -37,8 +37,14 @@ Ext
 									} ]
 								},
 								{
+									xtype : 'panel',
+									html : '실시간 인기 검색어',
+									style : 'background-color: #9E0000;',
+								},
+								{
 									xtype : 'list',
 									flex : 1,
+									cls : 'rankListCSS',
 									id : 'rankList',
 									itemTpl : [ '<div>{xindex}. {keyword}  {placing}{value}</div>' ],
 									store : 'rankStore',
