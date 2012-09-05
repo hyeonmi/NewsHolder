@@ -21,10 +21,13 @@ Ext
 										type : 'hbox'
 									},
 									items : [ {
-										xtype : 'textfield',
+										xtype : 'searchfield',
 										flex : 1,
 										id : 'searchField',
-										placeHolder : '검색어를 입력하세요'
+										placeHolder : '검색어를 입력하세요',
+										height : '70px',
+										margin : '5 5 5 5',
+										border : '3px'
 									}, {
 										xtype : 'button',
 										id : 'searchButton',
