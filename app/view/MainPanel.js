@@ -84,7 +84,7 @@ Ext.define('NewsHolder.view.MainPanel', {
             },{
             	xtype:'button',
             	id:'articleScrapButton',
-            	text:'',
+            	ui : 'action-round',
             	iconCls:'star',
             	iconMask:true,
             	iconAlign:'right',
@@ -94,7 +94,7 @@ Ext.define('NewsHolder.view.MainPanel', {
             {
             	xtype:'button',
             	id:'registerKeywordButton',
-            	text:'',
+            	ui : 'action-round',
             	iconCls:'bookmarks',
             	iconMask:true,
             	iconAlign:'right',
@@ -103,6 +103,7 @@ Ext.define('NewsHolder.view.MainPanel', {
             },{
             	xtype:'button',
             	id:'kgDetailAlarmButton',
+            	ui : 'action-round',
             	iconCls:'time',
             	iconMask:true,
             	iconAlign:'right',
