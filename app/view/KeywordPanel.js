@@ -37,7 +37,7 @@ Ext
 									xtype : 'list',
 									flex : 1,
 									id : 'rankList',
-									itemTpl : [ '<div>{xindex}. {keyword}</div>' ],
+									itemTpl : [ '<div>{xindex}. {keyword}  {placing}{value}</div>' ],
 									store : 'rankStore',
 								},
 								{
