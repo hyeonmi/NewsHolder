@@ -43,13 +43,9 @@ Ext.define('NewsHolder.controller.ArticleController', {
 
 	/** 기사 리스트에서 기사를 눌렀을 때 */
 	onArticleTap : function(dataview, index, target, record, e, options) {
-		
-		
-		var pageFlag = localStorage.pageFlag;
-		
-		animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton' ], [
-				'alBackButton', 'articleScrapButton' ]);
 
+		animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton' ], [
+		                           'alBackButton', 'articleScrapButton' ]);
 		this.getArticleContent().setData(record.data);
 		console.log("original:\n"+record.data.originDesc);
 		console.log("modified:\n"+record.data.description);

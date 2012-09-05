@@ -28,12 +28,11 @@ Ext.define('NewsHolder.controller.ScrapController', {
 	/** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 */
 	scrapListTap : function(list, index, item, record, e) {
 		if (!list.lastTapHold || (new Date() - list.lastTapHold > 1000)) {
-			console.log('ahahah');
 			this.getArticleContent().setData(record.data);
 			localStorage.flag = index;
 
 			animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton' ], [
-					'scrapBackButton', 'articleScrapButton' ]);
+					'scrapBackButton']);
 		}
 	},
 

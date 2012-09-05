@@ -8,6 +8,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			articleScrapButton : "#articleScrapButton",
 			mainSearchButton : "#mainSearchButton",
 			testButton : "#testButton",
+			mainPanel: "#mainPanel",
 		},
 
 		control : {
