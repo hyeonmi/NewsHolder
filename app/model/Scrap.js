@@ -32,6 +32,18 @@ Ext.define('NewsHolder.model.Scrap', {
             },
             {
             	name:'link'
+            },
+            {
+            	name: 'titleImage'
+            },
+            {
+            	name: 'summary'
+            },
+            {
+            	name: 'badge'
+            },
+            {
+            	name: 'originDesc'
             }
         ]
     }

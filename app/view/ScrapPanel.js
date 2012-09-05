@@ -9,9 +9,20 @@ Ext.define("NewsHolder.view.ScrapPanel", {
 		},
 		items : [ {
 			xtype : "list",
-			cls : "scrapList",
+			cls : "newsList",
 			id : "scrapList",
-			itemTpl : [ '<div>', '{title}<br>', '</div>', ],
+			itemTpl : [ 
+		            '<div class="articleListCSS">',
+	            	'<tpl if="titleImage!=&quot;none&quot;">',
+	            		'<div><img class="articleListImage" src="{titleImage}"/></div>',
+	            	'</tpl>',
+	            	'<tpl if="titleImage==&quot;none&quot;">',
+            			'<div><img class="articleListBadge" src="{badge}"/></div>',
+            		'</tpl>',
+	            	'<div class="articleListTitle">{title}</div>',
+	            	'<div class="articleListSummary">{summary}</div>',
+	            '</div>' 
+			],
 			store : 'Scraps',
 		} ],
 	},

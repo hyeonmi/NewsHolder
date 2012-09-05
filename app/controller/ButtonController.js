@@ -94,7 +94,10 @@ Ext.define('NewsHolder.controller.ButtonController', {
 						description : data.description,
 						pubDate : data.pubDate,
 						scrapDate : scrapDate,
-						link : data.link
+						link : data.link,
+						titleImage:data.titleImage,
+						summary:data.summary,
+						badge:data.badge,
 					});
 					scrapStore.sync();
 					Ext.Msg.alert('알림', '스크랩이 완료되었습니다.', Ext.emptyFn);
