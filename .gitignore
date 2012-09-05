@@ -4,4 +4,7 @@ package.json
 default.json
 rssList.jsp
 .sass-cache
-sdk
+sdk/resources/css/NewsHolder.css
+sdk/resources/sass/NewsHolder.scss
+
+.DS_Store
