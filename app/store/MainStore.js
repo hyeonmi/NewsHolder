@@ -1,6 +1,6 @@
 Ext.define('NewsHolder.store.MainStore', {
     extend: 'Ext.data.Store',
-    
+    id : 'mainStore',
     requires: [
         'NewsHolder.model.MainModel',
         'Ext.data.proxy.LocalStorage'

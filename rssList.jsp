@@ -16,11 +16,23 @@ response.setContentType("text/javascript");%>
 			
 			},
 			{
-				"rssName" : "MBC뉴스",
-				"rssImage" : "http://img.imnews.imbc.com/images/gnbimg/logo_mbc.jpg",
-				"rssUrl" : "http://imnews.imbc.com/rss/news/news_00.xml"
+				"rssName" : "조선일보",
+				"rssImage" : "",
+				"rssUrl" : "http://www.chosun.com/site/data/rss/rss.xml"
 			
 			},
+			{
+				"rssName" : "중앙일보",
+				"rssImage" : "",
+				"rssUrl" : "http://rss.joins.com/joins_news_list.xml"
+			
+			},
+			{
+				"rssName" : "동아일보",
+				"rssImage" : "",
+				"rssUrl" : "http://rss.donga.com/total.xml"
+			
+			},									
 			{
 				"rssName" : "한겨레신문",
 				"rssImage" : "http://img.hani.co.kr/section-image/12/news/hani/images/com/logo.gif",
@@ -34,7 +46,7 @@ response.setContentType("text/javascript");%>
 			
 			},
 			{
-				"rssName" : "",
+				"rssName" : "한국일",
 				"rssImage" : "",
 				"rssUrl" : ""
 			
