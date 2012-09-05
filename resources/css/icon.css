@@ -67,13 +67,17 @@
 }
 .main-list-item {
 	margin: 3px;
+	text-align : 'center';
 }
 
 .main-list-img {
+	height : 45px;
+	width : 45px;
 	
 }
 .main-list-text {
-	
+	padding : 3px;
+	position : relative;
 }
 .main-list-badge {
 	font-size: 0.8em;
@@ -81,6 +85,7 @@
 	color : yellow;
 	text-align : right;
 	height : 16px;
+	position : relative;
 	
 }
 .icon-text-rss {

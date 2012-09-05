@@ -66,7 +66,7 @@ Ext.define('NewsHolder.controller.MainController', {
 	},
 	
 	init : function(){
-		var localstore = Ext.getStore('mainStore');
-		localstore.sync();
+		var mainstore = Ext.getStore('mainStore');
+		mainstore.load();
 	}
 });
