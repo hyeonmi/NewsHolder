@@ -46,41 +46,71 @@ response.setContentType("text/javascript");%>
 			
 			},
 			{
-				"rssName" : "한국일",
+				"rssName" : "한국일보",
 				"rssImage" : "",
-				"rssUrl" : ""
+				"rssUrl" : "http://rss.hankooki.com/news/hk_main.xml"
 			
 			},
 			{
-				"rssName" : "",
+				"rssName" : "이데일리",
 				"rssImage" : "",
-				"rssUrl" : ""
+				"rssUrl" : "http://rss.edaily.co.kr/edaily_news.xml"
 			
 			},
 			{
-				"rssName" : "",
+				"rssName" : "연합뉴스 ",
 				"rssImage" : "",
-				"rssUrl" : ""
+				"rssUrl" : "http://www.yonhapnews.co.kr/RSS/sokbo.xml"
 			
 			},
 			{
-				"rssName" : "",
+				"rssName" : "일간스포츠 ",
 				"rssImage" : "",
-				"rssUrl" : ""
+				"rssUrl" : "http://rss.joins.com/joins_ilgan_list.xml"
 			
 			},
 			{
-				"rssName" : "",
+				"rssName" : "스포츠서울",
 				"rssImage" : "",
-				"rssUrl" : ""
+				"rssUrl" : "http://www.sportsseoul.com/rss/rss.asp?cp_flag=1"
 			
 			},
 			{
-				"rssName" : "",
+				"rssName" : "머니투데이 ",
 				"rssImage" : "",
-				"rssUrl" : ""
+				"rssUrl" : "http://rss.mt.co.kr/mt_news.xml"
 			
 			},
+			{
+				"rssName" : "오마이뉴스",
+				"rssImage" : "",
+				"rssUrl" : "http://rss.ohmynews.com/rss/top.xml"
+			
+			},
+			{
+				"rssName" : "ZDNet Korea",
+				"rssImage" : "",
+				"rssUrl" : "http://www.zdnet.co.kr/services/rss/all/EUC/ZDNetKorea_News.asp"
+			
+			},
+			{
+				"rssName" : "딴지일보",
+				"rssImage" : "",
+				"rssUrl" : "http://www.ddanzi.com/rss/s/news"
+			
+			},
+			{
+				"rssName" : "파이낸셜 뉴스",
+				"rssImage" : "",
+				"rssUrl" : "http://www.fnnews.com/rss/fn_realnews_all.xml"
+			
+			},
+			{
+				"rssName" : "전자신문",
+				"rssImage" : "",
+				"rssUrl" : "http://rss.etnews.co.kr/Section901.xml"
+			
+			},			
 		]
 })
 <%} %>
