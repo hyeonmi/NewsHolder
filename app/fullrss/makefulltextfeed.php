@@ -40,7 +40,7 @@ ini_set("display_errors", 1);
 $date = array();
 $lastAccessDate = ($_GET['lastAccessDate']);
 $proxyId = ($_GET['id']);
-$startIndex = ($_GET['start']);  // 전체 기사 중 몇번째 기사부터 내려받을 것인지
+$startIndex = ($_GET['startIndex']);  // 전체 기사 중 몇번째 기사부터 내려받을 것인지
 $range = 10;  // 한 번에 단말기로 보낼 기사 갯수.
 $count = 0;
 

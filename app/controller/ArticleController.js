@@ -43,6 +43,10 @@ Ext.define('NewsHolder.controller.ArticleController', {
 
 	/** 기사 리스트에서 기사를 눌렀을 때 */
 	onArticleTap : function(dataview, index, target, record, e, options) {
+		
+		
+		var pageFlag = localStorage.pageFlag;
+		
 		animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton' ], [
 				'alBackButton', 'articleScrapButton' ]);
 
@@ -56,7 +60,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		var store = Ext.getStore("Feed");
 		var url = "http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + 
 				 this.getTapModel().data.mainRssUrl + "&format=json"
-		         +"&start=" + this.getStartIndex();
+		         +"&startIndex=" + this.getStartIndex();
 		store.getProxy().setUrl(url);
 		console.log(url);
 		this.setStartIndex(this.getStartIndex() + 10);
