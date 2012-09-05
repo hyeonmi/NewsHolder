@@ -38,8 +38,8 @@ Ext
 								},
 								{
 									xtype : 'panel',
-									html : '실시간 인기 검색어',
-									style : 'background-color: #9E0000;',
+									html : '실시간 검색어 순위',
+									cls : 'panelRealtime'
 								},
 								{
 									xtype : 'list',
