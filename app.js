@@ -2,32 +2,20 @@ Ext
 		.application({
 			name : 'NewsHolder',
 
-			requires : [ 'Ext.MessageBox', 'NewsHolder.util.ManagerController', 'NewsHolder.util.PushNotification'],
-			models : [ 'News', 
-			           'Rank', 
-			           'SearchResult', 
-			           'RssModel',
-						'MainModel', 
-						'Scrap', 
-						'NewsPaperModel', 
-						'KeywordGroupModel' ],
-			stores : [ 'Feed', 
-			           'RankStore', 
-			           'SearchResultStore',
-						'RssStore', 
-						'MainStore', 
-						'Scraps', 
-						'RssServerStore', 
-						'Test',
-						'NewsPaperStore', 
-						'KeywordGroupStore', 
-						'KGResultStore' ],
+			requires : [ 'Ext.MessageBox', 'NewsHolder.util.ManagerController',
+					'NewsHolder.util.PushNotification' ],
+			models : [ 'News', 'Rank', 'SearchResult', 'RssModel', 'MainModel',
+					'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
+			stores : [ 'Feed', 'RankStore', 'SearchResultStore', 'RssStore',
+					'MainStore', 'Scraps', 'RssServerStore', 'Test',
+					'NewsPaperStore', 'KeywordGroupStore', 'KGResultStore' ],
 			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
 					'KeywordPanel', 'ScrapPanel', 'RssPanel',
 					'KeywordGroupPanel', 'KGDetailPanel', 'MainCarousel' ],
 			controllers : [ 'MainController', 'KeywordSearchController',
 					'RssController', 'ButtonController', 'ScrapController',
-					'ArticleController', 'KeywordGroupController', 'KGDetailController' ],
+					'ArticleController', 'KeywordGroupController',
+					'KGDetailController' ],
 			icon : {
 				'57' : 'resources/icons/Icon.png',
 				'72' : 'resources/icons/Icon~ipad.png',
@@ -52,9 +40,7 @@ Ext
 
 				// Initialize the main view
 				Ext.Viewport.add(Ext.create('NewsHolder.view.MainPanel'));
-				
-				
-				
+
 			},
 
 			onUpdated : function() {
@@ -69,4 +55,3 @@ Ext
 								});
 			}
 		});
-
