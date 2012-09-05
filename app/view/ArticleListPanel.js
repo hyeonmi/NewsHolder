@@ -29,7 +29,7 @@ Ext.define("NewsHolder.view.ArticleListPanel",{
 		        plugins : [ {
 					xclass : 'Ext.plugin.ListPaging',
 					loadMoreText : '더 보기',
-					autoPaging : false
+					autoPaging : true
 				} ]
 			}
 		],
