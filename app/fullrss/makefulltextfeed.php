@@ -739,7 +739,7 @@ foreach ($items as $key => $item) {
 	//removeHtmlSummary은 기사 리스트에서 제목 밑에 요약문을 담기 위한 변수다. 첫번째 문장만 잘라낸 변수이다.
 	//substr은 한글을 구별 못하고 null값을 반환한다. 그러므로 mb_substr을 이용하면 한글도 처리할 수 있다. mb_substr은 php 4.0 이상에서 지원한다.
 	$removeHtmlSummary = mb_substr($garbageRemovedHtml, 0, 100, 'UTF-8');
-	$removeHtmlSummary=strip_tags($removeHtmlSummary, "<br><p>");
+	$removeHtmlSummary=strip_tags($removeHtmlSummary);
 	$newitem->setSummary($removeHtmlSummary);
 
 
