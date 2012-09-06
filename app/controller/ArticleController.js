@@ -37,13 +37,21 @@ Ext.define('NewsHolder.controller.ArticleController', {
 	},
 
 	refreshArticleList : function(record) {
+		var articleList = this.getList();
 		this.setStartIndex(0);
 		this.setTapModel(record);
+		
+		articleList.setMasked({
+			xtype : 'loadmask',
+			centered : true
+		});
+		
 		var store = Ext.getStore('Feed');
 		store.load({
 			callback: function(records, operation, success) {
 				store.add(records);
 				console.log("load");
+				articleList.setMasked(false);
 			}
 		});
 	},
