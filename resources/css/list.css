@@ -21,14 +21,29 @@
 	margin-right: 10px;
 }
 
-.panelRealtime {
+.realtimePanel {
 	background-color: #9E0000;
 	text-align: center;
 	color: white;
 }
 
-.articleListBadge{
+.rankListCSS .x-list-item {
+	background-color: #F7F7F7;
+	height: 72px;
+	text-align: center;
+	line-height: 4em;
+}
+
+.rankListCSS .rankvalue {
+	font-size: 80%;
+}
+
+.rankListCSS img {
+	vertical-align: middle;
+}
+
+.articleListBadge {
 	-webkit-border-radius: 100px;
-	-moz-border-radius:100px;
-	border-radius:10px;
+	-moz-border-radius: 100px;
+	border-radius: 10px;
 }

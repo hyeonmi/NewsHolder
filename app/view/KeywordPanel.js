@@ -39,14 +39,22 @@ Ext
 								{
 									xtype : 'panel',
 									html : '실시간 검색어 순위',
-									cls : 'panelRealtime'
+									cls : 'realtimePanel'
 								},
 								{
 									xtype : 'list',
 									flex : 1,
 									cls : 'rankListCSS',
 									id : 'rankList',
-									itemTpl : [ '<div>{xindex}. {keyword}  {placing}{value}</div>' ],
+									itemTpl : [
+											'<div>',
+											'<tpl if="placing==&quot;+&quot;">',
+											'<div>{xindex}. {keyword}&nbsp;&nbsp;&nbsp;<img src="./resources/images/keyword_search/ic_up.png"/><span class="rankvalue">{value}</span></div>',
+											'<tpl elseif="placing==&quot;-&quot;">',
+											'<div>{xindex}. {keyword}&nbsp;&nbsp;&nbsp;<img src="./resources/images/keyword_search/ic_down.png"/><span class="rankvalue">{value}</span></div>',
+											'<tpl elseif="placing==&quot;new&quot;">',
+											'<div>{xindex}. {keyword}&nbsp;&nbsp;&nbsp;<img src="./resources/images/keyword_search/ic_new.png"/></div>',
+											'</tpl>', '</div>' ],
 									store : 'rankStore',
 								},
 								{
