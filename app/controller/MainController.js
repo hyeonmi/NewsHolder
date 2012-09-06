@@ -41,18 +41,18 @@ Ext.define('NewsHolder.controller.MainController', {
 	//tap function(Ext.Button this, Ext.EventObject e, Object eOpts)
 	// RSS추가 Tap
 	onMainRssAddTap : function(obj) {
-		animation.onMoveSlideLeft('RSS 추가', 'rssPanelId', ['mainSearchButton'], ['homeButton']);
+		animation.onMoveSlideLeft('Add RSS', 'rssPanelId', ['mainSearchButton'], ['homeButton']);
 	},
 	
 	// 키워드 그룹 Tap
 	onMainKeywordGroupTap : function() {
-		animation.onMoveSlideLeft('키워드 모음', 'keywordGroupPanelId', ['mainSearchButton'], ['homeButton']);
+		animation.onMoveSlideLeft('My Keyword', 'keywordGroupPanelId', ['mainSearchButton'], ['homeButton']);
 		localStorage.History_navigator = "Keyword";
 	},
 	
 	// 스크랩 Tap
 	onMainScrapTap : function() {
-		animation.onMoveSlideLeft('스크랩 모음', 'scrapPanel', ['mainSearchButton'], ['homeButton']);
+		animation.onMoveSlideLeft('My Scrap', 'scrapPanel', ['mainSearchButton'], ['homeButton']);
 		localStorage.History_navigator = "Scrap";
 		NewsHolder.util.PushNotification.push();
 	},

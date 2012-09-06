@@ -3,7 +3,7 @@ Ext.define('NewsHolder.view.MainContent', {
 	xtype : 'maincotnent',
 	id : 'mainContentId',
 	ui : 'maincnt',
-	cls : 'mainContent',
+	cls : 'panel-content',
     requires : [
               
                 ],
@@ -65,13 +65,13 @@ Ext.define('NewsHolder.view.MainContent', {
 			},
 			{
 				xtype : 'panel',
-				cls : 'listTitle',
+				cls : 'list-title',
 				html : 'RSS List',
 			},
 			{
 				xtype : 'list',
 				id : 'mainRssList',
-				cls : 'mainList',
+				cls : 'main-list',
 				itemTpl : new Ext.XTemplate('<table class="main-list-item"><tr>'+
 						'<td width="100px"><img src="{mainRssImage}" class="main-list-img" /></td>'+
 						'<td class="main-list-text">{mainRssName}</td>'+
