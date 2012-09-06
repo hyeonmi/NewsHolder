@@ -21,6 +21,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 			docked:'top',
 			id:'titlebar',
 			ui : 'mainbar',
+			height : '79px',
 			items:[{
             	xtype:'button',
             	id:'alBackButton',
@@ -121,7 +122,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 									{
 										xtype : 'image',
 										id : 'testButton',
-										html : '테스',
+										html : 'test',
 										cls:'btnSearch',
 										src : ''
 									},	
@@ -183,8 +184,8 @@ Ext.define('NewsHolder.view.MainPanel', {
 							itemTpl : new Ext.XTemplate(
 							        '<div class="main-list-item">'+
 							        '<img src="{mainRssImage}" class="main-list-img" />'+
-									'<span class="main-list-text">{mainRssName}</span>'+
-									'<span class="main-list-badge">{numOfEntry}</span>'+
+									'<div class="main-list-text">{mainRssName}</div>'+
+									'<div class="main-list-badge">{numOfEntry}</div>'+
 									'</div>'
 					    	),						
 						    	store:'mainStore',
