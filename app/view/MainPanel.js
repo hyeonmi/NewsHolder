@@ -107,7 +107,7 @@ Ext.define('NewsHolder.view.MainPanel', {
             }]
 		},
 		{
-			xtype : 'maincotnent',
+			xtype : 'maincotnent'			
 		},
 		
 		{
