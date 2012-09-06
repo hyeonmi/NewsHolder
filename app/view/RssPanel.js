@@ -8,50 +8,54 @@ Ext.define('NewsHolder.view.RssPanel', {
     	
     config: {
         layout: {
-            type: 'fit'
+            type: 'vbox'
         },
         items: [
+                {
+                	xtype : 'panel',
+                	cls : 'line-red',
+                },
 			{
 			    xtype: 'panel',
-			    docked: 'top',
 			    layout: {
 			        type: 'hbox',
 			    },
 			    items: [
 			            {
 			            	xtype : 'panel',
-			            	flex : 9 ,
+			            	cls : 'rss-add-panel',
 			            	layout: {
-			    			    type: 'vbox',
+			    			    type: 'hbox',
 			    			},
 			    			
 			    			items : [
 			    				        {
 			    				        	xtype: 'textfield',
 			    				        	id: 'rssUrlText',
+			    				        	cls : 'rss-add-text',
 			    				        	placeHolder : '추가하고 싶은 RSS를 입력하세요.'
 			    				        },
+			    			            {
+			    				            xtype: 'image',
+			    				            id: 'rssAddButton',
+			    				            cls : 'rss-add-botton',
+			    			            }			    				        
 		    			         			    			         
 			    			         ]
 			            },
-			            {
-				            xtype: 'button',
-				            flex : 1,
-				            id: 'rssAddButton',
-				            iconCls: 'add',
-				            iconMask: true,
-			        }
+
 			    ]
 			},                
             {
-                xtype: 'dataview',
+                xtype: 'dataview',                
                 id: 'rssList',
                 itemId: 'mydataview',
+                cls : 'panel-content',
                 itemTpl: [
-                    '<div class="icon-item" style="background-image: url({rssImage});">',
-                    '<div class="icon-text-box">',
-                    '<div class="icon-text-rss">{rssName}</div>',
-                    '</div>',
+                    '<div class="rss-item-img" style="background-image: url({rssImage});">',
+	                    '<div class="rss-text-box">{rssName}',
+	                    '<div class="rss-text-box-img"><img src="./resources/images/ic_add.png"></div>',
+	                    '</div>',
                     '</div>',
                     
                     
