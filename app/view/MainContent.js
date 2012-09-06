@@ -63,16 +63,20 @@ Ext.define('NewsHolder.view.MainContent', {
 					} ]
 				}, ]
 			},
-
+			{
+				xtype : 'panel',
+				cls : 'listTitle',
+				html : 'RSS List',
+			},
 			{
 				xtype : 'list',
 				id : 'mainRssList',
-				height : '300px',
 				cls : 'mainList',
 				itemTpl : new Ext.XTemplate('<table class="main-list-item"><tr>'+
-						'<td><img src="{mainRssImage}" class="main-list-img" /></td>'+
+						'<td width="100px"><img src="{mainRssImage}" class="main-list-img" /></td>'+
 						'<td class="main-list-text">{mainRssName}</td>'+
-						'<td class="main-list-badge">{numOfEntry}</td>'+
+						'<td width="60px" class="text-red">New</td>'+
+						'<td width="60px"><div class="main-list-badge">{numOfEntry}</div></td>'+
 						'</tr></table>'),
 				store : 'mainStore',
 			} ]

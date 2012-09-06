@@ -1502,7 +1502,7 @@ audio {
 
 .x-list .x-list-item .x-list-item-label {
 	min-height: 72 px;
-	padding: 0.65em 0.8em
+	/*padding: 0.65em 0.8em*/
 }
 
 .x-list .x-list-item.x-item-pressed .x-list-item-label {
