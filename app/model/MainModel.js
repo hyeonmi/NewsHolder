@@ -26,7 +26,7 @@ Ext.define('NewsHolder.model.MainModel', {
 	            	name: 'lastAccessDate'
 	            },
 	            {
-	            	name: 'numOfEntry'
+	            	name: 'numOfEntry', type : 'int', defaultValue: '0'
 	            },
 	            {
 	            	name: 'proxyId'

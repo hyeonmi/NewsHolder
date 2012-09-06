@@ -21,7 +21,8 @@ Ext.define('NewsHolder.controller.MainController', {
 		},
 		control : {
 			mainRssList : {
-				itemtap : 'mainRssListTap',
+				itemtap : 'onMainRssListTap',
+				itemtaphold : 'onMainRssListTapHold',
 			},
 			mainRssAddBtn : {
 				tap : 'onMainRssAddTap',
@@ -42,6 +43,7 @@ Ext.define('NewsHolder.controller.MainController', {
 	onMainRssAddTap : function(obj) {
 		animation.onMoveSlideLeft('RSS 추가', 'rssPanelId', ['mainSearchButton'], ['homeButton']);
 	},
+	
 	// 키워드 그룹 Tap
 	onMainKeywordGroupTap : function() {
 		animation.onMoveSlideLeft('키워드 모음', 'keywordGroupPanelId', ['mainSearchButton'], ['homeButton']);
@@ -56,13 +58,29 @@ Ext.define('NewsHolder.controller.MainController', {
 	},
 
 	// 신문사 아이콘 Tap
-	mainRssListTap : function(list, index, item, record, e) {
-		animation.onMoveSlideLeft(record.data.mainRssName, 'articleListId', ['mainSearchButton'], ['homeButton']);
+	onMainRssListTap : function(list, index, item, record, e) {
+		if (!list.lastTapHold || (new Date() - list.lastTapHold > 1000)) {
+			animation.onMoveSlideLeft(record.data.mainRssName, 'articleListId', ['mainSearchButton'], ['homeButton']);
+	
+			var ArticleController = this.getApplication().getController(
+					'ArticleController');
+			ArticleController.refreshArticleList(record);
+			localStorage.History_navigator = "News";
+		}
+	},
+	
+	//신문사 아이콘 TapHold
+	onMainRssListTapHold : function(list, index, item, record, e) {
 
-		var ArticleController = this.getApplication().getController(
-				'ArticleController');
-		ArticleController.refreshArticleList(record);
-		localStorage.History_navigator = "News";
+		list.lastTapHold = new Date();
+		Ext.Msg.confirm("알림", "해당 RSS을 삭제하시겠습니까",
+				function(buttonId, value, opt) {
+					if (buttonId == "yes") {
+						var store = Ext.getStore('mainStore');
+						store.remove(record);
+						store.sync();
+					}
+				}, this);
 	},
 	
 	init : function(){
