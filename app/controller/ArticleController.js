@@ -60,25 +60,20 @@ Ext.define('NewsHolder.controller.ArticleController', {
 	onArticleTap : function(dataview, index, target, record, e, options) {
 
 		var panelFlag = localStorage.panelFlag;
-		console.log("플래그 = " + panelFlag);
 		
 		if(panelFlag=="articleContent"){
-			
 			animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton', 'articleContent2' ], [
 			                                		                           'articleContent', 'alBackButton', 'articleScrapButton' ]);
 			this.getArticleContent().setData(record.data);
-			console.log("articleContent");
 		}else{
-			
 			animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton', 'articleContent' ], [
 			                                		                           'articleContent2', 'alBackButton', 'articleScrapButton' ]);
 			this.getArticleContentOther().setData(record.data);
-			console.log("articleContent2");
-			console.log(this.getArticleContentOther());
 		}
 
 		//console.log("original:\n"+record.data.originDesc);
 		//console.log("modified:\n"+record.data.description);
+		console.log(record.data);
 		localStorage.flag = index;
 	},
 
@@ -107,7 +102,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		}
 		
 		if(navi=="News"){
-			console.log("뉴스에서 검색합니다.");
 			data = Ext.getStore("Feed").data;
 		}else if(navi=="Search"){
 			console.log("검색에서 검색합니다.");
@@ -120,7 +114,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		}
 		
 		var count = data.length;  //전체 기사가 총 몇 개인지 알려주는 변수
-		        //기사 전문 패널을 가져옵니다.					
 		
 		//console.log(data);
 		//console.log(flag);
@@ -129,8 +122,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			if(flag==count-1){
 				Ext.Msg.alert("알림", "다음 기사가 없습니다.");
 			}else{
-				
-				
 				if(panelFlag=="articleContent"){
 					panel = Ext.getCmp("articleContent2");
 					panel.setData(data.items[++flag].data);
@@ -149,8 +140,6 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			if(flag==0){
 				Ext.Msg.alert("알림", "이전 기사가 없습니다.");
 			}else{
-				
-				
 				if(panelFlag=="articleContent"){
 					panel = Ext.getCmp("articleContent2");
 					panel.setData(data.items[--flag].data);
