@@ -19,6 +19,7 @@ Ext.define('NewsHolder.util.ManagerController', {
 		}
 		
 		if(typeof(movePanelId)=='string'){
+			//console.log(movePanelId);
 			Ext.getCmp('mainPanel').animateActiveItem(Ext.getCmp(movePanelId), {
 				type : 'slide',
 				direction : 'left'
@@ -66,5 +67,7 @@ Ext.define('NewsHolder.util.ManagerController', {
 		for ( var j = 0; j < showCompId.length; j++) {
 			Ext.getCmp(showCompId[j]).show();
 		}
-	}
+	},
+	
+	
 });

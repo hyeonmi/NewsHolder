@@ -5,7 +5,8 @@ Ext.define('NewsHolder.controller.ScrapController', {
 		refs : {
 			scrapList : "#scrapList",
 			scrapBackButton : '#scrapBackButton',
-			articleContent : "#articleContent"
+			articleContent : "#articleContent",
+			articleContentOther : "#articleContent2",
 		},
 
 		control : {
@@ -27,18 +28,32 @@ Ext.define('NewsHolder.controller.ScrapController', {
 
 	/** 스크랩 리스트에서 기사 제목을 탭했을 때 실행 */
 	scrapListTap : function(list, index, item, record, e) {
+		var panelFlag = localStorage.panelFlag;
+		
 		if (!list.lastTapHold || (new Date() - list.lastTapHold > 1000)) {
-			this.getArticleContent().setData(record.data);
 			localStorage.flag = index;
-
-			animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton' ], [
-					'scrapBackButton']);
+			if(panelFlag=="articleContent"){
+				
+				animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton', 'articleContent2' ], [
+				                                		                           'articleContent', 'alBackButton' ]);
+				this.getArticleContent().setData(record.data);
+				console.log("articleContent");
+			}else{
+				
+				animation.onMoveSlideLeft(null, 'articlePanel', [ 'homeButton', 'articleContent' ], [
+				                                		                           'articleContent2', 'alBackButton' ]);
+				this.getArticleContentOther().setData(record.data);
+				console.log("articleContent2");
+				console.log(this.getArticleContentOther());
+			}
 		}
 	},
 
 	scrapBackButtonTap : function(button, e, options) {
-		animation.onMoveSlideRight(null, 'scrapPanel', [ 'scrapBackButton',
-				'articleScrapButton' ], [ 'homeButton' ]);
+		console.log("scrapBackButtonTap!!");
+		/*animation.onMoveSlideRight(null, 'scrapPanel', [ 'scrapBackButton',
+				'articleContent', 'articleContent2' ], [ 'homeButton' ]);*/
+		animation.onMoveSlideLeft('스크랩 모음', 'scrapPanel', ['mainSearchButton'], ['homeButton']);
 	},
 
 	scrapListTapHold : function(list, index, item, record, e) {
