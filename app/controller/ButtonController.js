@@ -71,7 +71,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 				"ArticleController");
 		ArticleController.getList().deselectAll();
 		
-		animation.onMoveSlideRight('NewsHolder', 'rssMainPanel', [ 'homeButton',
+		animation.onMoveSlideRight('NewsHolder', 'mainContentId', [ 'homeButton',
 				'articleScrapButton', 'registerKeywordButton' ],
 				[ 'mainSearchButton' ]);
 	},

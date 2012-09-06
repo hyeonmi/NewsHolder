@@ -17,11 +17,12 @@ Ext.define('NewsHolder.view.MainPanel', {
 		items:[
 		{
 			xtype:'titlebar',
-			title:'SMART NEWS',
+			title:'News Holder',
 			docked:'top',
 			id:'titlebar',
 			ui : 'mainbar',
 			height : '79px',
+			cls : 'mianTitle',
 			items:[{
             	xtype:'button',
             	id:'alBackButton',
@@ -106,91 +107,7 @@ Ext.define('NewsHolder.view.MainPanel', {
             }]
 		},
 		{
-			xtype : 'panel',
-			id:'rssMainPanel',
-        	layout: {
-			    type: 'vbox',
-			},
-			items : [
-			         {
-			        	 xtype : 'panel',
-			        	 layout : {
-			        		 type : 'hbox'			        		 
-			        	 },
-			        	 
-			        	 items : [
-									{
-										xtype : 'image',
-										id : 'testButton',
-										html : 'test',
-										cls:'btnSearch',
-										src : ''
-									},	
-									{
-										xtype : 'image',
-										id : 'mainSearchButton',
-										html : '검색',
-										cls:'btnSearch',
-										src : ''
-									},	
-									{
-										xtype : 'panel',
-										layout : {
-											type : 'vbox'
-										},
-										
-										items : [
-												{
-													 xtype : 'panel',
-													 layout : {
-														 type : 'hbox'			        		 
-													 },
-													 
-													 
-													 items : [
-																{
-																	xtype : 'image',
-																	id : 'mainKeywordGroupBtn',
-																	html : '키워드 모음',
-																	cls:'btnKeyword',
-																	src : ''
-																},
-																	{
-																	xtype : 'image',
-																	id : 'mainScrapBtn',
-																	html : '스크랩 모음',
-																	cls:'btnScrap',
-																	src : ''
-																} 
-													          ]
-													
-												},
-								  			 		{
-														xtype : 'image',
-														id : 'mainRssAddBtn',
-														html : 'RSS 추가',
-														cls:'btnRss',
-														src : ''
-													}
-										         ]
-									},
-			        	 ]
-			         },
-			         
-			         {
-							xtype:'list',
-							id:'mainRssList',
-							flex : 2,
-							itemTpl : new Ext.XTemplate(
-							        '<div class="main-list-item">'+
-							        '<img src="{mainRssImage}" class="main-list-img" />'+
-									'<div class="main-list-text">{mainRssName}</div>'+
-									'<div class="main-list-badge">{numOfEntry}</div>'+
-									'</div>'
-					    	),						
-						    	store:'mainStore',
-					 }		         
-			]
+			xtype : 'maincotnent',
 		},
 		
 		{

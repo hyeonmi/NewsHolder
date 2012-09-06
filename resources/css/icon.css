@@ -1,9 +1,25 @@
+/*
+타이틀 
+*/
+.mianTitle{
+	border-bottom : 0px !important;
+}
+
+/*메인 버튼 */
+.mainContent{
+	margin : 8px 28px 28px 8px !important;
+	padding-top : 8px;
+	padding-bottom : 8px;
+	border-top : 2px solid;
+	width : 480px;
+	text-align : cetner;
+}
 .btnSearch {
 	background-size: 100% 100%;
-	background: -webkit-gradient(linear, left top, left bottom, from(#820202), to(#b30606));	
-	margin: 5px;
-	width: 100px;
-	height: 100px;
+	background-image: url(../images/main/btn_search.png);
+	margin: 3px;
+	width: 193px;
+	height: 196px;
 	border : 0px;
 	text-align : 'center';
 	position : relative;
@@ -11,10 +27,10 @@
 
 .btnRss {
 	background-size: 100% 100%;
-	background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#cccccc));	
-	margin: 5px;
-	width: 200px;
-	height: 25px;
+	background-image: url(../images/main/btn_addrss.png);
+	margin: 3px;
+	width: 223px;
+	height: 53px;
 	border : 0px;
 	text-align : 'center';
 	position : relative;
@@ -22,10 +38,10 @@
 
 .btnKeyword {
 	background-size: 100% 100%;
-	background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#cccccc));	
-	margin: 5px;
-	width: 100px;
-	height: 75px;
+	background-image: url(../images/main/btn_mykeyword.png);
+	margin: 3px;
+	width: 117px;
+	height: 137px;
 	border : 0px;
 	text-align : 'center';
 	position : relative;
@@ -33,10 +49,10 @@
 
 .btnScrap {
 	background-size: 100% 100%;
-	background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#cccccc));	
-	margin: 5px;
+	background-image: url(../images/main/btn_myscrap.png);
+	margin: 3px;
 	width: 100px;
-	height: 75px;
+	height: 137px;
 	border : 0px;
 	text-align : 'center';
 	position : relative;
@@ -45,7 +61,6 @@
 
 .icon-item {
 	background: -webkit-gradient(linear, left top, left bottom, from(#820202), to(#b30606));	
-	/*background-image: url(../images/chosen.jpg);*/
 	margin: 3px;
 	width: 151px;
 	height: 163px;
