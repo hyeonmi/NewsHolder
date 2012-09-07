@@ -5,6 +5,7 @@ Ext
 					extend : 'Ext.Panel',
 					xtype : 'keywordpanel',
 					id : 'keywordPanel',
+					cls : 'panel-content',
 
 					requires : [ 'NewsHolder.view.ArticlePanel',
 							'Ext.plugin.ListPaging' ],
@@ -29,7 +30,6 @@ Ext
 									items : [
 											{
 												xtype : 'searchfield',
-												/* flex : 1, */
 												id : 'searchField',
 												cls : 'roundSearchField',
 												placeHolder : '검색어를 입력하세요',
@@ -39,8 +39,6 @@ Ext
 												id : 'searchButton',
 												ui : 'action',
 												cls : 'searchIcon',
-												html : [
-														'<div class="searchIcon"><img src="./resources/images/keyword_search/ic_go.png"/></div>', ]
 											} ]
 								},
 								{
