@@ -72,6 +72,10 @@
             "path": "resources/css/articleMain.css",
             "update": "delta"
         },
+        {
+        	"path": "resources/css/searchResult.css",
+            "update": "delta"
+        }
     ],
 
     /**

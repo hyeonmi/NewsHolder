@@ -1,7 +1,60 @@
-.panelRealtime {
-	background-color: #9E0000;
+.realtimePanel {
+	border-bottom: 1px solid #343434;
+	border-top: 1px solid #343434;
+	padding: 0px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-top: 8px;
+}
+
+.realtimePanel .content {
 	text-align: center;
 	color: white;
-	padding : 20px;
-	margin : 5px;
+	font-size: 95%;
+	padding: 10px;
+	background-color: #9E0000;
+}
+
+.searchPanel {
+	background-color: #F7F7F7;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.dummyPanel {
+	border-top: 2px solid #343434;
+	margin-bottom: 8px;
+}
+
+.rankListCSS .x-list-item {
+	background-color: #F7F7F7;
+	color:#343434;
+	height: 72px;
+	line-height: 4em;
+}
+
+.rankListCSS .tableProperty{
+	margin-left:30px;
+	margin-right:30px;
+}
+
+.rankListCSS .dataProperty{
+	
+}
+
+.rankListCSS .rankvalue {
+	font-size: 50%;
+}
+
+.rankListCSS img {
+	vertical-align: middle;
+}
+
+.roundSearchField {
+	-webkit-border-radius : 0.6em;
+}
+
+.searchIcon {
+	background-size: 100% 100%;
+	vertical-align: middle;
 }
