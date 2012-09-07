@@ -78,14 +78,13 @@ Ext.define('NewsHolder.view.MainPanel', {
             	iconAlign:'right',
             },
             {
+            	iconMask:true,
             	xtype:'button',
             	id:'articleScrapButton',
-            	ui : 'action-round',
-            	iconCls:'star',
-            	iconMask:true,
+            	cls:'scrapButtonCls',
+            	hidden:true,
             	iconAlign:'right',
             	align:'right',
-            	hidden:true,
             },
             {
             	xtype:'button',
