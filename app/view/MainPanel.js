@@ -18,7 +18,6 @@ Ext.define('NewsHolder.view.MainPanel', {
 			id:'titlebar',
 			ui : 'mainbar',
 			cls : 'mainTitle',
-<<<<<<< HEAD
 			items : [ {
 				xtype : 'image',
 				id : 'alBackButton',
