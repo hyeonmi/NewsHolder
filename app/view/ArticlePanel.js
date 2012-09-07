@@ -25,10 +25,8 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 	            			'<div><hr></div>',
 						" </div>",
 						"<div id='fontSize'>",
-							"<span id='font_size_up_button'>A</span>",
-							"<span id='font_size_down_button'>A</span>",
-							/*"<img onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button' src='./resources/images/fontSizeUp.PNG'/>",
-							"<img onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button' src='./resources/images/fontSizeDown.PNG'/>",*/
+							"<span onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button'>A</span>",
+							"<span onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button'>A</span>",
 						"</div>",
 						"<div id='mainArticle' style='font-size:20px;'>{description}</div>",
 						
@@ -53,11 +51,11 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 					tpl:[
 						"<div id='mainArticleTitle'>",
 							"<div id='title'>{title}</div>",
-							'<div><hr></div>',
+	            			'<div><hr></div>',
 						" </div>",
 						"<div id='fontSize'>",
-						"<img onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button' src='./resources/images/fontSizeUp.PNG'/>",
-						"<img onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button' src='./resources/images/fontSizeDown.PNG'/>",
+							"<span onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button'>A</span>",
+							"<span onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button'>A</span>",
 						"</div>",
 						"<div id='mainArticle2' style='font-size:20px;'>{description}</div>",
 					],
