@@ -67,7 +67,7 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 							"<img onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button' src='./resources/images/fontSizeUp.PNG'/>",
 							"<img onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button' src='./resources/images/fontSizeDown.PNG'/>",
 						"</div>",
-						"<div id='mainArticle' style='font-size:20px;'>{description}</div>",
+						"<div id='mainArticle2' style='font-size:20px;'>{description}</div>",
 					],
 					styleHtmlContent:true,
 					scrollable:true,
@@ -92,7 +92,15 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 });
 
 function font_size_buttonClick(size){
-	var article = Ext.getDom("mainArticle");
+	var panelFlag = localStorage.panelFlag;
+	var article = null;
+	
+	if(panelFlag=="articleContent"){
+		article = Ext.getDom("mainArticle");
+	}else{
+		article = Ext.getDom("mainArticle2");
+	}
+	
 	var current = parseInt(article.style.fontSize);
 	if(size=="bigger"){
 		current++;

@@ -966,9 +966,9 @@ audio {
 
 .x-button.x-button-action,.x-toolbar .x-button.x-button-action,.x-button.x-button-action-round,.x-toolbar .x-button.x-button-action-round,.x-button.x-button-action-small,.x-toolbar .x-button.x-button-action-small
 	{
-	border: 1px solid #ccc;
+	/* border: 1px solid #ccc;
 	border-top-color: #d9d9d9;
-	color: #262626
+	color: #262626 */
 }
 
 .x-button.x-button-action.x-button-back:before,.x-button.x-button-action.x-button-forward:before,.x-toolbar .x-button.x-button-action.x-button-back:before,.x-toolbar .x-button.x-button-action.x-button-forward:before,.x-button.x-button-action-round.x-button-back:before,.x-button.x-button-action-round.x-button-forward:before,.x-toolbar .x-button.x-button-action-round.x-button-back:before,.x-toolbar .x-button.x-button-action-round.x-button-forward:before,.x-button.x-button-action-small.x-button-back:before,.x-button.x-button-action-small.x-button-forward:before,.x-toolbar .x-button.x-button-action-small.x-button-back:before,.x-toolbar .x-button.x-button-action-small.x-button-forward:before
