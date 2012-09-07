@@ -56,3 +56,10 @@
 	width:424px;
 	background-color:#343434;
 }
+
+.backButtonCls{
+	background-image:url(http://icons.iconarchive.com/icons/custom-icon-design/office/256/back-icon.png);
+	background-color:transparent;
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}

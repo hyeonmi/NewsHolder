@@ -553,9 +553,9 @@ audio {
 }
 
 .x-button,.x-toolbar .x-button {
-	border: 1px solid #999;
+	/* border: 1px solid #999;
 	border-top-color: #a6a6a6;
-	color: #000
+	color: #000 */
 }
 
 .x-button.x-button-back:before,.x-button.x-button-forward:before,.x-toolbar .x-button.x-button-back:before,.x-toolbar .x-button.x-button-forward:before
@@ -565,12 +565,12 @@ audio {
 
 .x-button,.x-button.x-button-back:after,.x-button.x-button-forward:after,.x-toolbar .x-button,.x-toolbar .x-button.x-button-back:after,.x-toolbar .x-button.x-button-forward:after
 	{
-	background-image: none;
+	/* background-image: none;
 	background-color: #ccc;
 	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f2f2f2),
 		color-stop(3%, #d9d9d9), color-stop(100%, #bfbfbf) );
 	background-image: -webkit-linear-gradient(top, #f2f2f2, #d9d9d9 3%, #bfbfbf);
-	background-image: linear-gradient(top, #f2f2f2, #d9d9d9 3%, #bfbfbf)
+	background-image: linear-gradient(top, #f2f2f2, #d9d9d9 3%, #bfbfbf) */
 }
 
 .x-button .x-button-icon.x-icon-mask,.x-toolbar .x-button .x-button-icon.x-icon-mask
@@ -585,13 +585,13 @@ audio {
 
 .x-button.x-button-pressing,.x-button.x-button-pressing:after,.x-button.x-button-pressed,.x-button.x-button-pressed:after,.x-button.x-button-active,.x-button.x-button-active:after,.x-toolbar .x-button.x-button-pressing,.x-toolbar .x-button.x-button-pressing:after,.x-toolbar .x-button.x-button-pressed,.x-toolbar .x-button.x-button-pressed:after,.x-toolbar .x-button.x-button-active,.x-toolbar .x-button.x-button-active:after
 	{
-	background-image: none;
+	/* background-image: none;
 	background-color: #c4c4c4;
 	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ababab),
 		color-stop(10%, #b8b8b8), color-stop(65%, #c4c4c4),
 		color-stop(100%, #c6c6c6) );
 	background-image: -webkit-linear-gradient(top, #ababab, #b8b8b8 10%, #c4c4c4 65%, #c6c6c6);
-	background-image: linear-gradient(top, #ababab, #b8b8b8 10%, #c4c4c4 65%, #c6c6c6)
+	background-image: linear-gradient(top, #ababab, #b8b8b8 10%, #c4c4c4 65%, #c6c6c6) */
 }
 
 .x-button .x-button-icon {

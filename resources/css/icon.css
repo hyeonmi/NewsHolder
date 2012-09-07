@@ -1,11 +1,11 @@
 /*
-Å¸ÀÌÆ² 
+Å¸ï¿½ï¿½Æ² 
 */
 .mainTitle{
 	border-bottom : 0px !important;
 }
 
-/*¸ÞÀÎ ¹öÆ° */
+/*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° */
 
 .btnSearch {
 	background-size: 100% 100%;
@@ -52,7 +52,7 @@
 }
 
 
-/*¸®½ºÆ® ºÎºÐ */
+/*ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îºï¿½ */
 .main-list{
 	padding-top : 8px;
 	height : 472px;
@@ -127,7 +127,7 @@
 	margin : 0px;
 }
 
-/*rss Ãß°¡ */
+/*rss ï¿½ß°ï¿½ */
 .rss-add-panel{
 	background : #f0f0f0;
 	height : 53px;
@@ -177,7 +177,7 @@
 }
 
 
-/*°øÅë ºÎºÐ */
+/*ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ */
 .text-red{
 	color : #9e0000;
 }
@@ -199,4 +199,8 @@
 }
 
 .x-item-selected{
-	border : 0px;}
+	border : 0px;
+}
+
+
+
