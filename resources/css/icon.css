@@ -1,68 +1,81 @@
-/*
-타이틀 
-*/
+
 .mainTitle{
 	border-bottom : 0px !important;
 }
 
-/*메인 버튼 */
 
+/*content area */
+.panel-content{
+	margin : 8px 28px 8px 28px !important;
+	border-top : 2px solid #343434;
+	width : 424px;
+	height : 472px;
+	text-align : cetner;
+}
+
+/*main botton */
 .btnSearch {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_search.png);
-	margin: 3px;
 	width: 193px;
 	height: 196px;
 	border : 0px;
-	text-align : 'center';
-	position : relative;
+	margin-top : 8px;
 }
 
 .btnRss {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_addrss.png);
-	margin: 3px;
 	width: 223px;
 	height: 53px;
 	border : 0px;
-	text-align : 'center';
-	position : relative;
+	margin-top : 8px;
+	margin-left : 8px;
 }
 
 .btnKeyword {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_mykeyword.png);
-	margin: 3px;
-	width: 117px;
-	height: 137px;
+	width: 115px;
+	height: 135px;
 	border : 0px;
-	text-align : 'center';
-	position : relative;
+	margin-top : 8px;
+	margin-left : 8px;
 }
 
 .btnScrap {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_myscrap.png);
-	margin: 3px;
 	width: 100px;
-	height: 137px;
+	height: 135px;
 	border : 0px;
-	text-align : 'center';
-	position : relative;
+	margin-top : 8px;
+	margin-left : 8px;
 }
 
 
-/*리스트 부분 */
+/*main list */
+.list-title{
+	background : #f0f0f0;
+	margin-top : 8px;
+	height : 31px;
+	align : middle;
+	border-top : 1px solid #343434;
+	border-bottom : 1px solid;
+	padding-left : 8px;
+	padding-top : 3px;
+}
+
 .main-list{
 	padding-top : 8px;
-	height : 472px;
+	height : 400px;
 }
 .main-list-item {
 	width: 100%;
 }
 
 .main-list-img {
-	margin-left : 8px;
+	padding-left : 8px;
 	width : 58px;
 	height : 48px;
 }
@@ -70,24 +83,23 @@
 	text-align : left;
 	margin-left : 8px;
 }
-
-.list-title{
-	background : #f0f0f0;
-	margin-top : 8px;
-	height : 31px;
-	align : middle;
-	border-top : 1px solid;
-	border-bottom : 1px solid;
-	padding-left : 8px;
-	padding-top : 3px;
+.main-new-text{
+	color : #9e0000;
+	text-align : right;
+	padding-right : 8px;
+	font-size : 0.7em;
 }
+.main-list-badge-div{
+	text-align : right;
+		margin-right : 8px;	
+}
+
 .main-list-badge {
 	text-align : center;
-	margin-right : 8px;	
-	font-size: 1.1em;
+	font-size: 0.9em;
 	color : yellow;
-	height : 25px;
-	width : 25px;
+	height : 20px;
+	width : 20px;
 	-webkit-border-radius: 1.0em;
 	border-radius: 1.5em;	
 	background : #343434;
@@ -96,7 +108,6 @@
 /*Add Rss*/
 
 .rss-item-img {
-	background: -webkit-gradient(linear, left top, left bottom, from(#820202), to(#b30606));	
 	margin: 8px;
 	width: 208px;
 	height: 108px;
@@ -117,7 +128,7 @@
 }
 .rss-text-box-img{
 	position: relative;
-	bottom: 17px;
+	bottom: 18px;
 	padding : 3px;
 	text-align : right;	
 	
@@ -128,7 +139,7 @@
 	margin : 0px;
 }
 
-/*rss 추가 */
+/*rss add */
 .rss-add-panel{
 	background : #f0f0f0;
 	height : 53px;
@@ -151,26 +162,47 @@
 
 }
 
-/**/
-
-
-/*공통 부분 */
-.text-red{
-	color : #9e0000;
+/*keyword group*/
+.keyword-title{
+	margin : 8px 28px 8px 28px !important;
+	width : 424px;
+	height : 31px;
+	background : #9e0000;
+	color : #fff;
+	padding : 3px 3px;
+	
 }
+
+.keyword-list{
+	margin : 8px 28px 8px 28px !important;
+	width : 424px;
+	height : 620px;
+	background :  #343434;
+}
+.keyword-item{
+	text-align : center !important;
+	height : 72px;
+	color : #fff;
+	margin : 3px;
+	padding-top : 25px;
+
+}
+
+
+
+/*etc */
 .line-red{
-	width : 480px;
+	width : 424px;
 	height : 8px;
 	background : #9e0000;
-	text-align : 'center';
+	text-align : center;
 	margin : 0px 8px !important;	
 }
-.panel-content{
-	margin : 8px 28px 28px 8px !important;
-	padding-top : 8px;
-	padding-bottom : 8px;
-	border-top : 2px solid;
-	width : 480px;
-	height : 472px;
-	text-align : cetner;
+
+
+.x-item-selected{
+	border : 0px;
 }
+
+
+

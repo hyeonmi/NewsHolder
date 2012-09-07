@@ -5,19 +5,20 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 	
 	config : {
 		layout : {
-			type : 'fit'
+			type : 'vbox'
 		},
 		items : [
+		         	{
+		         		xtype : 'panel',
+		         		cls : 'keyword-title',
+		         		html : 'Keyword List'
+		         	},
 		            {
-		                xtype: 'dataview',
+		                xtype: 'list',
 		                id: 'keywordGroupList',
+		                cls : 'keyword-list',
 		                itemTpl: [
-		                    '<div class="group-feed-widget" id="keywordItemId">',
-		                    	'<div class="widget">',
-		                    		'<img src="{keywordImage}" class="x-icon-mask">',
-		                    	'</div>',
-		                    '</div>',
-		                    '<div class="widget-title">{keywordName}</div>',
+		                    '<div class="keyword-item">{keywordName}</div>',
 		                ],
 		                store: 'keywordGroupStore',
 		            },

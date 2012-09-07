@@ -13,8 +13,10 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 
 		control : {
 			keywordGroupList : {
-				itemtap : "onKeywordGroupListItemTap"
 
+				itemtap : "onKeywordGroupListItemTap",
+				itemtaphold : 'onKeywordGroupListItemTapHold',
+					
 			},
 
 		}
@@ -33,12 +35,27 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 	},
 
 	onKeywordGroupListItemTap : function(list, index, item, record, e) {
-		animation.onMoveSlideLeft(record.data.keywordName, 'kgDetailPanel',
-				[ 'homeButton' ],
-				[ 'kgDetailBackButton', 'kgDetailAlarmButton' ]);
+		if (!list.lastTapHold || (new Date() - list.lastTapHold > 1000)) {
+			animation.onMoveSlideLeft(record.data.keywordName, 'kgDetailPanel',
+					[ 'homeButton' ],
+					[ 'kgDetailBackButton', 'kgDetailAlarmButton' ]);
+	
+			this.setSelectedKeyword(record.data.keywordName);
+			this.getApplication().getController("KGDetailController")
+					.initKeywordArticleList();
+		}
+	},
+	
+	onKeywordGroupListItemTapHold : function(list, index, item, record, e) {
 
-		this.setSelectedKeyword(record.data.keywordName);
-		this.getApplication().getController("KGDetailController")
-				.initKeywordArticleList();
-	}
+		list.lastTapHold = new Date();
+		Ext.Msg.confirm("알림", "해당 키워드을 삭제하시겠습니까",
+				function(buttonId, value, opt) {
+					if (buttonId == "yes") {
+						var store = Ext.getStore('keywordGroupStore');
+						store.remove(record);
+						store.sync();
+					}
+				}, this);
+	},
 });

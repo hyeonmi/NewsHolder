@@ -12,6 +12,7 @@ Ext
 							kgDetailAlarmButton : '#kgDetailAlarmButton',
 							kgArticleBackButton : '#kgArticleBackButton',
 							articleContent : "#articleContent",
+							articleContentOther : "#articleContent2",
 						},
 
 						control : {
@@ -87,7 +88,15 @@ Ext
 
 					onKGDetailListItemTap : function(dataview, index, target,
 							record, e, options) {
-						this.getArticleContent().setData(record.data);
+						
+						var panelFlag = localStorage.panelFlag;
+						
+						if(panelFlag=="articleContent"){
+							this.getArticleContent().setData(record.data);
+						}else{
+							this.getArticleContentOther().setData(record.data);
+						}
+						
 						
 						console.log("original:\n"+record.data.originDesc);
 						console.log("modified:\n"+record.data.description);
