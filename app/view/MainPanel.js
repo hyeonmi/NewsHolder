@@ -9,15 +9,16 @@ Ext.define('NewsHolder.view.MainPanel', {
 		layout : {
 			type : 'card'
 		},
-
-		items : [ {
-			xtype : 'titlebar',
-			title : 'News Holder',
-			docked : 'top',
-			id : 'titlebar',
+		
+		items:[
+		{
+			xtype:'titlebar',
+			title:'News <b>Holder</b>',
+			docked:'top',
+			id:'titlebar',
 			ui : 'mainbar',
-			height : '79px',
 			cls : 'mainTitle',
+<<<<<<< HEAD
 			items : [ {
 				xtype : 'image',
 				id : 'alBackButton',

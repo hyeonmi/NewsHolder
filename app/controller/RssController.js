@@ -54,7 +54,7 @@ Ext.define('NewsHolder.controller.RssController', {
 	onRssAddButtonTap : function(button, e, options) {
 		// var rssname = Ext.getCmp('rssNameText').getValue();
 		var rssurl = Ext.getCmp('rssUrlText').getValue();
-		var rssimg = './resources/images/rss_tmp.png';
+		var rssimg = './resources/images/main/ic_myrss.png';
 		if (rssurl == "") {
 			Ext.Msg.alert('확인', 'URL을 입력해주세요.', Ext.emptyFn);
 			return false;

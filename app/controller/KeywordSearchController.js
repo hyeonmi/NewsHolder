@@ -13,6 +13,7 @@ Ext
 							searchList : '#searchList',
 							searchBackButton : '#searchBackButton',
 							articleContent : "#articleContent",
+							articleContent2 : "#articleContent2",
 							rankList : '#rankList',
 							registerKeywordButton : '#registerKeywordButton',
 							realtimePanel : '#realtimePanel',
@@ -57,9 +58,14 @@ Ext
 					},
 
 					onSearchBackButtonTap : function(button, e, options) {
-						animation.onMoveSlideRight('키워드 검색', 'keywordPanel', [
+						console.log("onSearchBackButtonTap");
+						/*animation.onMoveSlideRight('키워드 검색', 'keywordPanel', [
 								'searchBackButton', 'articleScrapButton' ], [
-								'homeButton', 'registerKeywordButton' ]);
+								'homeButton', 'registerKeywordButton' ]);*/
+						
+						animation.onMoveSlideRight("키워드 검색", 'keywordPanel', [ 'searchBackButton', 
+						    'alBackButton','articleScrapButton','homeButton',
+						    'articleContent', 'articleContent2' ], [ 'homeButton' ]);
 					},
 
 					onRegisterKeywordButtonTap : function(button, e, options) {
@@ -150,12 +156,25 @@ Ext
 
 					onSearchListItemTap : function(dataview, index, target,
 							record, e, options) {
-						animation.onMoveSlideLeft('키워드 검색', 'articlePanel', [
-								'homeButton', 'registerKeywordButton' ], [
-								'searchBackButton', 'articleScrapButton' ]);
+						var panelFlag = localStorage.panelFlag;
+						localStorage.flag = index;
+						
+						if(panelFlag=="articleContent"){
+							animation.onMoveSlideLeft(null, 'articlePanel', 
+									[ 'homeButton', 'articleContent2' ], 
+									[ 'articleContent', 'searchBackButton', 
+									  'articleScrapButton' ]);
+							this.getArticleContent().setData(record.data);
+						}else{
+							animation.onMoveSlideLeft(null, 'articlePanel', 
+									[ 'homeButton', 'articleContent' ], 
+									[ 'articleContent2', 'searchBackButton', 
+									  'articleScrapButton' ]);
+							this.getArticleContent2().setData(record.data);
+						}
 						
 						console.log("original:\n"+record.data.originDesc);
 						console.log("modified:\n"+record.data.description);
-						this.getArticleContent().setData(record.data);
+						
 					}
 				});

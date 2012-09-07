@@ -88,20 +88,28 @@ Ext
 
 					onKGDetailListItemTap : function(dataview, index, target,
 							record, e, options) {
+						localStorage.flag = index;
+						console.log("onKGDetailListItemTap");
 						
 						var panelFlag = localStorage.panelFlag;
 						
 						if(panelFlag=="articleContent"){
+							animation.onMoveSlideLeft(null, 'articlePanel', 
+									[ 'kgDetailAlarmButton', 'articleContent2', 
+									  'kgDetailBackButton', ], 
+									[ 'articleContent', 'kgArticleBackButton', 
+									  'articleScrapButton' ]);
 							this.getArticleContent().setData(record.data);
 						}else{
+							animation.onMoveSlideLeft(null, 'articlePanel', 
+									[ 'kgDetailAlarmButton', 'articleContent', 
+									  'kgDetailBackButton', ], 
+									[ 'articleContent2', 'kgArticleBackButton', 
+									  'articleScrapButton' ]);
 							this.getArticleContentOther().setData(record.data);
 						}
 						
-						
 						console.log("original:\n"+record.data.originDesc);
 						console.log("modified:\n"+record.data.description);
-
-						animation.onMoveSlideLeft(null, 'articlePanel',
-								[ 'kgDetailBackButton', 'kgDetailAlarmButton' ], [ 'kgArticleBackButton', 'articleScrapButton' ]);
 					}
 				});

@@ -10,8 +10,9 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 		items : [
 		         	{
 		         		xtype : 'panel',
-		         		cls : 'keyword-title',
-		         		html : 'Keyword List'
+		         		html : '<div class="keyword-title-line">'+
+		         		'<div class="keyword-title">Keyword List</div>'+
+		         		'</div>'
 		         	},
 		            {
 		                xtype: 'list',
