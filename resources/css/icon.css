@@ -1,14 +1,10 @@
-/*
-Å¸ï¿½ï¿½Æ² 
-*/
+
 .mainTitle{
 	border-bottom : 0px !important;
 }
 
-<<<<<<< HEAD
-/*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° */
-=======
-/*ÄÜÅÙÃ÷ ¿µ¿ª */
+
+/*content area */
 .panel-content{
 	margin : 8px 28px 8px 28px !important;
 	border-top : 2px solid #343434;
@@ -17,9 +13,7 @@
 	text-align : cetner;
 }
 
-/*¸ÞÀÎ ¹öÆ° */
->>>>>>> main css
-
+/*main botton */
 .btnSearch {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_search.png);
@@ -60,10 +54,7 @@
 }
 
 
-<<<<<<< HEAD
-/*ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îºï¿½ */
-=======
-/*¸®½ºÆ® ºÎºÐ */
+/*main list */
 .list-title{
 	background : #f0f0f0;
 	margin-top : 8px;
@@ -75,7 +66,6 @@
 	padding-top : 3px;
 }
 
->>>>>>> main css
 .main-list{
 	padding-top : 8px;
 	height : 400px;
@@ -149,7 +139,7 @@
 	margin : 0px;
 }
 
-/*rss ï¿½ß°ï¿½ */
+/*rss add */
 .rss-add-panel{
 	background : #f0f0f0;
 	height : 53px;
@@ -199,14 +189,8 @@
 }
 
 
-<<<<<<< HEAD
-/*ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ */
-.text-red{
-	color : #9e0000;
-}
-=======
-/*°øÅë ºÎºÐ */
->>>>>>> main css
+
+/*etc */
 .line-red{
 	width : 424px;
 	height : 8px;
