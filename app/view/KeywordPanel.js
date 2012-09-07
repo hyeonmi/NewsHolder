@@ -17,28 +17,32 @@ Ext
 						items : [
 								{
 									xtype : 'panel',
+									cls : 'dummyPanel'
+								},
+								{
+									xtype : 'panel',
+									cls : 'searchPanel',
 									layout : {
 										type : 'hbox'
 									},
 									items : [ {
 										xtype : 'searchfield',
-										flex : 1,
+										/*flex : 1,*/
 										id : 'searchField',
 										placeHolder : '검색어를 입력하세요',
-										height : '70px',
-										margin : '5 5 5 5',
-										border : '3px'
 									}, {
-										xtype : 'button',
+										xtype : 'image',
 										id : 'searchButton',
 										ui : 'action',
-										iconCls : 'search',
-										iconMask : true
+										cls : 'searchIcon',
+										html:[
+											'<div class="searchIcon"><img src="./resources/images/keyword_search/ic_go.png"/></div>',
+										]
 									} ]
 								},
 								{
 									xtype : 'panel',
-									html : '실시간 검색어 순위',
+									html : '<div class="content">실시간 인기 검색어</div>',
 									cls : 'realtimePanel'
 								},
 								{
