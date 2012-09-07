@@ -8,7 +8,8 @@ Ext
 					cls : 'panel-content',
 
 					requires : [ 'NewsHolder.view.ArticlePanel',
-							'Ext.plugin.ListPaging' ],
+							'Ext.plugin.ListPaging' ,
+'Ext.field.Search'],
 
 					config : {
 						xtype : 'panel',
