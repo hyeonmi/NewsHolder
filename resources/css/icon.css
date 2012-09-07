@@ -5,64 +5,87 @@
 	border-bottom : 0px !important;
 }
 
+<<<<<<< HEAD
 /*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° */
+=======
+/*ÄÜÅÙÃ÷ ¿µ¿ª */
+.panel-content{
+	margin : 8px 28px 8px 28px !important;
+	border-top : 2px solid #343434;
+	width : 424px;
+	height : 472px;
+	text-align : cetner;
+}
+
+/*¸ÞÀÎ ¹öÆ° */
+>>>>>>> main css
 
 .btnSearch {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_search.png);
-	margin: 3px;
 	width: 193px;
 	height: 196px;
 	border : 0px;
-	text-align : center;
-	position : relative;
+	margin-top : 8px;
 }
 
 .btnRss {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_addrss.png);
-	margin: 3px;
 	width: 223px;
 	height: 53px;
 	border : 0px;
-	text-align : center;
-	position : relative;
+	margin-top : 8px;
+	margin-left : 8px;
 }
 
 .btnKeyword {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_mykeyword.png);
-	margin: 3px;
-	width: 117px;
-	height: 137px;
+	width: 115px;
+	height: 135px;
 	border : 0px;
-	text-align : center;
-	position : relative;
+	margin-top : 8px;
+	margin-left : 8px;
 }
 
 .btnScrap {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_myscrap.png);
-	margin: 3px;
 	width: 100px;
-	height: 137px;
+	height: 135px;
 	border : 0px;
-	text-align : center;
-	position : relative;
+	margin-top : 8px;
+	margin-left : 8px;
 }
 
 
+<<<<<<< HEAD
 /*ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îºï¿½ */
+=======
+/*¸®½ºÆ® ºÎºÐ */
+.list-title{
+	background : #f0f0f0;
+	margin-top : 8px;
+	height : 31px;
+	align : middle;
+	border-top : 1px solid #343434;
+	border-bottom : 1px solid;
+	padding-left : 8px;
+	padding-top : 3px;
+}
+
+>>>>>>> main css
 .main-list{
 	padding-top : 8px;
-	height : 472px;
+	height : 400px;
 }
 .main-list-item {
 	width: 100%;
 }
 
 .main-list-img {
-	margin-left : 8px;
+	padding-left : 8px;
 	width : 58px;
 	height : 48px;
 }
@@ -70,24 +93,23 @@
 	text-align : left;
 	margin-left : 8px;
 }
-
-.list-title{
-	background : #f0f0f0;
-	margin-top : 8px;
-	height : 31px;
-	align : middle;
-	border-top : 1px solid;
-	border-bottom : 1px solid;
-	padding-left : 8px;
-	padding-top : 3px;
+.main-new-text{
+	color : #9e0000;
+	text-align : right;
+	padding-right : 8px;
+	font-size : 0.7em;
 }
+.main-list-badge-div{
+	text-align : right;
+		margin-right : 8px;	
+}
+
 .main-list-badge {
 	text-align : center;
-	margin-right : 8px;	
-	font-size: 1.1em;
+	font-size: 0.9em;
 	color : yellow;
-	height : 25px;
-	width : 25px;
+	height : 20px;
+	width : 20px;
 	-webkit-border-radius: 1.0em;
 	border-radius: 1.5em;	
 	background : #343434;
@@ -177,26 +199,22 @@
 }
 
 
+<<<<<<< HEAD
 /*ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ */
 .text-red{
 	color : #9e0000;
 }
+=======
+/*°øÅë ºÎºÐ */
+>>>>>>> main css
 .line-red{
-	width : 480px;
+	width : 424px;
 	height : 8px;
 	background : #9e0000;
 	text-align : center;
 	margin : 0px 8px !important;	
 }
-.panel-content{
-	margin : 8px 28px 28px 8px !important;
-	padding-top : 8px;
-	padding-bottom : 8px;
-	border-top : 2px solid;
-	width : 480px;
-	height : 472px;
-	text-align : cetner;
-}
+
 
 .x-item-selected{
 	border : 0px;
