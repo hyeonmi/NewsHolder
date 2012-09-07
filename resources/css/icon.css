@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-
-.mainTitle{
-	/* border-bottom : 0px !important; */
-=======
 .mainTitle {
 	border-bottom: 0px !important;
 	font-size: 1.8em;
 	margin-top: 28px;
 	height: 79px;
 	text-align: center;
->>>>>>> css
 }
 
 /*content area */
@@ -230,16 +224,6 @@
 	border: 0px;
 }
 
-<<<<<<< HEAD
-.x-inner .x-layout-hbox{
-	width: 50px;
-}
-
-#alBackButton{
-	width:100%;
-}
-
-=======
 .x-msgbox {
 	background-color: #efefef !important;
 	border-color: #9E0000;
@@ -252,4 +236,3 @@
 		Helvetica, "BBAlpha Sans", sans-serif; 
 	font-weight: normal;	
 }
->>>>>>> css
