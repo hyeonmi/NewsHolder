@@ -21,13 +21,7 @@ Ext.define('NewsHolder.view.MainContent', {
 				},
 
 				items : [
-				// {
-				// xtype : 'image',
-				// id : 'testButton',
-				// html : 'test',
-				// cls:'btnSearch',
-				// src : ''
-				// },
+
 				{
 					xtype : 'image',
 					id : 'mainSearchButton',
@@ -66,8 +60,16 @@ Ext.define('NewsHolder.view.MainContent', {
 			{
 				xtype : 'panel',
 				cls : 'list-title',
-				html : 'RSS List',
+				html : '<div class="list-title-text">RSS List</div>',
+				items : [
+						 {
+							 xtype : 'image',
+							 id : 'refreshButton',
+							 cls:'btnRefresh'
+							 }
+						 ]
 			},
+		
 			{
 				xtype : 'list',
 				id : 'mainRssList',

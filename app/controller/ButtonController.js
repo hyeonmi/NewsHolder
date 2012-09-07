@@ -7,7 +7,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			homeButton : "#homeButton",
 			articleScrapButton : "#articleScrapButton",
 			mainSearchButton : "#mainSearchButton",
-			testButton : "#testButton",
+			refreshButton : "#refreshButton",
 			mainPanel: "#mainPanel",
 		},
 
@@ -27,13 +27,13 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			mainSearchButton : {
 				tap : "mainSearchButtonTap",
 			},
-			testButton : {
-				tap : "testButtonTap"
+			refreshButton : {
+				tap : "refreshButtonTap"
 			}
 		}
 	},
 	
-	testButtonTap : function(button, event){
+	refreshButtonTap : function(button, event){
 		var testStore = Ext.getStore('Test');
 		var mainStore = Ext.getStore("mainStore");
 		var mainData = mainStore.getData();
