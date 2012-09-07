@@ -1,7 +1,7 @@
 /*
 타이틀 
 */
-.mianTitle{
+.mainTitle{
 	border-bottom : 0px !important;
 }
 
@@ -50,6 +50,7 @@
 	text-align : 'center';
 	position : relative;
 }
+
 
 /*리스트 부분 */
 .main-list{

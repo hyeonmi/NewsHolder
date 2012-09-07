@@ -15,16 +15,43 @@
 }
 
 .newsList .x-list-item {
-	border: 1px solid;
 	margin-bottom: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
 }
 
+.articleListBadge {
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 10px;
+}
+
 .realtimePanel {
-	background-color: #9E0000;
+	border-bottom: 1px solid #343434;
+	border-top:1px solid #343434;
+	padding: 0px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-top:8px;
+}
+
+.realtimePanel .content{
 	text-align: center;
 	color: white;
+	font-size:95%;
+	padding:10px;
+	background-color:#9E0000;
+}
+
+.searchPanel {
+	background-color: #F7F7F7;
+	padding-top:8px;
+	padding-bottom:8px;
+}
+
+.dummyPanel{
+	border-top: 2px solid #343434;
+	margin-bottom:8px;
 }
 
 .rankListCSS .x-list-item {
@@ -42,8 +69,8 @@
 	vertical-align: middle;
 }
 
-.articleListBadge {
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	border-radius: 10px;
+.searchIcon{
+	background-size: 100% 100%;
+	vertical-align: middle;
 }
+

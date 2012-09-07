@@ -22,7 +22,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 			id:'titlebar',
 			ui : 'mainbar',
 			height : '79px',
-			cls : 'mianTitle',
+			cls : 'mainTitle',
 			items:[{
             	xtype:'button',
             	id:'alBackButton',
