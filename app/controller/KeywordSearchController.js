@@ -15,7 +15,8 @@ Ext
 							articleContent : "#articleContent",
 							rankList : '#rankList',
 							registerKeywordButton : '#registerKeywordButton',
-							realtimePanel : '#realtimePanel'
+							realtimePanel : '#realtimePanel',
+							listDummyPanel : '#listDummyPanel'
 						},
 
 						control : {
@@ -52,6 +53,7 @@ Ext
 						Ext.getStore('searchResultStore').removeAll();
 						this.getSearchField().setValue("");
 						this.getRealtimePanel().setHidden(false);
+						this.getListDummyPanel().setHidden(true);
 					},
 
 					onSearchBackButtonTap : function(button, e, options) {
@@ -130,6 +132,7 @@ Ext
 							centered : true
 						});
 						this.getRealtimePanel().setHidden(true);
+						this.getListDummyPanel().setHidden(false);
 						searchResultStore.load({
 							callback : function() {
 								searchList.setMasked(false);

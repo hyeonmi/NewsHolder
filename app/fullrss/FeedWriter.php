@@ -206,10 +206,6 @@ define('JSON', 2, true);
 		$this->setChannelElement('summary', $summary);
 	}
 	
-	public function setBadge($badge){
-		$this->setChannelElement('badge', $badge);
-	}
-	
 	public function setNumOfEntry($numOfEntry){
 		$this->setChannelElement('numOfEntry', $numOfEntry);
 	}

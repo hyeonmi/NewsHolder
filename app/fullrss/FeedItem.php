@@ -78,10 +78,6 @@
 		$this->addElement('summary', $summary);
 	}
 	
-	public function setBadge($badge){
-		$this->addElement('badge', $badge);
-	}
-	
 	public function setNumOfEntry($numOfEntry){
 		$this->addElement('numOfEntry', $numOfEntry);
 	}

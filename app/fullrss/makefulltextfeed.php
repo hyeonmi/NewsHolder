@@ -742,23 +742,6 @@ foreach ($items as $key => $item) {
 	$removeHtmlSummary=strip_tags($removeHtmlSummary);
 	$newitem->setSummary($removeHtmlSummary);
 
-
-	//해당 rss icon 이미지 주소를 badge라는 필드에 입력한다.
-	if($url=="http://media.daum.net/rss/today/primary/all/rss2.xml"){
-		$badgeImage="http://icon.daum-img.net/top/2010/logo_rss.gif";
-	}else if($url=="http://news.google.co.kr/news?pz=1&cf=all&ned=kr&hl=ko&topic=h&num=3&output=rss"){
-		$badgeImage="http://www.gstatic.com/news/img/logo/ko_kr/news.gif";
-	}else if($url=="http://www.hani.co.kr/rss/"){
-		$badgeImage="http://img.hani.co.kr/section-image/12/news/hani/images/com/logo.gif";
-	}else if($url=="http://www.khan.co.kr/rss/rssdata/total_news.xml"){
-		$badgeImage="http://img.khan.co.kr/spko/main_2011/logo.gif";
-	}else if($url=="http://imnews.imbc.com/rss/news/news_00.xml"){
-		$badgeImage="http://img.imnews.imbc.com/images/gnbimg/logo_mbc.jpg";
-	}
-
-
-	$newitem->setBadge($badgeImage);
-
 	// set date
 	if ((int)$item->get_date('U') > 0) {
 		$newitem->setDate((int)$item->get_date('U'));

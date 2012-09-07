@@ -52,6 +52,13 @@
 	width:320px;
 }
 
+.listDummyPanel{
+	margin-top : 8px;
+	margin-bottom : 8px;
+	height:8px;
+	background-color: #9E0000;
+}
+
 .searchIcon {
 	background-image: url(../images/keyword_search/ic_go.png);
 	background-size: 100% 100%;

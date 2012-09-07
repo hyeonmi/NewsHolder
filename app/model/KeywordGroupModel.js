@@ -1,20 +1,16 @@
-
 Ext.define('NewsHolder.model.KeywordGroupModel', {
-    extend: 'Ext.data.Model',
+	extend : 'Ext.data.Model',
 
-    config: {
- 	
-    	identifier : {
-    		type : 'uuid' 
-    	},
-    	
-        fields: [
-                 {
-                	 name : 'id'
-                 },
-	            {
-	                name: 'keywordName'
-	            }
-        ]   
-    }
+	config : {
+
+		identifier : {
+			type : 'uuid'
+		},
+
+		fields : [ {
+			name : 'id'
+		}, {
+			name : 'keywordName'
+		} ]
+	}
 });
