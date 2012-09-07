@@ -7,14 +7,12 @@ Ext.define('NewsHolder.view.RssPanel', {
                 ],
     	
     config: {
+    	cls : 'panel-content2',
         layout: {
             type: 'vbox'
         },
         items: [
-                {
-                	xtype : 'panel',
-                	cls : 'line-red',
-                },
+
 			{
 			    xtype: 'panel',
 			    layout: {
@@ -50,7 +48,7 @@ Ext.define('NewsHolder.view.RssPanel', {
                 xtype: 'dataview',                
                 id: 'rssList',
                 itemId: 'mydataview',
-                cls : 'panel-content',
+                cls : 'rss-list',
                 itemTpl: [
                     '<div class="rss-item-img" style="background-image: url({rssImage});">',
 	                    '<div class="rss-text-box">{rssName}',
