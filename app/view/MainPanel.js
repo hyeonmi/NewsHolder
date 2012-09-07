@@ -27,9 +27,6 @@ Ext.define('NewsHolder.view.MainPanel', {
             	xtype:'button',
             	id:'alBackButton',
             	cls:'backButtonCls',
-            	/*text:'뒤로 가기',
-            	action:'back',
-            	ui:'back',*/
             	hidden:true,
             	iconAlign:'right',
             },

@@ -15,29 +15,34 @@
 	border:1px solid;
 	padding:3px;
 	margin-top:3px;
+	font-size:smaller;
 }
 
 #mainArticleTitle #title{              /* 기사 제목 */
- 	position: absolute;
+ 	/* position: absolute;
  	left: 556px;
 	top: 225px;
 	background-color: #6e6e6e;
 	opacity: 0.6;	
 	width: 424px;
 	height: 43px;
+ 	color: white;
+ 	margin-top: 8px;
+	margin-bottom: 8px; */
 	font-weight: bold;
 	font-size: 1.5em;
  	text-align: center;
- 	color: white;
- 	margin-top: 8px;
-	margin-bottom: 8px;
 }
 
-#mainArticle img{     /* 기사 본문에 포함되어 있는 모든 이미지 */
+#mainArticle img, #mainArticle2 img{     /* 기사 본문에 포함되어 있는 모든 이미지 */
 	margin:0pt auto;
 	display:block;
 	width:80%;
 	height:400px;
+	
+	padding: 8px 0 8px 0;
+	border-top: 2px solid #343434;
+	border-bottom: 2px solid #343434;
 }
 
 #mainArticle{       /* 기사 본문 */
