@@ -17,12 +17,13 @@
 
 .searchPanel {
 	background-color: #F7F7F7;
+	padding-left : 30px;
+	padding-right: 30px;
 	padding-top: 8px;
 	padding-bottom: 8px;
 }
 
 .dummyPanel {
-	border-top: 2px solid #343434;
 	margin-bottom: 8px;
 }
 
@@ -38,10 +39,6 @@
 	margin-right:30px;
 }
 
-.rankListCSS .dataProperty{
-	
-}
-
 .rankListCSS .rankvalue {
 	font-size: 50%;
 }
@@ -52,9 +49,14 @@
 
 .roundSearchField {
 	-webkit-border-radius : 0.6em;
+	width:320px;
 }
 
 .searchIcon {
+	background-image: url(../images/keyword_search/ic_go.png);
 	background-size: 100% 100%;
-	vertical-align: middle;
+	width:24px;
+	height:22px;
+	margin-top:10px;
+	margin-left:20px;
 }
