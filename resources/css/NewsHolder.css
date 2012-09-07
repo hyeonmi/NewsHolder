@@ -1491,7 +1491,7 @@ audio {
 	margin-right: 1em
 }
 
-.x-list .x-item-selected .x-list-disclosure {
+.x-list .x-list-disclosure {
 	background: #fff none
 }
 
@@ -1509,7 +1509,7 @@ audio {
 	background: #fff none
 }
 
-.x-list .x-list-item.x-item-selected .x-list-item-label {
+.x-list .x-list-item.x-list-item-label {
 	background-image: none;
 	background-color: #fff;
 	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff),
@@ -1570,7 +1570,7 @@ audio {
 	background-color: #fff
 }
 
-.x-list-normal .x-list-item.x-item-selected .x-list-item-label {
+.x-list-normal .x-list-item.x-list-item-label {
 	border-top-color: #fff;
 	border-bottom-color: #d9d9d9
 }
@@ -2366,7 +2366,7 @@ html,body {
 	padding-top: .5em
 }
 
-.x-checkmark-base,.x-field-checkbox .x-input-el:after,.x-field-checkbox .x-input-el:checked:after,.x-select-overlay .x-item-selected .x-list-item-label:before,.x-select-overlay .x-item-selected .x-list-item-label:after
+.x-checkmark-base,.x-field-checkbox .x-input-el:after,.x-field-checkbox .x-input-el:checked:after,.x-select-overlay .x-list-item-label:before,.x-select-overlay . .x-list-item-label:after
 	{
 	content: "";
 	position: absolute;
@@ -2609,16 +2609,16 @@ html,body {
 	display: block
 }
 
-.x-select-overlay .x-item-selected .x-list-label {
+.x-select-overlay . .x-list-label {
 	margin-right: 2.6em
 }
 
-.x-select-overlay .x-item-selected .x-list-item-label:before {
+.x-select-overlay . .x-list-item-label:before {
 	background-color: rgba(0, 0, 0, 0.3);
 	margin-top: -0.8em
 }
 
-.x-select-overlay .x-item-selected .x-list-item-label:after {
+.x-select-overlay .x-list-item-label:after {
 	background-color: #ddd
 }
 
