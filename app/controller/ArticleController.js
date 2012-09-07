@@ -27,13 +27,12 @@ Ext.define('NewsHolder.controller.ArticleController', {
 	onArticleBackButtonTap : function(button, e, options) {
 		var navigator = localStorage.History_navigator;
 		if(navigator=="Scrap"){
-			animation.onMoveSlideLeft('스크랩 모음', 'scrapPanel', ['mainSearchButton', 'alBackButton'], ['homeButton']);
+			animation.onMoveSlideRight(null, 'scrapPanel', [ 'scrapBackButton', 'alBackButton',
+			'articleContent', 'articleContent2' ], [ 'homeButton' ]);
 		}else if(navigator=="News"){
 			animation.onMoveSlideRight(null, 'articleListId', [ 'alBackButton',
 			                                    				'articleScrapButton', 'articleContent', 'articleContent2' ], [ 'homeButton' ]);
 		}
-		
-		console.log("onArticleBackBurronTap");
 	},
 
 	refreshArticleList : function(record) {

@@ -6,6 +6,7 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 	extend:"Ext.Panel",
 	xtype:"articlepanel",
 	id:'articlePanel',
+	cls:'panel-content',
 	requires:['Ext.Anim'],
 	
 	config:{

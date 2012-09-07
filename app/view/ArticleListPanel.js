@@ -4,6 +4,7 @@ Ext
 				{
 					extend : "Ext.Panel",
 					xtype : "articlelist",
+					cls:'panel-content',
 					id : 'articleListId',
 
 					config : {
