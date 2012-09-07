@@ -88,6 +88,7 @@ color: white;
 	opacity: 0.8;
 	width: 34px;
 	height: 27px;
+	margin-right:28px;
 }
 
 .bookmarkButtonCls {
@@ -95,6 +96,7 @@ color: white;
 	background-size: 100% 100%;
 	width: 28px;
 	height: 26px;
+	margin-right:28px;
 }
 
 .homeButtonCls {

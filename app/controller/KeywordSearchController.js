@@ -65,7 +65,7 @@ Ext
 						
 						animation.onMoveSlideRight("키워드 검색", 'keywordPanel', [ 'searchBackButton', 
 						    'alBackButton','articleScrapButton','homeButton',
-						    'articleContent', 'articleContent2' ], [ 'homeButton' ]);
+						    'articleContent', 'articleContent2' ], [ 'homeButton', 'registerKeywordButton' ]);
 					},
 
 					onRegisterKeywordButtonTap : function(button, e, options) {
@@ -161,13 +161,13 @@ Ext
 						
 						if(panelFlag=="articleContent"){
 							animation.onMoveSlideLeft(null, 'articlePanel', 
-									[ 'homeButton', 'articleContent2' ], 
+									[ 'homeButton', 'articleContent2', 'registerKeywordButton' ], 
 									[ 'articleContent', 'searchBackButton', 
 									  'articleScrapButton' ]);
 							this.getArticleContent().setData(record.data);
 						}else{
 							animation.onMoveSlideLeft(null, 'articlePanel', 
-									[ 'homeButton', 'articleContent' ], 
+									[ 'homeButton', 'articleContent', 'registerKeywordButton' ], 
 									[ 'articleContent2', 'searchBackButton', 
 									  'articleScrapButton' ]);
 							this.getArticleContent2().setData(record.data);
