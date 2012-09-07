@@ -1,6 +1,5 @@
 build
 archive
-package.json
 default.json
 rssList.jsp
 .sass-cache
@@ -10,5 +9,3 @@ sdk/resources/sass/NewsHolder.scss
 .DS_Store
 
 resources/loading/Default_2.png
-
-packager.json
