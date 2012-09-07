@@ -1432,7 +1432,7 @@ audio {
 	z-index: 2;
 	padding: .3em 0;
 	min-height: 0 !important;
-	height: auto !important;
+	height: auto /* !important */;
 	-webkit-box-flex: 0 !important
 }
 

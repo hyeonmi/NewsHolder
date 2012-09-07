@@ -21,7 +21,7 @@ Ext.define("NewsHolder.view.ArticleListPanel",{
 	            			'<div><img class="articleListBadge" src="{badge}"/></div>',
 	            		'</tpl>',
 		            	'<div class="articleListTitle">{title}</div>',
-		            	'<div class="articleListSummary">{summary}</div>',
+		            	'<div class="articleListSummary">{summary}...</div>',
 		            '</div>'
 		        ],
 		        store: 'Feed',

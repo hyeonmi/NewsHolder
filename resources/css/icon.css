@@ -108,7 +108,7 @@
 /*Add Rss*/
 
 .rss-item-img {
-	margin: 8px;
+	margin: 2px;
 	width: 208px;
 	height: 108px;
 	float: left;
@@ -139,7 +139,7 @@
 	margin : 0px;
 }
 
-/*rss add */
+/*rss add box*/
 .rss-add-panel{
 	background : #f0f0f0;
 	height : 53px;
@@ -204,5 +204,11 @@
 	border : 0px;
 }
 
+.x-inner .x-layout-hbox{
+	width: 50px;
+}
 
+#alBackButton{
+	width:100%;
+}
 
