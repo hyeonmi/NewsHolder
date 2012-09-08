@@ -37,6 +37,7 @@ Ext.define('NewsHolder.view.MainContent', {
 
 					items : [ {
 						xtype : 'panel',
+						flex:7,
 						cls : 'scrapKeywordPanel',
 						layout : {
 							type : 'hbox'
@@ -58,6 +59,7 @@ Ext.define('NewsHolder.view.MainContent', {
 						xtype : 'button',
 						id : 'mainRssAddBtn',
 						cls : 'btnRss',
+						flex:1,
 					} ]
 				}, ]
 			},
@@ -78,6 +80,7 @@ Ext.define('NewsHolder.view.MainContent', {
 				xtype : 'list',
 				id : 'mainRssList',
 				cls : 'main-list',
+				flex:1,
 				itemTpl : new Ext.XTemplate('<table class="main-list-item"><tr>'+
 						'<td width="72px"><img src="{mainRssImage}" class="main-list-img" /></td>'+
 						'<td class="main-list-text">{mainRssName}</td>'+
