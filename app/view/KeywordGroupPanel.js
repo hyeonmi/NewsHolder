@@ -2,7 +2,7 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 	extend : 'Ext.Panel',
 	xtype : 'keywordGroupPanel',
 	id : 'keywordGroupPanelId',
-	
+	cls : 'panel-content',
 	config : {
 		layout : {
 			type : 'vbox'
