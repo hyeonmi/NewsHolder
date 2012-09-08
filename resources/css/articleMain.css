@@ -48,8 +48,8 @@ color: white;
 #mainArticle img, #mainArticle2 img{     /* 기사 본문에 포함되어 있는 모든 이미지 */
 	margin:0pt auto;
 	display:block;
-	width:80%;
-	height:400px;
+	width:100%;
+	height:auto;
 	
 	padding: 8px 0 8px 0;
 	border-top: 2px solid #343434;
@@ -61,7 +61,7 @@ color: white;
 }
 
 #mainArticleTitle img { /* 湲곗궗���대�吏�� �덉쓣 寃쎌슦 �쒕ぉ怨�寃뱀튂寃��섏삤���대�吏�*/
-	width: 424px;
+	width: 80%;
 	height: 245px;
 	margin: 0pt auto;
 	display: block;
@@ -69,7 +69,7 @@ color: white;
 
 #mainArticleTitle hr {
 	height: 2px;
-	width: 424px;
+	/* width: 80%; */
 	background-color: #343434;
 }
 

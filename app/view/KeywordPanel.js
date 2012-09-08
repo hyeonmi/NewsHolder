@@ -73,15 +73,15 @@ Ext
 									 */
 
 									itemTpl : new Ext.XTemplate(
-											'<table width=424px><tr>'
-													+ '<td width=30px></td>'
-													+ '<td width=323px align="left">{xindex}. {keyword}</td>'
-													+ '<td width=40px align="right">'
+											'<table style="width:100%"><tr>'
+													+ '<td width="7%"></td>'
+													+ '<td width="69%" align="left">{xindex}. {keyword}</td>'
+													+ '<td width="17%" align="right">'
 													+ '<tpl if="placing==&quot;+&quot;"><div><span class="rankvalue">{value}</span> <img src="./resources/images/keyword_search/ic_up.png"/></div>'
 													+ '<tpl elseif="placing==&quot;-&quot;"><div><span class="rankvalue">{value}</span> <img src="./resources/images/keyword_search/ic_down.png"/></div>'
 													+ '<tpl elseif="placing==&quot;new&quot;"><div><img src="./resources/images/keyword_search/ic_new.png"/></div>'
 													+ '</tpl>' + '</td>'
-													+ '<td width=30px></td>'
+													+ '<td width="7%"></td>'
 													+ '</tr></table>'),
 									store : 'rankStore',
 								},

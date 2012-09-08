@@ -5,6 +5,7 @@
 	padding-top: 3px;
 	padding-bottom: 3px;
 	margin-top: 8px;
+	width:100%;
 }
 
 .realtimePanel .content {
@@ -21,6 +22,7 @@
 	padding-right: 30px;
 	padding-top: 8px;
 	padding-bottom: 8px;
+	width:100%;
 }
 
 .dummyPanel {
@@ -49,13 +51,15 @@
 
 .roundSearchField {
 	-webkit-border-radius: 0.6em;
-	width: 320px;
+	width: 90%;
+	height : auto;
 }
 
 .listDummyPanel {
 	margin-top: 8px;
 	margin-bottom: 8px;
 	height: 8px;
+	width:100%;
 	background-color: #9E0000;
 }
 

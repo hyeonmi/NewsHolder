@@ -1,63 +1,73 @@
 .mainTitle {
 	border-bottom: 0px !important;
 	font-size: 1.8em;
-	margin-top: 28px;
-	height: 79px;
+	margin-top: 10px;
+	height: 60px;
 	text-align: center;
+}
+
+#mainContentId > div{
+	width:100%;
+	height:100%;
 }
 
 /*content area */
 .panel-content {
-	margin: 8px 28px 8px 28px !important;
-	border-top: 2px solid #343434;
-	width: 424px;
-	height: 472px;
-	text-align: cetner;
+	border-top: 1px solid #343434;
+	width: 100%;
+	height: 100%;
 }
 
 .panel-content2 {
-	margin: 8px 28px 8px 28px !important;
 	border-top: 8px solid #9e0000;
-	width: 424px;
-	height: 472px;
-	text-align: cetner;
+	width: 100%;
+	height: 100%;
+}
+
+.mainIconPanel {
+	height: 40%;
+	padding-left:8px;
+}
+
+.mainIconPanel2{
+	width:50%;
 }
 
 /*main botton */
-.btnRefresh{
-	background-size: 100% 100%;
-	background-image: url(../images/main/ic_refresh.png);
-	width: 22px;
-	height: 24px;
-	border: 0px;
-	position: relative;
-	left : 95px;
-}
+
 .btnSearch {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_search.png);
-	width: 193px;
-	height: 196px;
-	border: 0px;
+	/* width: 193px;
+	height: 196px; */
+	width: 45%;
+	height: auto;
+	border: 1px;
 	margin-top: 8px;
 }
 
 .btnRss {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_addrss.png);
-	width: 223px;
-	height: 53px;
-	border: 0px;
+	/* width: 223px;
+	height: 53px; */
+	width: 52%;
+	height: 11%;
+	border: 1px;
 	margin-top: 8px;
 	margin-left: 8px;
+}
+
+.scrapKeywordPanel {
+	width: 54%;
 }
 
 .btnKeyword {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_mykeyword.png);
-	width: 115px;
-	height: 135px;
-	border: 0px;
+	width: 49%;
+	height: auto;
+	border: 1px;
 	margin-top: 8px;
 	margin-left: 8px;
 }
@@ -65,17 +75,28 @@
 .btnScrap {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_myscrap.png);
-	width: 100px;
-	height: 135px;
-	border: 0px;
+	width: 130%;
+	height: auto;
+	border: 1px;
 	margin-top: 8px;
 	margin-left: 8px;
+}
+
+.btnRefresh {
+	background-size: 100% 100%;
+	background-image: url(../images/main/ic_refresh.png);
+	width: 22px;
+	height: 24px;
+	border: 1px;
+	position: relative;
+	left: 95px;
 }
 
 /*main list */
 .list-title {
 	background: #f0f0f0;
 	margin-top: 8px;
+	width: 100%;
 	height: 31px;
 	align: middle;
 	border-top: 1px solid #343434;
@@ -83,15 +104,19 @@
 	padding-left: 8px;
 	padding-top: 3px;
 	font-size: 1.2em !important;
+	height: 31px;
 }
-.list-title-text{
+
+.list-title-text {
+	width: 100%;
 	position: relative;
 	bottom: 23px;
+	position: relative;
 }
 
 .main-list {
 	padding-top: 8px;
-	height: 400px;
+	height: 40%;
 }
 
 .main-list-item {
@@ -102,7 +127,7 @@
 .main-list-img {
 	padding-left: 8px;
 	padding-top: 3px;
-	padding-bottom : 3px;
+	padding-bottom: 3px;
 	width: 58px;
 	height: 48px;
 }
@@ -249,6 +274,6 @@
 .x-innerhtml {
 	font-size: 0.8em;
 	font-family: "나눔고딕", "Helvetica Neue", HelveticaNeue, "Helvetica-Neue",
-		Helvetica, "BBAlpha Sans", sans-serif; 
-	font-weight: normal;	
+		Helvetica, "BBAlpha Sans", sans-serif;
+	font-weight: normal;
 }

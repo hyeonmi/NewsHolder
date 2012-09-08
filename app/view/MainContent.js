@@ -2,7 +2,7 @@ Ext.define('NewsHolder.view.MainContent', {
 	extend : 'Ext.Panel',
 	xtype : 'maincotnent',
 	id : 'mainContentId',
-	ui : 'maincnt',
+	//ui : 'maincnt',
 	cls : 'panel-content',
     requires : [
               
@@ -12,10 +12,12 @@ Ext.define('NewsHolder.view.MainContent', {
 	
 	layout : {
 		type : 'vbox',
+		cls:'mainPanel',
 	},
 	items : [
 			{
 				xtype : 'panel',
+				cls : 'mainIconPanel',
 				layout : {
 					type : 'hbox'
 				},
@@ -23,27 +25,29 @@ Ext.define('NewsHolder.view.MainContent', {
 				items : [
 
 				{
-					xtype : 'image',
+					xtype : 'button',
 					id : 'mainSearchButton',
 					cls : 'btnSearch',
 				}, {
 					xtype : 'panel',
+					cls:'mainIconPanel2',
 					layout : {
 						type : 'vbox'
 					},
 
 					items : [ {
 						xtype : 'panel',
+						cls : 'scrapKeywordPanel',
 						layout : {
 							type : 'hbox'
 						},
 
 						items : [ {
-							xtype : 'image',
+							xtype : 'button',
 							id : 'mainScrapBtn',
 							cls : 'btnScrap',
 						}, {
-							xtype : 'image',
+							xtype : 'button',
 							id : 'mainKeywordGroupBtn',
 							cls : 'btnKeyword',
 						}
@@ -51,7 +55,7 @@ Ext.define('NewsHolder.view.MainContent', {
 						]
 
 					}, {
-						xtype : 'image',
+						xtype : 'button',
 						id : 'mainRssAddBtn',
 						cls : 'btnRss',
 					} ]
