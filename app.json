@@ -75,6 +75,14 @@
         {
         	"path": "resources/css/searchResult.css",
             "update": "delta"
+        },
+        {
+        	"path": "resources/css/rssadd.css",
+            "update": "delta"
+        },
+        {
+        	"path": "resources/css/keywordgroup.css",
+            "update": "delta"
         }
     ],
 

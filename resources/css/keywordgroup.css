@@ -1,0 +1,32 @@
+
+/*keyword group*/
+.keyword-title-line {
+	border-top: 1px solid #343434;
+	border-bottom: 1px solid #343434;
+	width: 424px;
+	margin-left: 28px;
+}
+
+.keyword-title {
+	margin: 8px 0px !important;
+	width: 424px;
+	height: 31px;
+	background: #9e0000;
+	color: #fff;
+	padding: 3px 3px;
+}
+
+.keyword-list {
+	margin: 8px 28px 8px 28px !important;
+	width: 424px;
+	height: 620px;
+	background: #343434;
+}
+
+.keyword-item {
+	text-align: center !important;
+	height: 72px;
+	color: #fff;
+	margin: 3px;
+	padding-top: 25px;
+}
