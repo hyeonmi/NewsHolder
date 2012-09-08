@@ -18,6 +18,7 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 		                xtype: 'list',
 		                id: 'keywordGroupList',
 		                cls : 'keyword-list',
+		                flex : 1,
 		                itemTpl: [
 		                    '<div class="keyword-item">{keywordName}</div>',
 		                ],
