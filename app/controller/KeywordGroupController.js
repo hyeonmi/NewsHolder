@@ -16,7 +16,7 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 
 				itemtap : "onKeywordGroupListItemTap",
 				itemtaphold : 'onKeywordGroupListItemTapHold',
-					
+
 			},
 
 		}
@@ -37,15 +37,14 @@ Ext.define('NewsHolder.controller.KeywordGroupController', {
 	onKeywordGroupListItemTap : function(list, index, item, record, e) {
 		if (!list.lastTapHold || (new Date() - list.lastTapHold > 1000)) {
 			animation.onMoveSlideLeft(record.data.keywordName, 'kgDetailPanel',
-					[ 'homeButton' ],
-					[ 'kgDetailBackButton', 'kgDetailAlarmButton' ]);
-	
+					[ 'homeButton' ], [ 'kgDetailBackButton' ]);
+
 			this.setSelectedKeyword(record.data.keywordName);
 			this.getApplication().getController("KGDetailController")
 					.initKeywordArticleList();
 		}
 	},
-	
+
 	onKeywordGroupListItemTapHold : function(list, index, item, record, e) {
 
 		list.lastTapHold = new Date();

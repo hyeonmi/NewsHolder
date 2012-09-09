@@ -22,6 +22,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 				xtype : 'image',
 				id : 'alBackButton',
 				cls : 'backButtonCls',
+				iconMask:true,
 				/*
 				 * text:'뒤로 가기', action:'back', ui:'back',
 				 */
@@ -34,6 +35,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 				hidden : true,
 				cls:'backButtonCls',
 				iconAlign : 'right',
+				iconMask:true
 			}, {
 				xtype : 'image',
 				id : 'scrapBackButton',
@@ -41,6 +43,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 				cls : 'backButtonCls',
 				hidden : true,
 				iconAlign : 'right',
+				iconMask:true
 			}, {
 				xtype : 'image',
 				id : 'kgDetailBackButton',
@@ -48,6 +51,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 				cls : 'backButtonCls',
 				hidden : true,
 				iconAlign : 'right',
+				iconMask:true
 			}, {
 				xtype : 'image',
 				id : 'kgArticleBackButton',
@@ -55,6 +59,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 				hidden : true,
 				cls : 'backButtonCls',
 				iconAlign : 'right',
+				iconMask:true
 			}, {
 				xtype : 'image',
 				id : 'homeButton',
@@ -66,22 +71,15 @@ Ext.define('NewsHolder.view.MainPanel', {
 				cls : 'scrapButtonCls',
 				hidden : true,
 				align : 'right',
+				iconMask:true
 			}, {
 				xtype : 'image',
 				cls : 'bookmarkButtonCls',
 				id : 'registerKeywordButton',
 				align : 'right',
 				hidden : true,
-			}, {
-				xtype : 'button',
-				id : 'kgDetailAlarmButton',
-				ui : 'action-round',
-				iconCls : 'time',
-				iconMask : true,
-				iconAlign : 'right',
-				align : 'right',
-				hidden : true,
-			} ]
+				iconMask:true
+			}]
 		}, {
 			xtype : 'maincotnent'
 		},

@@ -9,7 +9,6 @@ Ext
 						refs : {
 							kgDetailList : '#kgDetailList',
 							kgDetailBackButton : '#kgDetailBackButton',
-							kgDetailAlarmButton : '#kgDetailAlarmButton',
 							kgArticleBackButton : '#kgArticleBackButton',
 							articleContent : "#articleContent",
 							articleContentOther : "#articleContent2",
@@ -27,13 +26,12 @@ Ext
 							}
 						}
 					},
-					
+
 					changeProxyUrl : function() {
-						var kgResultStore = Ext
-								.getStore('kgResultStore');
-						
+						var kgResultStore = Ext.getStore('kgResultStore');
+
 						var input = this.getApplication().getController(
-						"KeywordGroupController").getSelectedKeyword();
+								"KeywordGroupController").getSelectedKeyword();
 
 						// 얻어온 값 중에 한글을 네이버 검색 API query형식에 맞게 utf-8로 인코딩한다.
 						var encodedInput = encodeURIComponent(input);
@@ -56,14 +54,14 @@ Ext
 					initKeywordArticleList : function() {
 						var kgResultStore = Ext.getStore('kgResultStore');
 						var kgDetailList = this.getKgDetailList();
-						
+
 						kgDetailList.setMasked({
 							xtype : 'loadmask',
 							centered : true
 						});
-						
+
 						kgResultStore.load({
-							callback:function(){
+							callback : function() {
 								kgDetailList.setMasked(false);
 							}
 						});
@@ -76,40 +74,39 @@ Ext
 
 					onKgDetailBackButtonTap : function(button, e, options) {
 						this.resetModifiedComponent();
-						
+
 						animation.onMoveSlideRight(null, 'keywordGroupPanelId',
-								[ 'kgDetailBackButton', 'kgDetailAlarmButton' ], [ 'homeButton' ]);
+								[ 'kgDetailBackButton' ], [ 'homeButton' ]);
 					},
 
 					onKgArticleBackButtonTap : function(button, e, options) {
-						animation.onMoveSlideRight(null, 'kgDetailPanel',
-								[ 'articleScrapButton', 'kgArticleBackButton' ], [ 'kgDetailBackButton', 'kgDetailAlarmButton' ]);
+						animation.onMoveSlideRight(null, 'kgDetailPanel', [
+								'articleScrapButton', 'kgArticleBackButton' ],
+								[ 'kgDetailBackButton' ]);
 					},
 
 					onKGDetailListItemTap : function(dataview, index, target,
 							record, e, options) {
 						localStorage.flag = index;
 						console.log("onKGDetailListItemTap");
-						
+
 						var panelFlag = localStorage.panelFlag;
-						
-						if(panelFlag=="articleContent"){
-							animation.onMoveSlideLeft(null, 'articlePanel', 
-									[ 'kgDetailAlarmButton', 'articleContent2', 
-									  'kgDetailBackButton', ], 
-									[ 'articleContent', 'kgArticleBackButton', 
-									  'articleScrapButton' ]);
+
+						if (panelFlag == "articleContent") {
+							animation.onMoveSlideLeft(null, 'articlePanel', [
+									'articleContent2', 'kgDetailBackButton', ],
+									[ 'articleContent', 'kgArticleBackButton',
+											'articleScrapButton' ]);
 							this.getArticleContent().setData(record.data);
-						}else{
-							animation.onMoveSlideLeft(null, 'articlePanel', 
-									[ 'kgDetailAlarmButton', 'articleContent', 
-									  'kgDetailBackButton', ], 
-									[ 'articleContent2', 'kgArticleBackButton', 
-									  'articleScrapButton' ]);
+						} else {
+							animation.onMoveSlideLeft(null, 'articlePanel', [
+									'articleContent', 'kgDetailBackButton', ],
+									[ 'articleContent2', 'kgArticleBackButton',
+											'articleScrapButton' ]);
 							this.getArticleContentOther().setData(record.data);
 						}
-						
-						console.log("original:\n"+record.data.originDesc);
-						console.log("modified:\n"+record.data.description);
+
+						console.log("original:\n" + record.data.originDesc);
+						console.log("modified:\n" + record.data.description);
 					}
 				});
