@@ -79,7 +79,7 @@ Ext
 									flex : 1,
 									itemTpl : new Ext.XTemplate(
 											'<table class="main-list-item"><tr>'
-													+ '<td width="72px"><img src="{mainRssImage}" class="main-list-img" /></td>'
+													+ '<td width="72px"><img src="{mainRssImage}" class="main-list-img"/></td>'
 													+ '<td class="main-list-text">{mainRssName}</td>'
 													+ '<td width="60px" class="main-new-text">New</td>'
 													+ '<td width="33px" class="main-list-badge-div"><div class="main-list-badge">{numOfEntry}</div></td>'

@@ -57,21 +57,6 @@ Ext
 									flex : 1,
 									cls : 'rankListCSS',
 									id : 'rankList',
-									/*
-									 * itemTpl : [ '<div>', '<tpl
-									 * if="placing==&quot;+&quot;">', '<div>{xindex}.
-									 * {keyword}&nbsp;&nbsp;&nbsp;<img
-									 * src="./resources/images/keyword_search/ic_up.png"/><span
-									 * class="rankvalue">{value}</span></div>', '<tpl
-									 * elseif="placing==&quot;-&quot;">', '<div>{xindex}.
-									 * {keyword}&nbsp;&nbsp;&nbsp;<img
-									 * src="./resources/images/keyword_search/ic_down.png"/><span
-									 * class="rankvalue">{value}</span></div>', '<tpl
-									 * elseif="placing==&quot;new&quot;">', '<div>{xindex}.
-									 * {keyword}&nbsp;&nbsp;&nbsp;<img
-									 * src="./resources/images/keyword_search/ic_new.png"/></div>', '</tpl>', '</div>' ],
-									 */
-
 									itemTpl : new Ext.XTemplate(
 											'<table style="width:100%"><tr>'
 													+ '<td width="7%"></td>'

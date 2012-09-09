@@ -35,23 +35,18 @@
 	width:100%;
 }
 
-/*main botton */
+/*main button */
 
 .btnSearch {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_search.png);
-	/* width: 193px;
-	height: 196px; */
 	width: 44%;
 	height: auto;
-	border: 1px;
 }
 
 .btnRss {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_addrss.png);
-	/* width: 223px;
-	height: 53px; */
 	width: 55%;
 	margin-top: 8px;
 	margin-left: 8px;
@@ -107,25 +102,22 @@
 }
 
 .main-list {
-	padding-top: 8px;
 }
 
 .main-list-item {
 	width: 100%;
-	height: 72px;
+	height: 62px;
 }
 
 .main-list-img {
 	padding-left: 8px;
-	padding-top: 3px;
-	padding-bottom: 3px;
 	width: 100%;
 	height: auto;
 }
 
 .main-list-text {
+	padding-left:8px;
 	text-align: left;
-	margin-left: 8px;
 }
 
 .main-new-text {
