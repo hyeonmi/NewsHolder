@@ -5,10 +5,10 @@ Ext
 			requires : [ 'Ext.MessageBox', 'NewsHolder.util.ManagerController',
 					'NewsHolder.util.PushNotification' ],
 			models : [ 'News', 'Rank', 'SearchResult', 'RssModel', 'MainModel',
-					'Scrap', 'NewsPaperModel', 'KeywordGroupModel' ],
+					'Scrap', 'NewsPaperModel', 'KeywordGroupModel', 'ReadArticle' ],
 			stores : [ 'Feed', 'RankStore', 'SearchResultStore', 'RssStore',
 					'MainStore', 'Scraps', 'RssServerStore', 'Test',
-					'NewsPaperStore', 'KeywordGroupStore', 'KGResultStore' ],
+					'NewsPaperStore', 'KeywordGroupStore', 'KGResultStore', 'ReadArticle' ],
 			views : [ 'MainPanel', 'ArticlePanel', 'ArticleListPanel',
 					'KeywordPanel', 'ScrapPanel', 'RssPanel',
 					'KeywordGroupPanel', 'KGDetailPanel', 'MainContent' ],
@@ -39,8 +39,11 @@ Ext
 				Ext.fly('appLoadingIndicator').destroy();
 
 				// Initialize the main view
-				Ext.Viewport.add(Ext.create('NewsHolder.view.MainPanel'));
-
+				if (!window.navigator.onLine){
+				    alert('NewsHolder는 인터넷이 원활한 상태에서 사용해주시기 바랍니다.');
+				}else{
+					Ext.Viewport.add(Ext.create('NewsHolder.view.MainPanel'));
+				}
 			},
 
 			onUpdated : function() {
