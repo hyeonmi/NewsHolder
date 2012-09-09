@@ -9,6 +9,7 @@ Ext.define('NewsHolder.util.ManagerController', {
 	config : {
 
 	},
+	
 
 	// 왼쪽으로 이동하는 에니메이션
 	// param : title(지정하고자 하는 타이틀바 제목), movePanel(이동하고자 하는 패널 객체)

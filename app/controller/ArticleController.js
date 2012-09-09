@@ -21,8 +21,47 @@ Ext.define('NewsHolder.controller.ArticleController', {
 			articleBackButton : {
 				tap : 'onArticleBackButtonTap'
 			}, 
+			'#font_size_down_button' : {
+				tap : 'font_size_down'
+			},
+			'#font_size_up_button' : {
+				tap : 'font_size_up'
+			},			
 		}
 
+	},
+	
+	//font size ++
+	font_size_up : function(){
+		
+		var panelFlag = localStorage.panelFlag;
+		var article = null;
+		
+		if(panelFlag=="articleContent"){
+			article = Ext.getDom("mainArticle");
+		}else{
+			article = Ext.getDom("mainArticle2");
+		}
+		
+		var current = parseInt(article.style.fontSize);
+		current++;
+		article.style.fontSize = current + "px";		
+	},
+	
+	//font size --
+	font_size_down : function(){
+		var panelFlag = localStorage.panelFlag;
+		var article = null;
+		
+		if(panelFlag=="articleContent"){
+			article = Ext.getDom("mainArticle");
+		}else{
+			article = Ext.getDom("mainArticle2");
+		}
+		
+		var current = parseInt(article.style.fontSize);
+		current--;
+		article.style.fontSize = current + "px";			
 	},
 
 	onArticleBackButtonTap : function(button, e, options) {

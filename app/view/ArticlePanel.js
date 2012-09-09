@@ -16,6 +16,7 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 			xtype:"panel",
 			layout:"vbox",
 			items:[
+			       
 			   {
 				   xtype:"panel",
 					id:"articleContent",
@@ -25,13 +26,25 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 							"<div id='title'>{title}</div>",
 	            			'<div><hr></div>',
 						" </div>",
-						"<div id='fontSize'>",
-							"<span onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button'>A</span>",
-							"<span onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button'>A</span>",
-						"</div>",
+//						"<div id='fontSize'>",
+//							"<span id='font_size_down_button'>A</span>",
+//							"<span id='font_size_up_button'>A</span>",
+//						"</div>",
 						"<div id='mainArticle' style='font-size:20px;'>{description}</div>",
 						
 					],
+					items : [
+								{
+									   xtype : 'button',
+									   id : 'font_size_down_button',
+									   text : 'A',
+								},
+								{
+									   xtype : 'button',
+									   id : 'font_size_up_button',
+									   text : 'A'
+								},  
+					         ],
 					styleHtmlContent:true,
 					scrollable:true,
 					flex:1,
@@ -54,12 +67,24 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 							"<div id='title'>{title}</div>",
 	            			'<div><hr></div>',
 						" </div>",
-						"<div id='fontSize'>",
-							"<span onclick='font_size_buttonClick(&quot;smaller&quot;);' id='font_size_down_button'>A</span>",
-							"<span onclick='font_size_buttonClick(&quot;bigger&quot;);' id='font_size_up_button'>A</span>",
-						"</div>",
+//						"<div id='fontSize'>",
+//							"<span onclick='this.font_size_buttonClick(\"smaller\");' id='font_size_down_button'>A</span>",
+//							"<span onclick='this.font_size_buttonClick(\"bigger\");' id='font_size_up_button'>A</span>",
+//						"</div>",
 						"<div id='mainArticle2' style='font-size:20px;'>{description}</div>",
 					],
+					items : [
+								{
+									   xtype : 'button',
+									   id : 'font_size_down_button',
+									   text : 'A',
+								},
+								{
+									   xtype : 'button',
+									   id : 'font_size_up_button',
+									   text : 'A'
+								},  
+					         ],					
 					styleHtmlContent:true,
 					scrollable:true,
 					hidden:true,
@@ -80,23 +105,8 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 		
 		
 	},
+
+	
+	
 });
 
-function font_size_buttonClick(size){
-	var panelFlag = localStorage.panelFlag;
-	var article = null;
-	
-	if(panelFlag=="articleContent"){
-		article = Ext.getDom("mainArticle");
-	}else{
-		article = Ext.getDom("mainArticle2");
-	}
-	
-	var current = parseInt(article.style.fontSize);
-	if(size=="bigger"){
-		current++;
-	}else{
-		current--;
-	}
-	article.style.fontSize = current + "px";
-};

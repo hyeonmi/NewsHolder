@@ -660,7 +660,7 @@ audio {
 }
 
 .x-button-label,.x-hasbadge .x-badge {
-	-webkit-box-flex: 1;
+ 	-webkit-box-flex: 1;
 	box-flex: 1;
 	-webkit-box-align: center;
 	box-align: center;
@@ -670,7 +670,7 @@ audio {
 	font-weight: bold;
 	line-height: 1.2em;
 	display: block;
-	overflow: hidden
+	/* overflow: hidden; */
 }
 
 .x-toolbar .x-button {

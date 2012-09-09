@@ -15,12 +15,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 		},
 
 		control : {
-			'#article_font_size_up' : {
-				tap : 'font_size_up'
-			},
-			'#article_font_size_down' : {
-				tap : 'font_size_down'
-			},
+
 			homeButton : {
 				tap : "homeButtonTap",
 			},
@@ -32,6 +27,8 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			},
 		}
 	},
+	
+
 	
 	refreshButtonTap : function(button, event){
 		var testStore = Ext.getStore('Test');
