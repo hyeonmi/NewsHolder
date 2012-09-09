@@ -5,7 +5,6 @@ Ext
 					extend : 'Ext.Panel',
 					xtype : 'maincotnent',
 					id : 'mainContentId',
-					// ui : 'maincnt',
 					cls : 'panel-content',
 					requires : [
 
@@ -79,10 +78,10 @@ Ext
 									flex : 1,
 									itemTpl : new Ext.XTemplate(
 											'<table class="main-list-item"><tr>'
-													+ '<td width="72px"><img src="{mainRssImage}" class="main-list-img"/></td>'
+													+ '<td class="main-list-img-td"><img src="{mainRssImage}"/></td>'
 													+ '<td class="main-list-text">{mainRssName}</td>'
-													+ '<td width="60px" class="main-new-text">New</td>'
-													+ '<td width="33px" class="main-list-badge-div"><div class="main-list-badge">{numOfEntry}</div></td>'
+													+ '<td class="main-new-text">New</td>'
+													+ '<td class="main-list-badge-div"><div class="main-list-badge">{numOfEntry}</div></td>'
 													+ '</tr></table>'),
 									store : 'mainStore',
 									plugins : [ {

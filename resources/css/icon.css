@@ -6,9 +6,9 @@
 	text-align: center;
 }
 
-#mainContentId > div{
-	width:100%;
-	height:100%;
+#mainContentId>div {
+	width: 100%;
+	height: 100%;
 }
 
 /*content area */
@@ -16,8 +16,8 @@
 	border-top: 1px solid #343434;
 	width: 96%;
 	height: 100%;
-	margin-left:2%;
-	margin-right:2%;
+	margin-left: 2%;
+	margin-right: 2%;
 }
 
 .panel-content2 {
@@ -28,19 +28,21 @@
 
 .mainIconPanel {
 	height: 35%;
-	padding:1%;
+	padding: 2%;
 }
 
-.mainIconPanel2{
+.mainIconPanel2 {
+	width: 100%;
+}
+
+.mainPanel {
 	width:100%;
 }
-
 /*main button */
-
 .btnSearch {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_search.png);
-	width: 44%;
+	width: 43%;
 	height: auto;
 }
 
@@ -48,29 +50,28 @@
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_addrss.png);
 	width: 55%;
-	margin-top: 8px;
-	margin-left: 8px;
+	margin-top: 2%;
+	margin-left: 2%;
 }
 
 .scrapKeywordPanel {
-	width: 54%;
-	margin-left: 8px;
+	width: 55%;
+	margin-left: 2%;
 }
 
 .btnKeyword {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_mykeyword.png);
-	width: 55%;
-	height:auto;
+	width: 54%;
+	height: auto;
 	margin-left: 3%;
 }
 
 .btnScrap {
 	background-size: 100% 100%;
 	background-image: url(../images/main/btn_myscrap.png);
-	width: 44%;
-	height:auto;
-	
+	width: 43%;
+	height: auto;
 }
 
 .btnRefresh {
@@ -88,7 +89,6 @@
 	background: #f0f0f0;
 	width: 100%;
 	height: 31px;
-	align: middle;
 	border-top: 1px solid #343434;
 	border-bottom: 1px solid;
 	padding-left: 8px;
@@ -102,6 +102,7 @@
 }
 
 .main-list {
+	width: 100%;
 }
 
 .main-list-item {
@@ -109,27 +110,35 @@
 	height: 62px;
 }
 
-.main-list-img {
-	padding-left: 8px;
-	width: 100%;
+.main-list-img-td img {
+	height: 30%;
+}
+
+.main-list-img-td {
+	padding-left: 2%;
+	width: 18%;
 	height: auto;
 }
 
 .main-list-text {
-	padding-left:8px;
+	width: 58%;
+	padding-left: 2%;
 	text-align: left;
 }
 
 .main-new-text {
+	width: 8%;
 	color: #9e0000;
 	text-align: right;
-	padding-right: 8px;
+	padding-right: 2%;
 	font-size: 0.7em;
+	color: #9e0000;
 }
 
 .main-list-badge-div {
+	width: 8%;
 	text-align: right;
-	margin-right: 8px;
+	margin-right: 2%;
 }
 
 .main-list-badge {
