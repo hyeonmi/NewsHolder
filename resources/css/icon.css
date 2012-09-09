@@ -104,9 +104,6 @@
 
 .list-title-text {
 	width: 100%;
-	position: relative;
-	bottom: 23px;
-	position: relative;
 }
 
 .main-list {
@@ -122,8 +119,8 @@
 	padding-left: 8px;
 	padding-top: 3px;
 	padding-bottom: 3px;
-	width: 58px;
-	height: 48px;
+	width: 100%;
+	height: auto;
 }
 
 .main-list-text {
@@ -175,7 +172,7 @@
 
 .x-innerhtml {
 	font-size: 0.8em;
-	font-family: "나눔고딕", "Helvetica Neue", HelveticaNeue, "Helvetica-Neue",
+	font-family: "�섎닎怨좊뵓", "Helvetica Neue", HelveticaNeue, "Helvetica-Neue",
 		Helvetica, "BBAlpha Sans", sans-serif;
 	font-weight: normal;
 }

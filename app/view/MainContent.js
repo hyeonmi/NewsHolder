@@ -70,11 +70,6 @@ Ext
 									xtype : 'panel',
 									cls : 'list-title',
 									html : '<div class="list-title-text">RSS List</div>',
-									items : [ {
-										xtype : 'image',
-										id : 'refreshButton',
-										cls : 'btnRefresh'
-									} ]
 								},
 
 								{
@@ -92,7 +87,12 @@ Ext
 									store : 'mainStore',
 									plugins : [ {
 										xclass : 'Ext.plugin.PullRefresh',
-										pullRefreshText : 'Refresh'
+										pullRefreshText : 'Refresh',
+										refreshFn : function(plugin) {
+											var buttonController = NewsHolder.app
+													.getController('ButtonController');
+											buttonController.refreshButtonTap();
+										}
 									} ]
 								} ]
 					}

@@ -22,11 +22,6 @@ Ext.define('NewsHolder.store.MainStore', {
 
 				element : "element"
 			},
-			load : function() {
-				var buttonController = NewsHolder.app
-						.getController('ButtonController');
-				buttonController.refreshButtonTap();
-			}
 		}
 	}
 });
