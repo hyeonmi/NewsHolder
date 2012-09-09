@@ -7,8 +7,11 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			homeButton : "#homeButton",
 			articleScrapButton : "#articleScrapButton",
 			mainSearchButton : "#mainSearchButton",
-			refreshButton : "#refreshButton",
 			mainPanel: "#mainPanel",
+		},
+		
+		constructor:{
+			
 		},
 
 		control : {
@@ -27,9 +30,6 @@ Ext.define('NewsHolder.controller.ButtonController', {
 			mainSearchButton : {
 				tap : "mainSearchButtonTap",
 			},
-			refreshButton : {
-				tap : "refreshButtonTap"
-			}
 		}
 	},
 	
