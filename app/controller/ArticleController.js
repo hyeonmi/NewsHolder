@@ -49,8 +49,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		store.load({
 			callback: function(records, operation, success) {
 				store.add(records);
-				console.log("load");
-				articleList.setMasked(false);
+				articleList.unmask();
 			}
 		});
 	},

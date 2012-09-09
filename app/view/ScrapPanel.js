@@ -12,6 +12,7 @@ Ext.define("NewsHolder.view.ScrapPanel", {
 			xtype : "list",
 			cls : "newsList",
 			id : "scrapList",
+			emptyText : '스크랩한 기사가 없습니다.',
 			itemTpl : [ 
 		            '<div class="articleListCSS">',
 	            	'<tpl if="titleImage!=&quot;none&quot;">',

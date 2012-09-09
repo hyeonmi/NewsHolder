@@ -133,15 +133,18 @@ Ext
 						this.getRegisterKeywordButton().show();
 
 						// 센차터치 ListPaging 플러그인에 존재하는 버그로 인해 수동으로 마스크를 해줘야 한다.
+						
 						searchList.setMasked({
 							xtype : 'loadmask',
 							centered : true
 						});
+						
 						this.getRealtimePanel().setHidden(true);
 						this.getListDummyPanel().setHidden(false);
+						
 						searchResultStore.load({
 							callback : function() {
-								searchList.setMasked(false);
+								searchList.unmask();
 							}
 						});
 					},

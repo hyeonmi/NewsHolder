@@ -75,6 +75,7 @@ Ext
 									xtype : 'list',
 									id : 'mainRssList',
 									cls : 'main-list',
+									emptyText : 'RSS를 추가해 주세요.',
 									flex : 1,
 									itemTpl : new Ext.XTemplate(
 											'<table class="main-list-item"><tr>'

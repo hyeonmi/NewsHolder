@@ -75,6 +75,7 @@ Ext.define(
 									flex : 1,
 									id : 'searchList',
 									cls : 'newsList',
+									emptyText : '검색 결과가 없습니다.',
 									itemTpl : [
 											'<div class="articleListCSS">',
 											'<tpl if="titleImage!=&quot;none&quot;">',

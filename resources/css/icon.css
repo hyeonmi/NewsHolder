@@ -36,7 +36,7 @@
 }
 
 .mainPanel {
-	width:100%;
+	width: 100%;
 }
 /*main button */
 .btnSearch {
@@ -103,6 +103,12 @@
 
 .main-list {
 	width: 100%;
+}
+
+.main-list .x-list-emptytext {
+	line-height: 4em;
+	text-align: center;
+	font-size:1.5em;
 }
 
 .main-list-item {

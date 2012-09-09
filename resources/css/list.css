@@ -22,6 +22,12 @@
 	margin-bottom: 10px;
 }
 
+.newsList .x-list-emptytext {
+	line-height: 4em;
+	text-align: center;
+	font-size:1.5em;
+}
+
 .articleListBadge {
 	-webkit-border-radius: 100px;
 	-moz-border-radius: 100px;

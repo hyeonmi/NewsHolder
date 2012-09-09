@@ -19,6 +19,7 @@ Ext.define('NewsHolder.view.KeywordGroupPanel',{
 		                xtype: 'list',
 		                id: 'keywordGroupList',
 		                cls : 'keyword-list',
+		                emptyText : '등록된 키워드가 없습니다.',
 		                flex : 1,
 		                itemTpl: [
 		                    '<div class="keyword-item">{keywordName}</div>',
