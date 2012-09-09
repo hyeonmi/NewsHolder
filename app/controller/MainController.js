@@ -64,7 +64,7 @@ Ext.define('NewsHolder.controller.MainController', {
 	
 			var ArticleController = this.getApplication().getController(
 					'ArticleController');
-			ArticleController.refreshArticleList(record);
+			ArticleController.refreshArticleList(record, index);
 			localStorage.History_navigator = "News";
 		}
 	},

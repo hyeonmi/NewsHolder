@@ -118,7 +118,8 @@ Ext.define('NewsHolder.controller.RssController', {
 			store.add({
 				mainRssName : rssname,
 				mainRssUrl : rssurl,
-				mainRssImage : rssimg
+				mainRssImage : rssimg,
+				lastAccessDate:'10000',
 			});
 			store.sync();
 		}

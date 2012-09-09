@@ -6,6 +6,7 @@ Ext.define('NewsHolder.controller.ArticleController', {
 	config : {
 		startIndex : 0,
 		tapModel:null,
+		lastAccessDate : 0,
 		refs : {
 			list : '#articleList',
 			articleContent : '#articleContent',
@@ -35,8 +36,16 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		}
 	},
 
-	refreshArticleList : function(record) {
+	refreshArticleList : function(record, index) {
+		
+		var mainStore = Ext.getStore("mainStore");
+		var mainData = mainStore.getData();
+		var readArticleStore = Ext.getStore("ReadArticleStore");
+		
+		this.setLastAccessDate(mainData.items[index].data.lastAccessDate);
+		
 		var articleList = this.getList();
+		Ext.getStore("Feed").removeAll();
 		this.setStartIndex(0);
 		this.setTapModel(record);
 		
@@ -49,8 +58,30 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		store.load({
 			callback: function(records, operation, success) {
 				store.add(records);
-				console.log("load");
 				articleList.setMasked(false);
+				console.log(records.length);
+				
+				for(var i=0; i<records.length; i++){
+					//if(records[i].data.dc_identifier==)
+					
+					/*if(readArticleStore.find('dc_identifier', records[i].data.dc_identifier)){
+						console.log(i);
+					}*/
+					
+					console.log(i + "::" + readArticleStore.find('dc_identifier', records[i].data.dc_identifier));
+					
+					//if(readArticleStore.find('dc_identifier', records[i].data.dc_identifier)>-1){
+						
+						var item = readArticleStore.findRecord('dc_identifier', records[i].data.dc_identifier);
+						console.log(item);
+						if(item!=null){item.data.badge = 'old';
+						item.setProxy(readArticleStore.getProxy());
+						item.phantom = false;
+						item.setDirty();
+						item.save();
+						}
+											//}
+				}
 			}
 		});
 	},
@@ -74,13 +105,28 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		//console.log("modified:\n"+record.data.description);
 		console.log(record.data);
 		localStorage.flag = index;
+		
+		
+		//기사를 눌렀을 때 해당 기사의 id, badge를 로컬스토리지에 저장한다.
+		
+		var readArticleStore = Ext.getStore("ReadArticleStore");
+		console.log(readArticleStore);
+		readArticleStore.add({
+			dc_identifier : record.data.dc_identifier,
+			badge: 'old'
+		});
+		readArticleStore.sync();
+		
 	},
 
 	changeProxyUrl: function(){
 		var store = Ext.getStore("Feed");
+		var lastAccessDate = this.getLastAccessDate();
+		
 		var url = "http://iamapark.cafe24.com/fullrss/makefulltextfeed.php?url=" + 
 				 this.getTapModel().data.mainRssUrl + "&format=json"
-		         +"&startIndex=" + this.getStartIndex();
+		         +"&startIndex=" + this.getStartIndex() + "&lastAccessDate=" + lastAccessDate;
+		
 		store.getProxy().setUrl(url);
 		console.log(url);
 		this.setStartIndex(this.getStartIndex() + 10);
