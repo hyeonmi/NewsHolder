@@ -2,9 +2,9 @@ Ext.define("NewsHolder.view.ScrapPanel", {
 	extend : "Ext.Panel",
 	xtype : "scrapPanel",
 	id : 'scrapPanel',
-	cls:'panel-content',
-
+	
 	config : {
+		cls:'panel-content',
 		layout : {
 			type : "card",
 		},

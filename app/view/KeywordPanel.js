@@ -1,17 +1,17 @@
-Ext
-		.define(
+Ext.define(
 				'NewsHolder.view.KeywordPanel',
 				{
 					extend : 'Ext.Panel',
 					xtype : 'keywordpanel',
 					id : 'keywordPanel',
-					cls : 'panel-content',
+					
 
 					requires : [ 'NewsHolder.view.ArticlePanel',
 							'Ext.plugin.ListPaging' ,
 'Ext.field.Search'],
 
 					config : {
+						cls : 'panel-content',
 						xtype : 'panel',
 						layout : {
 							type : 'vbox'

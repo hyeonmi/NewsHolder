@@ -5,13 +5,13 @@ Ext
 					extend : 'Ext.Panel',
 					xtype : 'maincotnent',
 					id : 'mainContentId',
-					cls : 'panel-content',
+					
 					requires : [
-
+					            'Ext.plugin.PullRefresh'
 					],
 
 					config : {
-
+						cls : 'panel-content',
 						layout : {
 							type : 'vbox',
 							cls : 'mainPanel',

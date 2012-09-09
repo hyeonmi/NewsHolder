@@ -1,13 +1,13 @@
 Ext.define('NewsHolder.view.RssPanel', {
     extend: 'Ext.Panel',
     xtype : 'rsspanel',
-    cls : 'panel-content',
     id : 'rssPanelId',
     requires : [
                 'Ext.dataview.DataView',
                 ],
     	
     config: {
+    	 //cls : 'panel-content',
     	cls : 'panel-content2',
         layout: {
             type: 'vbox'

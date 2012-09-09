@@ -1,12 +1,12 @@
-Ext
-		.define(
+Ext.define(
 				'NewsHolder.view.KGDetailPanel',
 				{
 					extend : 'Ext.Panel',
 					xtype : 'kgdetailpanel',
-					cls : 'panel-content',
+					
 
 					config : {
+						cls : 'panel-content',
 						layout : {
 							type : 'fit'
 						},
