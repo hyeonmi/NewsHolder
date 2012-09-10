@@ -1,3 +1,4 @@
+@import url(http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb); 
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td
 	{
 	margin: 0;
@@ -59,9 +60,10 @@ input,textarea,select {
 }
 
 html,body {
-	font-family: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue",
+	font-family: "NanumGothicWeb",	
+	"Helvetica Neue", HelveticaNeue, "Helvetica-Neue",
 		Helvetica, "BBAlpha Sans", sans-serif;
-	font-weight: normal;
+	font-weight: lighter;
 	position: relative;
 	-webkit-text-size-adjust: none
 }
