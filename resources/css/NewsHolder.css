@@ -539,7 +539,7 @@ audio {
 	-webkit-background-clip: padding;
 	background-clip: padding-box;
 	-webkit-border-radius: 0.4em;
-	border-radius: 0.4em;
+	border-radius: 0em;
 	display: -webkit-box;
 	display: box;
 	-webkit-box-align: center;
