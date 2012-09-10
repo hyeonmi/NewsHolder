@@ -9,9 +9,7 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 	requires:['Ext.Anim'],
 	
 	config:{
-		cls:'panel-content',
 		layout:"fit",
-		//cls:"article",
 		items:[{
 			xtype:"panel",
 			layout:"vbox",
@@ -19,6 +17,7 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 			       
 			   {
 				   xtype:"panel",
+				   cls:'panel-content',
 					id:"articleContent",
 					showAnimation:'slide',
 					tpl:[
@@ -61,6 +60,7 @@ Ext.define("NewsHolder.view.ArticlePanel",{
 			   {
 				   xtype:"panel",
 					id:"articleContent2",
+					cls:'panel-content',
 					showAnimation:'slide',
 					tpl:[
 						"<div id='mainArticleTitle'>",
