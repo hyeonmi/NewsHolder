@@ -1,14 +1,13 @@
-Ext.define(
+Ext
+		.define(
 				'NewsHolder.view.KeywordPanel',
 				{
 					extend : 'Ext.Panel',
 					xtype : 'keywordpanel',
 					id : 'keywordPanel',
-					
 
 					requires : [ 'NewsHolder.view.ArticlePanel',
-							'Ext.plugin.ListPaging' ,
-'Ext.field.Search'],
+							'Ext.plugin.ListPaging', 'Ext.field.Search' ],
 
 					config : {
 						cls : 'panel-content',

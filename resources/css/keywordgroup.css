@@ -20,9 +20,12 @@
 	width: 100%;
 	background: #fff;
 	margin-top : 8px;
+}
 
-	
-
+.keyword-list .x-list-emptytext {
+	line-height: 4em;
+	text-align: center;
+	font-size:1.5em;
 }
 
 .keyword-item {

@@ -18,11 +18,25 @@
 
 .searchPanel {
 	background-color: #F7F7F7;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 7%;
+	padding-right: 7%;
 	padding-top: 8px;
 	padding-bottom: 8px;
 	width:100%;
+}
+
+.roundSearchField {
+	-webkit-border-radius: 0.6em;
+	width: 84%;
+}
+
+.searchIcon {
+	background-image: url(../images/keyword_search/ic_go.png);
+	background-size: 100% 100%;
+	width: 24px;
+	height: 22px;
+	margin-top: 10px;
+	margin-left: 6%;
 }
 
 .dummyPanel {
@@ -49,25 +63,10 @@
 	vertical-align: middle;
 }
 
-.roundSearchField {
-	-webkit-border-radius: 0.6em;
-	width: 90%;
-	height : auto;
-}
-
 .listDummyPanel {
 	margin-top: 8px;
 	margin-bottom: 8px;
 	height: 8px;
 	width:100%;
 	background-color: #9E0000;
-}
-
-.searchIcon {
-	background-image: url(../images/keyword_search/ic_go.png);
-	background-size: 100% 100%;
-	width: 24px;
-	height: 22px;
-	margin-top: 10px;
-	margin-left: 20px;
 }
