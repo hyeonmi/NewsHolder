@@ -68,7 +68,7 @@ Ext
 								{
 									xtype : 'panel',
 									cls : 'list-title',
-									html : '<div class="list-title-text">RSS List</div>',
+									html : '<div class="list-title-text">RSS 목록</div>',
 								},
 
 								{
@@ -87,7 +87,9 @@ Ext
 									store : 'mainStore',
 									plugins : [ {
 										xclass : 'Ext.plugin.PullRefresh',
-										pullRefreshText : 'Refresh',
+										pullRefreshText : '새로고침하려면 아래로 내리세요',
+										releaseRefreshText: '새로고침하려면 놓으세요.',
+										loadingText : '로딩 중...',
 										refreshFn : function(plugin) {
 											var buttonController = NewsHolder.app
 													.getController('ButtonController');

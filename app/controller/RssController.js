@@ -66,7 +66,9 @@ Ext.define('NewsHolder.controller.RssController', {
 						+ rssurl + "&format=json");
 		Ext.Viewport.setMasked({
 			xtype : 'loadmask',
-			message : '확인중...'
+			message : '확인중...',
+			centered : true,
+		    indicator: false
 		});
 		store.load({
 			callback : function() {

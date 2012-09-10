@@ -99,7 +99,7 @@ Ext.define('Ext.plugin.PullRefresh', {
                 '</div>',
                 '<div class="x-list-pullrefresh-wrap">',
                     '<h3 class="x-list-pullrefresh-message">{message}</h3>',
-                    '<div class="x-list-pullrefresh-updated">Last Updated: <span>{lastUpdated:date("m/d/Y h:iA")}</span></div>',
+                    '<div class="x-list-pullrefresh-updated">마지막 새로고침 날짜: <span>{lastUpdated:date("m/d/Y h:iA")}</span></div>',
                 '</div>',
             '</div>'
         ].join('')

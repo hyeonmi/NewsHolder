@@ -136,7 +136,9 @@ Ext
 						
 						searchList.setMasked({
 							xtype : 'loadmask',
-							centered : true
+							centered : true,
+							message: '로딩 중...',
+						    indicator: false
 						});
 						
 						this.getRealtimePanel().setHidden(true);

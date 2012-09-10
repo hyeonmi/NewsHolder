@@ -90,7 +90,9 @@ Ext.define('NewsHolder.controller.ArticleController', {
 		
 		articleList.setMasked({
 			xtype : 'loadmask',
-			centered : true
+			centered : true,
+			message: '로딩 중...',
+		    indicator: false
 		});
 		
 		var store = Ext.getStore('Feed');
