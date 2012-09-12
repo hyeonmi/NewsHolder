@@ -68,7 +68,9 @@ Ext.define('NewsHolder.controller.ButtonController', {
 				"ArticleController");
 		ArticleController.getList().deselectAll();
 		
+
 		animation.onMoveSlideRight('News&nbsp;<b>Holder</b>', 'mainContentId', [ 'homeButton',
+
 				'articleScrapButton', 'registerKeywordButton' ],
 				[ 'mainSearchButton' ]);
 	},
