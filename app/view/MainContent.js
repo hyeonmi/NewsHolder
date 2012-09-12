@@ -68,7 +68,7 @@ Ext
 								{
 									xtype : 'panel',
 									cls : 'list-title',
-									html : '<div class="list-title-text">RSS 목록</div>',
+									html : '<div class="list-title-text">RSS List</div>',
 								},
 
 								{

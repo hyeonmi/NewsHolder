@@ -63,7 +63,7 @@ Ext
 								'searchBackButton', 'articleScrapButton' ], [
 								'homeButton', 'registerKeywordButton' ]);*/
 						
-						animation.onMoveSlideRight("키워드 검색", 'keywordPanel', [ 'searchBackButton', 
+						animation.onMoveSlideRight("Search", 'keywordPanel', [ 'searchBackButton', 
 						    'alBackButton','articleScrapButton','homeButton',
 						    'articleContent', 'articleContent2' ], [ 'homeButton', 'registerKeywordButton' ]);
 					},

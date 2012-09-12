@@ -7,7 +7,7 @@
 
 .rss-item-img {
 	margin: 8px;
-	width: 143px;
+	width: 135px;
 	height: 92px;
 	float: left;
 	border: 1px solid #ebebeb;
@@ -15,9 +15,9 @@
 
 .rss-text-box {
 	height: 24px;
-	width: 143px;
+	width: 135px;
 	background: #222;
-	opacity: 0.9;
+	opacity: 0.7;
 	position: relative;
 	bottom: -66px;
 	padding: 3px;
@@ -54,7 +54,8 @@
 	height: 37px;
 	margin-rigt: 8px;
 	margin-top : 8px;
+	margin-left : 8px;
 	background-size: 37px 37px;
 	background-image:
-		url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAABqUlEQVRoBe2awWnDUBBE843B4NxcQSAFOC4lJeTkoxtJDykgvRhcgCFNJCFgIs+ChEHSJX93YT6ZD4ssmR3NztNFH5Wu6+6iVynlEZpbp+4J3s5OjWm7DRxZuMMCdUB9oyzNmrJe01hEejMtM5exIh6bCI3JbFkDT27EckEDs5DI8iHCWcmy6IowC4ksHyKclSyLrgizkMjyIcJZybLoijALiSwfIpyVLItuOGFso/xiuEvAgJdeK0DqJrHEhtsTTh9ul9y/ChR2KE+Y1ruDt2ccI7d6PszcK+oFFblWELt3Cn6i/8epMW5/W+LKGrUZ/0NwboF5QxuPsfY8dmOxJs41cBOYHCZF2BFeE60i3AQmh0kRdoTXRKsIN4HJYVKEHeE10frvCNvr4RH1HojH3rGHr3hqA7VdkxPKvuKJ3AA4hn7BM3xxA5N71Fdv1gz/tax3P+hFHmsJwM/8wraMadqOh5GuXda76rVqNWb7wgeevQvRRQ1MBCPFiginxEokKsJEMFKsiHBKrESiIkwEI8WKCKfESiQqwkQwUqyIcEqsRKIiTAQjxcoVrP83/9czD9EAAAAASUVORK5CYII=');
+		url('../images/rss/ic_addrss.png');
 }

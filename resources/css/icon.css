@@ -1,9 +1,10 @@
 .mainTitle {
 	border-bottom: 0px !important;
-	font-size: 1.8em;
+	font-size: 1.5em;
 	margin-top: 10px;
 	height: 60px;
 	text-align: center;
+	font-weight:lighter;
 }
 
 #mainContentId>div {
@@ -22,8 +23,10 @@
 
 .panel-content2 {
 	border-top: 8px solid #9e0000;
-	width: 100%;
+	width: 96%;
 	height: 100%;
+	margin-left: 2%;
+	margin-right: 2%;
 }
 
 .mainIconPanel {

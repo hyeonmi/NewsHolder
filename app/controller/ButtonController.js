@@ -68,7 +68,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 				"ArticleController");
 		ArticleController.getList().deselectAll();
 		
-		animation.onMoveSlideRight('NewsHolder', 'mainContentId', [ 'homeButton',
+		animation.onMoveSlideRight('News&nbsp;<b>Holder</b>', 'mainContentId', [ 'homeButton',
 				'articleScrapButton', 'registerKeywordButton' ],
 				[ 'mainSearchButton' ]);
 	},
@@ -111,7 +111,7 @@ Ext.define('NewsHolder.controller.ButtonController', {
 
 	/** 오른쪽 상단의 검색 버튼을 눌렀을 때 */
 	mainSearchButtonTap : function(button, event) {
-		animation.onMoveSlideLeft('키워드 검색', 'keywordPanel',
+		animation.onMoveSlideLeft('Search', 'keywordPanel',
 				[ 'mainSearchButton' ], [ 'homeButton' ]);
 		this.getApplication().getController("KeywordSearchController")
 				.resetModifiedComponent();

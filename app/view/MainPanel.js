@@ -13,7 +13,7 @@ Ext.define('NewsHolder.view.MainPanel', {
 		items:[
 		{
 			xtype:'titlebar',
-			title:'News <b>Holder</b>',
+			title:'News&nbsp;<b>Holder</b>',
 			docked:'top',
 			id:'titlebar',
 			ui : 'mainbar',
